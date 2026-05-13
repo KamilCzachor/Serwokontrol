@@ -83,6 +83,62 @@ if (stickyHamburgerBtn && stickyNavMenu) {
   });
 }
 
+/* Product Modal */
+const productCards = document.querySelectorAll(".product_card");
+const productModalOverlay = document.getElementById("productModalOverlay");
+const productModalClose = document.getElementById("productModalClose");
+
+const productModalImage = document.getElementById("productModalImage");
+const productModalSubtype = document.getElementById("productModalSubtype");
+const productModalTitle = document.getElementById("productModalTitle");
+const productModalDescription = document.getElementById(
+  "productModalDescription",
+);
+
+function closeProductModal() {
+  if (!productModalOverlay) return;
+
+  productModalOverlay.classList.remove("show");
+  document.body.classList.remove("no_scroll");
+}
+
+if (productCards.length > 0 && productModalOverlay) {
+  productCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+      const title = card.dataset.title;
+      const subtype = card.dataset.subtype;
+      const image = card.dataset.image;
+      const description = card.dataset.description;
+
+      productModalTitle.textContent = title;
+      productModalSubtype.textContent = subtype;
+      productModalDescription.textContent = description;
+
+      productModalImage.src = image;
+      productModalImage.alt = title;
+
+      productModalOverlay.classList.add("show");
+      document.body.classList.add("no_scroll");
+    });
+  });
+
+  productModalOverlay.addEventListener("click", function (event) {
+    if (event.target === productModalOverlay) {
+      closeProductModal();
+    }
+  });
+}
+
+if (productModalClose) {
+  productModalClose.addEventListener("click", closeProductModal);
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeProductModal();
+  }
+});
+
 /* Sticky Header */
 const stickyHeader = document.getElementById("stickyHeader");
 const mainHeader = document.querySelector("header");
