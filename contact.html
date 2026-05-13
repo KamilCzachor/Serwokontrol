@@ -1,313 +1,348 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serwokontrol</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-   <header>
-    <div class="header_inner">
-
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header_inner">
         <div class="top_bar">
-            <h1 class="logo">
-                <a href="index.html">Serwokontrol</a>
-            </h1>
-
-            <ul class="contact_list">
-                <li><a href="tel:+48123456789"><i class="fa-solid fa-phone"></i> +48 123 456 789</a></li>
-                <li><a href="mailto:Adres@email.com"><i class="fa-solid fa-envelope"></i> Adres@email.com</a></li>
-            </ul>
-        </div>
-
-<nav>
-    <div class="nav_top">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <button class="theme_toggle" id="themeToggle" aria-label="Zmień motyw">
-            <i class="fa-solid fa-moon"></i>
-        </button>
-    </div>
-
-    <ul class="nav_list" id="navMenu">
-        <li><a href="index.html">Strona główna</a></li>
-        <li><a href="products.html">Produkty</a></li>
-        <li><a href="about.html">O nas</a></li>
-        <li><a class="active" href="contact.html">Kontakt</a></li>
-    </ul>
-</nav>
-
-    </div>
-</header>
-<div class="sticky_header" id="stickyHeader">
-    <div class="sticky_header_inner">
-
-        <div class="sticky_logo">
+          <h1 class="logo">
             <a href="index.html">Serwokontrol</a>
+          </h1>
+
+          <ul class="contact_list">
+            <li>
+              <a href="tel:+48123456789"
+                ><i class="fa-solid fa-phone"></i> +48 123 456 789</a
+              >
+            </li>
+            <li>
+              <a href="mailto:Adres@email.com"
+                ><i class="fa-solid fa-envelope"></i> Adres@email.com</a
+              >
+            </li>
+          </ul>
         </div>
 
-        <button class="sticky_hamburger" id="stickyHamburgerBtn" aria-label="Otwórz menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+        <nav>
+          <div class="nav_top">
+            <button
+              class="hamburger"
+              id="hamburgerBtn"
+              aria-label="Otwórz menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
 
-        <ul class="sticky_contact">
-            <li>
-                <a href="tel:+48123456789" aria-label="Zadzwoń">
-                    <i class="fa-solid fa-phone"></i>
-                </a>
-            </li>
+            <button
+              class="theme_toggle"
+              id="themeToggle"
+              aria-label="Zmień motyw"
+            >
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
 
-            <li>
-                <a href="mailto:Adres@email.com" aria-label="Wyślij email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </li>
-
-            <li>
-                <button class="theme_toggle sticky_theme_toggle" aria-label="Zmień motyw">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-            </li>
-        </ul>
-
-        <ul class="sticky_nav" id="stickyNavMenu">
+          <ul class="nav_list" id="navMenu">
             <li><a href="index.html">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
             <li><a href="about.html">O nas</a></li>
             <li><a class="active" href="contact.html">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="sticky_header" id="stickyHeader">
+      <div class="sticky_header_inner">
+        <div class="sticky_logo">
+          <a href="index.html">Serwokontrol</a>
+        </div>
+
+        <button
+          class="sticky_hamburger"
+          id="stickyHamburgerBtn"
+          aria-label="Otwórz menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="sticky_contact">
+          <li>
+            <a href="tel:+48123456789" aria-label="Zadzwoń">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:Adres@email.com" aria-label="Wyślij email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+
+          <li>
+            <button
+              class="theme_toggle sticky_theme_toggle"
+              aria-label="Zmień motyw"
+            >
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
         </ul>
 
+        <ul class="sticky_nav" id="stickyNavMenu">
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="products.html">Produkty</a></li>
+          <li><a href="about.html">O nas</a></li>
+          <li><a class="active" href="contact.html">Kontakt</a></li>
+        </ul>
+      </div>
     </div>
-</div> 
     <main>
-        <section class="container">
-            <h2>Kontakt</h2>
-            <div class="contact_intro">
-    <p>
-        Zapraszamy do kontaktu telefonicznego oraz mailowego. Do biura we Wrocławiu prosimy również składać zapytania, zamówienia oraz pytać o ich realizację.
-    </p>
+      <section class="container">
+        <h2>Kontakt</h2>
+        <div class="contact_intro reveal">
+          <p>
+            Zapraszamy do kontaktu telefonicznego oraz mailowego. Do biura we
+            Wrocławiu prosimy również składać zapytania, zamówienia oraz pytać o
+            ich realizację.
+          </p>
 
-    <p>
-        Do Państwa dyspozycji oddajemy naszych mobilnych przedstawicieli terenowych — inżynierów-specjalistów automatyki przemysłowej.
-    </p>
+          <p>
+            Do Państwa dyspozycji oddajemy naszych mobilnych przedstawicieli
+            terenowych — inżynierów-specjalistów automatyki przemysłowej.
+          </p>
 
-    <p>
-        Na miejscu pomogą opracować koncepcję i dobrać do aplikacji niezbędne elementy, uwzględniając warunki pracy urządzeń oraz ich zamierzoną trwałość. W przypadku konieczności wymiany elementów pomogą określić typ urządzenia, które uległo zużyciu.
-    </p>
+          <p>
+            Na miejscu pomogą opracować koncepcję i dobrać do aplikacji
+            niezbędne elementy, uwzględniając warunki pracy urządzeń oraz ich
+            zamierzoną trwałość. W przypadku konieczności wymiany elementów
+            pomogą określić typ urządzenia, które uległo zużyciu.
+          </p>
 
-    <p class="contact_intro_highlight">
-        Dane do naszych specjalistów od produktów firmy Bürkert:
-    </p>
-</div>
+          <p class="contact_intro_highlight">
+            Dane do naszych specjalistów od produktów firmy Bürkert:
+          </p>
+        </div>
 
-<div class="representatives">
-    <div class="representative_card">
-        <h3>Południe</h3>
+        <div class="representatives">
+          <div class="representative_card reveal reveal_delay_1">
+            <h3>Południe</h3>
 
-        <ul>
-            <li>
+            <ul>
+              <li>
                 <span>Imię i nazwisko:</span>
                 <strong>Mirosław Łaszczyca</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Stanowisko:</span>
                 <strong>Przedstawiciel</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Telefon:</span>
                 <a href="tel:+48123456789">+48 123 456 789</a>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Email:</span>
                 <a href="mailto:adres1@email.com">adres1@email.com</a>
-            </li>
-        </ul>
-    </div>
+              </li>
+            </ul>
+          </div>
 
-    <div class="representative_card">
-        <h3>Zachód</h3>
+          <div class="representative_card reveal reveal_delay_2">
+            <h3>Zachód</h3>
 
-        <ul>
-            <li>
+            <ul>
+              <li>
                 <span>Imię i nazwisko:</span>
                 <strong>Tomasz Krupianik</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Stanowisko:</span>
                 <strong>Przedstawiciel</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Telefon:</span>
                 <a href="tel:+48123456789">+48 123 456 789</a>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Email:</span>
                 <a href="mailto:adres2@email.com">adres2@email.com</a>
-            </li>
-        </ul>
-    </div>
+              </li>
+            </ul>
+          </div>
 
-    <div class="representative_card">
-        <h3>Centrum</h3>
+          <div class="representative_card reveal reveal_delay_3">
+            <h3>Centrum</h3>
 
-        <ul>
-            <li>
+            <ul>
+              <li>
                 <span>Imię i nazwisko:</span>
                 <strong>Jarosław Manowiecki</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Stanowisko:</span>
                 <strong>Przedstawiciel</strong>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Telefon:</span>
                 <a href="tel:+48123456789">+48 123 456 789</a>
-            </li>
+              </li>
 
-            <li>
+              <li>
                 <span>Email:</span>
                 <a href="mailto:adres3@email.com">adres3@email.com</a>
-            </li>
-        </ul>
-    </div>
-</div>
- <div class="contact_cta">
-    <p>Nie wiesz, z kim się skontaktować?</p>
-    <a href="mailto:Adres@email.com">Napisz do biura</a>
-</div>
-        <div class="contact_form_box">
-    <h3>Napisz do nas</h3>
-
-    <form class="contact_form" action="mailto:Adres@email.com" method="post" enctype="text/plain">
-        <label for="name">Imię i nazwisko</label>
-        <input type="text" id="name" name="Imię i nazwisko" required>
-
-        <label for="email">Adres email</label>
-        <input type="email" id="email" name="Email" required>
-
-        <label for="phone">Telefon</label>
-        <input type="tel" id="phone" name="Telefon">
-
-        <label for="message">Wiadomość</label>
-        <textarea id="message" name="Wiadomość" rows="6" required></textarea>
-
-        <button type="submit">Wyślij wiadomość</button>
-    </form>
-</div>
- <div class="contact_location">
-            <div class="contact_card">
-                <h3>Siedziba firmy</h3>
-
-                <ul class="company_contact">
-                    <li>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <a 
-                            href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            ul. Przemkowska 15, 52-426 Wrocław
-                        </a>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-phone"></i>
-                        <a href="tel:+48123456789">+48 123 456 789</a>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:Adres@email.com">Adres@email.com</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="map_box">
-                <iframe 
-                    src="https://www.google.com/maps?q=ul.%20Przemkowska%2015,%2052-426%20Wrocław&output=embed"
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+              </li>
+            </ul>
+          </div>
         </div>
-       
-        </section>
-    </main>
-<footer>
-    <div class="footer_inner">
+        <div class="contact_cta reveal">
+          <p>Nie wiesz, z kim się skontaktować?</p>
+          <a href="mailto:Adres@email.com">Napisz do biura</a>
+        </div>
+        <div class="contact_form_box reveal">
+          <h3>Napisz do nas</h3>
 
+          <form
+            class="contact_form"
+            action="mailto:Adres@email.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label for="name">Imię i nazwisko</label>
+            <input type="text" id="name" name="Imię i nazwisko" required />
+
+            <label for="email">Adres email</label>
+            <input type="email" id="email" name="Email" required />
+
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="Telefon" />
+
+            <label for="message">Wiadomość</label>
+            <textarea
+              id="message"
+              name="Wiadomość"
+              rows="6"
+              required
+            ></textarea>
+
+            <button type="submit">Wyślij wiadomość</button>
+          </form>
+        </div>
+        <div class="contact_location reveal">
+          <div class="contact_card">
+            <h3>Siedziba firmy</h3>
+
+            <ul class="company_contact">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ul. Przemkowska 15, 52-426 Wrocław
+                </a>
+              </li>
+
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+48123456789">+48 123 456 789</a>
+              </li>
+
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:Adres@email.com">Adres@email.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="map_box">
+            <iframe
+              src="https://www.google.com/maps?q=ul.%20Przemkowska%2015,%2052-426%20Wrocław&output=embed"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer_inner">
         <div class="footer_logo">
-            <a href="index.html">Serwokontrol</a>
+          <a href="index.html">Serwokontrol</a>
         </div>
 
         <ul class="footer_contact">
-    <li>
-        <a 
-            href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-solid fa-house"></i>
-            ul. Przemkowska 15, 52-426 Wrocław
-        </a>
-    </li>
+          <li>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-house"></i>
+              ul. Przemkowska 15, 52-426 Wrocław
+            </a>
+          </li>
 
-    <li>
-        <a href="mailto:Adres@email.com">
-            <i class="fa-solid fa-envelope"></i>
-            Adres@email.com
-        </a>
-    </li>
+          <li>
+            <a href="mailto:Adres@email.com">
+              <i class="fa-solid fa-envelope"></i>
+              Adres@email.com
+            </a>
+          </li>
 
-    <li>
-        <a href="tel:+48123456789">
-            <i class="fa-solid fa-phone"></i>
-            +48 123 456 789
-        </a>
-    </li>
-</ul>
-    <p class="footer_copy">
-     © 2026 Serwokontrol. Wszelkie prawa zastrzeżone.
-    </p>
-    </div>
-</footer>
+          <li>
+            <a href="tel:+48123456789">
+              <i class="fa-solid fa-phone"></i>
+              +48 123 456 789
+            </a>
+          </li>
+        </ul>
+        <p class="footer_copy">
+          © 2026 Serwokontrol. Wszelkie prawa zastrzeżone.
+        </p>
+      </div>
+    </footer>
 
-<button id="scrollTopBtn" class="scroll_top_btn">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<div class="cookie_overlay" id="cookieOverlay"></div>
-
-
-<div class="cookie_banner" id="cookieBanner">
-    <p>
-        Ta strona używa plików cookies w celu poprawnego działania serwisu.
-    </p>
-
-    <button id="acceptCookiesBtn">
-        Akceptuję
+    <button id="scrollTopBtn" class="scroll_top_btn">
+      <i class="fa-solid fa-arrow-up"></i>
     </button>
-</div>
 
-<script src="js/script.js"></script>
-</body>
-</html>     
+    <div class="cookie_overlay" id="cookieOverlay"></div>
+
+    <div class="cookie_banner" id="cookieBanner">
+      <p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
+
+      <button id="acceptCookiesBtn">Akceptuję</button>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
