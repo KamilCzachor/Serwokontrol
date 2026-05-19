@@ -530,7 +530,30 @@ body.dark_theme .form_status.error {
     transform: translateY(0);
   }
 }
+.city_search_hint {
+  margin: 8px 0 0;
 
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #5e6a71;
+  font-size: 1px;
+  font-weight: 500;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.city_search_hint i {
+  color: #7090b7;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.city_search_hint span {
+  display: inline;
+  font-size: 13px;
+}
 /* Representatives Interactive Map */
 
 .representatives_section {
@@ -1023,7 +1046,14 @@ body.dark_theme .city_search_hint {
   color: #e2e9f1;
   opacity: 0.75;
 }
+body.dark_theme .city_search_hint {
+  color: #e2e9f1;
+  opacity: 0.75;
+}
 
+body.dark_theme .city_search_hint i {
+  color: #9bb8dc;
+}
 /* Representatives Interactive Map Dark Theme */
 
 body.dark_theme .representatives_map_panel {
