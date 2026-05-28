@@ -1,14 +1,21 @@
-/* About Page */
+/* =========================================================
+   About Page
+   ========================================================= */
 
 .about_page {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
 .about_page h2 {
   align-self: flex-start;
   margin-bottom: -5px;
 }
+
+/* =========================================================
+   About Intro
+   ========================================================= */
 
 .about_us {
   display: grid;
@@ -18,10 +25,43 @@
 }
 
 .about_us_text {
+  position: relative;
+  overflow: hidden;
+
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.about_us_text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.about_us_text:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
+}
+
+.about_us_text:hover::before {
+  transform: scaleY(1);
 }
 
 .about_us_text h3 {
@@ -34,27 +74,123 @@
 .about_us_text p {
   margin-top: 0;
   margin-bottom: 18px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .about_us_text p:last-child {
   margin-bottom: 0;
 }
 
+/* =========================================================
+   Top Blue Info Box
+   ========================================================= */
+
 .about_us_box {
+  position: relative;
+  overflow: hidden;
+
   padding: 30px;
-  border-radius: 16px;
-  background-color: #7090b7;
+  border-radius: 18px;
+
+  background-image:
+    linear-gradient(#7090b7, #7090b7),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.26),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at calc(100% + 70px) calc(100% + 90px),
+      rgba(255, 255, 255, 0.11) 0,
+      rgba(255, 255, 255, 0.11) 95px,
+      transparent 96px
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  background-size:
+    4px 56%,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    left center,
+    center,
+    center,
+    center;
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.16);
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 14px;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-size 0.35s ease;
+}
+
+.about_us_box:hover {
+  transform: translateY(-4px);
+
+  background-size:
+    4px 100%,
+    auto,
+    auto,
+    auto;
+
+  box-shadow: 0 18px 38px rgba(94, 106, 113, 0.26);
+}
+
+.about_us_box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about_us_box:hover::before {
+  animation: aboutScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about_us_box i,
+.about_us_box strong,
+.about_us_box span {
+  position: relative;
+  z-index: 3;
 }
 
 .about_us_box i {
   font-size: 44px;
+  opacity: 0.95;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.about_us_box:hover i {
+  transform: translateY(-3px) rotate(-4deg);
+  opacity: 1;
 }
 
 .about_us_box strong {
@@ -68,6 +204,20 @@
   opacity: 0.95;
 }
 
+@keyframes aboutScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================================
+   About Numbers
+   ========================================================= */
+
 .about_numbers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -75,20 +225,72 @@
 }
 
 .about_number_card {
+  position: relative;
+  overflow: hidden;
+
   background-color: #ffffff;
   padding: 24px;
-  border-radius: 16px;
+  border-radius: 18px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about_number_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.16),
+    transparent 50%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.about_number_card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 46px;
+  height: 4px;
+
+  border-radius: 999px 999px 0 0;
+  background-color: #7090b7;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
 }
 
 .about_number_card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.about_number_card:hover::before {
+  opacity: 1;
+}
+
+.about_number_card:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.about_number_card strong,
+.about_number_card span {
+  position: relative;
+  z-index: 1;
 }
 
 .about_number_card strong {
@@ -97,6 +299,12 @@
   color: #7090b7;
   font-size: 34px;
   font-weight: 800;
+
+  transition: transform 0.35s ease;
+}
+
+.about_number_card:hover strong {
+  transform: translateY(-2px) scale(1.03);
 }
 
 .about_number_card span {
@@ -105,6 +313,10 @@
   font-weight: 600;
 }
 
+/* =========================================================
+   About Cards
+   ========================================================= */
+
 .about_cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -112,19 +324,71 @@
 }
 
 .about_card {
+  position: relative;
+  overflow: hidden;
+
   background-color: #ffffff;
   padding: 28px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.14),
+    transparent 48%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.about_card::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 0;
+
+  height: 4px;
+  border-radius: 999px 999px 0 0;
+  background-color: #7090b7;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
 }
 
 .about_card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.about_card:hover::before {
+  opacity: 1;
+}
+
+.about_card:hover::after {
+  transform: scaleX(1);
+}
+
+.about_card_icon,
+.about_card h3,
+.about_card p {
+  position: relative;
+  z-index: 1;
 }
 
 .about_card_icon {
@@ -136,10 +400,21 @@
   justify-content: center;
   align-items: center;
 
-  border-radius: 12px;
+  border-radius: 14px;
   background-color: rgba(112, 144, 183, 0.14);
   color: #7090b7;
   font-size: 22px;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.about_card:hover .about_card_icon {
+  background-color: #7090b7;
+  color: #ffffff;
+  transform: translateY(-3px) rotate(-4deg);
 }
 
 .about_card h3 {
@@ -151,10 +426,19 @@
 
 .about_card p {
   margin: 0;
+  color: #333;
   font-size: 16px;
+  line-height: 1.75;
 }
 
+/* =========================================================
+   Partner Section
+   ========================================================= */
+
 .about_partners {
+  position: relative;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
   gap: 30px;
@@ -162,8 +446,44 @@
 
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.about_partners::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.about_partners:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
+}
+
+.about_partners:hover::before {
+  transform: scaleY(1);
+}
+
+.about_partners_text,
+.about_partner_feature {
+  position: relative;
+  z-index: 1;
 }
 
 .about_partners_text h3 {
@@ -176,27 +496,105 @@
 .about_partners_text p {
   margin-top: 0;
   margin-bottom: 18px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .about_partners_text p:last-child {
   margin-bottom: 0;
 }
 
+/* =========================================================
+   Bürkert Inner Box
+   ========================================================= */
+
 .about_partner_feature {
+  position: relative;
+  overflow: hidden;
+
   min-height: 220px;
   padding: 30px;
-  border-radius: 14px;
-  background-color: #e2e9f1;
-  border-left: 4px solid #7090b7;
+  border-radius: 16px;
+  border-left: none;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.2),
+      transparent 36%
+    ),
+    #e2e9f1;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.about_partner_feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about_partner_feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.18),
+    transparent 48%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  transition: opacity 0.35s ease;
+}
+
+.about_partner_feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.16);
+}
+
+.about_partner_feature:hover::before {
+  animation: burkertBoxShine 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about_partner_feature:hover::after {
+  opacity: 1;
+}
+
+.about_partner_feature span,
+.about_partner_feature small {
+  position: relative;
+  z-index: 3;
 }
 
 .about_partner_feature span {
   display: block;
   margin-bottom: 8px;
+
   color: #7090b7;
   font-size: 38px;
   font-weight: 800;
@@ -206,18 +604,83 @@
   color: #5e6a71;
   font-size: 16px;
   font-weight: 600;
+  line-height: 1.5;
 }
 
+@keyframes burkertBoxShine {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================================
+   Mission Section
+   ========================================================= */
+
 .about_mission {
+  position: relative;
+  overflow: hidden;
+
   padding: 30px;
-  border-radius: 16px;
-  background-color: #7090b7;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.16);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
+}
+
+.about_mission::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.about_mission:hover::before {
+  animation: aboutScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about_mission::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.11);
+  pointer-events: none;
+}
+
+.about_mission div,
+.about_mission i {
+  position: relative;
+  z-index: 1;
 }
 
 .about_mission h3 {
@@ -231,19 +694,66 @@
   margin: 0;
   color: #ffffff;
   font-size: 17px;
+  line-height: 1.75;
 }
 
 .about_mission i {
   color: #ffffff;
   font-size: 48px;
   opacity: 0.9;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 
+.about_mission:hover i {
+  transform: translateY(-3px) rotate(-5deg);
+  opacity: 1;
+}
+
+/* =========================================================
+   Register Data
+   ========================================================= */
+
 .about_register {
+  position: relative;
+  overflow: hidden;
+
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.about_register::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.about_register:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
+}
+
+.about_register:hover::before {
+  transform: scaleY(1);
 }
 
 .about_register h3 {
@@ -264,9 +774,24 @@
 }
 
 .about_register li {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+  background-color: rgba(112, 144, 183, 0.08);
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about_register li:hover {
+  background-color: rgba(112, 144, 183, 0.14);
+  transform: translateY(-2px);
 }
 
 .about_register span {
@@ -281,7 +806,24 @@
   overflow-wrap: break-word;
 }
 
-/* About Page Dark Theme */
+/* =========================================================
+   Focus
+   ========================================================= */
+
+.about_us_text:focus-visible,
+.about_us_box:focus-visible,
+.about_number_card:focus-visible,
+.about_card:focus-visible,
+.about_partners:focus-visible,
+.about_partner_feature:focus-visible,
+.about_register:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   About Page Dark Theme
+   ========================================================= */
 
 body.dark_theme .about_us_text,
 body.dark_theme .about_number_card,
@@ -299,9 +841,22 @@ body.dark_theme .about_register h3 {
   color: #7090b7;
 }
 
+body.dark_theme .about_us_text p,
+body.dark_theme .about_card p,
+body.dark_theme .about_partners_text p,
+body.dark_theme .about_register strong {
+  color: #e2e9f1;
+}
+
+body.dark_theme .about_us_text:hover,
+body.dark_theme .about_partners:hover,
+body.dark_theme .about_register:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
 body.dark_theme .about_number_card:hover,
 body.dark_theme .about_card:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
 }
 
 body.dark_theme .about_number_card span,
@@ -311,28 +866,103 @@ body.dark_theme .about_register span {
   opacity: 0.75;
 }
 
-body.dark_theme .about_register strong {
-  color: #e2e9f1;
-}
-
 body.dark_theme .about_card_icon {
   background-color: rgba(112, 144, 183, 0.18);
   color: #7090b7;
 }
 
+body.dark_theme .about_card:hover .about_card_icon {
+  background-color: #7090b7;
+  color: #ffffff;
+}
+
 body.dark_theme .about_partner_feature {
-  background-color: #1f2428;
-  border-left-color: #7090b7;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.16),
+      transparent 36%
+    ),
+    #1f2428;
+  border-left: none;
+}
+
+body.dark_theme .about_partner_feature::after {
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.22),
+    transparent 48%
+  );
+}
+
+body.dark_theme .about_partner_feature:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
 }
 
 body.dark_theme .about_partner_feature span {
   color: #7090b7;
 }
 
-body.dark_theme .about_us_box,
+body.dark_theme .about_register li {
+  background-color: rgba(112, 144, 183, 0.1);
+}
+
+body.dark_theme .about_register li:hover {
+  background-color: rgba(112, 144, 183, 0.16);
+}
+
+body.dark_theme .about_us_box {
+  background-image:
+    linear-gradient(#7090b7, #7090b7),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at calc(100% + 70px) calc(100% + 90px),
+      rgba(255, 255, 255, 0.1) 0,
+      rgba(255, 255, 255, 0.1) 95px,
+      transparent 96px
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  background-size:
+    4px 56%,
+    auto,
+    auto,
+    auto;
+
+  background-position:
+    left center,
+    center,
+    center,
+    center;
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+body.dark_theme .about_us_box:hover {
+  background-size:
+    4px 100%,
+    auto,
+    auto,
+    auto;
+
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
+}
+
 body.dark_theme .about_mission {
-  background-color: #7090b7;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
 }
 
 body.dark_theme .about_us_box,
@@ -345,10 +975,15 @@ body.dark_theme .about_mission i {
   color: #ffffff;
 }
 
+/* =========================================================
+   Responsive
+   ========================================================= */
+
 @media (max-width: 992px) {
   .about_us {
     grid-template-columns: 1fr;
   }
+
   .about_numbers {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -375,6 +1010,13 @@ body.dark_theme .about_mission i {
     padding: 24px;
   }
 
+  .about_us_text::before,
+  .about_partners::before,
+  .about_register::before {
+    top: 24px;
+    bottom: 24px;
+  }
+
   .about_numbers {
     grid-template-columns: 1fr;
   }
@@ -397,5 +1039,50 @@ body.dark_theme .about_mission i {
 
   .about_partner_feature span {
     font-size: 32px;
+  }
+}
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about_us_text,
+  .about_us_text::before,
+  .about_us_box,
+  .about_us_box::before,
+  .about_number_card,
+  .about_number_card::before,
+  .about_number_card::after,
+  .about_card,
+  .about_card::before,
+  .about_card::after,
+  .about_card_icon,
+  .about_partners,
+  .about_partners::before,
+  .about_partner_feature,
+  .about_partner_feature::before,
+  .about_partner_feature::after,
+  .about_mission::before,
+  .about_register,
+  .about_register::before,
+  .about_register li,
+  .about_us_box i,
+  .about_mission i {
+    animation: none;
+    transition: none;
+  }
+
+  .about_us_text:hover,
+  .about_us_box:hover,
+  .about_number_card:hover,
+  .about_card:hover,
+  .about_partners:hover,
+  .about_partner_feature:hover,
+  .about_register:hover,
+  .about_register li:hover,
+  .about_us_box:hover i,
+  .about_mission:hover i {
+    transform: none;
   }
 }

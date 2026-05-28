@@ -149,84 +149,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-/* Product Modal */
-
-const productCards = document.querySelectorAll(".product_card");
-const productModalOverlay = document.getElementById("productModalOverlay");
-const productModalClose = document.getElementById("productModalClose");
-
-const productModalImage = document.getElementById("productModalImage");
-const productModalSubtype = document.getElementById("productModalSubtype");
-const productModalTitle = document.getElementById("productModalTitle");
-const productModalDescription = document.getElementById(
-  "productModalDescription",
-);
-
-function closeProductModal() {
-  if (!productModalOverlay) return;
-
-  productModalOverlay.classList.remove("show");
-  document.body.classList.remove("no_scroll");
-}
-
-function openProductModal(card) {
-  if (
-    !productModalOverlay ||
-    !productModalImage ||
-    !productModalSubtype ||
-    !productModalTitle ||
-    !productModalDescription
-  ) {
-    return;
-  }
-
-  const title = card.dataset.title || "";
-  const subtype = card.dataset.subtype || "";
-  const image = card.dataset.image || "";
-  const description = card.dataset.description || "";
-
-  productModalTitle.textContent = title;
-  productModalSubtype.textContent = subtype;
-  productModalDescription.textContent = description;
-
-  productModalImage.src = image;
-  productModalImage.alt = title;
-
-  productModalOverlay.classList.add("show");
-  document.body.classList.add("no_scroll");
-}
-
-if (productCards.length > 0 && productModalOverlay) {
-  productCards.forEach(function (card) {
-    card.addEventListener("click", function () {
-      openProductModal(card);
-    });
-
-    card.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openProductModal(card);
-      }
-    });
-  });
-
-  productModalOverlay.addEventListener("click", function (event) {
-    if (event.target === productModalOverlay) {
-      closeProductModal();
-    }
-  });
-}
-
-if (productModalClose) {
-  productModalClose.addEventListener("click", closeProductModal);
-}
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeProductModal();
-  }
-});
-
 /* Sticky Header */
 
 const stickyHeader = document.getElementById("stickyHeader");
@@ -336,6 +258,9 @@ const representativesSection = document.querySelector(
 const representativeCards = document.querySelectorAll(
   ".representative_card[data-region]",
 );
+const representativeRegionButtons = document.querySelectorAll(
+  ".representative_region_btn",
+);
 const representativesMapClose = document.querySelector(
   ".representatives_map_close",
 );
@@ -351,6 +276,7 @@ const citySuggestions = document.getElementById("citySuggestions");
 const citySearchHint = document.getElementById("citySearchHint");
 
 let highlightedCityIndex = -1;
+let lastActiveRepresentativeButton = null;
 
 const regionData = {
   south: {
@@ -376,6 +302,35 @@ function normalizeText(text) {
     .trim()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
+}
+
+function smoothScrollToRepresentatives() {
+  if (!representativesSection) return;
+
+  if (window.innerWidth <= 992) {
+    representativesSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
+
+function updateCitySearchHint(message) {
+  if (!citySearchHint) return;
+
+  const hintSpan = citySearchHint.querySelector("span");
+
+  if (hintSpan) {
+    hintSpan.textContent = message;
+  } else {
+    citySearchHint.textContent = message;
+  }
+}
+
+function updateCitySuggestionsExpanded(isExpanded) {
+  if (!citySearchInput) return;
+
+  citySearchInput.setAttribute("aria-expanded", isExpanded ? "true" : "false");
 }
 
 function showActiveCityInfo(cityName) {
@@ -405,31 +360,6 @@ function clearSelectedCityOnMap() {
   });
 }
 
-if (activeCityClear) {
-  activeCityClear.addEventListener("click", function (event) {
-    event.stopPropagation();
-
-    clearSelectedCityOnMap();
-    clearActiveCityInfo();
-
-    if (citySearchInput) {
-      citySearchInput.value = "";
-    }
-
-    if (citySuggestions) {
-      citySuggestions.classList.remove("show");
-      citySuggestions.innerHTML = "";
-    }
-
-    highlightedCityIndex = -1;
-
-    if (citySearchHint) {
-      citySearchHint.textContent =
-        "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.";
-    }
-  });
-}
-
 function markCityOnMap(cityName) {
   clearSelectedCityOnMap();
 
@@ -451,7 +381,19 @@ function markCityOnMap(cityName) {
   });
 }
 
-function clearRepresentativeRegion() {
+function findRepresentativeCardByRegion(region) {
+  return Array.from(representativeCards).find(function (card) {
+    return card.dataset.region === region;
+  });
+}
+
+function findRepresentativeButtonByRegion(region) {
+  return Array.from(representativeRegionButtons).find(function (button) {
+    return button.dataset.region === region;
+  });
+}
+
+function clearRepresentativeRegion(shouldRestoreFocus = false) {
   if (!representativesSection) return;
 
   representativesSection.classList.remove(
@@ -463,6 +405,10 @@ function clearRepresentativeRegion() {
 
   representativeCards.forEach(function (card) {
     card.classList.remove("is_active");
+  });
+
+  representativeRegionButtons.forEach(function (button) {
+    button.setAttribute("aria-pressed", "false");
   });
 
   clearSelectedCityOnMap();
@@ -477,16 +423,25 @@ function clearRepresentativeRegion() {
     citySuggestions.innerHTML = "";
   }
 
+  updateCitySuggestionsExpanded(false);
+
   highlightedCityIndex = -1;
 
-  if (citySearchHint) {
-    citySearchHint.textContent =
-      "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.";
+  updateCitySearchHint(
+    "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.",
+  );
+
+  if (
+    shouldRestoreFocus &&
+    lastActiveRepresentativeButton &&
+    typeof lastActiveRepresentativeButton.focus === "function"
+  ) {
+    lastActiveRepresentativeButton.focus();
   }
 }
 
-function showRepresentativeRegion(region, activeCard) {
-  if (!representativesSection) return;
+function showRepresentativeRegion(region, activeCard, activeButton) {
+  if (!representativesSection || !regionData[region]) return;
 
   representativesSection.classList.remove(
     "active_south",
@@ -500,45 +455,28 @@ function showRepresentativeRegion(region, activeCard) {
     card.classList.remove("is_active");
   });
 
+  representativeRegionButtons.forEach(function (button) {
+    button.setAttribute("aria-pressed", "false");
+  });
+
   if (activeCard) {
     activeCard.classList.add("is_active");
   }
 
-  if (activeRegionTitle && regionData[region]) {
+  if (activeButton) {
+    activeButton.setAttribute("aria-pressed", "true");
+    lastActiveRepresentativeButton = activeButton;
+  }
+
+  if (activeRegionTitle) {
     activeRegionTitle.textContent = regionData[region].title;
   }
 
-  if (activeRegionDescription && regionData[region]) {
+  if (activeRegionDescription) {
     activeRegionDescription.textContent = regionData[region].description;
   }
-}
 
-function findRepresentativeCardByRegion(region) {
-  return Array.from(representativeCards).find(function (card) {
-    return card.dataset.region === region;
-  });
-}
-
-function focusRepresentativeCard(currentCard, direction) {
-  const cards = Array.from(representativeCards);
-
-  if (cards.length === 0) return;
-
-  const currentIndex = cards.indexOf(currentCard);
-
-  if (currentIndex === -1) return;
-
-  let nextIndex = currentIndex + direction;
-
-  if (nextIndex >= cards.length) {
-    nextIndex = 0;
-  }
-
-  if (nextIndex < 0) {
-    nextIndex = cards.length - 1;
-  }
-
-  cards[nextIndex].focus();
+  smoothScrollToRepresentatives();
 }
 
 function getRegionFromMapArea(area) {
@@ -606,6 +544,7 @@ function switchRepresentative(direction) {
 
   const nextCard = cards[nextIndex];
   const nextRegion = nextCard.dataset.region;
+  const nextButton = findRepresentativeButtonByRegion(nextRegion);
 
   clearSelectedCityOnMap();
   clearActiveCityInfo();
@@ -619,136 +558,62 @@ function switchRepresentative(direction) {
     citySuggestions.innerHTML = "";
   }
 
-  highlightedCityIndex = -1;
-
-  if (citySearchHint) {
-    citySearchHint.textContent =
-      "Zmieniono przedstawiciela. Możesz ponownie wpisać miasto, aby zaznaczyć je na mapie.";
-  }
-
-  showRepresentativeRegion(nextRegion, nextCard);
-
-  nextCard.focus();
-}
-
-function updateHighlightedSuggestion() {
-  if (!citySuggestions) return;
-
-  const suggestions = citySuggestions.querySelectorAll("li:not(.is_empty)");
-
-  suggestions.forEach(function (item, index) {
-    if (index === highlightedCityIndex) {
-      item.classList.add("is_highlighted");
-      item.scrollIntoView({
-        block: "nearest",
-      });
-    } else {
-      item.classList.remove("is_highlighted");
-    }
-  });
-}
-
-function selectCity(cityData) {
-  const activeCard = findRepresentativeCardByRegion(cityData.region);
-
-  if (!activeCard) return;
-
-  showRepresentativeRegion(cityData.region, activeCard);
-  showActiveCityInfo(cityData.city);
-
-  markCityOnMap(cityData.mapName || cityData.city);
-
-  if (citySearchInput) {
-    citySearchInput.value = cityData.city;
-  }
-
-  if (citySuggestions) {
-    citySuggestions.classList.remove("show");
-    citySuggestions.innerHTML = "";
-  }
+  updateCitySuggestionsExpanded(false);
 
   highlightedCityIndex = -1;
 
-  if (citySearchHint) {
-    citySearchHint.textContent =
-      "Wybrano miasto: " +
-      cityData.city +
-      ". Właściwy przedstawiciel: " +
-      cityData.representative +
-      ".";
-  }
+  updateCitySearchHint(
+    "Zmieniono przedstawiciela. Możesz ponownie wpisać miasto, aby zaznaczyć je na mapie.",
+  );
 
-  if (representativesSection) {
-    representativesSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  showRepresentativeRegion(nextRegion, nextCard, nextButton);
+
+  if (nextButton) {
+    nextButton.focus();
   }
 }
 
-function renderCitySuggestions(results) {
-  if (!citySuggestions) return;
+/* Region buttons */
 
-  highlightedCityIndex = -1;
-  citySuggestions.innerHTML = "";
+if (representativeRegionButtons.length > 0) {
+  representativeRegionButtons.forEach(function (button) {
+    const region = button.dataset.region || "";
+    const card = button.closest(".representative_card");
 
-  if (results.length === 0) {
-    const emptyItem = document.createElement("li");
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute(
+      "aria-label",
+      "Sprawdź obsługiwany region przedstawiciela",
+    );
 
-    emptyItem.textContent =
-      "Brak miasta na liście — skontaktuj się z biurem głównym.";
-    emptyItem.classList.add("is_empty");
-
-    citySuggestions.appendChild(emptyItem);
-    citySuggestions.classList.add("show");
-
-    return;
-  }
-
-  results.forEach(function (cityData) {
-    const item = document.createElement("li");
-
-    item.textContent = cityData.city + " — " + cityData.representative;
-
-    item.addEventListener("click", function () {
-      selectCity(cityData);
-    });
-
-    citySuggestions.appendChild(item);
-  });
-
-  citySuggestions.classList.add("show");
-}
-
-/* Representatives Cards Click */
-
-if (representativesSection && representativeCards.length > 0) {
-  representativeCards.forEach(function (card) {
-    card.addEventListener("click", function (event) {
-      if (event.target.closest("a")) {
-        event.stopPropagation();
-        return;
-      }
-
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
       event.stopPropagation();
 
+      if (!region || !card) return;
+
       const isRegionMode =
+        representativesSection &&
         representativesSection.classList.contains("region_mode");
       const isActiveCard = card.classList.contains("is_active");
 
       if (isRegionMode && isActiveCard) {
-        clearRepresentativeRegion();
+        clearRepresentativeRegion(true);
         return;
       }
 
       clearSelectedCityOnMap();
       clearActiveCityInfo();
 
-      const region = card.dataset.region;
-
-      showRepresentativeRegion(region, card);
+      showRepresentativeRegion(region, card, button);
     });
+  });
+}
 
+/* Representative cards keyboard navigation */
+
+if (representativesSection && representativeCards.length > 0) {
+  representativeCards.forEach(function (card) {
     card.addEventListener("keydown", function (event) {
       const isRegionMode =
         representativesSection.classList.contains("region_mode");
@@ -759,8 +624,6 @@ if (representativesSection && representativeCards.length > 0) {
 
         if (isRegionMode) {
           switchRepresentative(1);
-        } else {
-          focusRepresentativeCard(card, 1);
         }
 
         return;
@@ -772,30 +635,7 @@ if (representativesSection && representativeCards.length > 0) {
 
         if (isRegionMode) {
           switchRepresentative(-1);
-        } else {
-          focusRepresentativeCard(card, -1);
         }
-
-        return;
-      }
-
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const isActiveCard = card.classList.contains("is_active");
-
-        if (isRegionMode && isActiveCard) {
-          clearRepresentativeRegion();
-          return;
-        }
-
-        clearSelectedCityOnMap();
-        clearActiveCityInfo();
-
-        const region = card.dataset.region;
-
-        showRepresentativeRegion(region, card);
       }
     });
   });
@@ -806,7 +646,7 @@ if (representativesSection && representativeCards.length > 0) {
 
   document.addEventListener("click", function () {
     if (representativesSection.classList.contains("region_mode")) {
-      clearRepresentativeRegion();
+      clearRepresentativeRegion(false);
     }
   });
 
@@ -818,15 +658,19 @@ if (representativesSection && representativeCards.length > 0) {
 
     if (!isRegionMode) return;
 
+    if (event.key === "Escape") {
+      event.preventDefault();
+      clearRepresentativeRegion(true);
+      return;
+    }
+
     const isTypingInSearch = event.target === citySearchInput;
-    const isFocusedRepresentativeCard = event.target.closest(
-      ".representative_card",
+    const isFocusedMapArea = event.target.classList.contains("map_area");
+    const isFocusedButton = event.target.classList.contains(
+      "representative_region_btn",
     );
 
-    if (isTypingInSearch || isFocusedRepresentativeCard) return;
-
-    if (event.key === "Escape") {
-      clearRepresentativeRegion();
+    if (isTypingInSearch || isFocusedMapArea || isFocusedButton) {
       return;
     }
 
@@ -844,8 +688,9 @@ if (representativesSection && representativeCards.length > 0) {
 }
 
 if (representativesMapClose) {
-  representativesMapClose.addEventListener("click", function () {
-    clearRepresentativeRegion();
+  representativesMapClose.addEventListener("click", function (event) {
+    event.stopPropagation();
+    clearRepresentativeRegion(true);
   });
 }
 
@@ -853,53 +698,356 @@ if (representativesMapClose) {
 
 const mapAreas = document.querySelectorAll(".map_area");
 
+const mapTooltip = document.createElement("div");
+mapTooltip.className = "map_tooltip";
+mapTooltip.setAttribute("aria-hidden", "true");
+document.body.appendChild(mapTooltip);
+
+function disableNativeSvgTooltips() {
+  mapAreas.forEach(function (area) {
+    const titleElement = area.querySelector("title");
+
+    if (!titleElement) return;
+
+    const titleText = titleElement.textContent.trim();
+
+    if (!area.dataset.name && titleText) {
+      area.dataset.name = titleText;
+    }
+
+    area.setAttribute("aria-label", area.dataset.name || titleText);
+
+    titleElement.remove();
+  });
+}
+
+function setupAccessibleMapAreas() {
+  mapAreas.forEach(function (area) {
+    const cityName = getCityNameFromMapArea(area);
+
+    area.setAttribute("tabindex", "0");
+    area.setAttribute("role", "button");
+
+    if (cityName) {
+      area.setAttribute("aria-label", "Wybierz miasto lub powiat: " + cityName);
+    }
+
+    area.addEventListener("focus", function () {
+      area.classList.add("is_keyboard_focused");
+    });
+
+    area.addEventListener("blur", function () {
+      area.classList.remove("is_keyboard_focused");
+      hideMapTooltip();
+    });
+  });
+}
+
+function getMapTooltipRegionLabel(region) {
+  if (region === "west") return "Region: Zachód";
+  if (region === "south") return "Region: Południe";
+  if (region === "center") return "Region: Centrum";
+
+  return "Region przedstawiciela";
+}
+
+function showMapTooltip(area, event) {
+  if (!mapTooltip) return;
+
+  const cityName = getCityNameFromMapArea(area);
+  const region = getRegionFromMapArea(area);
+
+  if (!cityName) return;
+
+  mapTooltip.innerHTML =
+    "<span>" +
+    cityName +
+    "</span><small>" +
+    getMapTooltipRegionLabel(region) +
+    "</small>";
+
+  if (event) {
+    moveMapTooltip(event);
+  }
+
+  mapTooltip.classList.add("show");
+}
+
+function moveMapTooltip(event) {
+  if (!mapTooltip) return;
+
+  const offset = 14;
+  const tooltipRect = mapTooltip.getBoundingClientRect();
+
+  let left = event.clientX + offset;
+  let top = event.clientY + offset;
+
+  if (left + tooltipRect.width > window.innerWidth - 12) {
+    left = event.clientX - tooltipRect.width - offset;
+  }
+
+  if (top + tooltipRect.height > window.innerHeight - 12) {
+    top = event.clientY - tooltipRect.height - offset;
+  }
+
+  mapTooltip.style.left = left + "px";
+  mapTooltip.style.top = top + "px";
+}
+
+function positionMapTooltipNearArea(area) {
+  if (!mapTooltip || !area) return;
+
+  const rect = area.getBoundingClientRect();
+  const tooltipRect = mapTooltip.getBoundingClientRect();
+  const offset = 12;
+
+  let left = rect.left + rect.width / 2 + offset;
+  let top = rect.top + rect.height / 2 + offset;
+
+  if (left + tooltipRect.width > window.innerWidth - 12) {
+    left = rect.left - tooltipRect.width - offset;
+  }
+
+  if (top + tooltipRect.height > window.innerHeight - 12) {
+    top = rect.top - tooltipRect.height - offset;
+  }
+
+  mapTooltip.style.left = left + "px";
+  mapTooltip.style.top = top + "px";
+}
+
+function hideMapTooltip() {
+  if (!mapTooltip) return;
+
+  mapTooltip.classList.remove("show");
+}
+
+function animateClickedMapArea(area) {
+  if (!area) return;
+
+  area.classList.remove("is_map_clicked");
+
+  void area.offsetWidth;
+
+  area.classList.add("is_map_clicked");
+
+  window.setTimeout(function () {
+    area.classList.remove("is_map_clicked");
+  }, 420);
+}
+
+function chooseMapArea(area) {
+  const cityName = getCityNameFromMapArea(area);
+  const region = getRegionFromMapArea(area);
+
+  if (!cityName || !region) return;
+
+  const activeCard = findRepresentativeCardByRegion(region);
+  const activeButton = findRepresentativeButtonByRegion(region);
+
+  if (!activeCard) return;
+
+  showRepresentativeRegion(region, activeCard, activeButton);
+  showActiveCityInfo(cityName);
+
+  markCityOnMap(cityName);
+  animateClickedMapArea(area);
+
+  const representativeName = getRepresentativeNameByRegion(region);
+
+  if (citySearchInput) {
+    citySearchInput.value = cityName;
+  }
+
+  if (citySuggestions) {
+    citySuggestions.classList.remove("show");
+    citySuggestions.innerHTML = "";
+  }
+
+  updateCitySuggestionsExpanded(false);
+
+  highlightedCityIndex = -1;
+
+  updateCitySearchHint(
+    "Wybrano miasto: " +
+      cityName +
+      ". Właściwy przedstawiciel: " +
+      representativeName +
+      ".",
+  );
+}
+
+disableNativeSvgTooltips();
+setupAccessibleMapAreas();
+
 if (mapAreas.length > 0) {
   mapAreas.forEach(function (area) {
-    area.addEventListener("click", function (event) {
-      event.stopPropagation();
+    area.addEventListener("mouseenter", function (event) {
+      showMapTooltip(area, event);
+    });
 
-      const cityName = getCityNameFromMapArea(area);
-      const region = getRegionFromMapArea(area);
+    area.addEventListener("mousemove", function (event) {
+      moveMapTooltip(event);
+    });
 
-      if (!cityName || !region) return;
-
-      const activeCard = findRepresentativeCardByRegion(region);
-
-      if (!activeCard) return;
-
-      showRepresentativeRegion(region, activeCard);
-      showActiveCityInfo(cityName);
-
-      markCityOnMap(cityName);
-
-      const representativeName = getRepresentativeNameByRegion(region);
-
-      if (citySearchInput) {
-        citySearchInput.value = cityName;
-      }
-
-      if (citySuggestions) {
-        citySuggestions.classList.remove("show");
-        citySuggestions.innerHTML = "";
-      }
-
-      highlightedCityIndex = -1;
-
-      if (citySearchHint) {
-        citySearchHint.textContent =
-          "Wybrano miasto: " +
-          cityName +
-          ". Właściwy przedstawiciel: " +
-          representativeName +
-          ".";
+    area.addEventListener("mouseleave", function () {
+      if (document.activeElement !== area) {
+        hideMapTooltip();
       }
     });
+
+    area.addEventListener("focus", function () {
+      showMapTooltip(area);
+      positionMapTooltipNearArea(area);
+    });
+
+    area.addEventListener("click", function (event) {
+      event.stopPropagation();
+      chooseMapArea(area);
+    });
+
+    area.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      chooseMapArea(area);
+    });
+  });
+}
+
+/* Active City Clear */
+
+if (activeCityClear) {
+  activeCityClear.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    clearSelectedCityOnMap();
+    clearActiveCityInfo();
+
+    if (citySearchInput) {
+      citySearchInput.value = "";
+    }
+
+    if (citySuggestions) {
+      citySuggestions.classList.remove("show");
+      citySuggestions.innerHTML = "";
+    }
+
+    updateCitySuggestionsExpanded(false);
+
+    highlightedCityIndex = -1;
+
+    updateCitySearchHint(
+      "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.",
+    );
   });
 }
 
 /* City Search Box */
 
+function updateHighlightedSuggestion() {
+  if (!citySuggestions) return;
+
+  const suggestions = citySuggestions.querySelectorAll("li:not(.is_empty)");
+
+  suggestions.forEach(function (item, index) {
+    if (index === highlightedCityIndex) {
+      item.classList.add("is_highlighted");
+      item.setAttribute("aria-selected", "true");
+      item.scrollIntoView({
+        block: "nearest",
+      });
+    } else {
+      item.classList.remove("is_highlighted");
+      item.setAttribute("aria-selected", "false");
+    }
+  });
+}
+
+function selectCity(cityData) {
+  const activeCard = findRepresentativeCardByRegion(cityData.region);
+  const activeButton = findRepresentativeButtonByRegion(cityData.region);
+
+  if (!activeCard) return;
+
+  showRepresentativeRegion(cityData.region, activeCard, activeButton);
+  showActiveCityInfo(cityData.city);
+
+  markCityOnMap(cityData.mapName || cityData.city);
+
+  if (citySearchInput) {
+    citySearchInput.value = cityData.city;
+  }
+
+  if (citySuggestions) {
+    citySuggestions.classList.remove("show");
+    citySuggestions.innerHTML = "";
+  }
+
+  updateCitySuggestionsExpanded(false);
+
+  highlightedCityIndex = -1;
+
+  updateCitySearchHint(
+    "Wybrano miasto: " +
+      cityData.city +
+      ". Właściwy przedstawiciel: " +
+      cityData.representative +
+      ".",
+  );
+}
+
+function renderCitySuggestions(results) {
+  if (!citySuggestions) return;
+
+  highlightedCityIndex = -1;
+  citySuggestions.innerHTML = "";
+
+  if (results.length === 0) {
+    const emptyItem = document.createElement("li");
+
+    emptyItem.textContent =
+      "Brak miasta na liście — skontaktuj się z biurem głównym.";
+    emptyItem.classList.add("is_empty");
+    emptyItem.setAttribute("role", "option");
+    emptyItem.setAttribute("aria-selected", "false");
+
+    citySuggestions.appendChild(emptyItem);
+    citySuggestions.classList.add("show");
+    updateCitySuggestionsExpanded(true);
+
+    return;
+  }
+
+  results.forEach(function (cityData, index) {
+    const item = document.createElement("li");
+
+    item.textContent = cityData.city + " — " + cityData.representative;
+    item.setAttribute("role", "option");
+    item.setAttribute("aria-selected", "false");
+    item.id = "citySuggestion-" + index;
+
+    item.addEventListener("click", function () {
+      selectCity(cityData);
+    });
+
+    citySuggestions.appendChild(item);
+  });
+
+  citySuggestions.classList.add("show");
+  updateCitySuggestionsExpanded(true);
+}
+
 if (citySearchInput && citySuggestions && representativesSection) {
+  citySearchInput.setAttribute("role", "combobox");
+  citySearchInput.setAttribute("aria-autocomplete", "list");
+  citySearchInput.setAttribute("aria-expanded", "false");
+  citySearchInput.setAttribute("aria-controls", "citySuggestions");
+
+  citySuggestions.setAttribute("role", "listbox");
+
   citySearchInput.addEventListener("input", function () {
     const searchValue = normalizeText(citySearchInput.value);
 
@@ -907,11 +1055,11 @@ if (citySearchInput && citySuggestions && representativesSection) {
       citySuggestions.classList.remove("show");
       citySuggestions.innerHTML = "";
       highlightedCityIndex = -1;
+      updateCitySuggestionsExpanded(false);
 
-      if (citySearchHint) {
-        citySearchHint.textContent =
-          "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.";
-      }
+      updateCitySearchHint(
+        "Zacznij wpisywać nazwę miasta, aby znaleźć właściwego przedstawiciela.",
+      );
 
       return;
     }
@@ -992,6 +1140,7 @@ if (citySearchInput && citySuggestions && representativesSection) {
     if (event.key === "Escape") {
       citySuggestions.classList.remove("show");
       highlightedCityIndex = -1;
+      updateCitySuggestionsExpanded(false);
       return;
     }
 
@@ -1044,9 +1193,11 @@ if (citySearchInput && citySuggestions && representativesSection) {
     if (!clickedInsideInput && !clickedInsideSuggestions) {
       citySuggestions.classList.remove("show");
       highlightedCityIndex = -1;
+      updateCitySuggestionsExpanded(false);
     }
   });
 }
+
 /* Contact Form Send */
 
 const contactForm = document.getElementById("contactForm");
@@ -1101,6 +1252,7 @@ if (contactForm && formStatus && contactFormSubmit) {
       });
   });
 }
+
 /* Home Hero Slider */
 
 const homeSlider = document.getElementById("homeSlider");
@@ -1182,3 +1334,41 @@ if (homeSlides.length > 0) {
     homeSlider.addEventListener("focusout", startHomeSliderAutoplay);
   }
 }
+/* =========================================================
+   Global Scroll Progress Bar
+   ========================================================= */
+
+(function () {
+  let scrollProgressBar = document.querySelector(".scroll_progress_bar");
+
+  if (!scrollProgressBar) {
+    scrollProgressBar = document.createElement("div");
+    scrollProgressBar.className = "scroll_progress_bar";
+    scrollProgressBar.setAttribute("aria-hidden", "true");
+    document.body.prepend(scrollProgressBar);
+  }
+
+  function updateScrollProgressBar() {
+    const scrollTop = window.scrollY || window.pageYOffset;
+
+    const documentHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+      documentHeight > 0
+        ? Math.min((scrollTop / documentHeight) * 100, 100)
+        : 0;
+
+    scrollProgressBar.style.width = progress + "%";
+  }
+
+  window.addEventListener("scroll", updateScrollProgressBar, {
+    passive: true,
+  });
+
+  window.addEventListener("resize", updateScrollProgressBar, {
+    passive: true,
+  });
+
+  updateScrollProgressBar();
+})();

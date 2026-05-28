@@ -195,7 +195,53 @@ main {
     transition: none;
   }
 }
+/* =========================================================
+   Global Scroll Progress Bar
+   ========================================================= */
 
+.scroll_progress_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+
+  width: 0%;
+  height: 3px;
+
+  background: linear-gradient(90deg, #7090b7, #5f7fa7);
+  box-shadow: 0 0 14px rgba(112, 144, 183, 0.55);
+
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+.scroll_progress_bar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 24px;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.75);
+  filter: blur(8px);
+}
+
+/* Dark mode */
+
+body.dark_mode .scroll_progress_bar {
+  background: linear-gradient(90deg, #9bb7d8, #7090b7);
+  box-shadow: 0 0 14px rgba(155, 183, 216, 0.45);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .scroll_progress_bar {
+    height: 2px;
+  }
+}
 /* Dark Theme */
 
 body.dark_theme {

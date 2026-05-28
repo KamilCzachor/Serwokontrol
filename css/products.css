@@ -1,20 +1,87 @@
-/* Products Page */
+/* =========================================================
+   Products Page
+   ========================================================= */
 
 .products_page {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .products_page h2 {
   align-self: flex-start;
+  margin-bottom: 0;
 }
 
+/* =========================================================
+   Products Intro
+   ========================================================= */
+
 .products_intro {
+  position: relative;
+  overflow: hidden;
+
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.products_intro::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.products_intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.16),
+    transparent 50%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.products_intro:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
+}
+
+.products_intro:hover::before {
+  transform: scaleY(1);
+}
+
+.products_intro:hover::after {
+  opacity: 1;
+}
+
+.products_intro h3,
+.products_intro p {
+  position: relative;
+  z-index: 1;
 }
 
 .products_intro h3 {
@@ -26,7 +93,14 @@
 
 .products_intro p {
   margin: 0;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
 }
+
+/* =========================================================
+   Products Grid
+   ========================================================= */
 
 .products_grid {
   display: grid;
@@ -34,44 +108,157 @@
   gap: 25px;
 }
 
+/* =========================================================
+   Product Card
+   ========================================================= */
+
 .product_card {
+  position: relative;
   overflow: hidden;
+
   background-color: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
   cursor: pointer;
 
+  display: flex;
+  flex-direction: column;
+
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.product_card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.18);
+.product_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.2),
+    rgba(112, 144, 183, 0.04) 48%,
+    transparent 72%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.product_card::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+
+  height: 4px;
+  border-radius: 999px 999px 0 0;
+  background-color: #7090b7;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
+}
+
+.product_card:hover,
+.product_card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.product_card:hover::before,
+.product_card:focus-visible::before {
+  opacity: 1;
+}
+
+.product_card:hover::after,
+.product_card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.product_card:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+.product_image,
+.product_content {
+  position: relative;
+  z-index: 1;
 }
 
 .product_image {
-  height: 190px;
-  background-color: #e2e9f1;
+  height: 205px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.08), rgba(255, 255, 255, 0));
   overflow: hidden;
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product_image::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(112, 144, 183, 0.14);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.product_card:hover .product_image::before,
+.product_card:focus-visible .product_image::before {
+  opacity: 1;
+  border-color: rgba(112, 144, 183, 0.32);
 }
 
 .product_image img {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 14px rgba(94, 106, 113, 0.1));
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
 }
 
-.product_card:hover .product_image img {
-  transform: scale(1.05);
+.product_card:hover .product_image img,
+.product_card:focus-visible .product_image img {
+  transform: translateY(-4px) scale(1.055);
+  filter: drop-shadow(0 16px 18px rgba(94, 106, 113, 0.16));
 }
 
 .product_content {
+  flex: 1;
+
   padding: 24px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .product_content span {
@@ -79,22 +266,51 @@
   margin-bottom: 10px;
   color: #7090b7;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .product_content h3 {
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   color: #7090b7;
   font-size: 22px;
+  line-height: 1.25;
 }
 
 .product_content p {
-  margin: 0;
-  font-size: 16px;
+  width: fit-content;
+  margin: auto 0 0;
+  padding: 9px 13px;
+
+  border: 1px solid rgba(112, 144, 183, 0.38);
+  border-radius: 999px;
+  background-color: #eef3f8;
+  color: #587ca8;
+
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Product Modal */
+.product_card:hover .product_content p,
+.product_card:focus-visible .product_content p {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
+}
+
+/* =========================================================
+   Product Modal Overlay
+   ========================================================= */
 
 .product_modal_overlay {
   position: fixed;
@@ -107,36 +323,106 @@
 
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7px);
 }
 
 .product_modal_overlay.show {
   display: flex;
+  animation: productOverlayFade 0.24s ease both;
 }
+
+@keyframes productOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   Product Modal
+   ========================================================= */
 
 .product_modal {
   position: relative;
+  overflow: hidden;
 
-  width: min(900px, 100%);
-  max-height: 90vh;
-  overflow: auto;
+  width: min(1120px, calc(100vw - 40px));
+  min-height: 620px;
+  max-height: calc(100vh - 40px);
 
   background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  border-radius: 20px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
 
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.product_modal_overlay.show .product_modal {
+  animation: productModalEnter 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes productModalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.product_modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.product_modal_overlay.show .product_modal::before {
+  animation: productModalScan 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+@keyframes productModalScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.product_modal > * {
+  position: relative;
+  z-index: 1;
 }
 
 .product_modal_close {
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 1;
+  z-index: 5;
 
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 
   border: none;
   border-radius: 50%;
@@ -153,53 +439,641 @@
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.product_modal_close:hover {
+.product_modal_close:hover,
+.product_modal_close:focus-visible {
   background-color: #7090b7;
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(-2px) rotate(8deg);
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.22);
 }
 
+.product_modal_close:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   Modal Layout
+   ========================================================= */
+
+.product_modal_left {
+  position: relative;
+  overflow: hidden;
+
+  padding: 42px 38px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.12),
+      transparent 38%
+    ),
+    #e2e9f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_modal_right {
+  padding: 46px 42px 42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product_modal_right > span {
+  display: inline-block;
+  margin-bottom: 10px;
+
+  color: #7090b7;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.product_modal_right h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+
+  color: #7090b7;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.product_modal_quote {
+  display: none;
+
+  margin: 0 0 18px;
+  padding: 14px 16px;
+
+  border-left: 4px solid #7090b7;
+  border-radius: 10px;
+  background-color: rgba(112, 144, 183, 0.12);
+  color: #5e6a71;
+
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.product_modal_description {
+  display: none;
+
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.product_modal_spec {
+  display: none;
+  gap: 10px;
+  margin-top: 2px;
+
+  list-style: none;
+  padding: 0;
+}
+
+.product_modal_spec_item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: #f7f9fb;
+
+  color: #5e6a71;
+  font-size: 15px;
+  line-height: 1.45;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.product_modal_spec_item:hover {
+  transform: translateY(-2px);
+  background-color: rgba(112, 144, 183, 0.1);
+}
+
+.product_modal_spec_item i {
+  margin-top: 3px;
+  color: #7090b7;
+}
+/* =========================================================
+   Product Modal PDF Link
+   ========================================================= */
+
+.product_modal_pdf_link {
+  width: fit-content;
+  margin-top: 14px;
+  padding: 9px 13px;
+
+  border: 1px solid rgba(112, 144, 183, 0.38);
+  border-radius: 999px;
+  background-color: rgba(112, 144, 183, 0.08);
+  color: #587ca8;
+
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-decoration: none;
+
+  display: none;
+  align-items: center;
+  gap: 8px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product_modal_pdf_link i {
+  font-size: 14px;
+}
+
+.product_modal_pdf_link:hover,
+.product_modal_pdf_link:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
+}
+
+.product_modal_pdf_link:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+body.dark_theme .product_modal_pdf_link {
+  background-color: rgba(112, 144, 183, 0.14);
+  color: #e2e9f1;
+  border-color: rgba(112, 144, 183, 0.38);
+}
+
+body.dark_theme .product_modal_pdf_link:hover,
+body.dark_theme .product_modal_pdf_link:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+}
+/* =========================================================
+   Modal Back Button
+   ========================================================= */
+
+.product_modal_back {
+  width: fit-content;
+  margin: -4px 0 16px;
+  padding: 9px 13px;
+
+  border: 1px solid rgba(112, 144, 183, 0.38);
+  border-radius: 999px;
+  background-color: rgba(112, 144, 183, 0.1);
+  color: #587ca8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  cursor: pointer;
+
+  display: none;
+  align-items: center;
+  gap: 8px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product_modal_back i {
+  font-size: 13px;
+}
+
+.product_modal_back:hover,
+.product_modal_back:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
+}
+
+.product_modal_back:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+/* =========================================================
+   Single Modal Image
+   ========================================================= */
+
 .product_modal_image {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
   min-height: 360px;
-  background-color: #e2e9f1;
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 28px;
 }
 
 .product_modal_image img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+
+  filter: drop-shadow(0 16px 20px rgba(94, 106, 113, 0.16));
 }
 
-.product_modal_content {
-  padding: 40px;
+/* =========================================================
+   Product Type Slider
+   ========================================================= */
+
+.product_type_slider {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-top: 10px;
 }
 
-.product_modal_content span {
-  display: inline-block;
-  margin-bottom: 12px;
+.product_type_slider h4 {
+  margin: 0 0 18px;
+
+  align-self: stretch;
+
   color: #7090b7;
+  font-size: 22px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.product_type_slider_stage {
+  position: relative;
+  width: 100%;
+}
+
+.product_type_slider_image {
+  width: 100%;
+  height: 360px;
+
+  background-color: transparent;
+  border-radius: 18px;
+  padding: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_type_slider_image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+
+  filter: drop-shadow(0 16px 20px rgba(94, 106, 113, 0.16));
+
+  animation: productSlideImageEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+.product_type_slider_image img.is_clickable {
+  cursor: pointer;
+}
+
+.product_type_slider_image img.is_clickable:hover,
+.product_type_slider_image img.is_clickable:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 20px 24px rgba(94, 106, 113, 0.22));
+}
+
+@keyframes productSlideImageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.product_type_slider_placeholder {
+  width: 100%;
+  height: 100%;
+
+  border: 2px dashed rgba(112, 144, 183, 0.32);
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #5e6a71;
+  font-weight: 800;
+  text-align: center;
+}
+
+.product_type_slider_btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #7090b7;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  box-shadow: 0 8px 20px rgba(94, 106, 113, 0.16);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product_type_slider_btn:hover,
+.product_type_slider_btn:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 10px 24px rgba(94, 106, 113, 0.24);
+}
+
+.product_type_slider_btn:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+.product_type_slider_btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.product_type_slider_prev {
+  left: 0;
+}
+
+.product_type_slider_next {
+  right: 0;
+}
+
+.product_type_slider_name {
+  min-height: 34px;
+  margin-top: 16px;
+
+  color: #5e6a71;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.product_type_slider_dots {
+  margin-top: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+/* =========================================================
+   Product Slider Hint
+   ========================================================= */
+
+.product_type_slider_hint {
+  order: 5;
+
+  width: 100%;
+  margin: auto 0 0;
+  padding-top: 14px;
+
+  color: #5e6a71;
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  opacity: 0.78;
 }
 
-.product_modal_content h3 {
-  margin-top: 0;
-  margin-bottom: 18px;
-  color: #7090b7;
-  font-size: 28px;
+.product_type_slider_dots {
+  order: 4;
 }
 
-.product_modal_content p {
-  margin: 0;
-  color: #333;
-  font-size: 17px;
-  line-height: 1.8;
+.product_type_slider h4 {
+  order: 1;
 }
 
-/* Products Page Dark Theme */
+.product_type_slider_stage {
+  order: 2;
+}
+
+.product_type_slider_name {
+  order: 3;
+}
+.product_type_slider_dots button {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: #c8d4e2;
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.product_type_slider_dots button:hover,
+.product_type_slider_dots button:focus-visible {
+  transform: translateY(-2px);
+  background-color: #7090b7;
+}
+
+.product_type_slider_dots button:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+.product_type_slider_dots button.is_active {
+  width: 30px;
+  background-color: #7090b7;
+}
+
+/* =========================================================
+   Individual Product Modal Classes
+   ========================================================= */
+
+.product_modal.modal_valve2000 {
+  min-height: 620px;
+  /* Modal grzybkowych korzysta z bazowego wyglądu. */
+}
+.product_modal.modal_valve2000 .product_type_slider_image {
+  height: 360px;
+  padding: 14px 34px;
+}
+.product_modal.modal_valveMembrane {
+}
+
+.product_modal.modal_valveBall {
+}
+
+.product_modal.modal_valveIslands {
+}
+
+.product_modal.modal_valveControl {
+}
+
+.product_modal.modal_flowmeters {
+}
+
+.product_modal.modal_valveHygienic {
+}
+
+.product_modal.modal_massFlowControllers {
+}
+
+.product_modal.modal_proportionalSolenoidValves {
+}
+
+.product_modal.modal_sensorsTransmitters {
+}
+
+.product_modal.modal_otherProducts {
+}
+
+.product_modal.is_custom_product_modal {
+  min-height: 620px;
+}
+
+.product_modal.is_custom_product_modal .product_modal_left,
+.product_modal.is_custom_product_modal .product_modal_right {
+  padding: 42px 40px;
+}
+
+.product_modal.is_custom_product_modal .product_type_slider_image {
+  height: 360px;
+  padding: 14px 34px;
+}
+
+/* =========================================================
+   Solenoid Valves Modal
+   ========================================================= */
+
+.product_modal.modal_solenoidValves {
+  width: min(1120px, calc(100vw - 40px));
+  min-height: 620px;
+}
+
+.product_modal.modal_solenoidValves .product_modal_left {
+  padding: 42px 38px;
+}
+
+.product_modal.modal_solenoidValves .product_modal_right {
+  padding: 42px 40px;
+}
+
+.product_modal.modal_solenoidValves .product_modal_right h3 {
+  margin-bottom: 16px;
+  font-size: 29px;
+}
+
+.product_modal.modal_solenoidValves .product_modal_quote {
+  margin-bottom: 16px;
+  padding: 13px 15px;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.product_modal.modal_solenoidValves .product_modal_description {
+  margin-bottom: 16px;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.product_modal.modal_solenoidValves .product_modal_spec {
+  gap: 9px;
+}
+
+.product_modal.modal_solenoidValves .product_modal_spec_item {
+  padding: 9px 11px;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.product_modal.modal_solenoidValves .product_type_slider h4 {
+  margin-bottom: 16px;
+
+  font-size: 21px;
+}
+
+.product_modal.modal_solenoidValves .product_type_slider_image {
+  height: 360px;
+  padding: 14px 34px;
+}
+
+.product_modal.modal_solenoidValves .product_type_slider_name {
+  min-height: 48px;
+  margin-top: 14px;
+
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.product_modal.modal_solenoidValves .product_type_slider_dots {
+  margin-top: 14px;
+}
+
+/* =========================================================
+   Products Page Dark Theme
+   ========================================================= */
 
 body.dark_theme .products_intro,
 body.dark_theme .product_card,
@@ -208,25 +1082,129 @@ body.dark_theme .product_modal {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+body.dark_theme .products_intro:hover,
+body.dark_theme .product_card:hover,
+body.dark_theme .product_card:focus-visible {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
 body.dark_theme .products_intro h3,
 body.dark_theme .product_content span,
 body.dark_theme .product_content h3,
-body.dark_theme .product_modal_content span,
-body.dark_theme .product_modal_content h3 {
+body.dark_theme .product_modal_right span,
+body.dark_theme .product_modal_right h3,
+body.dark_theme .product_type_slider h4 {
   color: #7090b7;
 }
 
-body.dark_theme .product_card:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+body.dark_theme .products_intro p,
+body.dark_theme .product_modal_description,
+body.dark_theme .product_modal_spec_item,
+body.dark_theme .product_type_slider_name {
+  color: #e2e9f1;
+}
+
+body.dark_theme .product_content p {
+  background-color: rgba(112, 144, 183, 0.14);
+  color: #e2e9f1;
+  border-color: rgba(112, 144, 183, 0.38);
+}
+
+body.dark_theme .product_card:hover .product_content p,
+body.dark_theme .product_card:focus-visible .product_content p {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
 }
 
 body.dark_theme .product_image,
-body.dark_theme .product_modal_image {
+body.dark_theme .product_modal_image,
+body.dark_theme .product_type_slider_image {
+  background-color: transparent;
+}
+
+body.dark_theme .product_image img,
+body.dark_theme .product_modal_image img,
+body.dark_theme .product_type_slider_image img {
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.24));
+}
+
+body.dark_theme .product_modal_left {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.14),
+      transparent 38%
+    ),
+    #1f2428;
+}
+
+body.dark_theme .product_modal::before {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(112, 144, 183, 0.16) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+body.dark_theme .product_modal_quote {
+  background-color: rgba(112, 144, 183, 0.16);
+  color: #e2e9f1;
+}
+
+body.dark_theme .product_modal_spec_item {
   background-color: #1f2428;
 }
 
-body.dark_theme .product_modal_content p {
+body.dark_theme .product_modal_spec_item:hover {
+  background-color: rgba(112, 144, 183, 0.14);
+}
+
+body.dark_theme .product_modal_back {
+  background-color: rgba(112, 144, 183, 0.14);
   color: #e2e9f1;
+  border-color: rgba(112, 144, 183, 0.38);
+}
+
+body.dark_theme .product_modal_back:hover,
+body.dark_theme .product_modal_back:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+}
+
+body.dark_theme .product_type_slider_hint {
+  color: #e2e9f1;
+  opacity: 0.72;
+}
+
+body.dark_theme .product_type_slider_placeholder {
+  border-color: rgba(112, 144, 183, 0.45);
+  color: #e2e9f1;
+}
+
+body.dark_theme .product_type_slider_btn {
+  background-color: rgba(226, 233, 241, 0.92);
+  color: #7090b7;
+}
+
+body.dark_theme .product_type_slider_btn:hover,
+body.dark_theme .product_type_slider_btn:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+}
+
+body.dark_theme .product_type_slider_dots button {
+  background-color: #5e6a71;
+}
+
+body.dark_theme .product_type_slider_dots button:hover,
+body.dark_theme .product_type_slider_dots button:focus-visible,
+body.dark_theme .product_type_slider_dots button.is_active {
+  background-color: #7090b7;
 }
 
 body.dark_theme .product_modal_close {
@@ -234,31 +1212,59 @@ body.dark_theme .product_modal_close {
   color: #ffffff;
 }
 
-body.dark_theme .product_modal_close:hover {
+body.dark_theme .product_modal_close:hover,
+body.dark_theme .product_modal_close:focus-visible {
   background-color: #7090b7;
 }
 
-/* Responsive */
+/* =========================================================
+   Responsive
+   ========================================================= */
+
 @media (max-width: 992px) {
   .products_grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .product_modal {
     grid-template-columns: 1fr;
+    min-height: auto;
+    max-height: calc(100vh - 24px);
+    overflow: auto;
+  }
+
+  .product_modal_left {
+    order: 1;
+  }
+
+  .product_modal_right {
+    order: 2;
+  }
+
+  .product_modal_left,
+  .product_modal_right,
+  .product_modal.modal_solenoidValves .product_modal_left,
+  .product_modal.modal_solenoidValves .product_modal_right {
+    padding: 28px;
+  }
+
+  .product_type_slider_image,
+  .product_modal.modal_solenoidValves .product_type_slider_image {
+    height: 280px;
   }
 
   .product_modal_image {
     min-height: 280px;
   }
 }
+
 @media (max-width: 768px) {
   .products_grid {
     grid-template-columns: 1fr;
   }
 
   .products_intro,
-  .product_content,
-  .product_modal_content {
+  .product_content {
     padding: 24px;
   }
 
@@ -266,15 +1272,626 @@ body.dark_theme .product_modal_close:hover {
     height: 220px;
   }
 
+  .product_modal_overlay {
+    padding: 12px;
+  }
+
   .product_modal {
-    max-height: 88vh;
+    width: 100%;
+    max-height: calc(100vh - 24px);
+  }
+
+  .product_modal_left,
+  .product_modal_right,
+  .product_modal.modal_solenoidValves .product_modal_left,
+  .product_modal.modal_solenoidValves .product_modal_right {
+    padding: 24px;
+  }
+
+  .product_modal_right h3,
+  .product_modal.modal_solenoidValves .product_modal_right h3 {
+    font-size: 24px;
+  }
+
+  .product_modal_quote,
+  .product_modal.modal_solenoidValves .product_modal_quote {
+    font-size: 16px;
+  }
+
+  .product_modal_description,
+  .product_modal.modal_solenoidValves .product_modal_description {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .product_type_slider h4,
+  .product_modal.modal_solenoidValves .product_type_slider h4 {
+    font-size: 19px;
+  }
+
+  .product_type_slider_image,
+  .product_modal.modal_solenoidValves .product_type_slider_image {
+    height: 230px;
+    padding: 18px 48px;
   }
 
   .product_modal_image {
     min-height: 220px;
+    padding: 18px;
   }
 
-  .product_modal_content h3 {
-    font-size: 24px;
+  .product_type_slider_name,
+  .product_modal.modal_solenoidValves .product_type_slider_name {
+    font-size: 19px;
+  }
+
+  .product_type_slider_btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .products_intro,
+  .products_intro::before,
+  .products_intro::after,
+  .product_card,
+  .product_card::before,
+  .product_card::after,
+  .product_image::before,
+  .product_image img,
+  .product_content p,
+  .product_modal_overlay.show,
+  .product_modal_overlay.show .product_modal,
+  .product_modal_overlay.show .product_modal::before,
+  .product_modal_close,
+  .product_modal_back,
+  .product_modal_spec_item,
+  .product_type_slider_image img,
+  .product_type_slider_btn,
+  .product_type_slider_dots button {
+    animation: none;
+    transition: none;
+  }
+
+  .products_intro:hover,
+  .product_card:hover,
+  .product_card:focus-visible,
+  .product_card:hover .product_image img,
+  .product_card:focus-visible .product_image img,
+  .product_card:hover .product_content p,
+  .product_card:focus-visible .product_content p,
+  .product_modal_close:hover,
+  .product_modal_back:hover,
+  .product_modal_spec_item:hover,
+  .product_type_slider_image img.is_clickable:hover,
+  .product_type_slider_btn:hover,
+  .product_type_slider_dots button:hover {
+    transform: none;
+  }
+}
+/* =========================================================
+   Product Modal - Back Button, Hint & Text Switch Animation
+   FINAL OVERRIDES
+   ========================================================= */
+
+/* Animacja przełączania prawej kolumny modala */
+
+.product_modal_right {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.product_modal_right.is_switching {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.product_modal_right.is_detail_mode {
+  animation: productDetailEnter 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes productDetailEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Przycisk "Wróć do opisu ogólnego" */
+
+.product_modal_back {
+  width: fit-content;
+  margin: -6px 0 16px;
+  padding: 9px 13px;
+
+  border: 1px solid rgba(112, 144, 183, 0.38);
+  border-radius: 999px;
+  background-color: rgba(112, 144, 183, 0.1);
+  color: #587ca8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  cursor: pointer;
+
+  display: none;
+  align-items: center;
+  gap: 8px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product_modal_back i {
+  font-size: 13px;
+}
+
+.product_modal_back:hover,
+.product_modal_back:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
+}
+
+.product_modal_back:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+/* Usuwa ewentualny stary dynamiczny przycisk, jeśli został gdzieś w CSS/JS */
+
+.product_modal_back_btn {
+  display: none !important;
+}
+
+/* Układ elementów slidera */
+
+.product_type_slider {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product_type_slider h4 {
+  order: 1;
+}
+
+.product_type_slider_stage {
+  order: 2;
+}
+
+.product_type_slider_name {
+  order: 3;
+}
+
+.product_type_slider_dots {
+  order: 4;
+}
+
+/* Napis na dole modala pod sliderem */
+
+.product_type_slider_hint {
+  order: 5;
+
+  width: 100%;
+  margin: auto 0 0;
+  padding-top: 14px;
+
+  color: #5e6a71;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  opacity: 0.78;
+
+  display: none;
+}
+
+/* Animacja zmiany slajdu */
+
+.product_type_slider_image img,
+.product_type_slider_name {
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease,
+    filter 0.24s ease;
+}
+
+.product_type_slider_image img.is_changing {
+  opacity: 0;
+  transform: translateY(8px) scale(0.985);
+}
+
+.product_type_slider_name.is_changing {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Klikalne zdjęcie w sliderze */
+
+.product_type_slider_image img.is_clickable {
+  cursor: pointer;
+}
+
+.product_type_slider_image img.is_clickable:hover,
+.product_type_slider_image img.is_clickable:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 20px 24px rgba(94, 106, 113, 0.22));
+}
+
+.product_type_slider_image img.is_clickable:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+
+/* Dark Theme */
+
+body.dark_theme .product_modal_back {
+  background-color: rgba(112, 144, 183, 0.14);
+  color: #e2e9f1;
+  border-color: rgba(112, 144, 183, 0.38);
+}
+
+body.dark_theme .product_modal_back:hover,
+body.dark_theme .product_modal_back:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+}
+
+body.dark_theme .product_type_slider_hint {
+  color: #e2e9f1;
+  opacity: 0.72;
+}
+
+body.dark_theme .product_type_slider_image img.is_clickable:hover,
+body.dark_theme .product_type_slider_image img.is_clickable:focus-visible {
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.32));
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .product_modal_right,
+  .product_modal_right.is_detail_mode,
+  .product_modal_back,
+  .product_type_slider_image img,
+  .product_type_slider_name,
+  .product_type_slider_image img.is_changing,
+  .product_type_slider_name.is_changing,
+  .product_type_slider_image img.is_clickable {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+
+  .product_modal_right.is_switching,
+  .product_modal_back:hover,
+  .product_type_slider_image img.is_clickable:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Valve Islands Custom Modal Layout
+   ========================================================= */
+
+.product_modal_custom_content {
+  display: none;
+}
+
+.product_modal.modal_valveIslands.modal_layout_valve-islands-list {
+  width: min(1120px, calc(100vw - 40px));
+  min-height: 620px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  display: block;
+}
+
+.product_modal.modal_valveIslands.modal_layout_valve-islands-list
+  .product_modal_left,
+.product_modal.modal_valveIslands.modal_layout_valve-islands-list
+  .product_modal_right {
+  display: none;
+}
+
+.product_modal.modal_valveIslands.modal_layout_valve-islands-list
+  .product_modal_custom_content {
+  display: block;
+}
+
+.valve_islands_content {
+  padding: 42px 46px 48px;
+}
+
+.valve_islands_intro {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 30px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+}
+
+.valve_islands_intro::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+}
+
+.valve_islands_intro h3 {
+  margin: 0 0 18px;
+  color: #7090b7;
+  font-size: 28px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.valve_islands_intro p,
+.valve_island_text p,
+.valve_islands_closing p {
+  margin: 0 0 14px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.valve_islands_intro p:last-child,
+.valve_island_text p:last-child,
+.valve_islands_closing p:last-child {
+  margin-bottom: 0;
+}
+
+.valve_islands_section_title {
+  margin: 34px 0 22px;
+  color: #7090b7;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.valve_islands_products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.valve_island_item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  gap: 28px;
+  align-items: center;
+  padding: 26px;
+  border: 1px solid rgba(112, 144, 183, 0.18);
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.1);
+}
+
+.valve_island_type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  margin-bottom: 10px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background-color: #e2e9f1;
+  color: #587ca8;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.valve_island_text h5 {
+  margin: 0 0 14px;
+  color: #7090b7;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.valve_island_features,
+.valve_island_communication {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.valve_island_features li,
+.valve_island_communication li {
+  position: relative;
+  padding-left: 28px;
+  color: #5e6a71;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.valve_island_features li::before,
+.valve_island_communication li::before {
+  content: "\f00c";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #7090b7;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.valve_island_communication_title {
+  margin-top: 18px !important;
+  font-weight: 800;
+  color: #5e6a71 !important;
+}
+
+.valve_island_visual {
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.16),
+      transparent 46%
+    ),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.07), rgba(255, 255, 255, 0));
+  padding: 20px;
+}
+
+.valve_island_visual_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.valve_island_image {
+  max-width: 100%;
+  max-height: 240px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 16px rgba(94, 106, 113, 0.15));
+}
+
+.valve_island_image_small {
+  max-height: 145px;
+}
+
+.valve_islands_closing {
+  margin-top: 22px;
+  padding: 26px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.1);
+}
+
+.valve_islands_closing p:first-child {
+  text-align: center;
+  font-weight: 800;
+  color: #5e6a71;
+}
+
+.valve_islands_closing_images {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: end;
+}
+
+.valve_islands_closing_images img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 16px rgba(94, 106, 113, 0.14));
+}
+
+body.dark_theme .valve_islands_intro,
+body.dark_theme .valve_island_item,
+body.dark_theme .valve_islands_closing {
+  background-color: #1f2428;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.26);
+}
+
+body.dark_theme .valve_islands_intro p,
+body.dark_theme .valve_island_text p,
+body.dark_theme .valve_islands_closing p,
+body.dark_theme .valve_island_features li,
+body.dark_theme .valve_island_communication li,
+body.dark_theme .valve_island_communication_title {
+  color: #e2e9f1 !important;
+}
+
+body.dark_theme .valve_island_type {
+  background-color: #3a444c;
+  color: #e2e9f1;
+}
+
+body.dark_theme .valve_island_item {
+  border-color: rgba(112, 144, 183, 0.3);
+}
+
+body.dark_theme .valve_island_visual {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.18),
+      transparent 46%
+    ),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.1), rgba(31, 36, 40, 0));
+}
+
+@media (max-width: 900px) {
+  .valve_islands_content {
+    padding: 34px 24px 32px;
+  }
+
+  .valve_island_item {
+    grid-template-columns: 1fr;
+  }
+
+  .valve_island_visual {
+    order: -1;
+  }
+
+  .valve_islands_closing_images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .valve_islands_content {
+    padding: 28px 16px 24px;
+  }
+
+  .valve_islands_intro,
+  .valve_island_item,
+  .valve_islands_closing {
+    padding: 22px;
+  }
+
+  .valve_islands_intro h3 {
+    font-size: 23px;
+  }
+
+  .valve_islands_section_title {
+    font-size: 21px;
+  }
+
+  .valve_island_text h5 {
+    font-size: 20px;
+  }
+
+  .valve_island_visual_grid,
+  .valve_islands_closing_images {
+    grid-template-columns: 1fr;
   }
 }

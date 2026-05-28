@@ -69,6 +69,7 @@
         </div>
       </div>
     </header>
+
     <div class="sticky_header" id="stickyHeader">
       <div class="sticky_header_inner">
         <div class="sticky_logo">
@@ -85,13 +86,13 @@
 
         <ul class="sticky_contact">
           <li>
-            <a href="tel:+48123456789" aria-label="Zadzwoń">
+            <a href="tel:+48601764871" aria-label="Zadzwoń">
               <i class="fa-solid fa-phone"></i>
             </a>
           </li>
 
           <li>
-            <a href="mailto:Adres@email.com" aria-label="Wyślij email">
+            <a href="mailto:biuro@serwokontrol.pl" aria-label="Wyślij email">
               <i class="fa-solid fa-envelope"></i>
             </a>
           </li>
@@ -114,8 +115,9 @@
         </ul>
       </div>
     </div>
+
     <main>
-      <section class="home_hero">
+      <section class="home_hero reveal">
         <div class="home_slider" id="homeSlider">
           <article class="home_slide is_active">
             <div class="home_slide_content">
@@ -187,7 +189,10 @@
                   Znajdź przedstawiciela
                 </a>
 
-                <a class="home_secondary_btn" href="mailto:Adres@email.com">
+                <a
+                  class="home_secondary_btn"
+                  href="mailto:biuro@serwokontrol.pl"
+                >
                   Napisz wiadomość
                 </a>
               </div>
@@ -240,7 +245,7 @@
         </div>
 
         <div class="home_quick_links">
-          <article class="home_quick_card reveal reveal_delay_1">
+          <article class="home_quick_card reveal reveal_delay_1" tabindex="0">
             <div class="home_quick_icon">
               <i class="fa-solid fa-box-open"></i>
             </div>
@@ -255,7 +260,7 @@
             </a>
           </article>
 
-          <article class="home_quick_card reveal reveal_delay_2">
+          <article class="home_quick_card reveal reveal_delay_2" tabindex="0">
             <div class="home_quick_icon">
               <i class="fa-solid fa-industry"></i>
             </div>
@@ -273,7 +278,7 @@
             </a>
           </article>
 
-          <article class="home_quick_card reveal reveal_delay_3">
+          <article class="home_quick_card reveal reveal_delay_3" tabindex="0">
             <div class="home_quick_icon">
               <i class="fa-solid fa-user-gear"></i>
             </div>
@@ -307,22 +312,22 @@
           </div>
 
           <div class="home_strengths_grid">
-            <div class="home_strength_item">
+            <div class="home_strength_item reveal reveal_delay_1" tabindex="0">
               <strong>01</strong>
               <span>Doradztwo techniczne</span>
             </div>
 
-            <div class="home_strength_item">
+            <div class="home_strength_item reveal reveal_delay_2" tabindex="0">
               <strong>02</strong>
               <span>Komponenty Bürkert</span>
             </div>
 
-            <div class="home_strength_item">
+            <div class="home_strength_item reveal reveal_delay_3" tabindex="0">
               <strong>03</strong>
               <span>Obsługa klientów w Polsce</span>
             </div>
 
-            <div class="home_strength_item">
+            <div class="home_strength_item reveal reveal_delay_4" tabindex="0">
               <strong>04</strong>
               <span>Wsparcie przedstawicieli</span>
             </div>
@@ -343,6 +348,7 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div class="footer_inner">
         <div class="footer_brand">
@@ -384,6 +390,7 @@
                 +48 601 764 871
               </a>
             </li>
+
             <li>
               <a href="tel:+48713737964">
                 <i class="fa-solid fa-phone-volume"></i>
@@ -409,7 +416,12 @@
         </div>
       </div>
     </footer>
-    <button id="scrollTopBtn" class="scroll_top_btn">
+
+    <button
+      id="scrollTopBtn"
+      class="scroll_top_btn"
+      aria-label="Przewiń do góry"
+    >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
 

@@ -1,4 +1,37 @@
-/* Table Contacts */
+/* =========================================================
+   Contact Page
+   ========================================================= */
+
+/* Global keyboard focus */
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+.representative_card:focus,
+.map_area:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.representative_card:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  box-shadow:
+    0 0 0 4px rgba(112, 144, 183, 0.16),
+    0 12px 28px rgba(94, 106, 113, 0.14);
+}
+
+/* =========================================================
+   Contact Location / Company Data
+   ========================================================= */
 
 .contact_location {
   display: grid;
@@ -11,7 +44,7 @@
 .contact_card {
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
 }
 
@@ -59,7 +92,7 @@
 
 .map_box {
   min-height: 300px;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
 }
@@ -72,22 +105,86 @@
   border: 0;
 }
 
-/* Representatives Intro */
+/* =========================================================
+   Contact Intro
+   ========================================================= */
+
+.contact_intro {
+  margin-bottom: 40px;
+
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+}
+
+.contact_intro p {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #333;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.contact_intro_highlight {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+
+  background-color: rgba(112, 144, 183, 0.12);
+  color: #5e6a71;
+  border-left: 4px solid #7090b7;
+  border-radius: 8px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   Representatives Section
+   ========================================================= */
+
+.representatives_section {
+  margin-bottom: 50px;
+}
+
+/* Representatives intro */
 
 .representatives_intro {
+  position: relative;
+  overflow: hidden;
+
   margin-top: 10px;
   margin-bottom: 25px;
-  padding: 24px 28px;
+  padding: 26px 30px;
 
-  border-radius: 16px;
-  background-color: #7090b7;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.16);
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+}
+
+.representatives_intro::after {
+  content: "";
+  position: absolute;
+  inset: auto -60px -90px auto;
+
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
 }
 
 .representatives_intro span {
@@ -96,7 +193,9 @@
 
   color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   opacity: 0.9;
 }
 
@@ -104,15 +203,34 @@
   margin: 0;
   color: #ffffff;
   font-size: 24px;
+  line-height: 1.3;
 }
 
 .representatives_intro i {
+  position: relative;
+  z-index: 1;
+
+  width: 62px;
+  height: 62px;
+
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
   color: #ffffff;
-  font-size: 38px;
-  opacity: 0.9;
+  font-size: 30px;
+  opacity: 0.95;
 }
 
-/* Representatives Cards */
+/* Representatives layout */
+
+.representatives_content {
+  display: block;
+}
 
 .representatives {
   display: grid;
@@ -122,32 +240,253 @@
   margin-bottom: 50px;
 }
 
-.representative_card {
+/* =========================================================
+   City Search
+   ========================================================= */
+
+.city_search_box {
+  position: relative;
+
+  margin: -5px 0 28px;
+  padding: 0;
+
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.city_search_box label {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: #5e6a71;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.city_search_field {
+  position: relative;
+}
+
+.city_search_field input {
+  width: 100%;
+  height: 50px;
+  padding: 0 44px 0 46px;
+
+  border: 1px solid #c8d3df;
+  border-radius: 999px;
+
   background-color: #ffffff;
+  color: #333;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+
+  box-shadow: 0 8px 22px rgba(94, 106, 113, 0.1);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.city_search_field input::placeholder {
+  color: #8a969d;
+}
+
+.city_search_field input:focus {
+  outline: none;
+  border-color: #7090b7;
+  box-shadow:
+    0 0 0 4px rgba(112, 144, 183, 0.16),
+    0 12px 28px rgba(94, 106, 113, 0.16);
+  transform: translateY(-1px);
+}
+
+.city_search_field > i {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+
+  color: #7090b7;
+  font-size: 15px;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.city_suggestions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 20;
+
+  display: none;
+
+  max-height: 240px;
+  overflow: auto;
+
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid #d8e1ea;
   border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  box-shadow: 0 18px 36px rgba(94, 106, 113, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.city_suggestions.show {
+  display: block;
+  animation: suggestionsPopIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.city_suggestions li {
+  padding: 11px 12px;
+  border-radius: 11px;
+
+  color: #5e6a71;
+  font-size: 14px;
   cursor: pointer;
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.city_suggestions li:hover,
+.city_suggestions li.is_highlighted {
+  background-color: rgba(112, 144, 183, 0.13);
+  color: #7090b7;
+  transform: translateX(3px);
+}
+
+.city_suggestions li.is_empty {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.city_suggestions li.is_empty:hover {
+  background-color: transparent;
+  color: #5e6a71;
+  transform: none;
+}
+
+.city_search_hint {
+  margin: 10px 0 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #5e6a71;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  opacity: 0.88;
+}
+
+.city_search_hint i {
+  color: #7090b7;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.city_search_hint span {
+  display: inline;
+  font-size: 13px;
+}
+
+@keyframes suggestionsPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   Representative Cards
+   ========================================================= */
+
+.representative_card {
+  position: relative;
+  overflow: hidden;
+
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.representative_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.16),
+    transparent 46%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.representative_card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+
+  width: 0;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transition: width 0.3s ease;
 }
 
 .representative_card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.representative_card:hover::before,
+.representative_card:focus-within::before,
+.representative_card.is_active::before {
+  opacity: 1;
 }
 
 .representative_card.is_active {
-  outline: 2px solid #7090b7;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(94, 106, 113, 0.2);
+  outline: none;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 38px rgba(94, 106, 113, 0.24);
 }
 
-.representative_card:focus-visible {
-  outline: 3px solid rgba(112, 144, 183, 0.45);
-  outline-offset: 4px;
+.representative_card.is_active::after {
+  width: 5px;
+}
+
+.representative_card h3,
+.representative_card ul,
+.representative_region_btn {
+  position: relative;
+  z-index: 1;
 }
 
 .representative_card h3 {
@@ -180,7 +519,7 @@
 
 .representative_card strong {
   color: #333;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .representative_card a {
@@ -192,387 +531,153 @@
 
   color: #7090b7;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .representative_card a:hover {
   color: #5e6a71;
+  transform: translateX(3px);
 }
 
-/* Contact Form */
+/* =========================================================
+   Representative Region Button
+   ========================================================= */
 
-.contact_form_box {
-  margin-top: 50px;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-}
+.representative_region_btn {
+  width: 100%;
+  margin-top: 22px;
+  padding: 11px 14px;
 
-.contact_form_box h3 {
-  margin-top: 0;
-  margin-bottom: 25px;
-  color: #7090b7;
-  font-size: 24px;
-}
+  border: 1px solid rgba(112, 144, 183, 0.45);
+  border-radius: 999px;
 
-.contact_form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+  background-color: #eef3f8;
+  color: #587ca8;
 
-.contact_form label {
-  color: #5e6a71;
-  font-weight: 600;
-}
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
-.contact_form input,
-.contact_form textarea {
-  padding: 12px 14px;
-  border: 1px solid #c8d3df;
-  border-radius: 8px;
   font-family: "Inter", sans-serif;
-  font-size: 16px;
-}
+  font-size: 14px;
+  font-weight: 800;
 
-.contact_form textarea {
-  resize: vertical;
-}
-
-.contact_form button {
-  margin-top: 10px;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  background-color: #7090b7;
-  color: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(94, 106, 113, 0.18);
+  box-shadow: 0 6px 16px rgba(94, 106, 113, 0.12);
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 
   transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.3s ease,
-    transform 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-.contact_form button:hover {
-  background-color: #587ca8;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.28);
-}
-.form_status {
-  margin: 12px 0 0;
-
-  color: #5e6a71;
+.representative_region_btn span {
+  color: inherit;
+  opacity: 1;
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
 }
 
-.form_status.success {
-  color: #2f7d4f;
-}
+.representative_region_btn_icon {
+  width: 30px;
+  height: 30px;
 
-.form_status.error {
-  color: #b74343;
-}
-
-.contact_form button.is_loading {
-  opacity: 0.75;
-  cursor: not-allowed;
-  transform: none;
-}
-
-body.dark_theme .form_status {
-  color: #e2e9f1;
-}
-
-body.dark_theme .form_status.success {
-  color: #79d69e;
-}
-
-body.dark_theme .form_status.error {
-  color: #ff9a9a;
-}
-.contact_cta {
-  margin-top: 40px;
-  padding: 25px;
-  border-radius: 16px;
+  border-radius: 50%;
   background-color: #7090b7;
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.16);
 
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-}
+  justify-content: center;
 
-.contact_cta p {
-  margin: 0;
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.contact_cta a {
-  color: #7090b7;
-  background-color: #ffffff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 6px 16px rgba(94, 106, 113, 0.18);
+  font-size: 13px;
+  flex-shrink: 0;
 
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.contact_cta a:hover {
-  background-color: #5e6a71;
-  color: #ffffff;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.32);
-}
-
-/* Contact Intro */
-
-.contact_intro {
-  margin-bottom: 40px;
-
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-}
-
-.contact_intro p {
-  margin-top: 0;
-  margin-bottom: 18px;
-  color: #333;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.contact_intro_highlight {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 14px;
-
-  background-color: rgba(112, 144, 183, 0.12);
-  color: #5e6a71;
-  border-left: 4px solid #7090b7;
-  border-radius: 8px;
-
-  font-weight: 600;
-}
-
-/* City Search Box */
-
-.city_search_box {
-  position: relative;
-
-  margin: -5px 0 28px;
-  padding: 0;
-
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.city_search_box label {
-  display: inline-block;
-  margin-bottom: 8px;
-
-  color: #5e6a71;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.city_search_field {
-  position: relative;
-}
-
-.city_search_field input {
-  width: 100%;
-  height: 48px;
-  padding: 0 44px 0 46px;
-
-  border: 1px solid #c8d3df;
-  border-radius: 999px;
-
-  background-color: #ffffff;
-  color: #333;
-
-  font-family: "Inter", sans-serif;
-  font-size: 15px;
-
-  box-shadow: 0 6px 18px rgba(94, 106, 113, 0.1);
-
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease,
     transform 0.3s ease;
 }
 
-.city_search_field input::placeholder {
-  color: #8a969d;
+.representative_region_btn_icon i {
+  color: #ffffff;
+}
+.representative_region_btn:hover .representative_region_btn_icon i,
+.representative_region_btn:focus-visible .representative_region_btn_icon i {
+  color: #7090b7;
+}
+.representative_card:hover .representative_region_btn,
+.representative_card:focus-within .representative_region_btn,
+.representative_card.is_active .representative_region_btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.city_search_field input:focus {
-  outline: none;
+.representative_region_btn:hover,
+.representative_region_btn:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
   border-color: #7090b7;
-  box-shadow:
-    0 0 0 3px rgba(112, 144, 183, 0.16),
-    0 8px 22px rgba(94, 106, 113, 0.14);
-  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(94, 106, 113, 0.24);
 }
 
-.city_search_field input:focus-visible {
-  outline: 3px solid rgba(112, 144, 183, 0.45);
-  outline-offset: 3px;
-}
-
-.city_search_field i {
-  position: absolute;
-  top: 50%;
-  left: 18px;
-
-  color: #7090b7;
-  font-size: 15px;
-
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.city_suggestions {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% + 8px);
-  z-index: 20;
-
-  display: none;
-
-  max-height: 220px;
-  overflow: auto;
-
-  list-style: none;
-  margin: 0;
-  padding: 8px;
-
+.representative_region_btn:hover .representative_region_btn_icon,
+.representative_region_btn:focus-visible .representative_region_btn_icon {
   background-color: #ffffff;
-  border: 1px solid #d8e1ea;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.18);
-}
-
-.city_suggestions.show {
-  display: block;
-  animation: suggestionsFadeIn 0.2s ease both;
-}
-
-.city_suggestions li {
-  padding: 10px 12px;
-  border-radius: 10px;
-
-  color: #5e6a71;
-  font-size: 14px;
-  cursor: pointer;
-
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
-}
-
-.city_suggestions li:hover,
-.city_suggestions li.is_highlighted {
-  background-color: rgba(112, 144, 183, 0.12);
   color: #7090b7;
+  transform: translateX(2px) rotate(-6deg);
 }
 
-.city_suggestions li.is_empty {
-  cursor: default;
-  opacity: 0.75;
-}
-
-.city_suggestions li.is_empty:hover {
-  background-color: transparent;
-  color: #5e6a71;
-}
-
-.city_search_hint {
-  margin: 8px 0 0;
-  padding-left: 2px;
-
-  color: #5e6a71;
-  font-size: 13px;
-  line-height: 1.5;
-  opacity: 0.85;
-}
-
-@keyframes suggestionsFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.city_search_hint {
-  margin: 8px 0 0;
-
-  display: flex;
-  align-items: center;
-  gap: 7px;
-
-  color: #5e6a71;
-  font-size: 1px;
-  font-weight: 500;
-  line-height: 1.4;
-  opacity: 0.85;
-}
-
-.city_search_hint i {
-  color: #7090b7;
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-.city_search_hint span {
-  display: inline;
-  font-size: 13px;
-}
-/* Representatives Interactive Map */
-
-.representatives_section {
-  margin-bottom: 50px;
-}
-
-.representatives_content {
-  display: block;
-}
+/* =========================================================
+   Representatives Map Panel
+   ========================================================= */
 
 .representatives_map_panel {
   position: relative;
+  overflow: hidden;
 
   display: none;
 
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+}
+
+.representatives_map_panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.representatives_map_panel > *:not(.representatives_map_close) {
+  position: relative;
+  z-index: 1;
 }
 
 .representatives_section.region_mode .representatives_content {
@@ -593,18 +698,32 @@ body.dark_theme .form_status.error {
 
 .representatives_section.region_mode .representatives_map_panel {
   display: block;
-  animation: mapPanelFadeIn 0.35s ease both;
+  animation: mapPanelEnter 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes mapPanelFadeIn {
+.representatives_section.region_mode .representatives_map_panel::after {
+  animation: mapPanelScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes mapPanelEnter {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mapPanelScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
   }
 }
 
@@ -612,6 +731,7 @@ body.dark_theme .form_status.error {
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 2;
 
   width: 36px;
   height: 36px;
@@ -637,7 +757,7 @@ body.dark_theme .form_status.error {
 .representatives_map_close:hover {
   background-color: #7090b7;
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(-2px) rotate(8deg);
 }
 
 .representatives_map_header {
@@ -666,9 +786,12 @@ body.dark_theme .form_status.error {
   margin: 0;
   color: #333;
   font-size: 16px;
+  line-height: 1.6;
 }
 
-/* Active City Info */
+/* =========================================================
+   Active City Info
+   ========================================================= */
 
 .active_city_info {
   display: none;
@@ -677,7 +800,7 @@ body.dark_theme .form_status.error {
   padding: 9px 10px 9px 12px;
 
   border-left: 4px solid #7090b7;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: rgba(112, 144, 183, 0.12);
 
   color: #5e6a71;
@@ -692,7 +815,7 @@ body.dark_theme .form_status.error {
 
 .active_city_info.show {
   display: flex;
-  animation: activeCityFadeIn 0.25s ease both;
+  animation: activeCityPremiumPop 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .active_city_clear {
@@ -721,26 +844,44 @@ body.dark_theme .form_status.error {
 .active_city_clear:hover {
   background-color: rgba(112, 144, 183, 0.16);
   color: #5e6a71;
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(8deg);
 }
 
-@keyframes activeCityFadeIn {
+@keyframes activeCityPremiumPop {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Poland Map */
+/* =========================================================
+   Poland Map
+   ========================================================= */
 
 .poland_map {
   max-width: 520px;
   margin: 0 auto;
+}
+
+.representatives_section.region_mode .poland_map {
+  animation: mapSoftEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+@keyframes mapSoftEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .poland_map svg {
@@ -749,7 +890,7 @@ body.dark_theme .form_status.error {
   display: block;
 }
 
-/* Map Base - optimized */
+/* Map base */
 
 .map_region .map_area {
   fill: #c8d3df;
@@ -758,18 +899,43 @@ body.dark_theme .form_status.error {
   opacity: 0.58;
   cursor: pointer;
 
+  transform-box: fill-box;
+  transform-origin: center;
+
   transition:
     fill 0.18s ease,
     opacity 0.18s ease,
-    stroke-width 0.18s ease;
+    stroke-width 0.18s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .map_region .map_area:hover {
   fill: #587ca8;
   opacity: 1;
+  stroke-width: 1.8;
 }
 
-/* Active Region */
+/* Accessible map focus */
+
+.map_area,
+.map_area:focus,
+.map_area:focus-visible,
+.map_area:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map_area.is_keyboard_focused {
+  stroke-width: 2.4;
+}
+
+.representatives_section
+  .map_region
+  .map_area.is_selected_city.is_keyboard_focused {
+  stroke-width: 3.2;
+}
+
+/* Active region */
 
 .representatives_section.active_south .map_south .map_area,
 .representatives_section.active_west .map_west .map_area,
@@ -792,7 +958,7 @@ body.dark_theme .form_status.error {
   transform: translateX(2px);
 }
 
-/* Selected city/county - optimized, no filter, no animation */
+/* Selected city/county */
 
 .representatives_section .map_region .map_area.is_selected_city {
   fill: #324f75;
@@ -810,7 +976,27 @@ body.dark_theme .form_status.error {
   opacity: 1;
 }
 
-/* Map Legend */
+/* Click feedback */
+
+.map_area.is_map_clicked {
+  animation: selectedCityPop 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes selectedCityPop {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.028);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Map legend */
 
 .map_legend {
   display: flex;
@@ -843,7 +1029,7 @@ body.dark_theme .form_status.error {
   background-color: #324f75;
 }
 
-/* Map Hint */
+/* Map hint */
 
 .representatives_map_hint {
   margin: 20px 0 0;
@@ -858,61 +1044,128 @@ body.dark_theme .form_status.error {
   font-weight: 600;
 }
 
-/* Contact Dark Theme */
+/* Map tooltip */
 
-body.dark_theme .contact_form_box {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+.map_tooltip {
+  position: fixed;
+  z-index: 20000;
+
+  display: none;
+  pointer-events: none;
+
+  min-width: 120px;
+  padding: 9px 11px;
+
+  border-radius: 12px;
+  background-color: rgba(36, 44, 50, 0.94);
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
+
+  transform: translate(12px, 12px) scale(0.96);
+  opacity: 0;
+
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
 }
 
-body.dark_theme .contact_form label {
-  color: #e2e9f1;
+.map_tooltip.show {
+  display: block;
+  opacity: 1;
+  transform: translate(12px, 12px) scale(1);
 }
 
-body.dark_theme .contact_form input,
-body.dark_theme .contact_form textarea {
-  background-color: #1f2428;
-  border-color: #3a444c;
-  color: #e2e9f1;
+.map_tooltip span {
+  display: block;
 }
 
-body.dark_theme .contact_intro {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+.map_tooltip small {
+  display: block;
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 600;
 }
 
-body.dark_theme .contact_intro p {
-  color: #e2e9f1;
+/* =========================================================
+   Contact Form
+   ========================================================= */
+
+.contact_form_box {
+  margin-top: 50px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
 }
 
-body.dark_theme .contact_form button {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+.contact_form_box h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #7090b7;
+  font-size: 24px;
 }
 
-body.dark_theme .contact_form button:hover {
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.38);
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-body.dark_theme .contact_intro_highlight {
-  background-color: rgba(112, 144, 183, 0.18);
-  color: #e2e9f1;
-  border-left-color: #7090b7;
+.contact_form label {
+  color: #5e6a71;
+  font-weight: 700;
 }
 
-body.dark_theme .contact_cta {
+.contact_form input,
+.contact_form textarea {
+  padding: 12px 14px;
+  border: 1px solid #c8d3df;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #333;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+  outline: none;
+  border-color: #7090b7;
+  box-shadow:
+    0 0 0 4px rgba(112, 144, 183, 0.15),
+    0 8px 18px rgba(94, 106, 113, 0.1);
+  transform: translateY(-1px);
+}
+
+.contact_form textarea {
+  resize: vertical;
+}
+
+.contact_form button {
+  margin-top: 10px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
   background-color: #7090b7;
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-body.dark_theme .contact_cta p {
-  color: #ffffff;
-}
-
-body.dark_theme .contact_cta a {
-  background-color: #ffffff;
-  color: #7090b7;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(94, 106, 113, 0.18);
 
   transition:
     background-color 0.3s ease,
@@ -920,111 +1173,153 @@ body.dark_theme .contact_cta a {
     box-shadow 0.3s ease;
 }
 
-body.dark_theme .contact_cta a:hover {
+.contact_form button:hover {
+  background-color: #587ca8;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(94, 106, 113, 0.28);
+}
+
+.contact_form button.is_loading {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Form status */
+
+.form_status {
+  margin: 12px 0 0;
+
+  color: #5e6a71;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.form_status.success,
+.form_status.error {
+  padding: 10px 12px;
+  border-radius: 10px;
+  animation: statusPop 0.25s ease both;
+}
+
+.form_status.success {
+  color: #2f7d4f;
+  background-color: rgba(47, 125, 79, 0.12);
+}
+
+.form_status.error {
+  color: #b74343;
+  background-color: rgba(183, 67, 67, 0.12);
+}
+
+@keyframes statusPop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Contact CTA
+   ========================================================= */
+
+.contact_cta {
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 18px;
+  background-color: #7090b7;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.16);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact_cta p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.contact_cta a {
+  color: #7090b7;
+  background-color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(94, 106, 113, 0.18);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact_cta a:hover {
   background-color: #5e6a71;
   color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 12px 26px rgba(94, 106, 113, 0.32);
 }
 
-body.dark_theme .contact_card {
+/* =========================================================
+   Dark Theme
+   ========================================================= */
+
+body.dark_theme .contact_card,
+body.dark_theme .contact_form_box,
+body.dark_theme .contact_intro,
+body.dark_theme .representative_card,
+body.dark_theme .representatives_map_panel {
   background-color: #242c32;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body.dark_theme .contact_card h3 {
+body.dark_theme .contact_card h3,
+body.dark_theme .contact_form_box h3,
+body.dark_theme .contact_intro_highlight,
+body.dark_theme .representative_card h3,
+body.dark_theme .representatives_map_header span,
+body.dark_theme .representatives_map_header h3,
+body.dark_theme .city_search_box label {
   color: #7090b7;
 }
 
 body.dark_theme .company_contact li,
-body.dark_theme .company_contact a {
+body.dark_theme .company_contact a,
+body.dark_theme .contact_form label,
+body.dark_theme .contact_intro p,
+body.dark_theme .representative_card span,
+body.dark_theme .representatives_map_header p,
+body.dark_theme .city_search_hint {
   color: #e2e9f1;
-}
-
-body.dark_theme .company_contact i {
-  color: #7090b7;
-}
-
-body.dark_theme .company_contact a:hover {
-  color: #7090b7;
-}
-
-body.dark_theme .map_box {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-body.dark_theme .representative_card {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-body.dark_theme .representative_card:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-}
-
-body.dark_theme .representative_card.is_active {
-  outline-color: #7090b7;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-}
-
-body.dark_theme .representative_card:focus-visible {
-  outline-color: rgba(112, 144, 183, 0.65);
-}
-
-body.dark_theme .representative_card h3 {
-  color: #7090b7;
-}
-
-body.dark_theme .representative_card span {
-  color: #e2e9f1;
-  opacity: 0.75;
 }
 
 body.dark_theme .representative_card strong {
-  color: #e2e9f1;
-}
-
-body.dark_theme .representative_card a {
-  color: #7090b7;
-}
-
-body.dark_theme .representative_card a:hover {
   color: #ffffff;
 }
 
-/* Dark Theme City Search Box */
-
-body.dark_theme .city_search_box {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-body.dark_theme .city_search_box label {
-  color: #e2e9f1;
-}
-
-body.dark_theme .city_search_field input {
-  background-color: #242c32;
-  border-color: #3a444c;
-  color: #e2e9f1;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+body.dark_theme .city_search_field input,
+body.dark_theme .contact_form input,
+body.dark_theme .contact_form textarea,
+body.dark_theme .city_suggestions {
+  background-color: #1f2428;
+  border-color: #5e6a71;
+  color: #ffffff;
 }
 
 body.dark_theme .city_search_field input::placeholder {
-  color: rgba(226, 233, 241, 0.58);
-}
-
-body.dark_theme .city_search_field input:focus {
-  border-color: #7090b7;
-  box-shadow:
-    0 0 0 3px rgba(112, 144, 183, 0.2),
-    0 8px 22px rgba(0, 0, 0, 0.32);
-}
-
-body.dark_theme .city_suggestions {
-  background-color: #242c32;
-  border-color: #3a444c;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+  color: #aab6bf;
 }
 
 body.dark_theme .city_suggestions li {
@@ -1042,48 +1337,39 @@ body.dark_theme .city_suggestions li.is_empty:hover {
   color: #e2e9f1;
 }
 
-body.dark_theme .city_search_hint {
-  color: #e2e9f1;
-  opacity: 0.75;
-}
-body.dark_theme .city_search_hint {
-  color: #e2e9f1;
-  opacity: 0.75;
+/* Dark theme - representative region button */
+
+body.dark_theme .representative_region_btn {
+  background-color: #343d45;
+  color: #ffffff;
+  border-color: rgba(112, 144, 183, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
 }
 
-body.dark_theme .city_search_hint i {
-  color: #9bb8dc;
-}
-/* Representatives Interactive Map Dark Theme */
-
-body.dark_theme .representatives_map_panel {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+body.dark_theme .representative_region_btn_icon {
+  background-color: #7090b7;
+  color: #ffffff;
 }
 
-body.dark_theme .representatives_map_header span,
-body.dark_theme .representatives_map_header h3 {
+body.dark_theme .representative_region_btn:hover,
+body.dark_theme .representative_region_btn:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  border-color: #7090b7;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+
+body.dark_theme
+  .representative_region_btn:hover
+  .representative_region_btn_icon,
+body.dark_theme
+  .representative_region_btn:focus-visible
+  .representative_region_btn_icon {
+  background-color: #ffffff;
   color: #7090b7;
 }
 
-body.dark_theme .representatives_map_header p {
-  color: #e2e9f1;
-}
-
-body.dark_theme .active_city_info {
-  background-color: rgba(112, 144, 183, 0.18);
-  color: #e2e9f1;
-  border-left-color: #7090b7;
-}
-
-body.dark_theme .active_city_clear {
-  color: #e2e9f1;
-}
-
-body.dark_theme .active_city_clear:hover {
-  background-color: rgba(112, 144, 183, 0.22);
-  color: #ffffff;
-}
+/* Dark theme - map */
 
 body.dark_theme .representatives_map_close {
   background-color: #5e6a71;
@@ -1092,6 +1378,12 @@ body.dark_theme .representatives_map_close {
 
 body.dark_theme .representatives_map_close:hover {
   background-color: #7090b7;
+}
+
+body.dark_theme .active_city_info,
+body.dark_theme .contact_intro_highlight {
+  background-color: rgba(112, 144, 183, 0.16);
+  color: #e2e9f1;
 }
 
 body.dark_theme .map_region .map_area {
@@ -1154,33 +1446,51 @@ body.dark_theme .representatives_map_hint {
   border-left-color: #7090b7;
 }
 
-/* Reduced Motion */
-
-@media (prefers-reduced-motion: reduce) {
-  .representatives_section.region_mode .representatives_map_panel,
-  .active_city_info.show,
-  .city_suggestions.show {
-    animation: none;
-  }
-
-  .city_search_field input:focus {
-    transform: none;
-  }
-
-  .representative_card,
-  .representative_card:hover,
-  .contact_form button,
-  .contact_cta a,
-  .representatives_map_close,
-  .active_city_clear,
-  .map_region .map_area {
-    transition: none;
-  }
+body.dark_theme .map_tooltip {
+  background-color: rgba(226, 233, 241, 0.94);
+  color: #242c32;
 }
 
-/* Contact Responsive */
+body.dark_theme .map_tooltip small {
+  color: rgba(36, 44, 50, 0.72);
+}
+
+body.dark_theme .representatives_map_panel::after {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(112, 144, 183, 0.16) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+/* Dark theme - form status */
+
+body.dark_theme .form_status {
+  color: #e2e9f1;
+}
+
+body.dark_theme .form_status.success {
+  color: #79d69e;
+  background-color: rgba(121, 214, 158, 0.12);
+}
+
+body.dark_theme .form_status.error {
+  color: #ff9a9a;
+  background-color: rgba(255, 154, 154, 0.12);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
 
 @media (max-width: 992px) {
+  .contact_location {
+    grid-template-columns: 1fr;
+  }
+
   .representatives {
     grid-template-columns: 1fr;
   }
@@ -1189,68 +1499,46 @@ body.dark_theme .representatives_map_hint {
     grid-template-columns: 1fr;
   }
 
-  .poland_map {
-    max-width: 420px;
+  .representatives_section.region_mode .representatives_map_panel {
+    animation: mapPanelEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
 @media (max-width: 768px) {
-  .contact_location {
-    grid-template-columns: 1fr;
-  }
-
-  .contact_card {
-    padding: 25px;
-  }
-
-  .map_box iframe {
-    min-height: 260px;
-  }
-
-  .representatives {
-    grid-template-columns: 1fr;
-  }
-
-  .representative_card {
-    padding: 22px;
-  }
-
-  .representatives_intro {
-    align-items: flex-start;
-    padding: 24px;
-  }
-
-  .representatives_intro i {
-    display: none;
-  }
-
+  .contact_card,
+  .contact_form_box,
+  .contact_intro,
   .representatives_map_panel {
     padding: 24px;
   }
 
-  .representatives_map_header {
-    padding-right: 42px;
+  .representatives_intro {
+    padding: 24px;
+    align-items: flex-start;
   }
 
-  .representatives_map_header h3 {
+  .representatives_intro i {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+
+  .representatives_intro h3 {
     font-size: 22px;
   }
 
-  .representatives_section.region_mode .representatives {
-    margin-bottom: 0;
+  .representative_card {
+    padding: 24px;
   }
 
-  .poland_map {
-    max-width: 100%;
+  .representative_region_btn {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
-  .city_search_box {
-    padding: 0;
-  }
-
-  .city_suggestions {
-    left: 0;
-    right: 0;
+  .representatives_map_header {
+    padding-right: 42px;
   }
 
   .contact_cta {
@@ -1262,8 +1550,1143 @@ body.dark_theme .representatives_map_hint {
     width: 100%;
     text-align: center;
   }
+}
 
-  .map_legend {
-    gap: 10px;
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .representatives_map_panel::after,
+  .representatives_section.region_mode .poland_map,
+  .active_city_info.show,
+  .city_suggestions.show,
+  .form_status.success,
+  .form_status.error,
+  .map_area.is_map_clicked {
+    animation: none;
   }
+
+  .city_search_field input:focus {
+    transform: none;
+  }
+
+  .representative_card,
+  .representative_card:hover,
+  .representative_region_btn,
+  .contact_form button,
+  .contact_cta a,
+  .representatives_map_close,
+  .active_city_clear,
+  .map_region .map_area,
+  .map_tooltip {
+    transition: none;
+  }
+}
+/* =========================================================
+   Contact Page Extra Premium Effects
+   Elements outside interactive region map
+   ========================================================= */
+
+/* Contact data card */
+
+.contact_card {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact_card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 26px;
+  bottom: 26px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.contact_card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.14),
+    transparent 46%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.contact_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.contact_card:hover::before {
+  transform: scaleY(1);
+}
+
+.contact_card:hover::after {
+  opacity: 1;
+}
+
+.contact_card h3,
+.company_contact {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact links inside card */
+
+.company_contact li,
+.company_contact a {
+  width: fit-content;
+}
+
+.company_contact a {
+  position: relative;
+
+  padding: 3px 0;
+}
+
+.company_contact a::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  right: 0;
+  bottom: -2px;
+
+  height: 1px;
+  background-color: #7090b7;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.28s ease;
+}
+
+.company_contact a:hover::after,
+.company_contact a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.company_contact i {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.company_contact a:hover i,
+.company_contact a:focus-visible i {
+  color: #7090b7;
+  transform: translateY(-2px) scale(1.08);
+}
+
+/* Google map box */
+
+.map_box {
+  position: relative;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.map_box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  border-radius: inherit;
+  border: 1px solid rgba(112, 144, 183, 0.24);
+
+  pointer-events: none;
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.map_box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.map_box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.map_box:hover::before {
+  border-color: rgba(112, 144, 183, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(112, 144, 183, 0.12);
+}
+
+.map_box:hover::after {
+  animation: contactMapScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes contactMapScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* Contact form box */
+
+.contact_form_box {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.contact_form_box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.contact_form_box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.12),
+    transparent 48%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.contact_form_box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.contact_form_box:hover::before {
+  transform: scaleY(1);
+}
+
+.contact_form_box:hover::after {
+  opacity: 1;
+}
+
+.contact_form_box h3,
+.contact_form {
+  position: relative;
+  z-index: 1;
+}
+
+/* Form fields premium interaction */
+
+.contact_form input,
+.contact_form textarea {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.contact_form input:hover,
+.contact_form textarea:hover {
+  border-color: rgba(112, 144, 183, 0.6);
+  box-shadow: 0 8px 18px rgba(94, 106, 113, 0.08);
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+  transform: translateY(-2px);
+}
+
+/* Submit button */
+
+.contact_form button {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact_form button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.26) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.contact_form button:hover::before,
+.contact_form button:focus-visible::before {
+  animation: contactButtonScan 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes contactButtonScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* Contact CTA */
+
+.contact_cta {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.contact_cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.contact_cta::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -90px;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.contact_cta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.24);
+}
+
+.contact_cta:hover::before {
+  animation: contactCtaScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact_cta p,
+.contact_cta a {
+  position: relative;
+  z-index: 1;
+}
+
+.contact_cta a:hover,
+.contact_cta a:focus-visible {
+  background-color: #ffffff;
+  color: #587ca8;
+  transform: translateY(-3px);
+}
+
+@keyframes contactCtaScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================================
+   Dark Theme - Extra Effects
+   ========================================================= */
+
+body.dark_theme .contact_card:hover,
+body.dark_theme .contact_form_box:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
+body.dark_theme .contact_card::after,
+body.dark_theme .contact_form_box::after {
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.14),
+    transparent 48%
+  );
+}
+
+body.dark_theme .map_box:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
+body.dark_theme .map_box::before {
+  border-color: rgba(112, 144, 183, 0.18);
+}
+
+body.dark_theme .map_box:hover::before {
+  border-color: rgba(112, 144, 183, 0.52);
+}
+
+body.dark_theme .map_box::after {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(112, 144, 183, 0.16) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+}
+
+body.dark_theme .contact_cta {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+body.dark_theme .contact_cta:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+}
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact_card,
+  .contact_card::before,
+  .contact_card::after,
+  .company_contact a,
+  .company_contact a::after,
+  .company_contact i,
+  .map_box,
+  .map_box::before,
+  .map_box::after,
+  .contact_form_box,
+  .contact_form_box::before,
+  .contact_form_box::after,
+  .contact_form input,
+  .contact_form textarea,
+  .contact_form button::before,
+  .contact_cta,
+  .contact_cta::before {
+    animation: none;
+    transition: none;
+  }
+
+  .contact_card:hover,
+  .map_box:hover,
+  .contact_form_box:hover,
+  .contact_cta:hover,
+  .contact_form input:focus,
+  .contact_form textarea:focus {
+    transform: none;
+  }
+}
+/* =========================================================
+   Contact Page Premium Layout
+   Bez dodawania nowych danych kontaktowych
+   ========================================================= */
+
+.contact_page {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact_page > h2 {
+  align-self: flex-start;
+  margin-bottom: -5px;
+}
+
+/* =========================================================
+   Representatives Section - Premium Frame
+   ========================================================= */
+
+.contact_page .representatives_section {
+  position: relative;
+  overflow: hidden;
+
+  margin-bottom: 10px;
+  padding: 28px;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(135deg, rgba(238, 243, 248, 0.95), #ffffff);
+
+  box-shadow: 0 12px 34px rgba(94, 106, 113, 0.14);
+}
+
+/* .contact_page .representatives_section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact_page .representatives_section:hover::before {
+  animation: contactSectionScan 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+} */
+
+.contact_page .representatives_section::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -115px;
+
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+
+  background-color: rgba(112, 144, 183, 0.1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact_page .representatives_intro,
+.contact_page .city_search_box,
+.contact_page .representatives_content {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Representatives Intro - mocniejszy nagłówek sekcji
+   ========================================================= */
+
+.contact_page .representatives_intro {
+  margin-top: 0;
+  margin-bottom: 26px;
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.28),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  box-shadow: 0 14px 32px rgba(94, 106, 113, 0.22);
+}
+
+.contact_page .representatives_intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.contact_page .representatives_intro:hover::before {
+  animation: contactSectionScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact_page .representatives_intro::after {
+  right: -70px;
+  bottom: -90px;
+
+  width: 210px;
+  height: 210px;
+}
+
+.contact_page .representatives_intro span,
+.contact_page .representatives_intro h3,
+.contact_page .representatives_intro i {
+  position: relative;
+  z-index: 1;
+}
+
+.contact_page .representatives_intro h3 {
+  max-width: 720px;
+  font-size: 30px;
+}
+
+.contact_page .representatives_intro i {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 20px;
+  font-size: 34px;
+
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.contact_page .representatives_intro:hover i {
+  transform: translateY(-4px) rotate(-4deg);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   City Search - bardziej widoczny panel wyszukiwania
+   ========================================================= */
+
+.contact_page .city_search_box {
+  margin: 0 0 30px;
+  padding: 22px;
+  border-radius: 20px;
+
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+}
+
+.contact_page .city_search_box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  bottom: 22px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.contact_page .city_search_box:hover::before,
+.contact_page .city_search_box:focus-within::before {
+  transform: scaleY(1);
+}
+
+.contact_page .city_search_box label {
+  margin-left: 10px;
+  margin-bottom: 12px;
+
+  color: #7090b7;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.contact_page .city_search_field input {
+  height: 56px;
+  border-radius: 999px;
+
+  box-shadow: 0 10px 26px rgba(94, 106, 113, 0.12);
+}
+
+.contact_page .city_search_field input:hover {
+  border-color: rgba(112, 144, 183, 0.55);
+  box-shadow: 0 13px 30px rgba(94, 106, 113, 0.15);
+}
+
+.contact_page .city_search_hint {
+  margin-left: 10px;
+}
+
+/* =========================================================
+   Representative Cards - efekt jak produkty / o nas
+   ========================================================= */
+
+.contact_page .representatives {
+  gap: 25px;
+  margin-bottom: 34px;
+}
+
+.contact_page .representative_card {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact_page .representative_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.14),
+    transparent 48%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease;
+}
+
+.contact_page .representative_card::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+
+  height: 4px;
+  border-radius: 999px 999px 0 0;
+  background-color: #7090b7;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
+}
+
+.contact_page .representative_card:hover,
+.contact_page .representative_card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.contact_page .representative_card:hover::before,
+.contact_page .representative_card:focus-visible::before {
+  opacity: 1;
+}
+
+.contact_page .representative_card:hover::after,
+.contact_page .representative_card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.contact_page .representative_card h3,
+.contact_page .representative_card ul,
+.contact_page .representative_region_btn {
+  position: relative;
+  z-index: 1;
+}
+
+.contact_page .representative_card h3 {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 22px;
+}
+
+.contact_page .representative_card h3::after {
+  content: "";
+  display: block;
+
+  width: 38px;
+  height: 3px;
+  margin-top: 10px;
+
+  border-radius: 999px;
+  background-color: #7090b7;
+}
+
+.contact_page .representative_card li {
+  padding: 8px 0;
+}
+
+.contact_page .representative_card li + li {
+  border-top: 1px solid rgba(112, 144, 183, 0.12);
+}
+
+.contact_page .representative_card a {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact_page .representative_card a:hover,
+.contact_page .representative_card a:focus-visible {
+  color: #7090b7;
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   Region Button - bardziej premium
+   ========================================================= */
+
+.contact_page .representative_region_btn {
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.contact_page .representative_region_btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.26) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.contact_page .representative_region_btn:hover::before,
+.contact_page .representative_region_btn:focus-visible::before {
+  animation: contactSectionScan 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* =========================================================
+   Map Panel - lepsza oprawa mapy
+   ========================================================= */
+
+.contact_page .representatives_map_panel {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 22px;
+  box-shadow: 0 12px 34px rgba(94, 106, 113, 0.16);
+}
+
+.contact_page .representatives_map_panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top right,
+    rgba(112, 144, 183, 0.12),
+    transparent 38%
+  );
+  pointer-events: none;
+}
+
+.contact_page .representatives_map_header,
+.contact_page .poland_map,
+.contact_page .representatives_map_hint,
+.contact_page .map_legend {
+  position: relative;
+  z-index: 1;
+}
+
+.contact_page .representatives_map_header h3 {
+  font-size: 28px;
+}
+
+.contact_page .poland_map {
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.12),
+      transparent 40%
+    ),
+    #eef3f8;
+
+  box-shadow: inset 0 0 0 1px rgba(112, 144, 183, 0.14);
+}
+
+/* =========================================================
+   CTA i formularz - delikatne dopięcie do reszty
+   ========================================================= */
+
+.contact_page .contact_cta {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 0;
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.24),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
+}
+
+.contact_page .contact_cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.contact_page .contact_cta:hover::before {
+  animation: contactSectionScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact_page .contact_cta p,
+.contact_page .contact_cta a {
+  position: relative;
+  z-index: 1;
+}
+
+.contact_page .contact_form_box {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 22px;
+  box-shadow: 0 12px 34px rgba(94, 106, 113, 0.14);
+}
+
+.contact_page .contact_form_box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30px;
+  bottom: 30px;
+
+  width: 4px;
+  border-radius: 999px;
+  background-color: #7090b7;
+
+  transform: scaleY(0.55);
+  transform-origin: center;
+
+  transition: transform 0.35s ease;
+}
+
+.contact_page .contact_form_box:hover::before,
+.contact_page .contact_form_box:focus-within::before {
+  transform: scaleY(1);
+}
+
+/* =========================================================
+   Animation
+   ========================================================= */
+
+@keyframes contactSectionScan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================================
+   Dark Theme
+   ========================================================= */
+
+body.dark_theme .contact_page .representatives_section {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #1f2428, #242c32);
+
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.3);
+}
+
+body.dark_theme .contact_page .city_search_box,
+body.dark_theme .contact_page .representative_card,
+body.dark_theme .contact_page .contact_form_box {
+  background-color: #242c32;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.dark_theme .contact_page .representative_card:hover,
+body.dark_theme .contact_page .representative_card:focus-visible,
+body.dark_theme .contact_page .representatives_map_panel,
+body.dark_theme .contact_page .contact_form_box {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
+body.dark_theme .contact_page .representative_card li + li {
+  border-top-color: rgba(112, 144, 183, 0.18);
+}
+
+body.dark_theme .contact_page .poland_map {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.14),
+      transparent 40%
+    ),
+    #1f2428;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .contact_page .representatives_section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .contact_page .representatives_intro {
+    padding: 24px;
+  }
+
+  .contact_page .representatives_intro h3 {
+    font-size: 24px;
+  }
+
+  .contact_page .city_search_box {
+    padding: 20px;
+  }
+}
+/* =========================================================
+   Fix: Representative card active/hover pseudo-element artifact
+   ========================================================= */
+
+.contact_page .representative_card::after {
+  width: auto;
+  left: 24px;
+  right: 24px;
+  top: auto;
+  bottom: 0;
+  height: 4px;
+}
+
+.contact_page .representative_card.is_active::after {
+  width: auto;
+  transform: scaleX(1);
+}
+
+.contact_page .representative_card h3::before {
+  content: none;
+}
+
+.contact_page .representative_card h3::after {
+  position: static;
 }

@@ -1,13 +1,6 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
 
-/*
-  PRODUKCYJNA WERSJA send-mail.php
-
-  Ten plik odbiera dane z formularza kontaktowego
-  i wysyła wiadomość na adres firmowy.
-*/
-
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   echo json_encode([
     "success" => false,
@@ -22,10 +15,6 @@ $phone = trim($_POST["phone"] ?? "");
 $message = trim($_POST["message"] ?? "");
 $company = trim($_POST["company"] ?? "");
 
-/*
-  Zabezpieczenie pól jednowierszowych.
-  Wiadomości nie czyścimy z nowych linii, bo użytkownik może pisać dłuższy tekst.
-*/
 $name = str_replace(["\r", "\n"], " ", $name);
 $email = str_replace(["\r", "\n"], " ", $email);
 $phone = str_replace(["\r", "\n"], " ", $phone);
