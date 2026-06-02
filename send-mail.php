@@ -14,6 +14,21 @@ $email = trim($_POST["email"] ?? "");
 $phone = trim($_POST["phone"] ?? "");
 $message = trim($_POST["message"] ?? "");
 $company = trim($_POST["company"] ?? "");
+$website = trim($_POST["website"] ?? "");
+
+/*
+  Honeypot antyspamowy.
+  Pole "website" jest ukryte w formularzu. Użytkownik go nie wypełnia,
+  ale boty często wpisują tam treść. W takim przypadku udajemy sukces,
+  żeby nie podpowiadać botowi, że został wykryty.
+*/
+if ($website !== "") {
+  echo json_encode([
+    "success" => true,
+    "message" => "Wiadomość została wysłana. Dziękujemy za kontakt."
+  ]);
+  exit;
+}
 
 $name = str_replace(["\r", "\n"], " ", $name);
 $email = str_replace(["\r", "\n"], " ", $email);
@@ -36,9 +51,35 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   exit;
 }
 
-$messageLength = function_exists("mb_strlen")
-  ? mb_strlen($message, "UTF-8")
-  : strlen($message);
+function text_length($value) {
+  return function_exists("mb_strlen") ? mb_strlen($value, "UTF-8") : strlen($value);
+}
+
+if (text_length($name) > 120) {
+  echo json_encode([
+    "success" => false,
+    "message" => "Pole imię i nazwisko jest zbyt długie."
+  ]);
+  exit;
+}
+
+if (text_length($company) > 160) {
+  echo json_encode([
+    "success" => false,
+    "message" => "Pole firma jest zbyt długie."
+  ]);
+  exit;
+}
+
+if (text_length($phone) > 40) {
+  echo json_encode([
+    "success" => false,
+    "message" => "Pole telefon jest zbyt długie."
+  ]);
+  exit;
+}
+
+$messageLength = text_length($message);
 
 if ($messageLength < 5) {
   echo json_encode([
@@ -48,16 +89,21 @@ if ($messageLength < 5) {
   exit;
 }
 
+if ($messageLength > 5000) {
+  echo json_encode([
+    "success" => false,
+    "message" => "Wiadomość jest zbyt długa. Skróć ją i spróbuj ponownie."
+  ]);
+  exit;
+}
+
 /*
-  ADRES DOCELOWY — tutaj wpisz adres, na który mają przychodzić wiadomości.
+  ADRES DOCELOWY — tutaj trafiają wiadomości z formularza.
 */
-$to = "adres@email.com";
+$to = "biuro@serwokontrol.pl";
 
 /*
   ADRES NADAWCY — najlepiej adres z tej samej domeny co strona.
-  Przykład:
-  formularz@serwokontrol.pl
-
   Nie ustawiamy From jako adres klienta, bo wiadomość może trafić do spamu.
   Adres klienta ustawiamy jako Reply-To.
 */
@@ -73,8 +119,10 @@ $emailBody .= "Telefon: " . ($phone !== "" ? $phone : "Nie podano") . "\n\n";
 $emailBody .= "Wiadomość:\n";
 $emailBody .= $message . "\n";
 
+$replyToName = addslashes($name);
+
 $headers = "From: Serwokontrol <" . $from . ">\r\n";
-$headers .= "Reply-To: " . $name . " <" . $email . ">\r\n";
+$headers .= "Reply-To: \"" . $replyToName . "\" <" . $email . ">\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
@@ -88,6 +136,8 @@ if ($sent) {
   ]);
   exit;
 }
+
+error_log("Serwokontrol contact form: mail() failed for " . $email);
 
 echo json_encode([
   "success" => false,

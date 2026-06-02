@@ -300,7 +300,6 @@ textarea:focus-visible {
   box-shadow:
     0 0 0 4px rgba(112, 144, 183, 0.16),
     0 12px 28px rgba(94, 106, 113, 0.16);
-  transform: translateY(-1px);
 }
 
 .city_search_field > i {
@@ -1147,7 +1146,6 @@ textarea:focus-visible {
   box-shadow:
     0 0 0 4px rgba(112, 144, 183, 0.15),
     0 8px 18px rgba(94, 106, 113, 0.1);
-  transform: translateY(-1px);
 }
 
 .contact_form textarea {
@@ -1175,8 +1173,13 @@ textarea:focus-visible {
 
 .contact_form button:hover {
   background-color: #587ca8;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(94, 106, 113, 0.28);
+  transform: none;
+  box-shadow: 0 8px 20px rgba(94, 106, 113, 0.22);
+}
+
+.contact_form button:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 14px rgba(94, 106, 113, 0.18);
 }
 
 .contact_form button.is_loading {
@@ -1816,8 +1819,8 @@ body.dark_theme .form_status.error {
 }
 
 .contact_form_box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  transform: none;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.16);
 }
 
 .contact_form_box:hover::before {
@@ -1848,12 +1851,12 @@ body.dark_theme .form_status.error {
 .contact_form input:hover,
 .contact_form textarea:hover {
   border-color: rgba(112, 144, 183, 0.6);
-  box-shadow: 0 8px 18px rgba(94, 106, 113, 0.08);
+  box-shadow: 0 0 0 3px rgba(112, 144, 183, 0.08);
 }
 
 .contact_form input:focus,
 .contact_form textarea:focus {
-  transform: translateY(-2px);
+  transform: none;
 }
 
 /* Submit button */
@@ -2689,4 +2692,937 @@ body.dark_theme .contact_page .poland_map {
 
 .contact_page .representative_card h3::after {
   position: static;
+}
+
+/* =========================================================
+   Representatives Map Overview Mode - opened from Products CTA
+   ========================================================= */
+
+.representatives_section.map_overview_mode .representatives_content {
+  display: block;
+}
+
+.representatives_section.map_overview_mode .representatives {
+  display: none;
+}
+
+.representatives_section.map_overview_mode .representatives_map_panel {
+  display: block;
+  animation: mapOverviewEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.representatives_section.map_overview_mode .representatives_map_panel::after {
+  animation: mapPanelScan 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.representatives_section.map_overview_mode .poland_map {
+  max-width: 760px;
+  animation: mapSoftEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.representatives_section.map_overview_mode .map_region .map_area {
+  opacity: 0.72;
+}
+
+.representatives_section.map_overview_mode .representatives_map_header {
+  text-align: left;
+}
+
+.representatives_section.map_overview_mode .representatives_map_header h3 {
+  animation: mapHeaderEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.representatives_section.map_overview_mode .representatives_map_header p {
+  animation: mapHeaderEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
+}
+
+@keyframes mapOverviewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mapHeaderEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.representatives_section.map_overview_mode .map_region:hover .map_area,
+.representatives_section.map_overview_mode .map_area:focus-visible {
+  opacity: 0.95;
+}
+
+@media (max-width: 992px) {
+  .representatives_section.map_overview_mode .poland_map {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .representatives_section.map_overview_mode .representatives_map_panel,
+  .representatives_section.map_overview_mode .representatives_map_panel::after,
+  .representatives_section.map_overview_mode .poland_map,
+  .representatives_section.map_overview_mode .representatives_map_header h3,
+  .representatives_section.map_overview_mode .representatives_map_header p {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   Contact fixes v13 - suggestions, contact underline, map transition
+   ========================================================= */
+
+/* Search suggestions must always stay above the representatives map panel. */
+.city_search_box,
+.city_search_field {
+  position: relative;
+  z-index: 120;
+}
+
+.city_suggestions {
+  z-index: 12000;
+}
+
+.representatives_content {
+  position: relative;
+  z-index: 1;
+}
+
+/* In company card, address and email have icons outside the link,
+   so their underline should start at the beginning of the link text. */
+.company_contact li > i + a::after {
+  left: 0;
+}
+
+/* Full-map overview should feel spacious and stable before a region is selected. */
+.representatives_section.map_overview_mode .representatives_content {
+  display: block;
+}
+
+.representatives_section.map_overview_mode .representatives_map_panel {
+  transform-origin: center;
+}
+
+/* Region mode: map on the left, representative card slides in from the right. */
+.representatives_section.region_mode .representatives_content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(280px, 0.78fr);
+  grid-template-areas: "map representative";
+  gap: 25px;
+  align-items: stretch;
+}
+
+.representatives_section.region_mode .representatives_map_panel {
+  grid-area: map;
+  display: block;
+  min-width: 0;
+  transform-origin: center right;
+  animation: representativesMapCompressIn 0.56s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.representatives_section.region_mode .representatives {
+  grid-area: representative;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-width: 0;
+  animation: representativeCardSlideFromRight 0.58s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+}
+
+.representatives_section.region_mode .representative_card {
+  height: 100%;
+}
+
+.representatives_section.region_mode .representative_card.is_active {
+  animation: representativeCardInnerSettle 0.58s cubic-bezier(0.22, 1, 0.36, 1)
+    0.1s both;
+}
+
+.representatives_section.region_mode .poland_map {
+  max-width: 520px;
+  transform-origin: center;
+  animation: polandMapScaleToRegion 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes representativesMapCompressIn {
+  from {
+    opacity: 0.92;
+    transform: translateX(42px) scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes polandMapScaleToRegion {
+  from {
+    transform: translateX(34px) scale(1.08);
+  }
+
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes representativeCardSlideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(70px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes representativeCardInnerSettle {
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
+
+  55% {
+    box-shadow:
+      0 18px 42px rgba(94, 106, 113, 0.24),
+      0 0 0 6px rgba(112, 144, 183, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
+}
+
+@media (max-width: 992px) {
+  .representatives_section.region_mode .representatives_content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "map"
+      "representative";
+  }
+
+  .representatives_section.region_mode .representatives,
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map {
+    animation-duration: 0.42s;
+  }
+
+  .representatives_section.region_mode .representatives {
+    animation-name: representativeCardSlideUpMobile;
+  }
+}
+
+@keyframes representativeCardSlideUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .representatives_section.region_mode .representatives,
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map,
+  .representatives_section.region_mode .representative_card.is_active {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   Contact fixes v14 - map left, representative card right
+   ========================================================= */
+
+/* Desktop/tablet region mode: keep the map on the left and slide the
+   active representative card in from the right. These rules are placed at
+   the end of the file to override older layout definitions safely. */
+.representatives_section.region_mode .representatives_content {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr) !important;
+  grid-template-areas: "map representative" !important;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.representatives_section.region_mode .representatives_map_panel {
+  grid-area: map !important;
+  display: block;
+  min-width: 0;
+  transform-origin: center right;
+  animation: contactMapMoveToLeftV14 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.representatives_section.region_mode .representatives {
+  grid-area: representative !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  min-width: 0;
+  margin: 0;
+  animation: contactRepresentativeSlideFromRightV14 0.62s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+}
+
+.representatives_section.region_mode .representative_card:not(.is_active) {
+  display: none !important;
+}
+
+.representatives_section.region_mode .representative_card.is_active {
+  height: 100%;
+  animation: contactRepresentativeSettleV14 0.64s cubic-bezier(0.22, 1, 0.36, 1)
+    0.1s both;
+}
+
+.representatives_section.region_mode .poland_map {
+  max-width: 520px;
+  transform-origin: center;
+  animation: contactPolandMapScaleLeftV14 0.64s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+@keyframes contactMapMoveToLeftV14 {
+  from {
+    opacity: 0.94;
+    transform: translateX(34px) scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactPolandMapScaleLeftV14 {
+  from {
+    transform: translateX(30px) scale(1.08);
+  }
+
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactRepresentativeSlideFromRightV14 {
+  from {
+    opacity: 0;
+    transform: translateX(76px) scale(0.965);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactRepresentativeSettleV14 {
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
+
+  55% {
+    box-shadow:
+      0 18px 42px rgba(94, 106, 113, 0.24),
+      0 0 0 6px rgba(112, 144, 183, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
+}
+
+@media (max-width: 992px) {
+  .representatives_section.region_mode .representatives_content {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "map"
+      "representative" !important;
+  }
+
+  .representatives_section.region_mode .representatives {
+    animation-name: representativeCardSlideUpMobile;
+    animation-duration: 0.42s;
+  }
+
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map {
+    animation-duration: 0.42s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .representatives_section.region_mode .representatives,
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map,
+  .representatives_section.region_mode .representative_card.is_active {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   Contact fixes v15 - representative card left, map right
+   ========================================================= */
+
+/* Desktop/tablet region mode: active representative card on the left,
+   map on the right. These final rules override the previous v14 swap. */
+.representatives_section.region_mode .representatives_content {
+  display: grid !important;
+  grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1.18fr) !important;
+  grid-template-areas: "representative map" !important;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.representatives_section.region_mode .representatives {
+  grid-area: representative !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  min-width: 0;
+  margin: 0;
+  animation: contactRepresentativeSlideFromLeftV15 0.62s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+}
+
+.representatives_section.region_mode .representatives_map_panel {
+  grid-area: map !important;
+  display: block;
+  min-width: 0;
+  transform-origin: center left;
+  animation: contactMapMoveToRightV15 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.representatives_section.region_mode .representative_card:not(.is_active) {
+  display: none !important;
+}
+
+.representatives_section.region_mode .representative_card.is_active {
+  height: 100%;
+  animation: contactRepresentativeSettleV15 0.64s cubic-bezier(0.22, 1, 0.36, 1)
+    0.1s both;
+}
+
+.representatives_section.region_mode .poland_map {
+  max-width: 520px;
+  transform-origin: center;
+  animation: contactPolandMapScaleRightV15 0.64s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+@keyframes contactRepresentativeSlideFromLeftV15 {
+  from {
+    opacity: 0;
+    transform: translateX(-76px) scale(0.965);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactMapMoveToRightV15 {
+  from {
+    opacity: 0.94;
+    transform: translateX(-34px) scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactPolandMapScaleRightV15 {
+  from {
+    transform: translateX(-30px) scale(1.08);
+  }
+
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes contactRepresentativeSettleV15 {
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
+
+  55% {
+    box-shadow:
+      0 18px 42px rgba(94, 106, 113, 0.24),
+      0 0 0 6px rgba(112, 144, 183, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
+}
+
+@media (max-width: 992px) {
+  .representatives_section.region_mode .representatives_content {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "map"
+      "representative" !important;
+  }
+
+  .representatives_section.region_mode .representatives {
+    animation-name: representativeCardSlideUpMobile;
+    animation-duration: 0.42s;
+  }
+
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map {
+    animation-duration: 0.42s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .representatives_section.region_mode .representatives,
+  .representatives_section.region_mode .representatives_map_panel,
+  .representatives_section.region_mode .poland_map,
+  .representatives_section.region_mode .representative_card.is_active {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   Contact fixes v16 - city suggestions above map/cards
+   ========================================================= */
+
+/* The representatives premium frame used overflow:hidden, which clipped
+   the city autocomplete list when it opened over the map/cards area. */
+.contact_page .representatives_section,
+.representatives_section {
+  overflow: visible !important;
+}
+
+.city_search_box {
+  position: relative;
+  z-index: 50000 !important;
+}
+
+.city_search_field {
+  position: relative;
+  z-index: 50001 !important;
+}
+
+.city_suggestions,
+.city_suggestions.show {
+  z-index: 50002 !important;
+}
+
+.representatives_content,
+.representatives,
+.representatives_map_panel {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Unified reversible reveal animation fix
+   Keeps fade/slide transitions visible even on cards that define their own transitions.
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.62s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.reveal.show,
+.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal:not(.show):not(.is_visible) {
+  transition-delay: 0s !important;
+}
+
+.reveal_delay_1 {
+  transition-delay: 0.08s;
+}
+
+.reveal_delay_2 {
+  transition-delay: 0.16s;
+}
+
+.reveal_delay_3 {
+  transition-delay: 0.24s;
+}
+
+.reveal_delay_4 {
+  transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.show,
+  .reveal.is_visible {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Reveal + hover compatibility for contact page */
+.representative_card.reveal.show:hover,
+.representative_card.reveal.is_visible:hover,
+.contact_card.reveal.show:hover,
+.contact_card.reveal.is_visible:hover,
+.contact_form_box.reveal.show:hover,
+.contact_form_box.reveal.is_visible:hover,
+.contact_cta.reveal.show:hover,
+.contact_cta.reveal.is_visible:hover {
+  transform: translateY(-6px);
+}
+
+.representative_card.reveal.show:hover,
+.representative_card.reveal.is_visible:hover,
+.contact_card.reveal.show:hover,
+.contact_card.reveal.is_visible:hover,
+.contact_form_box.reveal.show:hover,
+.contact_form_box.reveal.is_visible:hover {
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.contact_cta.reveal.show:hover,
+.contact_cta.reveal.is_visible:hover {
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.24);
+}
+
+body.dark_theme .representative_card.reveal.show:hover,
+body.dark_theme .representative_card.reveal.is_visible:hover,
+body.dark_theme .contact_card.reveal.show:hover,
+body.dark_theme .contact_card.reveal.is_visible:hover,
+body.dark_theme .contact_form_box.reveal.show:hover,
+body.dark_theme .contact_form_box.reveal.is_visible:hover,
+body.dark_theme .contact_cta.reveal.show:hover,
+body.dark_theme .contact_cta.reveal.is_visible:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   Contact page reveal v3 - top sections + cards compatibility
+   ========================================================= */
+
+.contact_intro.reveal,
+.contact_location.reveal,
+.contact_card.reveal,
+.map_box.reveal,
+.representatives_section.reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition-property: opacity, transform, box-shadow, background-color;
+  transition-duration: 0.58s, 0.64s, 0.35s, 0.35s;
+  transition-timing-function: ease, cubic-bezier(0.22, 1, 0.36, 1), ease, ease;
+}
+
+.contact_intro.reveal.show,
+.contact_intro.reveal.is_visible,
+.contact_location.reveal.show,
+.contact_location.reveal.is_visible,
+.contact_card.reveal.show,
+.contact_card.reveal.is_visible,
+.map_box.reveal.show,
+.map_box.reveal.is_visible,
+.representatives_section.reveal.show,
+.representatives_section.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.contact_card.reveal.show:hover,
+.contact_card.reveal.is_visible:hover {
+  transform: translateY(-4px);
+  transition-delay: 0s !important;
+}
+
+/* =========================================================
+   Contact ordered reveal v4
+   ========================================================= */
+
+.representative_card.reveal_sequence_item {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  transition-property:
+    opacity, transform, box-shadow, background-color, border-color;
+  transition-duration: 0.58s, 0.64s, 0.35s, 0.35s, 0.35s;
+  transition-timing-function:
+    ease, cubic-bezier(0.22, 1, 0.36, 1), ease, ease, ease;
+}
+
+.representative_card.reveal_sequence_item.show,
+.representative_card.reveal_sequence_item.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.representative_card.reveal_sequence_item.show:hover,
+.representative_card.reveal_sequence_item.is_visible:hover,
+.representative_card.reveal_sequence_item.show:focus-visible,
+.representative_card.reveal_sequence_item.is_visible:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+body.dark_theme .representative_card.reveal_sequence_item.show:hover,
+body.dark_theme .representative_card.reveal_sequence_item.is_visible:hover,
+body.dark_theme .representative_card.reveal_sequence_item.show:focus-visible,
+body.dark_theme
+  .representative_card.reveal_sequence_item.is_visible:focus-visible {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   Contact representative hint + ordered reveal compatibility
+   ========================================================= */
+
+.contact_representatives_hint {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  padding: 26px 30px;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.18),
+      transparent 36%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.contact_representatives_hint span {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #e2e9f1;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact_representatives_hint h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.2;
+}
+
+.contact_representatives_hint p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.contact_representatives_hint a {
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #5f7fa7;
+  text-decoration: none;
+  font-weight: 900;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    background-color 0.28s ease,
+    color 0.28s ease;
+}
+
+.contact_representatives_hint a:hover,
+.contact_representatives_hint a:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(39, 48, 56, 0.22);
+  background-color: #5e6a71;
+  color: #ffffff;
+}
+
+.representative_card.reveal_sequence_item.show:hover,
+.representative_card.reveal_sequence_item.is_visible:hover,
+.representative_card.reveal_sequence_item.show:focus-within,
+.representative_card.reveal_sequence_item.is_visible:focus-within {
+  transition-delay: 0s !important;
+}
+
+body.dark_theme .contact_representatives_hint {
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.12),
+      transparent 36%
+    ),
+    linear-gradient(135deg, #526a82, #34495c);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 760px) {
+  .contact_representatives_hint {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   Contact page consistency pass v23
+   ========================================================= */
+
+.contact_card,
+.map_box,
+.contact_intro,
+.representatives_section,
+.representatives_intro,
+.city_search_box,
+.representative_card,
+.contact_representatives_hint,
+.contact_cta,
+.page_faq_item {
+  transition:
+    transform var(--ui-transition-lift, 0.32s cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--ui-transition, 0.3s ease),
+    background-color var(--ui-transition, 0.3s ease),
+    border-color var(--ui-transition, 0.3s ease),
+    color var(--ui-transition, 0.3s ease),
+    opacity var(--ui-transition, 0.3s ease);
+}
+
+.contact_card:hover,
+.contact_card:focus-within,
+.map_box:hover,
+.map_box:focus-within,
+.contact_intro:hover,
+.contact_intro:focus-within,
+.representative_card:hover,
+.representative_card:focus-visible,
+.contact_representatives_hint:hover,
+.contact_representatives_hint:focus-within,
+.contact_cta:hover,
+.contact_cta:focus-within,
+.page_faq_item:hover,
+.page_faq_item:focus-within {
+  transform: translateY(var(--ui-lift-card, -4px));
+  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(94, 106, 113, 0.18));
+}
+
+/* The form panel should stay steady while the user is typing. */
+.contact_form_box:hover,
+.contact_form_box:focus-within,
+.contact_form_box.reveal.show:hover,
+.contact_form_box.reveal.is_visible:hover {
+  transform: none !important;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.16);
+}
+
+.contact_form input:hover,
+.contact_form textarea:hover,
+.contact_form input:focus,
+.contact_form textarea:focus,
+.contact_form input:focus-visible,
+.contact_form textarea:focus-visible {
+  transform: none !important;
+}
+
+.representative_card.reveal.show:hover,
+.representative_card.reveal.is_visible:hover,
+.representative_card.reveal_sequence_item.show:hover,
+.representative_card.reveal_sequence_item.is_visible:hover,
+.contact_card.reveal.show:hover,
+.contact_card.reveal.is_visible:hover,
+.map_box.reveal.show:hover,
+.map_box.reveal.is_visible:hover,
+.contact_intro.reveal.show:hover,
+.contact_intro.reveal.is_visible:hover,
+.contact_representatives_hint.reveal.show:hover,
+.contact_representatives_hint.reveal.is_visible:hover,
+.contact_cta.reveal.show:hover,
+.contact_cta.reveal.is_visible:hover {
+  transform: translateY(var(--ui-lift-card, -4px));
+  transition-delay: 0s !important;
+}
+
+.company_contact a:hover,
+.company_contact a:focus-visible,
+.representative_card a:hover,
+.representative_card a:focus-visible {
+  color: var(--ui-color-primary-strong, #5f7fa7);
+  transform: translateX(2px);
+}
+
+.representative_region_btn:hover,
+.representative_region_btn:focus-visible,
+.contact_form button:hover,
+.contact_form button:focus-visible {
+  color: #ffffff;
+  background-color: var(--ui-color-primary-strong, #5f7fa7);
+  border-color: var(--ui-color-primary-strong, #5f7fa7);
+  transform: translateY(var(--ui-lift-button, -2px));
+  box-shadow: var(--ui-shadow-button, 0 10px 22px rgba(94, 106, 113, 0.18));
+}
+
+.contact_cta a:hover,
+.contact_cta a:focus-visible,
+.contact_representatives_hint a:hover,
+.contact_representatives_hint a:focus-visible {
+  color: var(--ui-color-primary-strong, #5f7fa7);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(var(--ui-lift-button, -2px));
+  box-shadow: var(--ui-shadow-button, 0 10px 22px rgba(94, 106, 113, 0.18));
+}
+
+body.dark_theme .contact_card:hover,
+body.dark_theme .contact_card:focus-within,
+body.dark_theme .map_box:hover,
+body.dark_theme .map_box:focus-within,
+body.dark_theme .contact_intro:hover,
+body.dark_theme .contact_intro:focus-within,
+body.dark_theme .representative_card:hover,
+body.dark_theme .representative_card:focus-visible,
+body.dark_theme .contact_representatives_hint:hover,
+body.dark_theme .contact_representatives_hint:focus-within,
+body.dark_theme .contact_cta:hover,
+body.dark_theme .contact_cta:focus-within,
+body.dark_theme .page_faq_item:hover,
+body.dark_theme .page_faq_item:focus-within {
+  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
 }

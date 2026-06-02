@@ -281,3 +281,1460 @@ body.dark_theme .container p {
     width: 100%;
   }
 }
+.product_modal,
+.product_catalog_modal .catalog_modal_scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.product_modal::-webkit-scrollbar,
+.product_catalog_modal .catalog_modal_scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.product_modal::-webkit-scrollbar-thumb,
+.product_catalog_modal .catalog_modal_scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* =========================================================
+   Unified reversible reveal animation fix
+   Keeps fade/slide transitions visible even on cards that define their own transitions.
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.62s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.reveal.show,
+.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal:not(.show):not(.is_visible) {
+  transition-delay: 0s !important;
+}
+
+.reveal_delay_1 {
+  transition-delay: 0.08s;
+}
+
+.reveal_delay_2 {
+  transition-delay: 0.16s;
+}
+
+.reveal_delay_3 {
+  transition-delay: 0.24s;
+}
+
+.reveal_delay_4 {
+  transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.show,
+  .reveal.is_visible {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Global reveal v3 - page load + reversible scroll animation
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  will-change: opacity, transform;
+  transition-property:
+    opacity, transform, box-shadow, background-color, color, border-color;
+  transition-duration: 0.58s, 0.64s, 0.3s, 0.3s, 0.3s, 0.3s;
+  transition-timing-function:
+    ease, cubic-bezier(0.22, 1, 0.36, 1), ease, ease, ease, ease;
+}
+
+.reveal.show,
+.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal:not(.show):not(.is_visible) {
+  transition-delay: 0s !important;
+}
+
+.reveal_delay_1:not(.show):not(.is_visible) {
+  transition-delay: 0.08s;
+}
+
+.reveal_delay_2:not(.show):not(.is_visible) {
+  transition-delay: 0.16s;
+}
+
+.reveal_delay_3:not(.show):not(.is_visible) {
+  transition-delay: 0.24s;
+}
+
+.reveal_delay_4:not(.show):not(.is_visible) {
+  transition-delay: 0.32s;
+}
+
+.reveal.show,
+.reveal.is_visible,
+.reveal:hover,
+.reveal:focus-visible,
+.reveal:focus-within {
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.show,
+  .reveal.is_visible {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Reveal sequence v4 - ordered cards
+   ========================================================= */
+
+.reveal_sequence_item.reveal_delay_1,
+.reveal_sequence_item.reveal_delay_2,
+.reveal_sequence_item.reveal_delay_3,
+.reveal_sequence_item.reveal_delay_4 {
+  transition-delay: 0s;
+}
+
+.reveal_sequence_item {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  will-change: opacity, transform;
+}
+
+.reveal_sequence_item.show,
+.reveal_sequence_item.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal_sequence_item.reveal_scrolling_up:not(.show):not(.is_visible) {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+}
+
+.reveal_sequence_item.reveal_scrolling_down:not(.show):not(.is_visible) {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal_sequence_item,
+  .reveal_sequence_item.show,
+  .reveal_sequence_item.is_visible {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Page enter animation
+   ========================================================= */
+
+@keyframes pageEnterSoft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+main {
+  animation: pageEnterSoft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact_form input.is_filled,
+.contact_form textarea.is_filled {
+  border-color: rgba(112, 144, 183, 0.58);
+  background-color: #ffffff;
+}
+
+.contact_form input.is_valid,
+.contact_form textarea.is_valid {
+  border-color: rgba(82, 145, 106, 0.65);
+  box-shadow: 0 0 0 4px rgba(82, 145, 106, 0.1);
+}
+
+.contact_form input.is_invalid,
+.contact_form textarea.is_invalid {
+  border-color: rgba(180, 75, 75, 0.68);
+  box-shadow: 0 0 0 4px rgba(180, 75, 75, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   Premium page surface under header
+   ========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(112, 144, 183, 0.12),
+      transparent 32%
+    ),
+    #eef3f8;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 48px 20px 88px;
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(255, 255, 255, 0.92),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(112, 144, 183, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(180deg, #f7f9fb 0%, #e2e9f1 235px, #e2e9f1 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    inset 0 12px 24px rgba(94, 106, 113, 0.055);
+}
+
+/* Subtle top glow instead of a visible glass panel */
+main:not(.home_main)::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: max(24px, calc((100vw - 1180px) / 2));
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(112, 144, 183, 0.12),
+    transparent 68%
+  );
+  filter: blur(10px);
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+}
+
+.container h2 {
+  margin-bottom: 38px;
+}
+
+body.dark_theme {
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(112, 144, 183, 0.1),
+      transparent 32%
+    ),
+    #15191c;
+}
+
+body.dark_theme main {
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(112, 144, 183, 0.11),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(112, 144, 183, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(180deg, #1f2931 0%, #26313a 245px, #26313a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+body.dark_theme main:not(.home_main)::after {
+  background: radial-gradient(
+    circle,
+    rgba(112, 144, 183, 0.12),
+    transparent 68%
+  );
+  opacity: 0.42;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 38px;
+  }
+
+  main:not(.home_main)::after {
+    display: none;
+  }
+}
+
+/* =========================================================
+   V13 - Breadcrumbs, FAQ and calmer scroll progress
+   ========================================================= */
+
+.scroll_progress_bar {
+  opacity: 0;
+  transform: scaleX(0.98);
+  transform-origin: left center;
+  transition:
+    width 0.08s linear,
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.scroll_progress_bar.is_active {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.page_breadcrumb {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 18px;
+  padding: 8px 13px;
+  border: 1px solid rgba(112, 144, 183, 0.16);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #5e6a71;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.08);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.page_breadcrumb a {
+  color: #7090b7;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.page_breadcrumb a:hover,
+.page_breadcrumb a:focus-visible {
+  color: #5f7fa7;
+  transform: translateY(-1px);
+}
+
+.page_breadcrumb i {
+  color: rgba(94, 106, 113, 0.42);
+  font-size: 10px;
+}
+
+.page_breadcrumb span {
+  color: #5e6a71;
+}
+
+.page_faq {
+  margin-top: 42px;
+  padding: clamp(26px, 4vw, 38px);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(112, 144, 183, 0.12),
+      transparent 34%
+    ),
+    #ffffff;
+  border: 1px solid rgba(112, 144, 183, 0.12);
+  box-shadow: 0 10px 28px rgba(94, 106, 113, 0.12);
+}
+
+.page_faq_header {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.page_faq_header span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #7090b7;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page_faq_header span::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  border-radius: 999px;
+  background-color: currentColor;
+}
+
+.page_faq_header h2 {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  color: #7090b7;
+  font-size: clamp(26px, 3.5vw, 36px);
+  line-height: 1.18;
+}
+
+.page_faq_header h2::after {
+  display: none;
+}
+
+.page_faq_header p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.page_faq_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.page_faq_item {
+  padding: 22px;
+  border: 1px solid rgba(112, 144, 183, 0.13);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 8px 22px rgba(94, 106, 113, 0.08);
+}
+
+.page_faq_item h3 {
+  margin: 0 0 10px;
+  color: #5f7fa7;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.page_faq_item p {
+  margin: 0;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+body.dark_theme .page_breadcrumb {
+  border-color: rgba(226, 233, 241, 0.09);
+  color: #d7e0e8;
+  background: rgba(47, 60, 70, 0.68);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+body.dark_theme .page_breadcrumb a,
+body.dark_theme .page_breadcrumb span,
+body.dark_theme .page_faq_header h2,
+body.dark_theme .page_faq_header span,
+body.dark_theme .page_faq_item h3 {
+  color: #9db6d2;
+}
+
+body.dark_theme .page_faq {
+  border-color: rgba(226, 233, 241, 0.08);
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(157, 182, 210, 0.1),
+      transparent 34%
+    ),
+    #2f3c46;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+body.dark_theme .page_faq_header p,
+body.dark_theme .page_faq_item p {
+  color: #d7e0e8;
+}
+
+body.dark_theme .page_faq_item {
+  border-color: rgba(226, 233, 241, 0.08);
+  background: linear-gradient(135deg, #34434e, #2f3c46);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 900px) {
+  .page_faq_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .page_breadcrumb {
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+
+  .page_faq {
+    margin-top: 32px;
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+/* =========================================================
+   V15 - Calmer page title treatment with breadcrumbs
+   ========================================================= */
+
+.page_breadcrumb + h2 {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  color: #5f7fa7;
+  font-size: clamp(30px, 3.8vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.page_breadcrumb + h2::after {
+  left: 0;
+  bottom: 0;
+  width: 62px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0.22));
+}
+
+.page_breadcrumb {
+  margin-bottom: 12px;
+}
+
+/* Keep nested section headings, for example FAQ, independent from the page title treatment. */
+.page_faq_header h2 {
+  width: auto;
+  letter-spacing: -0.025em;
+}
+
+body.dark_theme .page_breadcrumb + h2 {
+  color: #9db6d2;
+}
+
+body.dark_theme .page_breadcrumb + h2::after {
+  background: linear-gradient(90deg, #9db6d2, rgba(157, 182, 210, 0.22));
+}
+
+@media (max-width: 560px) {
+  .page_breadcrumb + h2 {
+    margin-bottom: 26px;
+    padding-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .page_breadcrumb + h2::after {
+    width: 52px;
+    height: 2px;
+  }
+}
+
+/* =========================================================
+   Scroll top button refresh v16
+   ========================================================= */
+
+.scroll_top_btn {
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  right: 26px;
+  bottom: 26px;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, 0.24),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 16px 34px rgba(94, 106, 113, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.scroll_top_btn.show {
+  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, 0.28),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #5f7fa7, #4f6f9b);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 20px 42px rgba(94, 106, 113, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+.scroll_top_btn i {
+  transition: transform 0.25s ease;
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  transform: translateY(-2px);
+}
+
+body.dark_theme .scroll_top_btn {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #9db6d2, #5f7fa7);
+  border-color: rgba(226, 233, 241, 0.16);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* =========================================================
+   Glass scroll-to-top button v17
+   ========================================================= */
+
+.scroll_top_btn {
+  width: 50px;
+  height: 50px;
+  right: 26px;
+  bottom: 26px;
+  color: #5f7fa7;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.38)
+    ),
+    rgba(226, 233, 241, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 18px 38px rgba(94, 106, 113, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(112, 144, 183, 0.08);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+}
+
+.scroll_top_btn::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.18),
+    rgba(255, 255, 255, 0.08)
+  );
+  opacity: 0.72;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.86),
+      rgba(95, 127, 167, 0.74)
+    ),
+    rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.62);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 22px 44px rgba(94, 106, 113, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.scroll_top_btn:hover::before,
+.scroll_top_btn:focus-visible::before {
+  opacity: 0.42;
+  transform: scale(0.92);
+}
+
+body.dark_theme .scroll_top_btn {
+  color: #e2e9f1;
+  background:
+    linear-gradient(135deg, rgba(47, 60, 70, 0.78), rgba(38, 49, 58, 0.52)),
+    rgba(226, 233, 241, 0.08);
+  border-color: rgba(226, 233, 241, 0.16);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(157, 182, 210, 0.08);
+}
+
+body.dark_theme .scroll_top_btn::before {
+  background: linear-gradient(
+    135deg,
+    rgba(157, 182, 210, 0.2),
+    rgba(255, 255, 255, 0.04)
+  );
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.82),
+      rgba(95, 127, 167, 0.64)
+    ),
+    rgba(226, 233, 241, 0.08);
+  box-shadow:
+    0 22px 44px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* =========================================================
+   Scroll-to-top button refinement v18 - calm premium glass
+   ========================================================= */
+
+.scroll_top_btn {
+  right: 26px;
+  bottom: 26px;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  color: #5f7fa7;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(247, 249, 251, 0.68)
+    ),
+    rgba(226, 233, 241, 0.42);
+  border: 1px solid rgba(112, 144, 183, 0.18);
+  box-shadow:
+    0 14px 32px rgba(94, 106, 113, 0.16),
+    0 4px 12px rgba(94, 106, 113, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.96);
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.scroll_top_btn.show {
+  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll_top_btn::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 14px;
+  background:
+    radial-gradient(
+      circle at 32% 24%,
+      rgba(255, 255, 255, 0.76),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(112, 144, 183, 0.12),
+      rgba(112, 144, 183, 0.03)
+    );
+  opacity: 0.84;
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55));
+  transition: transform 0.22s ease;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  color: #4f6f9b;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(247, 249, 251, 0.78)
+    ),
+    rgba(226, 233, 241, 0.5);
+  border-color: rgba(112, 144, 183, 0.28);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 18px 38px rgba(94, 106, 113, 0.2),
+    0 6px 14px rgba(94, 106, 113, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.scroll_top_btn:hover::before,
+.scroll_top_btn:focus-visible::before {
+  opacity: 1;
+  transform: scale(0.94);
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  transform: translateY(-2px);
+}
+
+body.dark_theme .scroll_top_btn {
+  color: #c4d4e4;
+  background:
+    linear-gradient(145deg, rgba(47, 60, 70, 0.9), rgba(38, 49, 58, 0.74)),
+    rgba(226, 233, 241, 0.06);
+  border-color: rgba(226, 233, 241, 0.12);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.28),
+    0 4px 12px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.dark_theme .scroll_top_btn::before {
+  background:
+    radial-gradient(
+      circle at 32% 24%,
+      rgba(255, 255, 255, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(157, 182, 210, 0.16),
+      rgba(157, 182, 210, 0.04)
+    );
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  color: #ffffff;
+  background:
+    linear-gradient(145deg, rgba(56, 71, 82, 0.94), rgba(42, 55, 65, 0.82)),
+    rgba(226, 233, 241, 0.08);
+  border-color: rgba(157, 182, 210, 0.24);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.34),
+    0 6px 14px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+  }
+
+  .scroll_top_btn::before {
+    border-radius: 12px;
+  }
+}
+
+/* =========================================================
+   Scroll-to-top button v19 - round glass puff
+   ========================================================= */
+
+.scroll_top_btn {
+  right: 26px;
+  bottom: 26px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255, 255, 255, 0.56),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(112, 144, 183, 0.74),
+      rgba(95, 127, 167, 0.58)
+    ),
+    rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 18px 42px rgba(94, 106, 113, 0.24),
+    0 6px 18px rgba(112, 144, 183, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.54),
+    inset 0 -1px 0 rgba(79, 111, 155, 0.16);
+  backdrop-filter: blur(16px) saturate(145%);
+  -webkit-backdrop-filter: blur(16px) saturate(145%);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.86);
+  overflow: visible;
+  transition:
+    opacity 0.24s ease,
+    visibility 0.24s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.scroll_top_btn.show {
+  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll_top_btn::before,
+.scroll_top_btn::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.scroll_top_btn::before {
+  inset: 5px;
+  background:
+    radial-gradient(
+      circle at 34% 24%,
+      rgba(255, 255, 255, 0.76),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.03)
+    );
+  opacity: 0.82;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  transition:
+    opacity 0.26s ease,
+    transform 0.26s ease;
+}
+
+.scroll_top_btn::after {
+  inset: -6px;
+  background: radial-gradient(
+    circle,
+    rgba(112, 144, 183, 0.34),
+    transparent 62%
+  );
+  opacity: 0;
+  transform: scale(0.78);
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+  font-size: 17px;
+  filter: drop-shadow(0 2px 4px rgba(63, 76, 88, 0.24));
+  transition: transform 0.26s ease;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  border-color: rgba(255, 255, 255, 0.58);
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255, 255, 255, 0.62),
+      transparent 31%
+    ),
+    linear-gradient(145deg, rgba(112, 144, 183, 0.86), rgba(95, 127, 167, 0.7)),
+    rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow:
+    0 24px 50px rgba(94, 106, 113, 0.3),
+    0 8px 22px rgba(112, 144, 183, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(79, 111, 155, 0.18);
+}
+
+.scroll_top_btn:hover::before,
+.scroll_top_btn:focus-visible::before {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  transform: translateY(-2px);
+}
+
+.scroll_top_btn.is_popping {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(-92px) scale(0.18) rotate(-8deg);
+  transition:
+    opacity 0.42s ease,
+    transform 0.56s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.56s ease;
+}
+
+.scroll_top_btn.is_popping::before {
+  opacity: 0;
+  transform: scale(1.52);
+  transition:
+    opacity 0.38s ease,
+    transform 0.48s ease;
+}
+
+.scroll_top_btn.is_popping::after {
+  animation: scrollTopPuff 0.56s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scroll_top_btn.is_popping i {
+  transform: translateY(-8px) scale(0.72);
+}
+
+@keyframes scrollTopPuff {
+  0% {
+    opacity: 0.44;
+    transform: scale(0.72);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.25);
+    filter: blur(8px);
+  }
+}
+
+body.dark_theme .scroll_top_btn {
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255, 255, 255, 0.2),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(157, 182, 210, 0.52),
+      rgba(95, 127, 167, 0.38)
+    ),
+    rgba(38, 49, 58, 0.58);
+  border-color: rgba(226, 233, 241, 0.18);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    0 6px 18px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(157, 182, 210, 0.12);
+}
+
+body.dark_theme .scroll_top_btn::before {
+  background:
+    radial-gradient(
+      circle at 34% 24%,
+      rgba(255, 255, 255, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(145deg, rgba(226, 233, 241, 0.1), rgba(226, 233, 241, 0.02));
+  opacity: 0.74;
+}
+
+body.dark_theme .scroll_top_btn::after {
+  background: radial-gradient(
+    circle,
+    rgba(157, 182, 210, 0.3),
+    transparent 62%
+  );
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255, 255, 255, 0.24),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(157, 182, 210, 0.62),
+      rgba(95, 127, 167, 0.48)
+    ),
+    rgba(47, 60, 70, 0.68);
+  border-color: rgba(226, 233, 241, 0.26);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.4),
+    0 8px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(157, 182, 210, 0.14);
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll_top_btn.is_popping {
+    transform: translateY(0) scale(0.96);
+  }
+
+  .scroll_top_btn.is_popping::after {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   Scroll-to-top button v20 - clean flat glass
+   ========================================================= */
+
+.scroll_top_btn {
+  right: 28px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(112, 144, 183, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  box-shadow: 0 10px 24px rgba(94, 106, 113, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  overflow: hidden;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.24s ease,
+    background-color 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.scroll_top_btn.show {
+  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll_top_btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.28),
+    transparent 48%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.scroll_top_btn::after {
+  content: none;
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  filter: none;
+  transform: none;
+  transition: transform 0.22s ease;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  background: rgba(95, 127, 167, 0.82);
+  border-color: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 12px 26px rgba(94, 106, 113, 0.26);
+  transform: translateY(-3px);
+}
+
+.scroll_top_btn:hover::before,
+.scroll_top_btn:focus-visible::before {
+  opacity: 0.82;
+  transform: none;
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  transform: translateY(-1px);
+}
+
+.scroll_top_btn.is_popping {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll_top_btn.is_popping::before,
+.scroll_top_btn.is_popping::after,
+.scroll_top_btn.is_popping i {
+  animation: none;
+}
+
+body.dark_theme .scroll_top_btn {
+  color: #ffffff;
+  background: rgba(95, 127, 167, 0.66);
+  border-color: rgba(226, 233, 241, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+body.dark_theme .scroll_top_btn::before {
+  background: linear-gradient(
+    145deg,
+    rgba(226, 233, 241, 0.18),
+    transparent 50%
+  );
+  opacity: 0.68;
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  background: rgba(112, 144, 183, 0.76);
+  border-color: rgba(226, 233, 241, 0.26);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* =========================================================
+   UI consistency pass v23 - shared motion, focus and buttons
+   ========================================================= */
+
+:root {
+  --ui-color-primary: #7090b7;
+  --ui-color-primary-strong: #5f7fa7;
+  --ui-color-primary-dark: #587ca8;
+  --ui-color-text: #333333;
+  --ui-color-muted: #5e6a71;
+  --ui-color-surface: #ffffff;
+  --ui-color-soft: #f7f9fb;
+  --ui-border-soft: rgba(112, 144, 183, 0.16);
+  --ui-border-hover: rgba(112, 144, 183, 0.32);
+  --ui-shadow-card: 0 8px 24px rgba(94, 106, 113, 0.12);
+  --ui-shadow-card-hover: 0 14px 32px rgba(94, 106, 113, 0.18);
+  --ui-shadow-button: 0 10px 22px rgba(94, 106, 113, 0.18);
+  --ui-radius-card: 18px;
+  --ui-radius-large: 24px;
+  --ui-transition-fast: 0.22s ease;
+  --ui-transition: 0.3s ease;
+  --ui-transition-lift: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-lift-card: -4px;
+  --ui-lift-button: -2px;
+}
+
+body.dark_theme {
+  --ui-color-surface: #2f3c46;
+  --ui-color-soft: #26313a;
+  --ui-color-text: #d7e0e8;
+  --ui-color-muted: #e2e9f1;
+  --ui-border-soft: rgba(226, 233, 241, 0.1);
+  --ui-border-hover: rgba(157, 182, 210, 0.28);
+  --ui-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --ui-shadow-card-hover: 0 14px 32px rgba(0, 0, 0, 0.3);
+  --ui-shadow-button: 0 10px 22px rgba(0, 0, 0, 0.24);
+}
+
+/* One shared interaction language for standard buttons and CTA links. */
+.cookie_banner button,
+.contact_form button,
+.contact_cta a,
+.contact_representatives_hint a,
+.products_filter_btn,
+.product_modal_pdf_link,
+.catalog_pdf_btn,
+.product_modal_back_btn,
+.representative_region_btn,
+.catalog_closing_actions a {
+  transition:
+    transform var(--ui-transition-lift),
+    box-shadow var(--ui-transition),
+    background-color var(--ui-transition),
+    color var(--ui-transition),
+    border-color var(--ui-transition),
+    opacity var(--ui-transition);
+}
+
+.cookie_banner button:hover,
+.cookie_banner button:focus-visible,
+.contact_form button:hover,
+.contact_form button:focus-visible,
+.products_filter_btn:hover,
+.products_filter_btn:focus-visible,
+.products_filter_btn.is_active,
+.product_modal_pdf_link:hover,
+.product_modal_pdf_link:focus-visible,
+.catalog_pdf_btn:hover,
+.catalog_pdf_btn:focus-visible,
+.product_modal_back_btn:hover,
+.product_modal_back_btn:focus-visible,
+.representative_region_btn:hover,
+.representative_region_btn:focus-visible,
+.catalog_closing_actions a:hover,
+.catalog_closing_actions a:focus-visible {
+  color: #ffffff;
+  background-color: var(--ui-color-primary-strong);
+  border-color: var(--ui-color-primary-strong);
+  transform: translateY(var(--ui-lift-button));
+  box-shadow: var(--ui-shadow-button);
+}
+
+.contact_cta a:hover,
+.contact_cta a:focus-visible,
+.contact_representatives_hint a:hover,
+.contact_representatives_hint a:focus-visible {
+  color: var(--ui-color-primary-strong);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(var(--ui-lift-button));
+  box-shadow: var(--ui-shadow-button);
+}
+
+/* Inputs should feel focused, not jump around. */
+input,
+textarea,
+select {
+  transition:
+    border-color var(--ui-transition),
+    box-shadow var(--ui-transition),
+    background-color var(--ui-transition),
+    color var(--ui-transition);
+}
+
+input:hover,
+textarea:hover,
+select:hover,
+input:focus,
+textarea:focus,
+select:focus,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  transform: none !important;
+}
+
+/* Keep reveal transitions compatible with hover transitions. */
+.reveal:hover,
+.reveal:focus-visible,
+.reveal:focus-within,
+.reveal_sequence_item:hover,
+.reveal_sequence_item:focus-visible,
+.reveal_sequence_item:focus-within {
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

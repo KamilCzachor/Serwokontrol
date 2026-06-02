@@ -1,1464 +1,1381 @@
 /* =========================================================
-   Products Page - Product Modals
+   Products Page - Catalog Modals
+   Data, rendering helpers, filters and modal navigation.
    ========================================================= */
 
 (function () {
   const productCards = document.querySelectorAll(".product_card");
   const productModalOverlay = document.getElementById("productModalOverlay");
   const productModal = document.getElementById("productModal");
-  const productModalCustomContent = document.getElementById(
-    "productModalCustomContent",
-  );
-  const productModalRight = productModal
-    ? productModal.querySelector(".product_modal_right")
-    : null;
 
-  const productModalClose = document.getElementById("productModalClose");
+  const productCardsArray = Array.from(productCards);
+  let activeProductCardIndex = -1;
 
-  const productModalImage = document.getElementById("productModalImage");
-  const productModalSingleImageBox = document.getElementById(
-    "productModalSingleImageBox",
-  );
+  /* =========================================================
+     1. Catalog data
+     ========================================================= */
 
-  const productModalSubtype = document.getElementById("productModalSubtype");
-  const productModalTitle = document.getElementById("productModalTitle");
-  const productModalQuote = document.getElementById("productModalQuote");
-  const productModalDescription = document.getElementById(
-    "productModalDescription",
-  );
-  const productModalSpec = document.getElementById("productModalSpec");
-  const productModalBack = document.getElementById("productModalBack");
-  const productModalPdfLink = document.getElementById("productModalPdfLink");
-
-  const productTypeSlider = document.getElementById("productTypeSlider");
-  const productTypeSliderImage = document.getElementById(
-    "productTypeSliderImage",
-  );
-  const productTypeSliderName = document.getElementById(
-    "productTypeSliderName",
-  );
-  const productTypeSliderHint = document.getElementById(
-    "productTypeSliderHint",
-  );
-  const productTypeSliderDots = document.getElementById(
-    "productTypeSliderDots",
-  );
-  const productTypeSliderPrev = document.getElementById(
-    "productTypeSliderPrev",
-  );
-  const productTypeSliderNext = document.getElementById(
-    "productTypeSliderNext",
-  );
-
-  let activeProductSlides = [];
-  let activeProductSlide = 0;
-  let productSliderInterval = null;
-  let productSlideChangeTimeout = null;
-  let productWheelChangeLocked = false;
-
-  let activeModalData = null;
-  let activeModalType = "";
-  let activeFallbackDescription = "";
-  let activeProductCardTitle = "";
-  let activeProductCardSubtype = "";
-  let isProductDetailMode = false;
-
-  const productModalData = {
+  const catalogModalData = {
     valve2000: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów grzybkowych to:",
-      quote:
-        "Zainstaluj i zapomnij – to hasło charakteryzuje zawory grzybkowe Bürkert.",
+      title: "Zawory procesowe grzybkowe w wersji on/off",
+      subtitle: "Zawory procesowe",
+      lead: "Zainstaluj i zapomnij – to hasło charakteryzuje zawory grzybkowe Bürkert. Produkowane są z napędami pneumatycznymi, elektrycznymi oraz sterowane ręcznie.",
       description:
-        "Produkowane są z napędami pneumatycznymi, elektrycznymi oraz sterowane ręcznie. Zawory grzybkowe sterowane pneumatycznie cechuje ekstremalna wytrzymałość i trwałość oraz szeroka uniwersalność obsługiwanych mediów. Dostępna szeroka gama wykonań oraz łatwa integracja z głowicami sterującymi.",
-      spec: [
+        "Zawory grzybkowe sterowane pneumatycznie cechuje ekstremalna wytrzymałość i trwałość oraz szeroka uniwersalność obsługiwanych mediów. Dostępna jest szeroka gama wykonań oraz łatwa integracja z głowicami sterującymi.",
+      features: [
         "Zakres średnic do DN100.",
         "Wykonania materiałowe: brąz, stal szlachetna 316L, 304.",
         "Przyłącza: gwintowane, do wspawania, kołnierze, Clamp.",
       ],
-      slides: [
+      products: [
         {
           name: "2000 skośny",
-          image: "images/products/modal/valve2000/2000-skosny.png",
-          detailsTitle: "2000 skośny",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2000.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2000",
+          image: "images/products/modal/valve2000/extracted/01.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2000-skosny.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "2012 prosty",
-          image: "images/products/modal/valve2000/2012-prosty.png",
-          detailsTitle: "2012 prosty",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2012.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2012",
+          image: "images/products/modal/valve2000/extracted/02.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2012-prosty.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "2100 skośny ELEMENT",
-          image: "images/products/modal/valve2000/2100-skosny-element.png",
-          detailsTitle: "2100 skośny ELEMENT",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2100.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2100",
+          image: "images/products/modal/valve2000/extracted/03.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2100-skosny-element.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "2101 prosty ELEMENT",
-          image: "images/products/modal/valve2000/2101-prosty-element.png",
-          detailsTitle: "2101 prosty ELEMENT",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2101.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2101",
+          image: "images/products/modal/valve2000/extracted/04.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2101-prosty-element.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "2106 3/2",
-          image: "images/products/modal/valve2000/2106-3-2.png",
-          detailsTitle: "2106 3/2",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2106.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2106",
+          image: "images/products/modal/valve2000/extracted/05.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2106-3-2.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "2060 siłownik SS",
-          image: "images/products/modal/valve2000/2060-silownik-ss.png",
-          detailsTitle: "2060 siłownik SS",
-          detailsSubtype: "Szczegóły typu",
-          detailsQuote: "",
-          detailsDescription: "",
-          detailsSpec: [],
-          detailsPdfUrl: "pdf/zawory-grzybkowe/2060.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 2060",
+          image: "images/products/modal/valve2000/extracted/06.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-grzybkowe/2060-silownik-ss.pdf",
+          pdfText: "Katalog produktu",
         },
       ],
-    },
-
-    valveMembrane: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów membranowych to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
-    },
-
-    valveBall: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów kulowych to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
-    },
-
-    valveIslands: {
-      layout: "valve-islands-list",
-      customLayout: "valveIslandsList",
-      pageTitle: "Wyspy zaworowe – pneumatyka",
-      intro: [
-        "Firma Bürkert ma ogromne doświadczenie w produkcji wysp zaworowych, będących dzisiaj kluczowym elementem automatyzacji procesów przemysłowych. Bürkert rozwija i dostarcza zaawansowane wyspy zaworowe na rynek globalny nieprzerwanie od 1992 roku.",
-        "To właśnie Bürkert jako jeden z pierwszych producentów na świecie połączył funkcje elektryczne i pneumatyczne w jeden zintegrowany system, obejmujący moduły wejść/wyjść I/O oraz interfejsy sieciowe.",
-        "Na przestrzeni lat Bürkert zmieniał i udoskonalał swoje wyspy zaworowe, dostosowując wykonania do potrzeb użytkowników oraz do rozwijających się możliwości automatyki przemysłowej.",
-        "Wyspy zaworowe potrafią w czasie rzeczywistym monitorować stan urządzeń, zliczać cykle przełączeń zaworów i wysyłać powiadomienia alarmowe.",
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów.",
+      gallery: [
+        "images/products/modal/valve2000/extracted/07.png",
+        "images/products/modal/valve2000/extracted/08.png",
+        "images/products/modal/valve2000/extracted/09.png",
+        "images/products/modal/valve2000/extracted/10.png",
       ],
-      productsTitle: "Najpopularniejsze typy wysp zaworowych",
+    },
+    valveMembrane: {
+      title: "Zawory procesowe membranowe w wersji on/off",
+      subtitle: "Zawory procesowe",
+      lead: "Zastosowanie membrany umożliwia pracę w higienicznych lub agresywnych warunkach. Zawory membranowe produkowane są z napędami pneumatycznymi, elektrycznymi oraz sterowane ręcznie.",
+      description:
+        "Zawory membranowe cechuje wytrzymałość, wydajność przepływu oraz prostota konserwacji. Opływowe korpusy, zminimalizowane obszary martwe i membrany przystosowane do SIP/CIP zapewniają higienę i sterylność procesu.",
+      features: [
+        "Zakres średnic: DN8..DN100.",
+        "Wykonania materiałowe korpusu: stal szlachetna 316L, PVC, PP, PVDF, HA.",
+        "Materiały membran: FKM, EPDM, PTFE, GYLON.",
+        "Przyłącza: gwintowane, do wspawania, kołnierze, Clamp, True Union.",
+        "Powierzchnie styku z produktem Ra ≤0,38–1,6 µm.",
+        "Certyfikaty higieniczne, farmaceutyczne oraz materiałowe.",
+      ],
       products: [
         {
-          name: "8652",
-          title: "Typ 8652 AirLINE",
-          images: [
-            "images/products/modal/valveIslands/8652-1.png",
-            "images/products/modal/valveIslands/8652-2.png",
-            "images/products/modal/valveIslands/8652-3.png",
-            "images/products/modal/valveIslands/8652-4.png",
-          ],
-          paragraphs: [
-            "Wyspa zaworowa typ 8652 AirLINE to najnowszy produkt firmy Bürkert, charakteryzujący się głęboką integracją z systemami sterowania, zaawansowaną diagnostyką cyfrową oraz maksymalnym bezpieczeństwem procesowym.",
-          ],
-          features: [
-            "Wysoka gęstość upakowania: pojedyncza wyspa pozwala na obsługę do 64 funkcji zaworowych na jednym bloku, co znacznie oszczędza miejsce.",
-            "Zaawansowana diagnostyka i wyświetlacz: jasne wyświetlacze LCD pokazują statusy, tekstowe komunikaty błędów oraz symbole stanu elementów wykonawczych.",
-            "Funkcja Hot-Swap: umożliwia bezpieczną wymianę pojedynczych zaworów podczas pracy układu, bez zatrzymywania całego procesu technologicznego.",
-            "Zintegrowane zawory zwrotne: umieszczone w kanale odpowietrzającym zapobiegają niekontrolowanym skokom ciśnienia i przypadkowemu uruchomieniu innych zaworów.",
-            "System montażu AirLINE Quick: pozwala na montaż wyspy bezpośrednio w dnie lub ścianie szafy sterowniczej, bez dodatkowych przepustów i śrubunków grodziowych.",
-          ],
-          communication: [
-            "PROFIBUS DP",
-            "Industrial Ethernet: PROFINET IO, EtherNet/IP, Modbus TCP, EtherCAT, CC-Link IE Field Basic",
-            "PROFINET S2",
-            "CANopen",
-            "büS dla sieci z urządzeniami Bürkert",
-          ],
+          name: "2031 Classic",
+          image: "images/products/modal/valveMembrane/extracted/01.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2031-classic.pdf",
+          pdfText: "Katalog produktu",
         },
         {
-          name: "8647",
-          title: "Typ 8647 AirLINE SP",
-          image: "images/products/modal/valveIslands/8647.png",
-          paragraphs: [
-            "Wyspa zaworowa typ 8647 AirLINE SP to modułowy elektropneumatyczny system automatyzacji składający się z modułów przyłączy i zespołów zaworowych.",
-            "Został opracowany z myślą o bezpiecznej i pełnej integracji ze zdecentralizowanym systemem peryferyjnym SIMATIC ET 200SP oraz SIMATIC ET 200SP HA firmy Siemens. Typ 8647 służy do połączenia pneumatycznych zaworów pilotowych bezpośrednio z systemem SIMATIC i sterowania nimi poprzez ten system.",
+          name: "2103 ELEMENT",
+          image: "images/products/modal/valveMembrane/extracted/02.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2103-element.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2030 Classic",
+          image: "images/products/modal/valveMembrane/extracted/03.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2030-classic.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2063 siłownik SS",
+          image: "images/products/modal/valveMembrane/extracted/04.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2063-silownik-ss.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2933 basic",
+          image: "images/products/modal/valveMembrane/extracted/05.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2933-basic.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2973 FullFunction",
+          image: "images/products/modal/valveMembrane/extracted/06.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-membranowe/2973-fullfunction.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów.",
+      gallery: [
+        "images/products/modal/valveMembrane/extracted/07.png",
+        "images/products/modal/valveMembrane/extracted/08.png",
+        "images/products/modal/valveMembrane/extracted/09.png",
+        "images/products/modal/valveMembrane/extracted/10.png",
+      ],
+    },
+    valveBall: {
+      title: "Zawory procesowe kulowe w wersji on/off",
+      subtitle: "Zawory procesowe",
+      lead: "Zawory kulowe zapewniają wysokie wartości przepływu oraz ciśnienia medium, łatwość konserwacji i dużą żywotność.",
+      description:
+        "Produkowane są z napędami pneumatycznymi, elektrycznymi oraz sterowane ręcznie. Zawory kulowe cechuje duża wydajność przepływu przy minimalnych spadkach ciśnienia i możliwość łączenia z napędami pneumatycznymi oraz elektrycznymi.",
+      features: [
+        "Zakres średnic: DN8..DN150.",
+        "Wykonania materiałowe korpusu: stal szlachetna, PVC, PP, PVDF.",
+        "Przyłącza: gwintowane, do wspawania, kołnierze, True-union.",
+        "Funkcja 2/2-drogowa oraz 3/2-drogowa.",
+      ],
+      products: [
+        {
+          name: "2654",
+          image: "images/products/modal/valveBall/extracted/01.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/2654.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2654 higieniczny",
+          image: "images/products/modal/valveBall/extracted/02.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/2654-higieniczny.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "TKU001",
+          image: "images/products/modal/valveBall/extracted/03.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/tku001.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8804",
+          image: "images/products/modal/valveBall/extracted/04.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/8804.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8805",
+          image: "images/products/modal/valveBall/extracted/05.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/8805.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2657",
+          image: "images/products/modal/valveBall/extracted/06.png",
+          description: "",
+          features: [],
+          pdfUrl: "pdf/zawory-kulowe/2657.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów.",
+      gallery: [
+        "images/products/modal/valveBall/extracted/07.png",
+        "images/products/modal/valveBall/extracted/08.png",
+        "images/products/modal/valveBall/extracted/09.png",
+        "images/products/modal/valveBall/extracted/10.png",
+      ],
+    },
+    valveIslands: {
+      title: "Wyspy zaworowe – pneumatyka",
+      subtitle: "Automatyka przemysłowa",
+      lead: "Firma Bürkert ma ogromne doświadczenie w produkcji wysp zaworowych, będących kluczowym elementem automatyzacji procesów przemysłowych. Bürkert rozwija i dostarcza zaawansowane wyspy zaworowe na rynek globalny nieprzerwanie od 1992 roku.",
+      description:
+        "Wyspy zaworowe łączą funkcje elektryczne i pneumatyczne w jeden zintegrowany system. Mogą monitorować stan urządzeń w czasie rzeczywistym, zliczać cykle przełączeń zaworów i wysyłać powiadomienia alarmowe.",
+      features: [
+        "Integracja z modułami wejść/wyjść I/O oraz interfejsami sieciowymi.",
+        "Możliwość monitorowania stanu urządzeń i diagnostyki.",
+        "Rozwiązania dopasowane do nowoczesnej automatyki przemysłowej.",
+      ],
+      products: [
+        {
+          name: "8652 AirLINE",
+          image: "images/products/modal/valveIslands/extracted/01.png",
+          description:
+            "Najnowsza wyspa zaworowa Bürkert z głęboką integracją z systemami sterowania, diagnostyką cyfrową i wysokim bezpieczeństwem procesowym.",
+          features: [
+            "Do 64 funkcji zaworowych na jednym bloku.",
+            "Wyświetlacze LCD ze statusem i komunikatami błędów.",
+            "Hot-Swap, zintegrowane zawory zwrotne i AirLINE Quick.",
           ],
+          pdfUrl: "pdf/wyspy-zaworowe/8652-airline.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8647 AirLINE SP",
+          image: "images/products/modal/valveIslands/extracted/05.png",
+          description:
+            "Modułowy elektropneumatyczny system automatyzacji do integracji z SIMATIC ET 200SP oraz ET 200SP HA firmy Siemens.",
+          features: [],
+          pdfUrl: "pdf/wyspy-zaworowe/8647-airline-sp.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "8640",
-          title: "Typ 8640",
-          image: "images/products/modal/valveIslands/8640.png",
-          paragraphs: [
-            "Wyspy zaworowe typ 8640 są produkowane przez firmę Bürkert od ponad ćwierć wieku, a ich modułowe serie w wersjach z szerokością 11 mm i 19 mm stanowią sprawdzony standard w automatyzacji procesów.",
-            "Warto pamiętać, że konkretne warianty mogą być wycofywane z regularnej oferty i zastępowane nowszymi odpowiednikami, dlatego warto kontaktować się z doradcą technicznym w celu dobrania właściwego zamiennika, np. typu 8652.",
-          ],
+          image: "images/products/modal/valveIslands/extracted/06.png",
+          description:
+            "Sprawdzony standard automatyzacji procesów, produkowany przez Bürkert od ponad ćwierć wieku w modułowych seriach 11 mm i 19 mm.",
+          features: [],
+          pdfUrl: "pdf/wyspy-zaworowe/8640.pdf",
+          pdfText: "Katalog produktu",
         },
         {
-          name: "8650",
-          title: "Typ 8650 AirLINE Ex",
-          image: "images/products/modal/valveIslands/8650.png",
-          paragraphs: [
-            "Wyspa zaworowa typu 8650 AirLINE Ex jest modułowym elektrycznym i pneumatycznym systemem automatyzacji, sterującym złożonymi przebiegami procesów i produkcji w otoczeniu zagrożonym wybuchem.",
-            "Najnowsza wersja REV.2 umożliwia zintegrowanie nowych funkcji, takich jak np. czujnik ciśnienia lub przełącznik ciśnieniowy.",
+          name: "8650 AirLINE Ex",
+          image: "images/products/modal/valveIslands/extracted/07.png",
+          description:
+            "Modułowy elektryczny i pneumatyczny system automatyzacji do złożonych procesów w otoczeniu zagrożonym wybuchem.",
+          features: [
+            "Wersja REV.2 umożliwia integrację czujnika ciśnienia lub przełącznika ciśnieniowego.",
           ],
+          pdfUrl: "pdf/wyspy-zaworowe/8650-airline-ex.pdf",
+          pdfText: "Katalog produktu",
         },
       ],
-      closing: [
-        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich rozwiązań.",
-        "Warto pamiętać, iż oprócz scentralizowanych modułów, jakimi są wyspy zaworowe, firma Bürkert specjalizuje się również w produkcji zaworów w wersji Banjo, czyli specjalnie zaprojektowanych zaworów pilotowych do bezpośredniego montażu na siłownikach pneumatycznych.",
-        "W ofercie są również zawory sterujące ze złączem typu NAMUR, umożliwiające bezpośredni montaż na siłownikach pneumatycznych.",
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich rozwiązań. Bürkert specjalizuje się również w produkcji zaworów w wersji Banjo oraz zaworów sterujących ze złączem typu NAMUR do bezpośredniego montażu na siłownikach pneumatycznych.",
+      gallery: [
+        "images/products/modal/valveIslands/extracted/08.png",
+        "images/products/modal/valveIslands/extracted/09.png",
+        "images/products/modal/valveIslands/extracted/10.png",
+        "images/products/modal/valveIslands/extracted/11.png",
       ],
-      closingImages: [
-        "images/products/modal/valveIslands/banjo-1.png",
-        "images/products/modal/valveIslands/banjo-2.png",
-        "images/products/modal/valveIslands/namur-1.png",
-        "images/products/modal/valveIslands/namur-2.png",
-      ],
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
     },
-
     valveControl: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów regulacyjnych to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
-    },
-
-    solenoidValves: {
-      layout: "compact",
-      sliderTitle: "Najpopularniejsze typy elektrozaworów to:",
-      quote:
-        "Szeroka gama zaworów elektromagnetycznych Bürkert pozwala dobrać rozwiązanie do niemal każdego medium i zastosowania przemysłowego.",
+      title: "Zawory procesowe regulacyjne typ 8802",
+      subtitle: "Zawory procesowe",
+      lead: "Zawory regulacyjne Bürkert to zintegrowany system złożony z zaworu procesowego z napędem oraz pozycjonera. Typ 8802 to modułowy zestaw zamawiany pod jednym numerem systemowym.",
       description:
-        "Zawory elektromagnetyczne to kluczowe elementy systemów przemysłowych. Znajdują zastosowanie między innymi w instalacjach wody przemysłowej i pitnej, przemyśle spożywczym, analityce laboratoryjnej, produkcji wodoru oraz w aplikacjach specjalnych.",
-      spec: [
-        "Wykonania 2/2-drogowe i 3/2-drogowe do cieczy oraz gazów.",
-        "Wersje bezpośredniego działania, serwowspomagane oraz niewymagające różnicy ciśnień.",
-        "Rozwiązania do wody, pary wodnej, mediów agresywnych, zanieczyszczonych i wysokociśnieniowych.",
-        "Dostępne wykonania ATEX, spożywcze, farmaceutyczne, sanitarne oraz do gazów technicznych i palnych.",
+        "Zawory regulacyjne służą do precyzyjnego, płynnego sterowania przepływem, ciśnieniem lub temperaturą mediów. W odróżnieniu od zaworów odcinających mogą ustawić się w dowolnej pozycji pośredniej.",
+      features: [
+        "Napędy pneumatyczne oraz elektryczne.",
+        "Pozycjonery zintegrowane ELEMENT oraz uniwersalne SideCONTROL.",
+        "Rozwiązania do precyzyjnej regulacji liniowej i obrotowej.",
       ],
-      slides: [
+      products: [
+        {
+          name: "2300",
+          image: "images/products/modal/valveControl/extracted/02.png",
+          description:
+            "Zawór regulacyjny skośny o wysokiej przepustowości i dużej żywotności w trudnych warunkach.",
+          features: ["Do pary wodnej, gazów i agresywnych cieczy."],
+          pdfUrl: "pdf/zawory-regulacyjne/2300.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2301",
+          image: "images/products/modal/valveControl/extracted/03.png",
+          description:
+            "Zawór regulacyjny prosty / grzybkowy do aplikacji wymagających wysokiej precyzji regulacji.",
+          features: ["Paraboliczny profil grzybka regulacyjnego."],
+          pdfUrl: "pdf/zawory-regulacyjne/2301.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "2103",
+          image: "images/products/modal/valveControl/extracted/04.png",
+          description:
+            "Zawór regulacyjny membranowy z izolacją medium od mechanizmu napędu.",
+          features: [
+            "Do przemysłu spożywczego, farmaceutycznego i biotechnologii.",
+          ],
+          pdfUrl: "pdf/zawory-regulacyjne/2103.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8802",
+          image: "images/products/modal/valveControl/extracted/05.png",
+          description:
+            "Zestaw regulacyjny dla zaworów kulowych i motylkowych / przepustnic w instalacjach o dużych średnicach.",
+          features: [],
+          pdfUrl: "pdf/zawory-regulacyjne/8802.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8694 / 8696",
+          image: "images/products/modal/valveControl/extracted/06.png",
+          description:
+            "Ekonomiczne pozycjonery zintegrowane ELEMENT bez wyświetlacza.",
+          features: [
+            "Sygnalizacja kolorowymi diodami LED.",
+            "IO-Link, AS-Interface lub büS.",
+          ],
+          pdfUrl: "pdf/pozycjonery/8694-8696.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8692 / 8693",
+          image: "images/products/modal/valveControl/extracted/07.png",
+          description:
+            "Zaawansowane pozycjonery z dużym wyświetlaczem graficznym i pełną diagnostyką zaworu.",
+          features: [
+            "Wejścia 0/4-20 mA, 0-5/10 V.",
+            "8693 z regulatorem procesowym PID.",
+          ],
+          pdfUrl: "pdf/pozycjonery/8692-8693.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8791",
+          image: "images/products/modal/valveControl/extracted/08.png",
+          description:
+            "Ekonomiczny pozycjoner boczny SideCONTROL do zaworów liniowych i obrotowych.",
+          features: [],
+          pdfUrl: "pdf/pozycjonery/8791.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8792 / 8793",
+          image: "images/products/modal/valveControl/extracted/09.png",
+          description:
+            "Zaawansowany pozycjoner boczny z wyświetlaczem, obsługujący siłowniki liniowe i obrotowe.",
+          features: ["8793 z regulatorem procesowym PID."],
+          pdfUrl: "pdf/pozycjonery/8792-8793.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów.",
+      gallery: [
+        "images/products/modal/valveControl/extracted/10.png",
+        "images/products/modal/valveControl/extracted/11.png",
+        "images/products/modal/valveControl/extracted/12.png",
+        "images/products/modal/valveControl/extracted/13.png",
+        "images/products/modal/valveControl/extracted/14.png",
+        "images/products/modal/valveControl/extracted/15.png",
+      ],
+    },
+    solenoidValves: {
+      title: "Zawory elektromagnetyczne",
+      subtitle: "Zawory elektromagnetyczne",
+      lead: "Zawory elektromagnetyczne to kluczowe elementy systemów przemysłowych. Znajdują zastosowanie od zaopatrzenia w wodę i przemysłu spożywczego po analitykę laboratoryjną oraz produkcję wodoru.",
+      description:
+        "Bürkert oferuje szeroki wybór elektrozaworów do wszelkiego rodzaju mediów i zastosowań – od sprawdzonych produktów standardowych po rozwiązania niestandardowe.",
+      features: [
+        "Wykonania bezpośredniego działania oraz serwowspomagane.",
+        "Wersje 2/2-drogowe i 3/2-drogowe do cieczy, pary i gazów.",
+        "Rozwiązania ATEX, sanitarne, wysokociśnieniowe oraz do mediów agresywnych.",
+      ],
+      products: [
         {
           name: "6213",
-          subtitle: "Woda, ciecze, wersja do gazów, bez różnicy ciśnień",
-          image: "images/products/modal/solenoidValves/6213.png",
-          detailsTitle: "Typ 6213",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Uniwersalne rozwiązanie do cieczy i gazów, również w wersjach niewymagających różnicy ciśnień.",
-          detailsDescription:
-            "Typ 6213 to elektrozawór stosowany do wody, cieczy oraz wybranych gazów. Sprawdza się w instalacjach przemysłowych i użytkowych, gdzie wymagane jest niezawodne sterowanie przepływem medium.",
-          detailsSpec: [
-            "Medium: woda, ciecze oraz wybrane gazy.",
-            "Dostępne wykonania niewymagające różnicy ciśnień.",
-            "Zastosowanie w instalacjach przemysłowych i wodnych.",
+          image: "images/products/modal/solenoidValves/extracted/01.png",
+          description:
+            "Serwowspomagany zawór z wymuszonym podnoszeniem membrany, niewymagający różnicy ciśnień.",
+          features: [
+            "DN 10..40 mm.",
+            "Przyłącza 1/4”..2”.",
+            "Media: woda, ciecze, wersja HP00 do gazów.",
           ],
-          detailsPdfUrl:
-            "https://www.burkert.com/en/Media/plm/DTS/DS/ds6213-standard-eu-en.pdf?id=DTS0000000000000001000115690ENAI",
-          detailsPdfText: "Pełna dokumentacja PDF typu 6213",
+          pdfUrl: "pdf/zawory-elektromagnetyczne/6213.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "6281",
-          subtitle: "Uniwersalny, serwowspomagany",
-          image: "images/products/modal/solenoidValves/6281.png",
-          detailsTitle: "Typ 6281",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Serwowspomagany elektrozawór uniwersalny do szerokiego zakresu zastosowań.",
-          detailsDescription:
-            "Typ 6281 to uniwersalny zawór serwowspomagany przeznaczony do pracy z różnymi mediami. Jest dobrym wyborem do standardowych aplikacji przemysłowych, w których liczy się pewna praca i szeroka dostępność wykonań.",
-          detailsSpec: [
-            "Konstrukcja serwowspomagana.",
-            "Uniwersalne zastosowanie w instalacjach przemysłowych.",
-            "Dostępne różne warianty materiałowe i napięciowe.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/6281.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 6281",
+          image: "images/products/modal/solenoidValves/extracted/02.png",
+          description:
+            "Uniwersalny zawór serwowspomagany do mediów neutralnych.",
+          features: ["DN 10..50 mm.", "Przyłącza 1/4”..2 1/2”."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/6281.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "5282",
-          subtitle: "Do mediów agresywnych i zanieczyszczonych",
-          image: "images/products/modal/solenoidValves/5282.png",
-          detailsTitle: "Typ 5282",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Rozwiązanie do wymagających mediów, w tym cieczy agresywnych i zanieczyszczonych.",
-          detailsDescription:
-            "Typ 5282 przeznaczony jest do aplikacji, w których medium może być agresywne lub zanieczyszczone. Konstrukcja zaworu pozwala na pracę w trudniejszych warunkach procesowych.",
-          detailsSpec: [
-            "Do mediów agresywnych i zanieczyszczonych.",
-            "Do aplikacji przemysłowych o podwyższonych wymaganiach.",
-            "Dostępne wykonania dopasowane do rodzaju medium.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/5282.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 5282",
+          image: "images/products/modal/solenoidValves/extracted/03.png",
+          description:
+            "Serwowspomagany zawór z separacją medium do mediów zanieczyszczonych.",
+          features: ["DN 13..65 mm.", "Przyłącza 1/2”..2 1/2”, kołnierz."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/5282.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "5404",
-          subtitle: "Do pary wodnej",
-          image: "images/products/modal/solenoidValves/5404.png",
-          detailsTitle: "Typ 5404",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Elektrozawór przeznaczony do instalacji pary wodnej i pracy w podwyższonej temperaturze.",
-          detailsDescription:
-            "Typ 5404 znajduje zastosowanie w instalacjach parowych, gdzie zawór musi pracować z medium o wysokiej temperaturze. Sprawdza się w układach technologicznych i pomocniczych.",
-          detailsSpec: [
-            "Przeznaczony do pary wodnej.",
-            "Do aplikacji o podwyższonej temperaturze medium.",
-            "Stosowany w instalacjach technologicznych i przemysłowych.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/5404.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 5404",
+          image: "images/products/modal/solenoidValves/extracted/04.png",
+          description: "Zawór elektromagnetyczny do pary wodnej.",
+          features: ["DN 10..40 mm.", "Uszczelnienie PTFE + grafit."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/5404.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "6407",
-          subtitle: "Do pary, bez wymaganej różnicy ciśnień",
-          image: "images/products/modal/solenoidValves/6407.png",
-          detailsTitle: "Typ 6407",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Rozwiązanie do pary wodnej, również tam, gdzie nie ma wymaganej różnicy ciśnień.",
-          detailsDescription:
-            "Typ 6407 przeznaczony jest do pracy z parą wodną i może być stosowany w aplikacjach, w których zawór nie powinien wymagać minimalnej różnicy ciśnień do poprawnego działania.",
-          detailsSpec: [
-            "Do pary wodnej.",
-            "Wykonanie bez wymaganej różnicy ciśnień.",
-            "Do wymagających aplikacji przemysłowych.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/6407.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 6407",
+          image: "images/products/modal/solenoidValves/extracted/05.png",
+          description:
+            "Serwowspomagany zawór tłokowy do pary, niewymagający różnicy ciśnień.",
+          features: ["DN 13..50 mm."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/6407.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "0290",
-          subtitle: "Uniwersalny, bez różnicy ciśnień",
-          image: "images/products/modal/solenoidValves/0290.png",
-          detailsTitle: "Typ 0290",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Uniwersalny elektrozawór do aplikacji, w których nie występuje wystarczająca różnica ciśnień.",
-          detailsDescription:
-            "Typ 0290 jest rozwiązaniem uniwersalnym dla instalacji, w których zawór ma pracować niezależnie od różnicy ciśnień. Może być stosowany w wielu typowych układach przemysłowych.",
-          detailsSpec: [
-            "Uniwersalne zastosowanie.",
-            "Praca bez wymaganej różnicy ciśnień.",
-            "Do cieczy i gazów w zależności od wykonania.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/0290.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 0290",
+          image: "images/products/modal/solenoidValves/extracted/06.png",
+          description:
+            "Uniwersalny zawór serwowspomagany z wymuszonym podnoszeniem membrany.",
+          features: ["DN 12..65 mm."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/0290.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "0330",
-          subtitle: "Z separacją medium",
-          image: "images/products/modal/solenoidValves/0330.png",
-          detailsTitle: "Typ 0330",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Zawór z separacją medium do aplikacji, w których medium nie powinno mieć kontaktu z wybranymi elementami zaworu.",
-          detailsDescription:
-            "Typ 0330 posiada separację medium, dzięki czemu nadaje się do mediów wymagających oddzielenia od elementów roboczych zaworu. To dobre rozwiązanie dla bardziej wymagających aplikacji procesowych.",
-          detailsSpec: [
-            "Separacja medium.",
-            "Do mediów wymagających odizolowania od elementów zaworu.",
-            "Zastosowanie laboratoryjne, analitczne i przemysłowe.",
+          image: "images/products/modal/solenoidValves/extracted/07.png",
+          description:
+            "Zawór bezpośredniego działania z separacją medium, 2/2 oraz 3/2.",
+          features: [
+            "DN 1..5,5 mm.",
+            "Materiały: mosiądz, stal szlachetna, PVDF, PP, PEEK.",
           ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/0330.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 0330",
+          pdfUrl: "pdf/zawory-elektromagnetyczne/0330.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "0142",
-          subtitle: "Do mediów agresywnych i zanieczyszczonych",
-          image: "images/products/modal/solenoidValves/0142.png",
-          detailsTitle: "Typ 0142",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Elektrozawór do pracy z mediami agresywnymi lub zanieczyszczonymi.",
-          detailsDescription:
-            "Typ 0142 stosowany jest tam, gdzie medium może być agresywne chemicznie lub zanieczyszczone. Może być dobierany do specyficznych aplikacji wymagających odpowiedniego wykonania materiałowego.",
-          detailsSpec: [
-            "Do mediów agresywnych.",
-            "Do mediów zanieczyszczonych.",
-            "Możliwość dopasowania wykonania do warunków pracy.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/0142.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 0142",
+          image: "images/products/modal/solenoidValves/extracted/08.png",
+          description:
+            "Serwowspomagany zawór z separacją medium z tworzywa do mediów agresywnych.",
+          features: ["DN 15..50 mm.", "Korpus PVC."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/0142.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "6430",
-          subtitle: "3/2-drogowy",
-          image: "images/products/modal/solenoidValves/6430.png",
-          detailsTitle: "Typ 6430",
-          detailsSubtype: "Zawór elektromagnetyczny 3/2-drogowy",
-          detailsQuote:
-            "Elektrozawór 3/2-drogowy do sterowania przepływem lub sygnałem pneumatycznym.",
-          detailsDescription:
-            "Typ 6430 jest zaworem 3/2-drogowym, który może być stosowany w aplikacjach wymagających przełączania kierunku przepływu lub sterowania elementami wykonawczymi.",
-          detailsSpec: [
-            "Wykonanie 3/2-drogowe.",
-            "Do cieczy lub gazów w zależności od konfiguracji.",
-            "Do układów sterujących i aplikacji przemysłowych.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/6430.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 6430",
-        },
-        {
-          name: "6027",
-          subtitle: "Uniwersalny",
-          image: "images/products/modal/solenoidValves/6027.png",
-          detailsTitle: "Typ 6027",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Uniwersalny elektrozawór do wielu standardowych zastosowań przemysłowych.",
-          detailsDescription:
-            "Typ 6027 to uniwersalny zawór elektromagnetyczny, który może być dobierany do różnych aplikacji związanych ze sterowaniem przepływem cieczy lub gazów.",
-          detailsSpec: [
-            "Uniwersalne zastosowanie.",
-            "Do standardowych instalacji przemysłowych.",
-            "Dostępne różne wykonania zależnie od medium i parametrów pracy.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/6027.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 6027",
+          image: "images/products/modal/solenoidValves/extracted/09.png",
+          description: "Serwowspomagany zawór tłokowy 3/2.",
+          features: ["DN 8..40 mm."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/6430.pdf",
+          pdfText: "Katalog produktu",
         },
         {
           name: "7012",
-          subtitle: "3/2-drogowy",
-          image: "images/products/modal/solenoidValves/7012.png",
-          detailsTitle: "Typ 7012",
-          detailsSubtype: "Zawór elektromagnetyczny 3/2-drogowy",
-          detailsQuote:
-            "Kompaktowy zawór 3/2-drogowy do układów sterowania i automatyki.",
-          detailsDescription:
-            "Typ 7012 jest zaworem 3/2-drogowym stosowanym w układach automatyki oraz sterowania. Sprawdza się w aplikacjach, w których potrzebne jest kompaktowe rozwiązanie do przełączania medium.",
-          detailsSpec: [
-            "Wykonanie 3/2-drogowe.",
-            "Do układów automatyki i sterowania.",
-            "Kompaktowa konstrukcja.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/7012.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 7012",
-        },
-        {
-          name: "0255",
-          subtitle: "Uniwersalny",
-          image: "images/products/modal/solenoidValves/0255.png",
-          detailsTitle: "Typ 0255",
-          detailsSubtype: "Zawór elektromagnetyczny",
-          detailsQuote:
-            "Uniwersalny elektrozawór do różnorodnych zastosowań przemysłowych.",
-          detailsDescription:
-            "Typ 0255 to uniwersalny zawór elektromagnetyczny przeznaczony do typowych aplikacji przemysłowych. Może być dobierany pod konkretne medium, ciśnienie, temperaturę i wymagania instalacji.",
-          detailsSpec: [
-            "Uniwersalne zastosowanie.",
-            "Do różnych mediów w zależności od wykonania.",
-            "Dobór pod parametry instalacji i warunki pracy.",
-          ],
-          detailsPdfUrl: "pdf/zawory-elektromagnetyczne/0255.pdf",
-          detailsPdfText: "Pełna dokumentacja PDF typu 0255",
+          image: "images/products/modal/solenoidValves/extracted/10.png",
+          description:
+            "Zawór bezpośredniego działania 3/2 do pneumatyki i mediów neutralnych.",
+          features: ["DN 1..2 mm.", "Przyłącza 1/8”, banjo 1/8”, banjo 1/4”."],
+          pdfUrl: "pdf/zawory-elektromagnetyczne/7012.pdf",
+          pdfText: "Katalog produktu",
         },
       ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elektrozaworów, dostosowanych do Państwa potrzeb oraz do specyfiki instalacji i medium.",
+      gallery: [
+        "images/products/modal/solenoidValves/extracted/11.png",
+        "images/products/modal/solenoidValves/extracted/12.png",
+        "images/products/modal/solenoidValves/extracted/13.png",
+        "images/products/modal/solenoidValves/extracted/14.png",
+        "images/products/modal/solenoidValves/extracted/15.png",
+        "images/products/modal/solenoidValves/extracted/16.png",
+      ],
     },
-
     flowmeters: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy przepływomierzy to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
+      title: "Przepływomierze",
+      subtitle: "Pomiar przepływu",
+      lead: "Bürkert oferuje szeroką gamę mechanicznych i elektronicznych przepływomierzy opartych na różnych zasadach działania – od prostych metod mechanicznych po złożone pomiary wieloparametrowe.",
+      description:
+        "Rozwiązania obejmują przepływomierze turbinkowe, elektromagnetyczne, SAW oraz owalnokołowe, dostosowane do aplikacji od pojedynczej kropli po duże wartości przepływu.",
+      features: [
+        "Przepływomierze turbinkowe / mechaniczne.",
+        "Pomiar SAW – higieniczny, bezdotykowy i bez ruchomych części.",
+        "Przepływomierze elektromagnetyczne EMF.",
+        "Przepływomierze owalnokołowe do mediów lepkich.",
+      ],
+      products: [
+        {
+          name: "SE30",
+          image: "images/products/modal/flowmeters/extracted/01.png",
+          description:
+            "Sensor przepływu do przepływomierzy turbinkowych / mechanicznych.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/se30.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8035",
+          image: "images/products/modal/flowmeters/extracted/02.png",
+          description: "Przepływomierz / dozownik.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8035.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8025",
+          image: "images/products/modal/flowmeters/extracted/03.png",
+          description:
+            "Przepływomierz / dozownik w wersji panelowej lub naściennej.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8025.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8036",
+          image: "images/products/modal/flowmeters/extracted/04.png",
+          description: "Przepływomierz ELEMENT.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8036.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8098 FLOWave",
+          image: "images/products/modal/flowmeters/extracted/05.png",
+          description: "Przepływomierz SAW do higienicznych aplikacji.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8098-flowave.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8045",
+          image: "images/products/modal/flowmeters/extracted/06.png",
+          description: "Przepływomierz elektromagnetyczny EMF.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8045.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8041",
+          image: "images/products/modal/flowmeters/extracted/07.png",
+          description: "Przepływomierz elektromagnetyczny.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8041.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8051",
+          image: "images/products/modal/flowmeters/extracted/08.png",
+          description: "Przepływomierz elektromagnetyczny.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8051.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "S056",
+          image: "images/products/modal/flowmeters/extracted/09.png",
+          description: "Armatura / element pomiarowy dla EMF.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/s056.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8077",
+          image: "images/products/modal/flowmeters/extracted/10.png",
+          description: "Przepływomierz owalnokołowy.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8077.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8071",
+          image: "images/products/modal/flowmeters/extracted/11.png",
+          description: "Przepływomierz owalnokołowy do mediów lepkich.",
+          features: [],
+          pdfUrl: "pdf/przeplywomierze/8071.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich przetworników przepływu oraz urządzeń wspomagających, jak np. dzielniki impulsów.",
+      gallery: [
+        "images/products/modal/flowmeters/extracted/12.png",
+        "images/products/modal/flowmeters/extracted/13.png",
+        "images/products/modal/flowmeters/extracted/14.png",
+        "images/products/modal/flowmeters/extracted/15.png",
+        "images/products/modal/flowmeters/extracted/16.png",
+      ],
     },
-
     valveHygienic: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów higienicznych to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
+      title:
+        "Głowice sterujące wraz z adapterami do zaworów procesowych higienicznych",
+      subtitle: "Zawory procesowe higieniczne",
+      lead: "Firma Bürkert produkuje zestawy adapterów typu KK01, które służą do mechanicznego i pneumatycznego łączenia głowic sterujących on/off oraz pozycjonerów Bürkert z zaworami higienicznymi i procesowymi różnych producentów.",
+      description:
+        "Pozwalają one na montaż głowic sterujących Bürkert, np. typu 8681 lub serii 8690/95/96, oraz pozycjonerów 8694/92/93 i 8791/92/93 na napędach pneumatycznych innych producentów procesowych zaworów higienicznych, takich jak zawory jednogniazdowe, dwugniazdowe i klapowe czy zawory do mediów pomocniczych, takich jak para, woda i chemikalia do czyszczenia.",
+      features: [
+        "Zestawy adapterów typu KK01 do połączeń mechanicznych i pneumatycznych.",
+        "Integracja głowic sterujących Bürkert z napędami zaworów higienicznych innych producentów.",
+        "Możliwość montażu pozycjonerów Bürkert na napędach pneumatycznych zaworów procesowych.",
+      ],
+      products: [
+        {
+          name: "KK01 Adaptery",
+          image: "images/products/modal/valveHygienic/extracted/01.png",
+          description:
+            "Głowice sterujące oraz pozycjonery firmy Bürkert są przystosowane do zintegrowania w prosty i niezawodny sposób z zaworami i napędami następujących producentów.",
+          features: [
+            "Alfa Laval",
+            "GEA Tuchenhagen",
+            "Definox",
+            "Aseptomag",
+            "APV/SPX",
+            "Bardiani",
+            "Tyco Hovap",
+            "Millipore NovAseptic",
+            "Kieselmann",
+            "Nocado",
+            "INOXPA",
+            "Samson",
+          ],
+          pdfUrl: "pdf/zawory-higieniczne/kk01.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów.",
+      gallery: [
+        "images/products/modal/valveHygienic/extracted/02.png",
+        "images/products/modal/valveHygienic/extracted/03.png",
+        "images/products/modal/valveHygienic/extracted/04.png",
+      ],
     },
-
-    massFlowControllers: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy regulatorów przepływu to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
-    },
-
-    proportionalSolenoidValves: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy zaworów proporcjonalnych to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
-    },
-
     sensorsTransmitters: {
-      layout: "standard",
-      sliderTitle: "Najpopularniejsze typy czujników i przetworników to:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
+      title: "Czujniki / Przetworniki pomiarowe",
+      subtitle: "Pomiary i analiza mediów",
+      lead: "Bürkert specjalizuje się w produkcji zaawansowanych czujników i przetworników pomiarowych przeznaczonych do monitorowania i kontroli mediów płynnych oraz gazowych.",
+      description:
+        "Oferta obejmuje przetworniki do analizy fizyko-chemicznej cieczy, pomiaru poziomu, ciśnienia, temperatury i przepływu.",
+      features: [
+        "Przetworniki przewodnictwa, pH i potencjału REDOX.",
+        "Przetworniki chloru, żelaza i mętności cieczy.",
+        "Pomiary poziomu, ciśnienia, temperatury i przepływu.",
+      ],
+      products: [
+        {
+          name: "8228",
+          image: "images/products/modal/sensorsTransmitters/extracted/01.png",
+          description:
+            "Indukcyjny przetwornik przewodnictwa do skoncentrowanych cieczy i szerokiego zakresu przewodności.",
+          features: ["100 μS/cm…2 S/cm.", "4..20 mA, IO-Link lub büS."],
+          pdfUrl: "pdf/czujniki-przetworniki/8228.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8222",
+          image: "images/products/modal/sensorsTransmitters/extracted/02.png",
+          description:
+            "Przetwornik przewodnictwa ELEMENT / Neutrino do czystej wody i lekko stężonych roztworów.",
+          features: ["0.05 µS/cm…10 mS/cm."],
+          pdfUrl: "pdf/czujniki-przetworniki/8222.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8202",
+          image: "images/products/modal/sensorsTransmitters/extracted/03.png",
+          description: "Przetwornik pH / Redox ELEMENT / Neutrino.",
+          features: ["pH -2…16 pH, ORP -2000…+2000 mV."],
+          pdfUrl: "pdf/czujniki-przetworniki/8202.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8905",
+          image: "images/products/modal/sensorsTransmitters/extracted/04.png",
+          description: "Modułowy system do monitorowania parametrów wody.",
+          features: [
+            "pH, chlor, dwutlenek chloru, przewodność, ORP, mętność, temperatura i żelazo.",
+          ],
+          pdfUrl: "pdf/czujniki-przetworniki/8905.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8110",
+          image: "images/products/modal/sensorsTransmitters/extracted/05.png",
+          description:
+            "Wibracyjny czujnik poziomu do wykrywania poziomu i ochrony przed suchobiegiem pompy.",
+          features: [],
+          pdfUrl: "pdf/czujniki-przetworniki/8110.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8188",
+          image: "images/products/modal/sensorsTransmitters/extracted/06.png",
+          description: "Mikrofalowy przetwornik poziomu do pomiaru cieczy.",
+          features: ["Niewrażliwy na pył i parę."],
+          pdfUrl: "pdf/czujniki-przetworniki/8188.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8619",
+          image: "images/products/modal/sensorsTransmitters/extracted/07.png",
+          description: "Wielokanałowy i wielofunkcyjny przekaźnik / regulator.",
+          features: ["Opcjonalny Industrial Ethernet."],
+          pdfUrl: "pdf/czujniki-przetworniki/8619.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich wykonań, dostosowanych do Państwa potrzeb oraz do specyfiki instalacji i medium.",
+      gallery: [
+        "images/products/modal/sensorsTransmitters/extracted/08.png",
+        "images/products/modal/sensorsTransmitters/extracted/09.png",
+        "images/products/modal/sensorsTransmitters/extracted/10.png",
+        "images/products/modal/sensorsTransmitters/extracted/11.png",
+        "images/products/modal/sensorsTransmitters/extracted/12.png",
+      ],
     },
-
+    proportionalSolenoidValves: {
+      title: "Zawory proporcjonalne elektromagnetyczne",
+      subtitle: "Zawory proporcjonalne",
+      lead: "Zawory proporcjonalne elektromagnetyczne służą do płynnej regulacji przepływu gazów i cieczy w aplikacjach, w których zwykłe sterowanie on/off nie zapewnia wystarczającej dokładności.",
+      description:
+        "Rozwiązania Bürkert pozwalają budować układy dozowania, mieszania, regulacji ciśnienia i kontroli przepływu. Dobór zależy od medium, zakresu przepływu, ciśnienia roboczego, temperatury oraz oczekiwanej dynamiki regulacji.",
+      features: [
+        "Płynna regulacja przepływu zamiast pracy dwustanowej on/off.",
+        "Możliwość współpracy z elektroniką sterującą i sygnałami analogowymi.",
+        "Zastosowania: dozowanie, mieszanie, regulacja gazów, cieczy i ciśnienia.",
+      ],
+      products: [
+        {
+          name: "Zawory proporcjonalne do gazów i cieczy",
+          image: "images/products/zawory-proporcjonalne-elektromagnetyczne.png",
+          description:
+            "Rozwiązania do precyzyjnego dozowania oraz regulacji przepływu w układach procesowych i laboratoryjnych.",
+          features: [
+            "Dobór pod medium i zakres pracy.",
+            "Możliwa integracja z układami automatyki.",
+          ],
+          pdfUrl: "contact.html#contactFormSection",
+          pdfText: "Zapytaj o dobór",
+        },
+        {
+          name: "Układy regulacji z elektroniką sterującą",
+          image: "images/products/zawory-proporcjonalne-elektromagnetyczne.png",
+          description:
+            "Kompletne zestawienia zaworu proporcjonalnego z elementami sterowania dla aplikacji wymagających stabilnej regulacji.",
+          features: [
+            "Sterowanie sygnałem analogowym.",
+            "Wsparcie w konfiguracji parametrów pracy.",
+          ],
+          pdfUrl: "contact.html#contactFormSection",
+          pdfText: "Zapytaj o dobór",
+        },
+      ],
+      closing:
+        "Zawory proporcjonalne wymagają dokładnego doboru do parametrów aplikacji. Skontaktuj się z nami, aby dobrać właściwy typ zaworu, elektronikę sterującą i akcesoria.",
+      gallery: ["images/products/zawory-proporcjonalne-elektromagnetyczne.png"],
+    },
     otherProducts: {
-      layout: "standard",
-      sliderTitle: "Pozostałe grupy produktów:",
-      quote: "",
-      description: "",
-      spec: [],
-      slides: [],
+      title: "Inne produkty",
+      subtitle: "Pozostała oferta",
+      lead: "Poza głównymi grupami produktowymi oferujemy również elementy uzupełniające i rozwiązania specjalne do instalacji procesowych, automatyki oraz układów pomiarowo-regulacyjnych.",
+      description:
+        "W tej grupie znajdują się produkty dobierane indywidualnie do aplikacji, między innymi akcesoria montażowe, elementy przyłączeniowe, części eksploatacyjne, komponenty systemowe oraz rozwiązania niestandardowe.",
+      features: [
+        "Dobór komponentów pod konkretną aplikację i medium.",
+        "Wsparcie w kompletacji elementów do istniejących instalacji.",
+        "Możliwość konsultacji z przedstawicielem regionalnym.",
+      ],
+      products: [
+        {
+          name: "Akcesoria i elementy przyłączeniowe",
+          image: "images/products/inne-produkty.png",
+          description:
+            "Elementy pomocnicze do montażu, podłączenia i uruchomienia armatury oraz urządzeń automatyki.",
+          features: [
+            "Dobór pod typ urządzenia.",
+            "Wsparcie przy modernizacji instalacji.",
+          ],
+          pdfUrl: "contact.html#contactFormSection",
+          pdfText: "Zapytaj o produkt",
+        },
+        {
+          name: "Rozwiązania specjalne",
+          image: "images/products/inne-produkty.png",
+          description:
+            "Produkty i konfiguracje dobierane indywidualnie, gdy standardowa grupa katalogowa nie obejmuje wymagań aplikacji.",
+          features: [
+            "Analiza parametrów procesu.",
+            "Kontakt z doradcą technicznym.",
+          ],
+          pdfUrl: "contact.html#contactFormSection",
+          pdfText: "Zapytaj o produkt",
+        },
+      ],
+      closing:
+        "Nie widzisz produktu, którego szukasz? Wyślij zapytanie przez formularz albo skontaktuj się z przedstawicielem regionalnym — pomożemy dobrać odpowiednie rozwiązanie.",
+      gallery: ["images/products/inne-produkty.png"],
+    },
+    massFlowControllers: {
+      title: "Masowe regulatory przepływu MFC / Masowe mierniki przepływu MFM",
+      subtitle: "Regulacja i pomiar przepływu",
+      lead: "Masowe regulatory przepływu MFC i masowe mierniki przepływu MFM Bürkert umożliwiają precyzyjny pomiar i kontrolę gazów lub cieczy w szerokim zakresie zastosowań przemysłowych i analitycznych.",
+      description:
+        "Kompaktowe urządzenia łączą czujnik, zawór regulacyjny i elektronikę w jednym urządzeniu, zapewniając wysoką dokładność pomiaru i długoterminową niezawodność procesu.",
+      features: [
+        "Kapilarne: 10 mlN/min…100 lN/min.",
+        "Chipowe: 10 mlN/min…160 lN/min.",
+        "In Line: MFC 20 lN…1500 lN/min, MFM ≤2500 lN/min.",
+      ],
+      products: [
+        {
+          name: "8743",
+          image: "images/products/modal/massFlowControllers/extracted/01.png",
+          description:
+            "Kapilarny MFC/MFM: analogowy, Modbus, Ethernet, Profinet.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8743.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8741",
+          image: "images/products/modal/massFlowControllers/extracted/02.png",
+          description:
+            "Chipowy MFC/MFM: analogowy, büS/CANopen, Modbus RS-485, Industrial Ethernet.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8741.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8745",
+          image: "images/products/modal/massFlowControllers/extracted/03.png",
+          description:
+            "In Line: analogowy, Modbus RS-485, Industrial Ethernet.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8745.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8744",
+          image: "images/products/modal/massFlowControllers/extracted/04.png",
+          description: "Kapilarny MFC/MFM: Profibus, büS/CANopen.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8744.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8742",
+          image: "images/products/modal/massFlowControllers/extracted/05.png",
+          description:
+            "Chipowy MFC/MFM: büS/CANopen, Profibus, Industrial Ethernet.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8742.pdf",
+          pdfText: "Katalog produktu",
+        },
+        {
+          name: "8746",
+          image: "images/products/modal/massFlowControllers/extracted/06.png",
+          description:
+            "In Line: analogowy, büS/CANopen, Profibus, Industrial Ethernet.",
+          features: [],
+          pdfUrl: "pdf/mfc-mfm/8746.pdf",
+          pdfText: "Katalog produktu",
+        },
+      ],
+      closing:
+        "Zachęcamy do kontaktu z naszymi pracownikami celem doboru odpowiednich elementów oraz zapoznania się z innymi rozwiązaniami, takimi jak modułowe systemy kontroli przepływu gazów, MFC/MFM do cieczy czy elektroniczne regulatory ciśnienia EPC.",
+      gallery: [
+        "images/products/modal/massFlowControllers/extracted/07.png",
+        "images/products/modal/massFlowControllers/extracted/08.png",
+        "images/products/modal/massFlowControllers/extracted/09.png",
+        "images/products/modal/massFlowControllers/extracted/10.png",
+      ],
     },
   };
 
-  function resetProductModalClasses() {
-    if (!productModal) return;
+  /* =========================================================
+     2. Catalog layout configuration
+     ========================================================= */
 
-    productModal.className = "product_modal";
-  }
+  const cardCatalogModalTypes = new Set([
+    "valve2000",
+    "valveMembrane",
+    "valveBall",
+    "massFlowControllers",
+  ]);
 
-  function addProductModalClasses(modalType, modalData) {
-    if (!productModal || !modalType) return;
+  Object.entries(catalogModalData).forEach(([key, item]) => {
+    item.layout = cardCatalogModalTypes.has(key) ? "cards" : "rows";
+  });
 
-    productModal.classList.add("is_custom_product_modal");
-    productModal.classList.add(`modal_${modalType}`);
+  const contactLinks = {
+    formHref: "contact.html#contactFormSection",
+    mapHref: "contact.html#representativesMap",
+  };
 
-    if (modalData && modalData.layout) {
-      productModal.classList.add(`modal_layout_${modalData.layout}`);
-    }
-  }
+  /* =========================================================
+     3. Shared utilities
+     ========================================================= */
 
-  function animateProductModalRight(callback, detailMode = false) {
-    if (!productModalRight || typeof callback !== "function") {
-      if (typeof callback === "function") {
-        callback();
-      }
-
-      return;
-    }
-
-    productModalRight.classList.add("is_switching");
-
-    setTimeout(function () {
-      callback();
-
-      productModalRight.classList.remove("is_switching");
-      productModalRight.classList.toggle("is_detail_mode", detailMode);
-
-      if (detailMode) {
-        setTimeout(function () {
-          productModalRight.classList.remove("is_detail_mode");
-        }, 340);
-      }
-    }, 180);
-  }
-
-  function animateProductSlideChange(callback) {
-    if (typeof callback !== "function") {
-      return;
-    }
-
-    if (!productTypeSliderImage || !productTypeSliderName) {
-      callback();
-      return;
-    }
-
-    clearTimeout(productSlideChangeTimeout);
-
-    productTypeSliderImage.classList.add("is_changing");
-    productTypeSliderName.classList.add("is_changing");
-
-    productSlideChangeTimeout = setTimeout(function () {
-      callback();
-
-      requestAnimationFrame(function () {
-        productTypeSliderImage.classList.remove("is_changing");
-        productTypeSliderName.classList.remove("is_changing");
-      });
-    }, 160);
-  }
-
-  function stopProductSlider() {
-    if (productSliderInterval) {
-      clearInterval(productSliderInterval);
-      productSliderInterval = null;
-    }
-  }
-
-  function startProductSlider() {
-    stopProductSlider();
-
-    if (!activeProductSlides || activeProductSlides.length <= 1) {
-      return;
-    }
-
-    if (isProductDetailMode) {
-      return;
-    }
-
-    productSliderInterval = setInterval(function () {
-      showProductSlide(activeProductSlide + 1);
-    }, 5000);
-  }
-
-  function showProductBackButton() {
-    if (productModalBack) {
-      productModalBack.style.display = "inline-flex";
-    }
-  }
-
-  function hideProductBackButton() {
-    if (productModalBack) {
-      productModalBack.style.display = "none";
-    }
-  }
-
-  function showProductSliderHint() {
-    if (productTypeSliderHint) {
-      productTypeSliderHint.style.display = "block";
-    }
-  }
-
-  function hideProductSliderHint() {
-    if (productTypeSliderHint) {
-      productTypeSliderHint.style.display = "none";
-    }
-  }
-
-  function renderProductPdfLink(pdfUrl, pdfText) {
-    if (!productModalPdfLink) return;
-
-    if (!pdfUrl) {
-      productModalPdfLink.style.display = "none";
-      productModalPdfLink.href = "#";
-      return;
-    }
-
-    productModalPdfLink.href = pdfUrl;
-    productModalPdfLink.style.display = "inline-flex";
-
-    const textElement = productModalPdfLink.querySelector("span");
-
-    if (textElement) {
-      textElement.textContent = pdfText || "Otwórz pełną dokumentację PDF";
-    }
-  }
-
-  function renderProductSpec(specItems) {
-    if (!productModalSpec) return;
-
-    productModalSpec.innerHTML = "";
-
-    if (!specItems || specItems.length === 0) {
-      productModalSpec.style.display = "none";
-      return;
-    }
-
-    productModalSpec.style.display = "grid";
-
-    specItems.forEach(function (item) {
-      const specItem = document.createElement("div");
-      specItem.className = "product_modal_spec_item";
-
-      const icon = document.createElement("i");
-      icon.className = "fa-solid fa-check";
-
-      const text = document.createElement("span");
-      text.textContent = item;
-
-      specItem.appendChild(icon);
-      specItem.appendChild(text);
-
-      productModalSpec.appendChild(specItem);
+  function setupImageFallbacks(root) {
+    const target = root || document;
+    target.querySelectorAll("img").forEach((img) => {
+      img.addEventListener(
+        "error",
+        () => {
+          const holder = img.closest(
+            ".catalog_product_image, .catalog_tile_image, .catalog_additional_gallery figure, .product_image, .catalog_single_visual",
+          );
+          if (holder) {
+            holder.classList.add("image_failed");
+            holder.setAttribute("data-fallback", img.alt || "Zdjęcie produktu");
+          }
+          img.hidden = true;
+        },
+        { once: true },
+      );
     });
   }
 
-  function clearProductModalTextLayout() {
-    hideProductBackButton();
-
-    if (productModalQuote) {
-      productModalQuote.textContent = "";
-      productModalQuote.style.display = "none";
-    }
-
-    if (productModalDescription) {
-      productModalDescription.textContent = "";
-      productModalDescription.style.display = "none";
-    }
-
-    if (productModalSpec) {
-      productModalSpec.innerHTML = "";
-      productModalSpec.style.display = "none";
-    }
-
-    renderProductPdfLink("", "");
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 
-  function hideProductCustomContent() {
-    if (!productModalCustomContent) return;
+  /* =========================================================
+     4. Catalog rendering helpers
+     ========================================================= */
 
-    productModalCustomContent.innerHTML = "";
-    productModalCustomContent.style.display = "none";
+  function renderFeatureList(items) {
+    if (!items || items.length === 0) return "";
+    return `<div class="catalog_feature_box">
+      <div class="catalog_feature_header">
+        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+        <span>Cechy / zakres wykonań</span>
+      </div>
+      <ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+    </div>`;
   }
 
-  function createValveIslandsParagraphs(paragraphs) {
-    const fragment = document.createDocumentFragment();
+  function renderProductFeatures(items) {
+    if (!items || items.length === 0) return "";
+    return `<ul class="catalog_product_features">${items
+      .map((item) => `<li>${escapeHtml(item)}</li>`)
+      .join("")}</ul>`;
+  }
 
-    (paragraphs || []).forEach(function (paragraph) {
-      const paragraphElement = document.createElement("p");
-      paragraphElement.textContent = paragraph;
-      fragment.appendChild(paragraphElement);
+  function renderProductRow(product, index) {
+    const reverseClass = index % 2 === 1 ? " is_reversed" : "";
+    const image = product.image
+      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
+      : "";
+    const pdfUrl = product.pdfUrl || "#";
+
+    return `<article class="catalog_product_row${reverseClass}" style="--catalog-delay: ${index * 70}ms">
+      <div class="catalog_product_text">
+        <h4>${escapeHtml(product.name)}</h4>
+        ${product.description ? `<p>${escapeHtml(product.description)}</p>` : ""}
+        ${renderProductFeatures(product.features)}
+        <a class="catalog_pdf_btn catalog_pdf_btn_mobile" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Katalog produktu</span>
+        </a>
+      </div>
+      <div class="catalog_product_visual">
+        <div class="catalog_product_image">${image}</div>
+        <a class="catalog_pdf_btn catalog_pdf_btn_visual" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Katalog produktu</span>
+        </a>
+      </div>
+    </article>`;
+  }
+
+  function renderProductTile(product, index) {
+    const image = product.image
+      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
+      : "";
+    const pdfUrl = product.pdfUrl || "#";
+
+    return `<article class="catalog_product_tile" style="--catalog-delay: ${index * 60}ms">
+      <div class="catalog_tile_image">${image}</div>
+      <div class="catalog_tile_content">
+        <h4>${escapeHtml(product.name)}</h4>
+        ${product.description ? `<p>${escapeHtml(product.description)}</p>` : ""}
+        ${renderProductFeatures(product.features)}
+        <a class="catalog_pdf_btn" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Katalog produktu</span>
+        </a>
+      </div>
+    </article>`;
+  }
+
+  function renderProducts(products, layout) {
+    const renderer = layout === "cards" ? renderProductTile : renderProductRow;
+    return products.map(renderer).join("");
+  }
+
+  function renderGallery(images) {
+    if (!images || images.length === 0) return "";
+    return `<div class="catalog_additional_gallery" data-count="${images.filter(Boolean).length}" aria-label="Dodatkowe wykonania produktów">
+      ${images
+        .filter(Boolean)
+        .map(
+          (src, index) =>
+            `<figure style="--catalog-delay: ${index * 60}ms"><img src="${escapeHtml(src)}" alt="Dodatkowe wykonanie produktu" loading="lazy" /></figure>`,
+        )
+        .join("")}
+    </div>`;
+  }
+
+  /* =========================================================
+     5. Modal navigation
+     ========================================================= */
+
+  function ensureModalNavigationButtons() {
+    if (!productModalOverlay) return;
+    if (productModalOverlay.querySelector(".product_modal_nav")) return;
+
+    const prevButton = document.createElement("button");
+    prevButton.className = "product_modal_nav product_modal_nav_prev";
+    prevButton.type = "button";
+    prevButton.setAttribute("aria-label", "Poprzedni produkt");
+    prevButton.innerHTML =
+      '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+
+    const nextButton = document.createElement("button");
+    nextButton.className = "product_modal_nav product_modal_nav_next";
+    nextButton.type = "button";
+    nextButton.setAttribute("aria-label", "Następny produkt");
+    nextButton.innerHTML =
+      '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+    prevButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      navigateProductModal(-1);
     });
 
-    return fragment;
-  }
-
-  function renderValveIslandsImages(item, visualElement) {
-    const images = item.images && item.images.length > 0 ? item.images : [];
-
-    if (item.image) {
-      images.push(item.image);
-    }
-
-    images.forEach(function (image, imageIndex) {
-      const imageElement = document.createElement("img");
-      imageElement.src = image;
-      imageElement.alt = item.title || item.name || "Wyspa zaworowa";
-      imageElement.loading = "lazy";
-      imageElement.className = "valve_island_image";
-
-      if (images.length > 1) {
-        imageElement.classList.add("valve_island_image_small");
-      }
-
-      imageElement.onerror = function () {
-        imageElement.style.display = "none";
-      };
-
-      visualElement.appendChild(imageElement);
-    });
-  }
-
-  function renderValveIslandsCustomContent(modalData) {
-    if (!productModalCustomContent || !modalData) return;
-
-    stopProductSlider();
-    clearProductModalTextLayout();
-
-    productModalCustomContent.innerHTML = "";
-    productModalCustomContent.style.display = "block";
-
-    const content = document.createElement("section");
-    content.className = "valve_islands_content";
-
-    const intro = document.createElement("div");
-    intro.className = "valve_islands_intro";
-
-    const introTitle = document.createElement("h3");
-    introTitle.textContent = modalData.pageTitle || activeProductCardTitle;
-    intro.appendChild(introTitle);
-    intro.appendChild(createValveIslandsParagraphs(modalData.intro));
-    content.appendChild(intro);
-
-    const productsTitle = document.createElement("h4");
-    productsTitle.className = "valve_islands_section_title";
-    productsTitle.textContent =
-      modalData.productsTitle || "Najpopularniejsze typy wysp zaworowych";
-    content.appendChild(productsTitle);
-
-    const productsList = document.createElement("div");
-    productsList.className = "valve_islands_products";
-
-    (modalData.products || []).forEach(function (item) {
-      const productItem = document.createElement("article");
-      productItem.className = "valve_island_item";
-
-      const text = document.createElement("div");
-      text.className = "valve_island_text";
-
-      const name = document.createElement("span");
-      name.className = "valve_island_type";
-      name.textContent = item.name || "";
-      text.appendChild(name);
-
-      const title = document.createElement("h5");
-      title.textContent = item.title || item.name || "";
-      text.appendChild(title);
-
-      text.appendChild(createValveIslandsParagraphs(item.paragraphs));
-
-      if (item.features && item.features.length > 0) {
-        const featureList = document.createElement("ul");
-        featureList.className = "valve_island_features";
-
-        item.features.forEach(function (feature) {
-          const featureItem = document.createElement("li");
-          featureItem.textContent = feature;
-          featureList.appendChild(featureItem);
-        });
-
-        text.appendChild(featureList);
-      }
-
-      if (item.communication && item.communication.length > 0) {
-        const communicationTitle = document.createElement("p");
-        communicationTitle.className = "valve_island_communication_title";
-        communicationTitle.textContent =
-          "Moduł komunikacyjny typ ME34 obsługuje między innymi:";
-        text.appendChild(communicationTitle);
-
-        const communicationList = document.createElement("ul");
-        communicationList.className = "valve_island_communication";
-
-        item.communication.forEach(function (entry) {
-          const entryItem = document.createElement("li");
-          entryItem.textContent = entry;
-          communicationList.appendChild(entryItem);
-        });
-
-        text.appendChild(communicationList);
-      }
-
-      const visual = document.createElement("div");
-      visual.className = "valve_island_visual";
-
-      if (item.images && item.images.length > 1) {
-        visual.classList.add("valve_island_visual_grid");
-      }
-
-      renderValveIslandsImages(item, visual);
-
-      productItem.appendChild(text);
-      productItem.appendChild(visual);
-      productsList.appendChild(productItem);
+    nextButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      navigateProductModal(1);
     });
 
-    content.appendChild(productsList);
-
-    const closing = document.createElement("div");
-    closing.className = "valve_islands_closing";
-    closing.appendChild(createValveIslandsParagraphs(modalData.closing));
-
-    if (modalData.closingImages && modalData.closingImages.length > 0) {
-      const closingImages = document.createElement("div");
-      closingImages.className = "valve_islands_closing_images";
-
-      modalData.closingImages.forEach(function (image, index) {
-        const imageElement = document.createElement("img");
-        imageElement.src = image;
-        imageElement.alt =
-          index < 2
-            ? "Zawór pilotowy w wersji Banjo"
-            : "Zawór sterujący ze złączem NAMUR";
-        imageElement.loading = "lazy";
-        imageElement.onerror = function () {
-          imageElement.style.display = "none";
-        };
-
-        closingImages.appendChild(imageElement);
-      });
-
-      closing.appendChild(closingImages);
-    }
-
-    content.appendChild(closing);
-    productModalCustomContent.appendChild(content);
+    productModalOverlay.append(prevButton, nextButton);
   }
 
-  function renderProductModalContent(modalData, fallbackDescription) {
-    clearProductModalTextLayout();
-
-    if (productModalSubtype && activeProductCardSubtype) {
-      productModalSubtype.textContent = activeProductCardSubtype;
-    }
-
-    if (productModalTitle && activeProductCardTitle) {
-      productModalTitle.textContent = activeProductCardTitle;
-    }
-
-    const quote = modalData && modalData.quote ? modalData.quote : "";
-    const description =
-      modalData && modalData.description
-        ? modalData.description
-        : fallbackDescription || "";
-
-    const spec = modalData && modalData.spec ? modalData.spec : [];
-
-    if (productModalQuote) {
-      productModalQuote.textContent = quote;
-      productModalQuote.style.display = quote ? "block" : "none";
-    }
-
-    if (productModalDescription) {
-      productModalDescription.textContent = description;
-      productModalDescription.style.display = description ? "block" : "none";
-    }
-
-    renderProductSpec(spec);
-    renderProductPdfLink("", "");
-  }
-
-  function renderActiveSlideDetails() {
-    const slide = activeProductSlides[activeProductSlide];
-
-    if (!slide) return;
-
-    showProductBackButton();
-
-    if (productModalSubtype) {
-      productModalSubtype.textContent =
-        slide.detailsSubtype || "Specyfikacja modelu";
-    }
-
-    if (productModalTitle) {
-      productModalTitle.textContent = slide.detailsTitle || slide.name || "";
-    }
-
-    if (productModalQuote) {
-      const quote = slide.detailsQuote || "";
-      productModalQuote.textContent = quote;
-      productModalQuote.style.display = quote ? "block" : "none";
-    }
-
-    if (productModalDescription) {
-      const description = slide.detailsDescription || "";
-      productModalDescription.textContent = description;
-      productModalDescription.style.display = description ? "block" : "none";
-    }
-
-    renderProductSpec(slide.detailsSpec || []);
-    renderProductPdfLink(slide.detailsPdfUrl, slide.detailsPdfText);
-  }
-
-  function getActiveSlide() {
-    if (!activeProductSlides || activeProductSlides.length === 0) {
-      return null;
-    }
-
-    return activeProductSlides[activeProductSlide] || null;
-  }
-
-  function hasActiveSlideDetails(slide) {
-    return !!(
-      slide &&
-      (slide.detailsTitle || slide.detailsDescription || slide.detailsSpec)
-    );
-  }
-
-  function updateProductSliderImageAccessibility(slide) {
-    if (!productTypeSliderImage) return;
-
-    if (!hasActiveSlideDetails(slide)) {
-      productTypeSliderImage.classList.remove("is_clickable");
-      productTypeSliderImage.removeAttribute("title");
-      productTypeSliderImage.removeAttribute("tabindex");
-      productTypeSliderImage.removeAttribute("role");
-      productTypeSliderImage.removeAttribute("aria-label");
-      return;
-    }
-
-    productTypeSliderImage.classList.add("is_clickable");
-    productTypeSliderImage.title = isProductDetailMode
-      ? "Kliknij, aby wrócić do opisu ogólnego"
-      : "Kliknij, aby zobaczyć szczegóły modelu";
-
-    productTypeSliderImage.setAttribute("tabindex", "0");
-    productTypeSliderImage.setAttribute("role", "button");
-    productTypeSliderImage.setAttribute(
-      "aria-label",
-      isProductDetailMode
-        ? "Wróć do opisu ogólnego"
-        : `Zobacz specyfikację modelu ${slide.name || ""}`,
-    );
-  }
-
-  function enterActiveSlideDetails() {
-    const slide = getActiveSlide();
-
-    if (!hasActiveSlideDetails(slide)) {
-      return;
-    }
-
-    isProductDetailMode = true;
-    stopProductSlider();
-    updateProductSliderImageAccessibility(slide);
-
-    animateProductModalRight(function () {
-      renderActiveSlideDetails();
-    }, true);
-  }
-
-  function exitActiveSlideDetails() {
-    if (!isProductDetailMode) {
-      return;
-    }
-
-    isProductDetailMode = false;
-    updateProductSliderImageAccessibility(getActiveSlide());
-
-    animateProductModalRight(function () {
-      renderProductModalContent(activeModalData, activeFallbackDescription);
-    }, false);
-
-    startProductSlider();
-  }
-
-  function toggleActiveSlideDetails() {
-    if (isProductDetailMode) {
-      exitActiveSlideDetails();
-      return;
-    }
-
-    enterActiveSlideDetails();
-  }
-
-  function changeProductSlideByWheel(event) {
-    if (!activeProductSlides || activeProductSlides.length <= 1) {
-      return;
-    }
-
-    const wheelDelta =
-      Math.abs(event.deltaX) > Math.abs(event.deltaY)
-        ? event.deltaX
-        : event.deltaY;
-
-    if (Math.abs(wheelDelta) < 8) {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (productWheelChangeLocked) {
-      return;
-    }
-
-    productWheelChangeLocked = true;
-
-    showProductSlide(
-      wheelDelta > 0 ? activeProductSlide + 1 : activeProductSlide - 1,
-    );
-
-    if (!isProductDetailMode) {
-      startProductSlider();
-    }
-
-    setTimeout(function () {
-      productWheelChangeLocked = false;
-    }, 420);
-  }
-
-  function showProductSlide(index) {
-    if (!productTypeSliderImage || !productTypeSliderName) {
-      return;
-    }
-
-    if (!activeProductSlides || activeProductSlides.length === 0) {
-      productTypeSliderImage.removeAttribute("src");
-      productTypeSliderImage.alt = "";
-      productTypeSliderImage.style.display = "none";
-      productTypeSliderImage.classList.remove("is_clickable");
-      productTypeSliderImage.classList.remove("is_changing");
-      productTypeSliderImage.removeAttribute("title");
-      productTypeSliderImage.removeAttribute("tabindex");
-      productTypeSliderImage.removeAttribute("role");
-      productTypeSliderImage.removeAttribute("aria-label");
-
-      productTypeSliderName.classList.remove("is_changing");
-      productTypeSliderName.textContent = "Zdjęcia zostaną dodane wkrótce.";
-
-      hideProductSliderHint();
-
-      updateProductDots();
-      updateProductSliderButtons();
-
-      return;
-    }
-
-    animateProductSlideChange(function () {
-      if (index < 0) {
-        activeProductSlide = activeProductSlides.length - 1;
-      } else if (index >= activeProductSlides.length) {
-        activeProductSlide = 0;
-      } else {
-        activeProductSlide = index;
-      }
-
-      const slide = activeProductSlides[activeProductSlide];
-
-      const slideLabel = slide.subtitle
-        ? `${slide.name} – ${slide.subtitle}`
-        : slide.name;
-
-      const slideHasDetails = hasActiveSlideDetails(slide);
-
-      productTypeSliderImage.style.display = "block";
-      productTypeSliderImage.src = slide.image;
-      productTypeSliderImage.alt = slideLabel || "Produkt";
-
-      if (slideHasDetails) {
-        showProductSliderHint();
-      } else {
-        hideProductSliderHint();
-      }
-
-      updateProductSliderImageAccessibility(slide);
-
-      productTypeSliderImage.onerror = function () {
-        console.error("Nie znaleziono zdjęcia slidera:", slide.image);
-
-        productTypeSliderImage.removeAttribute("src");
-        productTypeSliderImage.alt = "";
-        productTypeSliderImage.style.display = "none";
-        productTypeSliderImage.classList.remove("is_clickable");
-        productTypeSliderImage.classList.remove("is_changing");
-        productTypeSliderImage.removeAttribute("title");
-        productTypeSliderImage.removeAttribute("tabindex");
-        productTypeSliderImage.removeAttribute("role");
-        productTypeSliderImage.removeAttribute("aria-label");
-
-        productTypeSliderName.classList.remove("is_changing");
-        productTypeSliderName.textContent = "Brak zdjęcia: " + slide.image;
-      };
-
-      productTypeSliderImage.onload = function () {
-        productTypeSliderImage.style.display = "block";
-      };
-
-      productTypeSliderName.textContent = slideLabel || "";
-
-      if (isProductDetailMode) {
-        animateProductModalRight(function () {
-          renderActiveSlideDetails();
-          updateProductSliderImageAccessibility(getActiveSlide());
-        }, true);
-      }
-
-      updateProductDots();
-      updateProductSliderButtons();
+  function getNavigableCards() {
+    return productCardsArray.filter(function (card) {
+      return !card.classList.contains("is_filtered_out");
     });
   }
 
-  function renderProductDots() {
-    if (!productTypeSliderDots) return;
+  function updateModalNavigationState() {
+    if (!productModalOverlay) return;
 
-    productTypeSliderDots.innerHTML = "";
+    const cards = getNavigableCards();
+    const buttons = productModalOverlay.querySelectorAll(".product_modal_nav");
 
-    if (!activeProductSlides || activeProductSlides.length <= 1) {
-      productTypeSliderDots.style.display = "none";
+    buttons.forEach(function (button) {
+      const shouldHide = cards.length <= 1;
+      button.hidden = shouldHide;
+      button.disabled = shouldHide;
+    });
+  }
+
+  function navigateProductModal(direction) {
+    if (!productModalOverlay || !productModalOverlay.classList.contains("show"))
       return;
-    }
 
-    productTypeSliderDots.style.display = "flex";
+    const cards = getNavigableCards();
+    if (cards.length <= 1) return;
 
-    activeProductSlides.forEach(function (_, index) {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.setAttribute("aria-label", `Pokaż produkt ${index + 1}`);
+    const currentCard = productCardsArray[activeProductCardIndex];
+    let currentIndex = cards.indexOf(currentCard);
 
-      dot.addEventListener("click", function (event) {
-        event.stopPropagation();
-        showProductSlide(index);
+    if (currentIndex < 0) currentIndex = 0;
 
-        if (!isProductDetailMode) {
-          startProductSlider();
+    const nextIndex = (currentIndex + direction + cards.length) % cards.length;
+    openProductModal(cards[nextIndex]);
+  }
+
+  /* =========================================================
+     6. Modal rendering and lifecycle
+     ========================================================= */
+
+  function renderCatalogModal(data, fallback) {
+    const title = data.title || fallback.title || "Produkt";
+    const subtitle = data.subtitle || fallback.subtype || "Produkty";
+    const products = data.products || [];
+
+    productModal.className = `product_modal product_catalog_modal catalog_layout_${data.layout === "cards" ? "cards" : "rows"}`;
+    productModal.innerHTML = `
+      <button aria-label="Zamknij okno" class="product_modal_close" id="productModalClose" type="button">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="catalog_modal_scroll">
+        <section class="catalog_hero">
+          <nav class="catalog_breadcrumb" aria-label="Ścieżka"><span>Produkty</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span class="catalog_breadcrumb_badge">${escapeHtml(subtitle)}</span></nav>
+          <h3>${escapeHtml(title)}</h3>
+          ${data.lead ? `<p class="catalog_lead">${escapeHtml(data.lead)}</p>` : ""}
+          ${data.description ? `<p>${escapeHtml(data.description)}</p>` : ""}
+          ${renderFeatureList(data.features)}
+        </section>
+
+        <section class="catalog_products_section">
+          <div class="catalog_section_heading">
+            <span>Oferta Bürkert</span>
+            <h4>Najpopularniejsze typy</h4>
+          </div>
+          <div class="catalog_products_list is_${data.layout === "cards" ? "cards" : "rows"}" data-count="${products.length}">
+            ${renderProducts(products, data.layout)}
+          </div>
+        </section>
+
+        ${
+          data.closing
+            ? `<section class="catalog_closing">
+          <div class="catalog_closing_icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+          <div class="catalog_closing_content">
+            <span>Wsparcie techniczne</span>
+            <h4>Potrzebujesz pomocy w doborze?</h4>
+            <p>${escapeHtml(data.closing)}</p>
+            <div class="catalog_closing_actions">
+              <a href="${contactLinks.formHref}"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Skontaktuj się</span></a>
+              <a href="${contactLinks.mapHref}"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>Mapa przedstawicieli</span></a>
+            </div>
+          </div>
+        </section>`
+            : ""
         }
-      });
+        ${renderGallery(data.gallery)}
+      </div>
+    `;
 
-      productTypeSliderDots.appendChild(dot);
-    });
+    setupImageFallbacks(productModal);
 
-    updateProductDots();
+    const closeButton = productModal.querySelector("#productModalClose");
+    if (closeButton) closeButton.addEventListener("click", closeProductModal);
   }
 
-  function updateProductDots() {
-    if (!productTypeSliderDots) return;
+  function renderFallbackModal(fallback) {
+    const image = fallback.image
+      ? `<img src="${escapeHtml(fallback.image)}" alt="${escapeHtml(fallback.title)}" />`
+      : "";
+    productModal.className = "product_modal product_catalog_modal";
+    productModal.innerHTML = `
+      <button aria-label="Zamknij okno" class="product_modal_close" id="productModalClose" type="button">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="catalog_modal_scroll">
+        <section class="catalog_hero">
+          <span>${escapeHtml(fallback.subtype || "Produkty")}</span>
+          <h3>${escapeHtml(fallback.title || "Produkt")}</h3>
+          ${fallback.description ? `<p class="catalog_lead">${escapeHtml(fallback.description)}</p>` : ""}
+        </section>
+        <div class="catalog_single_visual">${image}</div>
+      </div>`;
 
-    const dots = productTypeSliderDots.querySelectorAll("button");
-
-    dots.forEach(function (dot, index) {
-      dot.classList.toggle("is_active", index === activeProductSlide);
-    });
-  }
-
-  function updateProductSliderButtons() {
-    const shouldDisable =
-      !activeProductSlides || activeProductSlides.length <= 1;
-
-    if (productTypeSliderPrev) {
-      productTypeSliderPrev.disabled = shouldDisable;
-    }
-
-    if (productTypeSliderNext) {
-      productTypeSliderNext.disabled = shouldDisable;
-    }
-  }
-
-  function showSingleProductImage(image, title) {
-    hideProductCustomContent();
-
-    if (productModalSingleImageBox && productModalImage) {
-      productModalSingleImageBox.style.display = "block";
-      productModalImage.src = image || "";
-      productModalImage.alt = title || "";
-    }
-
-    if (productTypeSlider) {
-      productTypeSlider.style.display = "none";
-    }
-
-    if (productTypeSliderImage) {
-      productTypeSliderImage.removeAttribute("src");
-      productTypeSliderImage.alt = "";
-      productTypeSliderImage.style.display = "none";
-      productTypeSliderImage.classList.remove("is_clickable");
-      productTypeSliderImage.classList.remove("is_changing");
-      productTypeSliderImage.removeAttribute("title");
-      productTypeSliderImage.removeAttribute("tabindex");
-      productTypeSliderImage.removeAttribute("role");
-      productTypeSliderImage.removeAttribute("aria-label");
-    }
-
-    if (productTypeSliderName) {
-      productTypeSliderName.classList.remove("is_changing");
-      productTypeSliderName.textContent = "";
-    }
-
-    hideProductSliderHint();
-    renderProductPdfLink("", "");
-
-    activeProductSlides = [];
-    activeProductSlide = 0;
-
-    renderProductDots();
-    updateProductSliderButtons();
-  }
-
-  function showProductTypeSlider(modalData) {
-    hideProductCustomContent();
-
-    if (productModalSingleImageBox) {
-      productModalSingleImageBox.style.display = "none";
-    }
-
-    if (productTypeSlider) {
-      productTypeSlider.style.display = "flex";
-    }
-
-    const sliderTitle = productTypeSlider
-      ? productTypeSlider.querySelector("h4")
-      : null;
-
-    if (sliderTitle) {
-      sliderTitle.textContent =
-        modalData.sliderTitle || "Najpopularniejsze typy produktów to:";
-    }
-
-    activeProductSlides = modalData.slides || [];
-    activeProductSlide = 0;
-
-    renderProductDots();
-    showProductSlide(0);
-    startProductSlider();
+    const closeButton = productModal.querySelector("#productModalClose");
+    if (closeButton) closeButton.addEventListener("click", closeProductModal);
   }
 
   function openProductModal(card) {
-    if (
-      !card ||
-      !productModalOverlay ||
-      !productModal ||
-      !productModalSubtype ||
-      !productModalTitle
-    ) {
-      return;
-    }
+    if (!card || !productModalOverlay || !productModal) return;
 
-    const title = card.dataset.title || "";
-    const subtype = card.dataset.subtype || "";
-    const image = card.dataset.image || "";
-    const description = card.dataset.description || "";
+    activeProductCardIndex = productCardsArray.indexOf(card);
+
     const modalType = card.dataset.modalType || "";
-    const modalData = productModalData[modalType];
+    const fallback = {
+      title: card.dataset.title || "",
+      subtype: card.dataset.subtype || "",
+      description: card.dataset.description || "",
+      image: card.dataset.image || "",
+    };
 
-    stopProductSlider();
-    resetProductModalClasses();
-
-    activeModalData = modalData || null;
-    activeModalType = modalType;
-    activeFallbackDescription = description;
-    activeProductCardTitle = title;
-    activeProductCardSubtype = subtype;
-    isProductDetailMode = false;
-
-    productModalTitle.textContent = title;
-    productModalSubtype.textContent = subtype;
-
-    if (modalData) {
-      addProductModalClasses(modalType, modalData);
-
-      if (modalData.customLayout === "valveIslandsList") {
-        if (productModalSingleImageBox) {
-          productModalSingleImageBox.style.display = "none";
-        }
-
-        if (productTypeSlider) {
-          productTypeSlider.style.display = "none";
-        }
-
-        renderValveIslandsCustomContent(modalData);
-      } else {
-        renderProductModalContent(modalData, description);
-        showProductTypeSlider(modalData);
-      }
+    const data = catalogModalData[modalType];
+    if (data) {
+      renderCatalogModal(data, fallback);
     } else {
-      clearProductModalTextLayout();
-
-      if (productModalDescription) {
-        productModalDescription.textContent = description;
-        productModalDescription.style.display = description ? "block" : "none";
-      }
-
-      showSingleProductImage(image, title);
+      renderFallbackModal(fallback);
     }
+
+    ensureModalNavigationButtons();
+    updateModalNavigationState();
 
     productModalOverlay.classList.add("show");
     document.body.classList.add("no_scroll");
+
+    const firstHeading = productModal.querySelector("h3");
+    if (firstHeading) firstHeading.setAttribute("tabindex", "-1");
+    if (firstHeading) firstHeading.focus({ preventScroll: true });
   }
 
   function closeProductModal() {
     if (!productModalOverlay) return;
-
     productModalOverlay.classList.remove("show");
     document.body.classList.remove("no_scroll");
-
-    stopProductSlider();
-    clearTimeout(productSlideChangeTimeout);
-
-    activeProductSlides = [];
-    activeProductSlide = 0;
-    activeModalData = null;
-    activeModalType = "";
-    activeFallbackDescription = "";
-    activeProductCardTitle = "";
-    activeProductCardSubtype = "";
-    isProductDetailMode = false;
-
-    setTimeout(function () {
-      resetProductModalClasses();
-      hideProductCustomContent();
-      clearProductModalTextLayout();
-      showSingleProductImage("", "");
-    }, 220);
+    activeProductCardIndex = -1;
   }
 
-  if (productCards.length > 0 && productModalOverlay) {
-    productCards.forEach(function (card) {
-      card.addEventListener("click", function () {
-        openProductModal(card);
-      });
+  /* =========================================================
+     7. Product filters and card CTA
+     ========================================================= */
 
-      card.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openProductModal(card);
+  function normalizeCategoryName(value) {
+    return (value || "")
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/&lstrok;/g, "l")
+      .replace(/&oacute;/g, "o")
+      .replace(/&eogon;/g, "e")
+      .replace(/&aogon;/g, "a")
+      .replace(/&sacute;/g, "s")
+      .replace(/&cacute;/g, "c")
+      .replace(/&zdot;/g, "z")
+      .replace(/&zacute;/g, "z");
+  }
+
+  function getProductCategory(card) {
+    const subtype = normalizeCategoryName(card.dataset.subtype || "");
+
+    if (subtype.includes("pomiar") || subtype.includes("regulacja")) {
+      return "measurement";
+    }
+
+    if (subtype.includes("automatyka")) {
+      return "automation";
+    }
+
+    if (subtype.includes("proporcjonalne")) {
+      return "control";
+    }
+
+    if (subtype.includes("elektromagnetyczne")) {
+      return "solenoid";
+    }
+
+    if (subtype.includes("zawory procesowe")) {
+      return "process";
+    }
+
+    return "other";
+  }
+
+  function setupProductCardCategories() {
+    productCardsArray.forEach(function (card) {
+      card.dataset.category = getProductCategory(card);
+    });
+  }
+
+  function setupProductFilters() {
+    const filterButtons = document.querySelectorAll(".products_filter_btn");
+    const emptyState = document.getElementById("productsEmptyState");
+
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const activeFilter = button.dataset.productFilter || "all";
+
+        filterButtons.forEach(function (item) {
+          const isActive = item === button;
+          item.classList.toggle("is_active", isActive);
+          item.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        let visibleIndex = 0;
+
+        productCardsArray.forEach(function (card) {
+          const shouldShow =
+            activeFilter === "all" || card.dataset.category === activeFilter;
+
+          card.classList.toggle("is_filtered_out", !shouldShow);
+          card.hidden = !shouldShow;
+          card.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+
+          if (shouldShow) {
+            card.style.setProperty(
+              "--product-filter-delay",
+              visibleIndex * 38 + "ms",
+            );
+            card.classList.remove("show", "is_visible");
+            visibleIndex += 1;
+          }
+        });
+
+        if (emptyState) {
+          const hasResults = visibleIndex > 0;
+          emptyState.hidden = hasResults;
+          emptyState.classList.toggle("show", !hasResults);
+          emptyState.classList.toggle("is_visible", !hasResults);
+        }
+
+        updateModalNavigationState();
+
+        if (window.SerwokontrolRevealRefresh) {
+          window.SerwokontrolRevealRefresh({ resetVisible: true });
         }
       });
     });
+  }
 
+  /* =========================================================
+     8. Init
+     ========================================================= */
+
+  setupImageFallbacks(document);
+  setupProductCardCategories();
+  setupProductFilters();
+
+  productCardsArray.forEach(function (card) {
+    card.addEventListener("click", function () {
+      openProductModal(card);
+    });
+
+    card.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openProductModal(card);
+      }
+    });
+  });
+
+  if (productModalOverlay) {
     productModalOverlay.addEventListener("click", function (event) {
-      if (event.target === productModalOverlay) {
-        closeProductModal();
-      }
-    });
-  }
-
-  if (productModalClose) {
-    productModalClose.addEventListener("click", closeProductModal);
-  }
-
-  if (productModalBack) {
-    productModalBack.addEventListener("click", function () {
-      exitActiveSlideDetails();
-    });
-  }
-
-  if (productTypeSlider) {
-    productTypeSlider.addEventListener("wheel", changeProductSlideByWheel, {
-      passive: false,
-    });
-  }
-
-  if (productTypeSliderImage) {
-    productTypeSliderImage.addEventListener("click", function (event) {
-      event.stopPropagation();
-      toggleActiveSlideDetails();
-    });
-
-    productTypeSliderImage.addEventListener("keydown", function (event) {
-      if (event.key !== "Enter" && event.key !== " ") {
-        return;
-      }
-
-      event.preventDefault();
-      event.stopPropagation();
-      toggleActiveSlideDetails();
-    });
-  }
-
-  if (productTypeSliderPrev) {
-    productTypeSliderPrev.addEventListener("click", function (event) {
-      event.stopPropagation();
-      showProductSlide(activeProductSlide - 1);
-
-      if (!isProductDetailMode) {
-        startProductSlider();
-      }
-    });
-  }
-
-  if (productTypeSliderNext) {
-    productTypeSliderNext.addEventListener("click", function (event) {
-      event.stopPropagation();
-      showProductSlide(activeProductSlide + 1);
-
-      if (!isProductDetailMode) {
-        startProductSlider();
-      }
+      if (event.target === productModalOverlay) closeProductModal();
     });
   }
 
@@ -1471,48 +1388,19 @@
     }
 
     if (event.key === "Escape") {
-      event.preventDefault();
-
-      if (isProductDetailMode) {
-        exitActiveSlideDetails();
-        return;
-      }
-
       closeProductModal();
       return;
     }
 
-    if (
-      (event.key === "Enter" || event.key === " ") &&
-      document.activeElement === productTypeSliderImage
-    ) {
+    if (event.key === "ArrowLeft") {
       event.preventDefault();
-      toggleActiveSlideDetails();
+      navigateProductModal(-1);
       return;
     }
 
-    if (activeProductSlides && activeProductSlides.length > 1) {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-
-        showProductSlide(activeProductSlide - 1);
-
-        if (!isProductDetailMode) {
-          startProductSlider();
-        }
-
-        return;
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-
-        showProductSlide(activeProductSlide + 1);
-
-        if (!isProductDetailMode) {
-          startProductSlider();
-        }
-      }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      navigateProductModal(1);
     }
   });
 })();

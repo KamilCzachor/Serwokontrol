@@ -1086,3 +1086,602 @@ body.dark_theme .about_mission i {
     transform: none;
   }
 }
+
+/* =========================================================
+   Decorative Background Circles - About Page
+   Delikatne akcenty spójne z kafelkiem "Specjaliści Bürkert".
+   ========================================================= */
+
+.about_us_text,
+.about_partners,
+.about_register {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at calc(100% + 74px) calc(100% + 78px),
+      rgba(112, 144, 183, 0.07) 0,
+      rgba(112, 144, 183, 0.07) 88px,
+      transparent 90px
+    ),
+    #ffffff;
+}
+
+.about_number_card,
+.about_card {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.105),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at calc(100% + 58px) calc(100% + 62px),
+      rgba(112, 144, 183, 0.065) 0,
+      rgba(112, 144, 183, 0.065) 72px,
+      transparent 74px
+    ),
+    #ffffff;
+}
+
+.about_partner_feature {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.2),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at calc(100% + 68px) calc(100% + 72px),
+      rgba(112, 144, 183, 0.09) 0,
+      rgba(112, 144, 183, 0.09) 84px,
+      transparent 86px
+    ),
+    #e2e9f1;
+}
+
+.about_register li {
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.08),
+      transparent 42%
+    ),
+    rgba(112, 144, 183, 0.08);
+}
+
+body.dark_theme .about_us_text,
+body.dark_theme .about_number_card,
+body.dark_theme .about_card,
+body.dark_theme .about_partners,
+body.dark_theme .about_register {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at calc(100% + 74px) calc(100% + 78px),
+      rgba(112, 144, 183, 0.07) 0,
+      rgba(112, 144, 183, 0.07) 88px,
+      transparent 90px
+    ),
+    #242c32;
+}
+
+body.dark_theme .about_number_card,
+body.dark_theme .about_card {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.12),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at calc(100% + 58px) calc(100% + 62px),
+      rgba(112, 144, 183, 0.07) 0,
+      rgba(112, 144, 183, 0.07) 72px,
+      transparent 74px
+    ),
+    #242c32;
+}
+
+body.dark_theme .about_partner_feature {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.16),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at calc(100% + 68px) calc(100% + 72px),
+      rgba(112, 144, 183, 0.08) 0,
+      rgba(112, 144, 183, 0.08) 84px,
+      transparent 86px
+    ),
+    #1f2428;
+}
+
+body.dark_theme .about_register li {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.09),
+      transparent 42%
+    ),
+    rgba(112, 144, 183, 0.1);
+}
+
+/* =========================================================
+   Final correction: decorative circles only as bottom-right card accents
+   ========================================================= */
+
+/* Partner section container stays clean: no decorative circle on text area. */
+.about_partners,
+body.dark_theme .about_partners {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+body.dark_theme .about_partners {
+  background-color: #242c32;
+}
+
+/* The inner Bürkert distributor card gets the accent, fixed to the bottom-right corner. */
+.about_partner_feature,
+body.dark_theme .about_partner_feature {
+  overflow: hidden;
+  background-image: none;
+}
+
+.about_partner_feature {
+  background-color: #e2e9f1;
+}
+
+body.dark_theme .about_partner_feature {
+  background-color: #1f2428;
+}
+
+.about_partner_feature::after {
+  content: "";
+  position: absolute;
+  right: -72px;
+  bottom: -86px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background-color: rgba(112, 144, 183, 0.16);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+  transition: none;
+}
+
+body.dark_theme .about_partner_feature::after {
+  background-color: rgba(112, 144, 183, 0.12);
+}
+
+.about_partner_feature span,
+.about_partner_feature small {
+  position: relative;
+  z-index: 3;
+}
+
+/* Register card: the circle deliberately extends outside the card frame. */
+.about_register,
+body.dark_theme .about_register {
+  overflow: visible;
+  background-image: none;
+}
+
+.about_register {
+  background-color: #ffffff;
+}
+
+body.dark_theme .about_register {
+  background-color: #242c32;
+}
+
+.about_register::after {
+  content: "";
+  position: absolute;
+  right: -82px;
+  bottom: -96px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background-color: rgba(112, 144, 183, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.dark_theme .about_register::after {
+  background-color: rgba(112, 144, 183, 0.1);
+}
+
+.about_register::before {
+  z-index: 2;
+}
+
+.about_register h3,
+.about_register ul {
+  position: relative;
+  z-index: 1;
+}
+
+.about_register li,
+body.dark_theme .about_register li {
+  background-image: none;
+}
+
+/* =========================================================
+   Final precise corner accents
+   ========================================================= */
+
+/* Keep the "Partner Bürkert" logo card clean — no decorative circle on the Bürkert word. */
+.about_partner_feature,
+body.dark_theme .about_partner_feature {
+  background-image: none !important;
+}
+
+.about_partner_feature::after,
+body.dark_theme .about_partner_feature::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Bottom-right accent only on the "Autoryzowany Dystrybutor Bürkert" card. */
+.about_us_box {
+  overflow: hidden;
+  background-image: linear-gradient(135deg, #7090b7, #5f7fa7) !important;
+}
+
+.about_us_box::after {
+  content: "";
+  position: absolute;
+  right: -86px;
+  bottom: -98px;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about_us_box i,
+.about_us_box strong,
+.about_us_box span {
+  position: relative;
+  z-index: 3;
+}
+
+/* Smaller register accent: exits the frame, but does not run into the footer or list items. */
+.about_register,
+body.dark_theme .about_register {
+  overflow: visible !important;
+}
+
+.about_register::after {
+  content: "";
+  position: absolute;
+  right: -54px;
+  bottom: -58px;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  background-color: rgba(112, 144, 183, 0.11);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.dark_theme .about_register::after {
+  background-color: rgba(112, 144, 183, 0.09);
+}
+
+/* =========================================================
+   Final override: restore blue Autoryzowany Dystrybutor card
+   ========================================================= */
+
+/* The top card must stay blue; the decorative circle is only a corner accent. */
+.about_us_box,
+body.dark_theme .about_us_box {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #ffffff !important;
+  background-color: #7090b7 !important;
+  background-image:
+    linear-gradient(#7090b7, #7090b7), linear-gradient(135deg, #7090b7, #5f7fa7) !important;
+  background-size:
+    4px 56%,
+    auto !important;
+  background-position:
+    left center,
+    center !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+
+.about_us_box:hover,
+body.dark_theme .about_us_box:hover {
+  background-size:
+    4px 100%,
+    auto !important;
+}
+
+.about_us_box::after,
+body.dark_theme .about_us_box::after {
+  content: "";
+  position: absolute;
+  right: -82px;
+  bottom: -92px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about_us_box::before,
+body.dark_theme .about_us_box::before {
+  z-index: 2;
+}
+
+.about_us_box i,
+.about_us_box strong,
+.about_us_box span,
+body.dark_theme .about_us_box i,
+body.dark_theme .about_us_box strong,
+body.dark_theme .about_us_box span {
+  position: relative;
+  z-index: 3;
+  color: #ffffff !important;
+}
+
+/* The Partner Bürkert logo card stays clean and keeps its original grey card style. */
+.about_partner_feature::after,
+body.dark_theme .about_partner_feature::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   Unified reversible reveal animation fix
+   Keeps fade/slide transitions visible even on cards that define their own transitions.
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.62s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.reveal.show,
+.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal:not(.show):not(.is_visible) {
+  transition-delay: 0s !important;
+}
+
+.reveal_delay_1 {
+  transition-delay: 0.08s;
+}
+
+.reveal_delay_2 {
+  transition-delay: 0.16s;
+}
+
+.reveal_delay_3 {
+  transition-delay: 0.24s;
+}
+
+.reveal_delay_4 {
+  transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.show,
+  .reveal.is_visible {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Reveal + hover compatibility for about page */
+.about_number_card.reveal.show:hover,
+.about_number_card.reveal.is_visible:hover,
+.about_card.reveal.show:hover,
+.about_card.reveal.is_visible:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+.about_partners.reveal.show:hover,
+.about_partners.reveal.is_visible:hover,
+.about_register.reveal.show:hover,
+.about_register.reveal.is_visible:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
+}
+
+body.dark_theme .about_number_card.reveal.show:hover,
+body.dark_theme .about_number_card.reveal.is_visible:hover,
+body.dark_theme .about_card.reveal.show:hover,
+body.dark_theme .about_card.reveal.is_visible:hover,
+body.dark_theme .about_partners.reveal.show:hover,
+body.dark_theme .about_partners.reveal.is_visible:hover,
+body.dark_theme .about_register.reveal.show:hover,
+body.dark_theme .about_register.reveal.is_visible:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   About page reveal v3 - intro sections + hover compatibility
+   ========================================================= */
+
+.about_us_text.reveal,
+.about_us_box.reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition-property: opacity, transform, box-shadow, background-color;
+  transition-duration: 0.58s, 0.64s, 0.35s, 0.35s;
+  transition-timing-function: ease, cubic-bezier(0.22, 1, 0.36, 1), ease, ease;
+}
+
+.about_us_text.reveal.show,
+.about_us_text.reveal.is_visible,
+.about_us_box.reveal.show,
+.about_us_box.reveal.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.about_us_text.reveal.show:hover,
+.about_us_text.reveal.is_visible:hover,
+.about_us_box.reveal.show:hover,
+.about_us_box.reveal.is_visible:hover {
+  transform: translateY(-4px);
+  transition-delay: 0s !important;
+}
+
+/* =========================================================
+   About ordered reveal v4
+   ========================================================= */
+
+.about_number_card.reveal_sequence_item {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  transition-property:
+    opacity, transform, box-shadow, background-color, border-color;
+  transition-duration: 0.58s, 0.64s, 0.35s, 0.35s, 0.35s;
+  transition-timing-function:
+    ease, cubic-bezier(0.22, 1, 0.36, 1), ease, ease, ease;
+}
+
+.about_number_card.reveal_sequence_item.show,
+.about_number_card.reveal_sequence_item.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.about_number_card.reveal_sequence_item.show:hover,
+.about_number_card.reveal_sequence_item.is_visible:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+}
+
+body.dark_theme .about_number_card.reveal_sequence_item.show:hover,
+body.dark_theme .about_number_card.reveal_sequence_item.is_visible:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   About numbers ordered reveal hover compatibility
+   ========================================================= */
+
+.about_number_card.reveal_sequence_item.show:hover,
+.about_number_card.reveal_sequence_item.is_visible:hover,
+.about_number_card.reveal_sequence_item.show:focus-within,
+.about_number_card.reveal_sequence_item.is_visible:focus-within {
+  transform: translateY(-5px);
+  transition-delay: 0s !important;
+}
+
+/* =========================================================
+   About page consistency pass v23
+   ========================================================= */
+
+.about_us_text,
+.about_us_box,
+.about_number_card,
+.about_card,
+.about_partners,
+.about_partner_feature,
+.about_mission,
+.about_register,
+.page_faq_item {
+  transition:
+    transform var(--ui-transition-lift, 0.32s cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--ui-transition, 0.3s ease),
+    background-color var(--ui-transition, 0.3s ease),
+    border-color var(--ui-transition, 0.3s ease),
+    color var(--ui-transition, 0.3s ease),
+    opacity var(--ui-transition, 0.3s ease);
+}
+
+.about_us_text:hover,
+.about_us_text:focus-within,
+.about_us_box:hover,
+.about_us_box:focus-within,
+.about_number_card:hover,
+.about_number_card:focus-within,
+.about_card:hover,
+.about_card:focus-within,
+.about_partners:hover,
+.about_partners:focus-within,
+.about_partner_feature:hover,
+.about_partner_feature:focus-within,
+.about_register:hover,
+.about_register:focus-within,
+.page_faq_item:hover,
+.page_faq_item:focus-within {
+  transform: translateY(var(--ui-lift-card, -4px));
+  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(94, 106, 113, 0.18));
+}
+
+.about_us_text.reveal.show:hover,
+.about_us_text.reveal.is_visible:hover,
+.about_us_box.reveal.show:hover,
+.about_us_box.reveal.is_visible:hover,
+.about_number_card.reveal.show:hover,
+.about_number_card.reveal.is_visible:hover,
+.about_number_card.reveal_sequence_item.show:hover,
+.about_number_card.reveal_sequence_item.is_visible:hover,
+.about_card.reveal.show:hover,
+.about_card.reveal.is_visible:hover,
+.about_partners.reveal.show:hover,
+.about_partners.reveal.is_visible:hover,
+.about_partner_feature.reveal.show:hover,
+.about_partner_feature.reveal.is_visible:hover,
+.about_register.reveal.show:hover,
+.about_register.reveal.is_visible:hover {
+  transform: translateY(var(--ui-lift-card, -4px));
+  transition-delay: 0s !important;
+}
+
+body.dark_theme .about_us_text:hover,
+body.dark_theme .about_us_text:focus-within,
+body.dark_theme .about_us_box:hover,
+body.dark_theme .about_us_box:focus-within,
+body.dark_theme .about_number_card:hover,
+body.dark_theme .about_number_card:focus-within,
+body.dark_theme .about_card:hover,
+body.dark_theme .about_card:focus-within,
+body.dark_theme .about_partners:hover,
+body.dark_theme .about_partners:focus-within,
+body.dark_theme .about_partner_feature:hover,
+body.dark_theme .about_partner_feature:focus-within,
+body.dark_theme .about_register:hover,
+body.dark_theme .about_register:focus-within,
+body.dark_theme .page_faq_item:hover,
+body.dark_theme .page_faq_item:focus-within {
+  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
+}

@@ -116,112 +116,112 @@
       </div>
     </div>
 
-    <main>
-      <section class="home_hero reveal">
-        <div class="home_slider" id="homeSlider">
-          <article class="home_slide is_active">
-            <div class="home_slide_content">
-              <span>Automatyka przemysłowa</span>
+    <main class="home_main">
+      <section
+        class="home_hero"
+        id="homeHero"
+        aria-label="Najważniejsze informacje"
+      >
+        <div class="home_hero_bg" data-parallax-speed="0.18"></div>
+        <div class="home_hero_overlay"></div>
+        <div
+          class="home_hero_circle home_hero_circle_one"
+          data-parallax-speed="0.08"
+        ></div>
+        <div
+          class="home_hero_circle home_hero_circle_two"
+          data-parallax-speed="0.13"
+        ></div>
 
-              <h2>Komponenty i doradztwo techniczne dla przemysłu</h2>
-
+        <div class="home_hero_inner">
+          <div class="home_hero_slider" id="homeHeroSlider">
+            <article class="home_hero_slide is_active" data-slide-index="0">
+              <span class="home_eyebrow">Autoryzowany dystrybutor Bürkert</span>
+              <h2>Automatyka procesowa i armatura dla przemysłu</h2>
               <p>
-                Wspieramy klientów w doborze elementów automatyki przemysłowej
-                oraz rozwiązań firmy Bürkert.
+                Dobieramy zawory, przepływomierze, czujniki i elementy
+                automatyki do konkretnych warunków pracy Twojej instalacji.
               </p>
-
-              <div class="home_slide_actions">
-                <a class="home_primary_btn" href="products.html">
+              <div class="home_hero_actions">
+                <a class="home_btn home_btn_primary" href="products.html">
                   Zobacz produkty
+                  <i class="fa-solid fa-arrow-right"></i>
                 </a>
-
-                <a class="home_secondary_btn" href="contact.html">
-                  Skontaktuj się
+                <a
+                  class="home_btn home_btn_secondary"
+                  href="contact.html#contactFormSection"
+                >
+                  Zapytaj o dobór
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="home_slide_visual">
-              <i class="fa-solid fa-gears"></i>
-            </div>
-          </article>
-
-          <article class="home_slide">
-            <div class="home_slide_content">
-              <span>Oferta</span>
-
-              <h2>Elementy automatyki dopasowane do zastosowania</h2>
-
+            <article class="home_hero_slide" data-slide-index="1">
+              <span class="home_eyebrow">Pomiar i kontrola procesu</span>
+              <h2>Rozwiązania dla przepływu, ciśnienia i sterowania</h2>
               <p>
-                Poznaj główne grupy produktów i sprawdź, które rozwiązania mogą
-                pasować do Twoich potrzeb.
+                Pomagamy dobrać komponenty do mediów, temperatur, przyłączy,
+                wymagań higienicznych oraz trudnych warunków przemysłowych.
               </p>
-
-              <div class="home_slide_actions">
-                <a class="home_primary_btn" href="products.html">
+              <div class="home_hero_actions">
+                <a class="home_btn home_btn_primary" href="products.html">
                   Przejdź do oferty
+                  <i class="fa-solid fa-arrow-right"></i>
                 </a>
-
-                <a class="home_secondary_btn" href="about.html">
+                <a class="home_btn home_btn_secondary" href="about.html">
                   Poznaj firmę
                 </a>
               </div>
-            </div>
+            </article>
 
-            <div class="home_slide_visual">
-              <i class="fa-solid fa-boxes-stacked"></i>
-            </div>
-          </article>
-
-          <article class="home_slide">
-            <div class="home_slide_content">
-              <span>Przedstawiciele terenowi</span>
-
-              <h2>Znajdź osobę odpowiedzialną za Twój region</h2>
-
+            <article class="home_hero_slide" data-slide-index="2">
+              <span class="home_eyebrow">Wsparcie regionalne</span>
+              <h2>Znajdź specjalistę odpowiedzialnego za Twój region</h2>
               <p>
-                Skorzystaj z wyszukiwarki miasta na mapie i sprawdź kontakt do
-                właściwego przedstawiciela.
+                Skorzystaj z mapy przedstawicieli i szybko sprawdź kontakt do
+                osoby, która obsługuje Twoje miasto lub powiat.
               </p>
-
-              <div class="home_slide_actions">
-                <a class="home_primary_btn" href="contact.html">
-                  Znajdź przedstawiciela
-                </a>
-
+              <div class="home_hero_actions">
                 <a
-                  class="home_secondary_btn"
-                  href="mailto:biuro@serwokontrol.pl"
+                  class="home_btn home_btn_primary"
+                  href="contact.html#representativesMap"
                 >
-                  Napisz wiadomość
+                  Przejdź do mapy
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </a>
+                <a
+                  class="home_btn home_btn_secondary"
+                  href="contact.html#contactFormSection"
+                >
+                  Formularz kontaktowy
                 </a>
               </div>
+            </article>
+          </div>
+
+          <aside class="home_hero_card" data-parallax-card>
+            <div class="home_hero_card_icon">
+              <i class="fa-solid fa-sliders"></i>
             </div>
+            <span>Dobór techniczny</span>
+            <strong>Medium, parametry, przyłącza, warunki pracy</strong>
+            <p>
+              Wskaż zastosowanie, a pomożemy dobrać właściwą grupę produktów.
+            </p>
+          </aside>
+        </div>
 
-            <div class="home_slide_visual">
-              <i class="fa-solid fa-map-location-dot"></i>
-            </div>
-          </article>
+        <button
+          class="home_slider_arrow home_slider_arrow_prev"
+          id="homeHeroPrev"
+          type="button"
+          aria-label="Poprzedni slajd"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-          <button
-            class="home_slider_btn home_slider_prev"
-            id="homeSliderPrev"
-            type="button"
-            aria-label="Poprzedni slajd"
-          >
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-
-          <button
-            class="home_slider_btn home_slider_next"
-            id="homeSliderNext"
-            type="button"
-            aria-label="Następny slajd"
-          >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-
-          <div class="home_slider_dots" id="homeSliderDots">
+        <div class="home_slider_controls" aria-label="Sterowanie sliderem">
+          <div class="home_slider_dots" id="homeHeroDots">
             <button
               class="is_active"
               type="button"
@@ -231,121 +231,298 @@
             <button type="button" aria-label="Pokaż slajd 3"></button>
           </div>
         </div>
+
+        <button
+          class="home_slider_arrow home_slider_arrow_next"
+          id="homeHeroNext"
+          type="button"
+          aria-label="Następny slajd"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </section>
 
+      <section class="home_highlights" aria-label="Najważniejsze atuty">
+        <div class="home_highlights_inner">
+          <article class="home_highlight reveal reveal_delay_1">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <h3>Dystrybucja Bürkert</h3>
+              <p>
+                Produkty i wsparcie techniczne w zakresie automatyki procesowej.
+              </p>
+            </div>
+          </article>
+          <article class="home_highlight reveal reveal_delay_2">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <div>
+              <h3>Dobór techniczny</h3>
+              <p>
+                Pomoc w wyborze rozwiązań do medium i parametrów instalacji.
+              </p>
+            </div>
+          </article>
+          <article class="home_highlight reveal reveal_delay_3">
+            <i class="fa-solid fa-industry"></i>
+            <div>
+              <h3>Przemysł i procesy</h3>
+              <p>
+                Zawory, pomiar, sterowanie i aparatura dla instalacji
+                produkcyjnych.
+              </p>
+            </div>
+          </article>
+          <article class="home_highlight reveal reveal_delay_4">
+            <i class="fa-solid fa-user-gear"></i>
+            <div>
+              <h3>Specjaliści regionalni</h3>
+              <p>Szybki kontakt do osoby odpowiedzialnej za Twój region.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="home_stats reveal" aria-label="Dlaczego Serwokontrol">
+        <div class="home_stats_inner">
+          <div class="home_stats_text">
+            <span>Dlaczego Serwokontrol?</span>
+            <h2>Wsparcie techniczne od zapytania po wdrożenie</h2>
+            <p>
+              Łączymy dostęp do produktów Bürkert z praktycznym doradztwem,
+              szybką analizą aplikacji i kontaktem z właściwym specjalistą.
+            </p>
+          </div>
+
+          <div class="home_stats_grid">
+            <article class="home_stat_card reveal">
+              <strong><span data-count-to="3">0</span></strong>
+              <p>specjalistów regionalnych</p>
+            </article>
+            <article class="home_stat_card reveal">
+              <strong><span data-count-to="12">0</span>+</strong>
+              <p>głównych grup produktowych</p>
+            </article>
+            <article class="home_stat_card reveal">
+              <strong><span data-count-to="100">0</span>%</strong>
+              <p>skupienia na doborze technicznym</p>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="container home_page">
-        <div class="home_intro reveal">
-          <h2>Techniczne wsparcie dla automatyki przemysłowej</h2>
-
-          <p>
-            Łączymy sprzedaż komponentów z doradztwem technicznym. Pomagamy
-            dobrać rozwiązania do warunków pracy urządzeń, parametrów procesu
-            oraz oczekiwanej trwałości instalacji.
-          </p>
-        </div>
-
-        <div class="home_quick_links">
-          <article class="home_quick_card reveal reveal_delay_1" tabindex="0">
-            <div class="home_quick_icon">
-              <i class="fa-solid fa-box-open"></i>
-            </div>
-
-            <h3>Produkty</h3>
-
-            <p>Zobacz główne grupy komponentów dostępnych w naszej ofercie.</p>
-
-            <a href="products.html">
-              Przejdź do produktów
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-
-          <article class="home_quick_card reveal reveal_delay_2" tabindex="0">
-            <div class="home_quick_icon">
-              <i class="fa-solid fa-industry"></i>
-            </div>
-
-            <h3>O firmie</h3>
-
+        <section
+          class="home_section home_products reveal"
+          id="homeProductsOverview"
+        >
+          <div class="home_section_header">
+            <span>Oferta produktów</span>
+            <h2>Główne grupy rozwiązań</h2>
             <p>
-              Poznaj najważniejsze informacje o działalności i doświadczeniu
-              Serwokontrol.
-            </p>
-
-            <a href="about.html">
-              Dowiedz się więcej
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-
-          <article class="home_quick_card reveal reveal_delay_3" tabindex="0">
-            <div class="home_quick_icon">
-              <i class="fa-solid fa-user-gear"></i>
-            </div>
-
-            <h3>Kontakt</h3>
-
-            <p>
-              Skontaktuj się z biurem lub znajdź przedstawiciela dla swojego
-              regionu.
-            </p>
-
-            <a href="contact.html">
-              Przejdź do kontaktu
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-        </div>
-
-        <div class="home_strengths reveal">
-          <div class="home_strengths_text">
-            <span>Dlaczego my?</span>
-
-            <h2>Praktyczne podejście do doboru komponentów</h2>
-
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
-              quia? Id ut optio alias illo nesciunt dolorum nemo totam commodi,
-              quia veniam? Non, pariatur cumque eos at voluptates itaque
-              temporibus.
+              Wybierz obszar, który najlepiej pasuje do Twojej aplikacji. Pełne
+              zestawienie grup produktowych znajdziesz na podstronie Produkty.
             </p>
           </div>
 
-          <div class="home_strengths_grid">
-            <div class="home_strength_item reveal reveal_delay_1" tabindex="0">
+          <div class="home_products_grid">
+            <a
+              class="home_product_tile home_product_tile_featured"
+              href="products.html"
+            >
+              <i class="fa-solid fa-circle-nodes"></i>
+              <h3>Zawory procesowe</h3>
+              <p>
+                Grzybkowe, membranowe, kulowe i klapowe do instalacji
+                przemysłowych.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+            <a class="home_product_tile" href="products.html">
+              <i class="fa-solid fa-toggle-on"></i>
+              <h3>Zawory elektromagnetyczne</h3>
+              <p>
+                Szybkie odcinanie i sterowanie przepływem cieczy, gazów i
+                powietrza.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+            <a class="home_product_tile" href="products.html">
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Przepływomierze</h3>
+              <p>
+                Pomiar przepływu i kontrola parametrów procesu technologicznego.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+            <a class="home_product_tile" href="products.html">
+              <i class="fa-solid fa-gauge-high"></i>
+              <h3>Czujniki i aparatura</h3>
+              <p>
+                Elementy kontrolno-pomiarowe do monitorowania pracy instalacji.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+            <a class="home_product_tile" href="products.html">
+              <i class="fa-solid fa-network-wired"></i>
+              <h3>Wyspy zaworowe</h3>
+              <p>
+                Rozwiązania do automatyzacji układów pneumatycznych i
+                sterowania.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+            <a class="home_product_tile" href="products.html">
+              <i class="fa-solid fa-microchip"></i>
+              <h3>Głowice i pozycjonery</h3>
+              <p>
+                Automatyzacja zaworów procesowych i integracja z instalacją.
+              </p>
+              <span>Zobacz grupę <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="home_section home_selector reveal" id="homeSelector">
+          <div class="home_selector_text">
+            <span>Szybki dobór rozwiązania</span>
+            <h2>Nie wiesz, od której grupy zacząć?</h2>
+            <p>
+              Wybierz podstawowe warunki aplikacji. Podpowiedź nie zastępuje
+              doboru technicznego, ale pomaga skierować zapytanie do właściwej
+              grupy produktów.
+            </p>
+          </div>
+
+          <div class="home_selector_panel">
+            <div class="home_selector_fields">
+              <label>
+                Medium
+                <select id="doborMedium">
+                  <option value="water">Woda / media neutralne</option>
+                  <option value="air">Powietrze / gazy techniczne</option>
+                  <option value="steam">Para</option>
+                  <option value="chemical">Media chemiczne</option>
+                </select>
+              </label>
+              <label>
+                Zadanie
+                <select id="doborTask">
+                  <option value="shutoff">Odcinanie przepływu</option>
+                  <option value="control">Regulacja procesu</option>
+                  <option value="measure">Pomiar</option>
+                  <option value="replace">Dobór zamiennika</option>
+                </select>
+              </label>
+              <label>
+                Warunki
+                <select id="doborCondition">
+                  <option value="standard">Standardowe</option>
+                  <option value="highTemp">Wysoka temperatura</option>
+                  <option value="hygienic">Aplikacja higieniczna</option>
+                  <option value="aggressive">Medium agresywne</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="home_selector_result">
+              <span>Proponowany kierunek</span>
+              <h3 id="doborTitle">Zawory elektromagnetyczne</h3>
+              <p id="doborText">
+                Dobre rozwiązanie do szybkiego odcinania przepływu cieczy lub
+                powietrza.
+              </p>
+              <a href="contact.html#contactFormSection">
+                Skonsultuj dobór
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="home_section home_process reveal" id="homeProcess">
+          <div class="home_section_header">
+            <span>Jak pracujemy</span>
+            <h2>Od aplikacji do dobranego rozwiązania</h2>
+          </div>
+          <div class="home_process_grid">
+            <article class="home_process_step reveal reveal_delay_1">
               <strong>01</strong>
-              <span>Doradztwo techniczne</span>
-            </div>
-
-            <div class="home_strength_item reveal reveal_delay_2" tabindex="0">
+              <h3>Opisujesz aplikację</h3>
+              <p>
+                Medium, ciśnienie, temperatura, przyłącza, środowisko pracy i
+                oczekiwany efekt.
+              </p>
+            </article>
+            <article class="home_process_step reveal reveal_delay_2">
               <strong>02</strong>
-              <span>Komponenty Bürkert</span>
-            </div>
-
-            <div class="home_strength_item reveal reveal_delay_3" tabindex="0">
+              <h3>Analizujemy warunki</h3>
+              <p>
+                Sprawdzamy wymagania techniczne, materiałowe oraz sposób
+                sterowania.
+              </p>
+            </article>
+            <article class="home_process_step reveal reveal_delay_3">
               <strong>03</strong>
-              <span>Obsługa klientów w Polsce</span>
-            </div>
-
-            <div class="home_strength_item reveal reveal_delay_4" tabindex="0">
+              <h3>Dobieramy produkt</h3>
+              <p>
+                Wskazujemy właściwą grupę i kierunek doboru konkretnego modelu.
+              </p>
+            </article>
+            <article class="home_process_step reveal reveal_delay_4">
               <strong>04</strong>
-              <span>Wsparcie przedstawicieli</span>
-            </div>
+              <h3>Wspieramy wdrożenie</h3>
+              <p>
+                Pomagamy w kontakcie, dokumentacji i dalszej konsultacji
+                technicznej.
+              </p>
+            </article>
           </div>
-        </div>
+        </section>
 
-        <div class="home_cta reveal">
-          <div>
-            <h2>Masz pytanie techniczne?</h2>
-
+        <section class="home_section home_partner reveal" id="homePartner">
+          <div class="home_partner_content">
+            <span>Serwokontrol</span>
+            <h2>Autoryzowany dystrybutor Bürkert</h2>
             <p>
-              Opisz problem, a pomożemy wskazać odpowiedni kierunek doboru
-              komponentów.
+              Łączymy dostęp do produktów Bürkert z praktycznym wsparciem przy
+              doborze armatury procesowej, automatyki i aparatury
+              kontrolno-pomiarowej.
+            </p>
+            <a href="about.html">
+              Dowiedz się więcej o firmie
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="home_partner_mark" aria-hidden="true">Bürkert</div>
+        </section>
+
+        <section
+          class="home_section home_region_cta reveal"
+          id="homeRegionContact"
+        >
+          <div>
+            <span>Kontakt regionalny</span>
+            <h2>Znajdź specjalistę dla swojego regionu</h2>
+            <p>
+              Przejdź bezpośrednio do mapy przedstawicieli albo wyślij zapytanie
+              przez formularz kontaktowy na dole podstrony Kontakt.
             </p>
           </div>
-
-          <a href="contact.html">Skontaktuj się</a>
-        </div>
+          <div class="home_region_actions">
+            <a
+              class="home_btn home_btn_primary"
+              href="contact.html#representativesMap"
+            >
+              Przejdź do mapy
+              <i class="fa-solid fa-map-location-dot"></i>
+            </a>
+            <a
+              class="home_btn home_btn_secondary"
+              href="contact.html#contactFormSection"
+            >
+              Przejdź do formularza
+            </a>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -433,6 +610,7 @@
       <button id="acceptCookiesBtn">Akceptuję</button>
     </div>
 
+    <script src="js/index.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

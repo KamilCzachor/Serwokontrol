@@ -1,22 +1,23 @@
 <!doctype html>
+
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Serwokontrol</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/about.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/about.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&amp;display=swap"
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
     />
   </head>
   <body>
@@ -25,12 +26,10 @@
         <h1 class="logo">
           <a href="index.html">Serwokontrol</a>
         </h1>
-
         <nav class="main_nav">
-          <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu">
+          <button aria-label="Otwórz menu" class="hamburger" id="hamburgerBtn">
             <i class="fa-solid fa-bars"></i>
           </button>
-
           <ul class="nav_list" id="navMenu">
             <li><a href="index.html">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
@@ -38,30 +37,27 @@
             <li><a href="contact.html">Kontakt</a></li>
           </ul>
         </nav>
-
         <div class="header_actions">
           <a
+            aria-label="Zadzwoń"
             class="header_action_link"
             href="tel:+48601764871"
-            aria-label="Zadzwoń"
           >
             <i class="fa-solid fa-phone"></i>
             <span>+48 601 764 871</span>
           </a>
-
           <a
+            aria-label="Wyślij email"
             class="header_action_link"
             href="mailto:biuro@serwokontrol.pl"
-            aria-label="Wyślij email"
           >
             <i class="fa-solid fa-envelope"></i>
             <span>biuro@serwokontrol.pl</span>
           </a>
-
           <button
+            aria-label="Zmień motyw"
             class="theme_toggle theme_toggle_expand"
             id="themeToggle"
-            aria-label="Zmień motyw"
           >
             <i class="fa-solid fa-moon"></i>
             <span>Motyw</span>
@@ -74,38 +70,33 @@
         <div class="sticky_logo">
           <a href="index.html">Serwokontrol</a>
         </div>
-
         <button
+          aria-label="Otwórz menu"
           class="sticky_hamburger"
           id="stickyHamburgerBtn"
-          aria-label="Otwórz menu"
         >
           <i class="fa-solid fa-bars"></i>
         </button>
-
         <ul class="sticky_contact">
           <li>
-            <a href="tel:+48601764871" aria-label="Zadzwoń">
+            <a aria-label="Zadzwoń" href="tel:+48601764871">
               <i class="fa-solid fa-phone"></i>
             </a>
           </li>
-
           <li>
-            <a href="mailto:biuro@serwokontrol.pl" aria-label="Wyślij email">
+            <a aria-label="Wyślij email" href="mailto:biuro@serwokontrol.pl">
               <i class="fa-solid fa-envelope"></i>
             </a>
           </li>
-
           <li>
             <button
-              class="theme_toggle sticky_theme_toggle"
               aria-label="Zmień motyw"
+              class="theme_toggle sticky_theme_toggle"
             >
               <i class="fa-solid fa-moon"></i>
             </button>
           </li>
         </ul>
-
         <ul class="sticky_nav" id="stickyNavMenu">
           <li><a href="index.html">Strona główna</a></li>
           <li><a href="products.html">Produkty</a></li>
@@ -116,22 +107,22 @@
     </div>
     <main>
       <section class="container about_page">
+        <nav aria-label="Ścieżka strony" class="page_breadcrumb reveal">
+          <a href="index.html">Strona główna</a
+          ><i aria-hidden="true" class="fa-solid fa-chevron-right"></i
+          ><span>O nas</span>
+        </nav>
         <h2>O nas</h2>
-
         <div class="about_us reveal">
           <div class="about_us_text">
             <h3>Informacje o firmie SERWOKONTROL Sp. z o.o.</h3>
-
             <p>Firma SERWOKONTROL jest obecna na rynku polskim od 1991 roku.</p>
-
             <p>
               W 1995 roku zostaliśmy oficjalnie Autoryzowanym Dystrybutorem
               firmy Bürkert w Polsce. Bürkert jest wiodącym producentem urządzeń
               do kontroli i pomiaru przepływu mediów ciekłych i gazowych.
             </p>
-
             <p>Od 1996 roku funkcjonujemy jako SERWOKONTROL Sp. z o.o.</p>
-
             <p>
               SERWOKONTROL Sp. z o.o. tworzą ludzie związani nieprzerwanie z
               firmą od wielu lat - inżynierowie posiadający szeroką znajomość
@@ -140,7 +131,6 @@
               dzielić się z naszymi klientami.
             </p>
           </div>
-
           <div class="about_us_box">
             <i class="fa-solid fa-industry"></i>
             <strong>Autoryzowany Dystrybutor Bürkert</strong>
@@ -149,13 +139,11 @@
             </span>
           </div>
         </div>
-
         <div class="about_numbers">
           <div class="about_number_card reveal reveal_delay_1">
             <strong>1991</strong>
             <span>Początek działalności</span>
           </div>
-
           <div class="about_number_card reveal reveal_delay_2">
             <strong>1995</strong>
             <span
@@ -163,26 +151,21 @@
               Polsce</span
             >
           </div>
-
           <div class="about_number_card reveal reveal_delay_3">
             <strong>1996</strong>
             <span>Powstanie spółki z o.o.</span>
           </div>
-
           <div class="about_number_card reveal reveal_delay_4">
             <strong>PL</strong>
             <span>Obsługa klientów w całym kraju</span>
           </div>
         </div>
-
         <div class="about_cards">
           <article class="about_card reveal reveal_delay_1">
             <div class="about_card_icon">
               <i class="fa-solid fa-user-gear"></i>
             </div>
-
             <h3>Doradztwo techniczne</h3>
-
             <p>
               Nasz zespół służy wsparciem technicznym w doborze produktów
               najwyższej jakości, jakimi są wyroby firmy Bürkert. Bazując na
@@ -190,14 +173,11 @@
               potrzeb naszych klientów.
             </p>
           </article>
-
           <article class="about_card reveal reveal_delay_2">
             <div class="about_card_icon">
               <i class="fa-solid fa-diagram-project"></i>
             </div>
-
             <h3>Automatyzacja procesów</h3>
-
             <p>
               Kompleksowo projektujemy i realizujemy układy automatyzacji
               procesów przemysłowych w różnorodnych branżach - od browarów,
@@ -206,14 +186,11 @@
               farmaceutyczny.
             </p>
           </article>
-
           <article class="about_card reveal reveal_delay_3">
             <div class="about_card_icon">
               <i class="fa-solid fa-warehouse"></i>
             </div>
-
             <h3>Magazyn Bürkert we Wrocławiu</h3>
-
             <p>
               Magazyn wyrobów firmy Bürkert we Wrocławiu zapewnia szybkie,
               bezpośrednie dostawy oraz dostęp do szerokiej gamy produktów. Daje
@@ -221,14 +198,11 @@
               ilości utrzymywanych stanów magazynowych.
             </p>
           </article>
-
           <article class="about_card reveal reveal_delay_4">
             <div class="about_card_icon">
               <i class="fa-solid fa-map-location-dot"></i>
             </div>
-
             <h3>Regionalni Kierownicy Sprzedaży</h3>
-
             <p>
               Nasi mobilni inżynierowie z wieloletnim doświadczeniem w branży,
               rozmieszczeni w terenie, zapewniają stałą, bezpośrednią obsługę
@@ -238,11 +212,9 @@
             </p>
           </article>
         </div>
-
         <div class="about_partners reveal">
           <div class="about_partners_text">
             <h3 class="about_section_title">Partner Bürkert</h3>
-
             <p>
               Bürkert jest wiodącym producentem urządzeń do kontroli i pomiaru
               przepływu mediów ciekłych i gazowych. Jako Autoryzowany
@@ -250,42 +222,34 @@
               dostawach oraz serwisie specjalistycznych rozwiązań dla automatyki
               przemysłowej.
             </p>
-
             <p>
               Wieloletnia znajomość produktów Bürkert oraz doświadczenie naszego
               zespołu pozwalają nam proponować rozwiązania dopasowane do
               rzeczywistych warunków pracy instalacji i oczekiwań klientów.
             </p>
           </div>
-
           <div class="about_partner_feature">
             <span>Bürkert</span>
             <small>kontrola i pomiar przepływu mediów</small>
           </div>
         </div>
-
         <div class="about_cards">
           <article class="about_card reveal reveal_delay_1">
             <div class="about_card_icon">
               <i class="fa-solid fa-screwdriver-wrench"></i>
             </div>
-
             <h3>Serwis i przeglądy produktów</h3>
-
             <p>
               Jako Autoryzowany Dystrybutor firmy Bürkert w Polsce oferujemy
               profesjonalny serwis i przeglądy produktów Bürkert w naszym
               warsztacie zlokalizowanym we Wrocławiu.
             </p>
           </article>
-
           <article class="about_card reveal reveal_delay_2">
             <div class="about_card_icon">
               <i class="fa-solid fa-truck-fast"></i>
             </div>
-
             <h3>Wsparcie u klienta</h3>
-
             <p>
               Realizujemy również przeglądy, modernizacje i naprawy bezpośrednio
               u naszych klientów - podczas planowanych przerw produkcyjnych lub
@@ -293,47 +257,38 @@
             </p>
           </article>
         </div>
-
         <div class="about_mission reveal">
           <div>
             <h3>Nasza misja</h3>
-
             <p>
               Każdego dnia staramy się realizować wszystkie zadania najlepiej
               jak potrafimy. Uważamy, że wolny rynek najlepiej to weryfikuje i
               na dłuższą metę uczciwość oraz jakość są opłacalne dla obu stron.
             </p>
           </div>
-
           <i class="fa-solid fa-handshake"></i>
         </div>
-
         <div class="about_register reveal">
           <h3>Dane rejestrowe</h3>
-
           <ul>
             <li>
               <span>NIP</span>
               <strong>8941392752</strong>
             </li>
-
             <li>
               <span>REGON</span>
               <strong>930864491</strong>
             </li>
-
             <li>
               <span>KRS</span>
               <strong>0000028937</strong>
             </li>
-
             <li>
               <span>Sąd rejestrowy</span>
               <strong
                 >Sąd Rejonowy Wrocław Fabryczna, VI wydział Gosp. KRS</strong
               >
             </li>
-
             <li>
               <span>Kapitał zakładowy</span>
               <strong>112.000 PLN</strong>
@@ -348,35 +303,30 @@
           <div class="footer_logo">
             <a href="index.html">Serwokontrol</a>
           </div>
-
           <p>
             Automatyka przemysłowa, doradztwo techniczne oraz dystrybucja
             komponentów firmy Bürkert na terenie całej Polski.
           </p>
         </div>
-
         <div class="footer_column">
           <h3>Kontakt</h3>
-
           <ul class="footer_contact">
             <li>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
-                target="_blank"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 <i class="fa-solid fa-house"></i>
                 ul. Przemkowska 15, 52-426 Wrocław
               </a>
             </li>
-
             <li>
               <a href="mailto:biuro@serwokontrol.pl">
                 <i class="fa-solid fa-envelope"></i>
                 biuro@serwokontrol.pl
               </a>
             </li>
-
             <li>
               <a href="tel:+48601764871">
                 <i class="fa-solid fa-mobile-screen-button"></i>
@@ -391,10 +341,8 @@
             </li>
           </ul>
         </div>
-
         <div class="footer_column">
           <h3>Nawigacja</h3>
-
           <ul class="footer_nav">
             <li><a href="index.html">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
@@ -402,25 +350,19 @@
             <li><a href="contact.html">Kontakt</a></li>
           </ul>
         </div>
-
         <div class="footer_bottom">
           <p>© 2026 Serwokontrol. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>
-
-    <button id="scrollTopBtn" class="scroll_top_btn">
+    <button class="scroll_top_btn" id="scrollTopBtn">
       <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <div class="cookie_overlay" id="cookieOverlay"></div>
-
     <div class="cookie_banner" id="cookieBanner">
       <p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
-
       <button id="acceptCookiesBtn">Akceptuję</button>
     </div>
-
     <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
@@ -26,16 +27,12 @@
           <a href="index.html"> Serwokontrol </a>
         </h1>
         <nav class="main_nav">
-          <button
-            aria-label="Otw&oacute;rz menu"
-            class="hamburger"
-            id="hamburgerBtn"
-          >
+          <button aria-label="Otwórz menu" class="hamburger" id="hamburgerBtn">
             <i class="fa-solid fa-bars"> </i>
           </button>
           <ul class="nav_list" id="navMenu">
             <li>
-              <a href="index.html"> Strona g&lstrok;&oacute;wna </a>
+              <a href="index.html"> Strona główna </a>
             </li>
             <li>
               <a class="active" href="products.html"> Produkty </a>
@@ -50,7 +47,7 @@
         </nav>
         <div class="header_actions">
           <a
-            aria-label="Zadzwo&nacute;"
+            aria-label="Zadzwoń"
             class="header_action_link"
             href="tel:+48601764871"
           >
@@ -58,7 +55,7 @@
             <span> +48 601 764 871 </span>
           </a>
           <a
-            aria-label="Wy&sacute;lij email"
+            aria-label="Wyślij email"
             class="header_action_link"
             href="mailto:biuro@serwokontrol.pl"
           >
@@ -66,7 +63,7 @@
             <span> biuro@serwokontrol.pl </span>
           </a>
           <button
-            aria-label="Zmie&nacute; motyw"
+            aria-label="Zmień motyw"
             class="theme_toggle theme_toggle_expand"
             id="themeToggle"
           >
@@ -82,7 +79,7 @@
           <a href="index.html"> Serwokontrol </a>
         </div>
         <button
-          aria-label="Otw&oacute;rz menu"
+          aria-label="Otwórz menu"
           class="sticky_hamburger"
           id="stickyHamburgerBtn"
         >
@@ -90,21 +87,18 @@
         </button>
         <ul class="sticky_contact">
           <li>
-            <a aria-label="Zadzwo&nacute;" href="tel:+48601764871">
+            <a aria-label="Zadzwoń" href="tel:+48601764871">
               <i class="fa-solid fa-phone"> </i>
             </a>
           </li>
           <li>
-            <a
-              aria-label="Wy&sacute;lij email"
-              href="mailto:biuro@serwokontrol.pl"
-            >
+            <a aria-label="Wyślij email" href="mailto:biuro@serwokontrol.pl">
               <i class="fa-solid fa-envelope"> </i>
             </a>
           </li>
           <li>
             <button
-              aria-label="Zmie&nacute; motyw"
+              aria-label="Zmień motyw"
               class="theme_toggle sticky_theme_toggle"
             >
               <i class="fa-solid fa-moon"> </i>
@@ -113,7 +107,7 @@
         </ul>
         <ul class="sticky_nav" id="stickyNavMenu">
           <li>
-            <a href="index.html"> Strona g&lstrok;&oacute;wna </a>
+            <a href="index.html"> Strona główna </a>
           </li>
           <li>
             <a class="active" href="products.html"> Produkty </a>
@@ -129,24 +123,101 @@
     </div>
     <main>
       <section class="container products_page">
+        <nav aria-label="Ścieżka strony" class="page_breadcrumb reveal">
+          <a href="index.html">Strona główna</a
+          ><i aria-hidden="true" class="fa-solid fa-chevron-right"></i
+          ><span>Produkty</span>
+        </nav>
         <h2>Produkty</h2>
         <div class="products_intro reveal">
-          <h3>Oferta produkt&oacute;w</h3>
+          <h3>Oferta produktów</h3>
           <p>
-            W naszej ofercie znajduj&aogon; si&eogon; elementy automatyki
-            przemys&lstrok;owej firmy B&uuml;rkert. Poni&zdot;ej prezentujemy
-            g&lstrok;&oacute;wne grupy produkt&oacute;w. Kliknij kafelek, aby
-            zobaczy&cacute; wi&eogon;cej informacji.
+            W naszej ofercie znajdują się elementy automatyki przemysłowej firmy
+            Bürkert. Poniżej prezentujemy główne grupy produktów. Kliknij
+            kafelek, aby zobaczyć więcej informacji.
           </p>
+        </div>
+        <div
+          aria-label="Filtrowanie produktów"
+          class="products_filter_bar reveal"
+        >
+          <div class="products_filter_intro">
+            <span>Szybkie filtrowanie</span>
+            <h3>Wybierz grupę produktów</h3>
+          </div>
+          <div
+            aria-label="Kategorie produktów"
+            class="products_filter_actions"
+            role="group"
+          >
+            <button
+              aria-pressed="true"
+              class="products_filter_btn is_active"
+              data-product-filter="all"
+              type="button"
+            >
+              Wszystkie
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="process"
+              type="button"
+            >
+              Zawory procesowe
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="solenoid"
+              type="button"
+            >
+              Elektromagnetyczne
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="measurement"
+              type="button"
+            >
+              Pomiar i regulacja
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="control"
+              type="button"
+            >
+              Sterowanie
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="automation"
+              type="button"
+            >
+              Automatyka
+            </button>
+            <button
+              aria-pressed="false"
+              class="products_filter_btn"
+              data-product-filter="other"
+              type="button"
+            >
+              Pozostałe
+            </button>
+          </div>
         </div>
         <div class="products_grid">
           <article
             class="product_card reveal reveal_delay_1"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-procesowe-grzybkowe-on-off.png"
             data-modal-type="valve2000"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe grzybkowe w wersji on/off"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory procesowe grzybkowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -158,16 +229,18 @@
             <div class="product_content">
               <span> Zawory procesowe </span>
               <h3>Zawory procesowe grzybkowe on/off</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_2"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-procesowe-membranowe-on-off.png"
             data-modal-type="valveMembrane"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe membranowe w wersji on/off"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory procesowe membranowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -179,16 +252,18 @@
             <div class="product_content">
               <span> Zawory procesowe </span>
               <h3>Zawory procesowe membranowe on/off</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_3"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-procesowe-kulowe-on-off.png"
             data-modal-type="valveBall"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe kulowe w wersji on/off"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory procesowe kulowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -200,16 +275,18 @@
             <div class="product_content">
               <span> Zawory procesowe </span>
               <h3>Zawory procesowe kulowe on/off</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_1"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/wyspy-zaworowe.png"
             data-modal-type="valveIslands"
-            data-subtype="Automatyka przemys&lstrok;owa"
+            data-subtype="Automatyka przemysłowa"
             data-title="Wyspy zaworowe"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Wyspy zaworowe"
             tabindex="0"
           >
             <div class="product_image">
@@ -219,18 +296,20 @@
               />
             </div>
             <div class="product_content">
-              <span> Automatyka przemys&lstrok;owa </span>
+              <span> Automatyka przemysłowa </span>
               <h3>Wyspy zaworowe</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_2"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-procesowe-regulacyjne.png"
             data-modal-type="valveControl"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe regulacyjne"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory procesowe regulacyjne"
             tabindex="0"
           >
             <div class="product_image">
@@ -242,16 +321,18 @@
             <div class="product_content">
               <span> Zawory procesowe </span>
               <h3>Zawory procesowe regulacyjne</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_3"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-elektromagnetyczne.png"
             data-modal-type="solenoidValves"
             data-subtype="Zawory elektromagnetyczne"
             data-title="Zawory elektromagnetyczne"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory elektromagnetyczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -263,37 +344,41 @@
             <div class="product_content">
               <span> Zawory elektromagnetyczne </span>
               <h3>Zawory elektromagnetyczne</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_1"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/przeplywomierze.png"
             data-modal-type="flowmeters"
-            data-subtype="Pomiar przep&lstrok;ywu"
-            data-title="Przep&lstrok;ywomierze"
+            data-subtype="Pomiar przepływu"
+            data-title="Przepływomierze"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Przepływomierze"
             tabindex="0"
           >
             <div class="product_image">
               <img
-                alt="Przep&lstrok;ywomierze"
+                alt="Przepływomierze"
                 src="images/products/przeplywomierze.png"
               />
             </div>
             <div class="product_content">
-              <span> Pomiar przep&lstrok;ywu </span>
-              <h3>Przep&lstrok;ywomierze</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <span> Pomiar przepływu </span>
+              <h3>Przepływomierze</h3>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_2"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-procesowe-higieniczne.png"
             data-modal-type="valveHygienic"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe higieniczne"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory procesowe higieniczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -305,37 +390,41 @@
             <div class="product_content">
               <span> Zawory procesowe </span>
               <h3>Zawory procesowe higieniczne</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_3"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.png"
             data-modal-type="massFlowControllers"
-            data-subtype="Regulacja przep&lstrok;ywu"
-            data-title="Masowe regulatory przep&lstrok;ywu gaz&oacute;w i cieczy"
+            data-subtype="Regulacja przepływu"
+            data-title="Masowe regulatory przepływu gazów i cieczy"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Masowe regulatory przepływu gazów i cieczy"
             tabindex="0"
           >
             <div class="product_image">
               <img
-                alt="Masowe regulatory przep&lstrok;ywu gaz&oacute;w i cieczy"
+                alt="Masowe regulatory przepływu gazów i cieczy"
                 src="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.png"
               />
             </div>
             <div class="product_content">
-              <span> Regulacja przep&lstrok;ywu </span>
-              <h3>Masowe regulatory przep&lstrok;ywu gaz&oacute;w i cieczy</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <span> Regulacja przepływu </span>
+              <h3>Masowe regulatory przepływu gazów i cieczy</h3>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_1"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/zawory-proporcjonalne-elektromagnetyczne.png"
             data-modal-type="proportionalSolenoidValves"
             data-subtype="Zawory proporcjonalne"
             data-title="Zawory proporcjonalne elektromagnetyczne"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Zawory proporcjonalne elektromagnetyczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -347,16 +436,18 @@
             <div class="product_content">
               <span> Zawory proporcjonalne </span>
               <h3>Zawory proporcjonalne elektromagnetyczne</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_2"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/czujniki-przetworniki-pomiarowe.png"
             data-modal-type="sensorsTransmitters"
             data-subtype="Aparatura pomiarowa"
             data-title="Czujniki / przetworniki pomiarowe"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Czujniki / przetworniki pomiarowe"
             tabindex="0"
           >
             <div class="product_image">
@@ -368,16 +459,18 @@
             <div class="product_content">
               <span> Aparatura pomiarowa </span>
               <h3>Czujniki / przetworniki pomiarowe</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
           <article
             class="product_card reveal reveal_delay_3"
-            data-description="Opis og&oacute;lny produktu do uzupe&lstrok;nienia."
+            data-description="Opis ogólny produktu do uzupełnienia."
             data-image="images/products/inne-produkty.png"
             data-modal-type="otherProducts"
-            data-subtype="Pozosta&lstrok;a oferta"
+            data-subtype="Pozostała oferta"
             data-title="Inne produkty"
+            role="button"
+            aria-label="Otwórz szczegóły produktu: Inne produkty"
             tabindex="0"
           >
             <div class="product_image">
@@ -387,12 +480,61 @@
               />
             </div>
             <div class="product_content">
-              <span> Pozosta&lstrok;a oferta </span>
+              <span> Pozostała oferta </span>
               <h3>Inne produkty</h3>
-              <p>Kliknij, aby zobaczy&cacute; wi&eogon;cej informacji.</p>
+              <p>Kliknij, aby zobaczyć więcej informacji.</p>
             </div>
           </article>
         </div>
+        <div
+          class="products_empty_state reveal"
+          hidden=""
+          id="productsEmptyState"
+        >
+          <i aria-hidden="true" class="fa-solid fa-circle-info"></i>
+          <h3>Nie znaleziono produktów w tej kategorii</h3>
+          <p>
+            Wybierz inną kategorię albo skontaktuj się z nami — pomożemy dobrać
+            rozwiązanie do aplikacji.
+          </p>
+          <a href="contact.html#contactFormSection">Skonsultuj dobór</a>
+        </div>
+        <section
+          aria-label="Najczęstsze pytania o produkty"
+          class="products_faq page_faq reveal"
+        >
+          <div class="page_faq_header">
+            <span>Pomoc w doborze</span>
+            <h2>Najczęstsze pytania o produkty</h2>
+            <p>
+              Przygotuj podstawowe informacje o aplikacji, a szybciej wskażemy
+              właściwą grupę produktów.
+            </p>
+          </div>
+          <div class="page_faq_grid">
+            <article class="page_faq_item reveal">
+              <h3>Jakie dane podać przy zapytaniu?</h3>
+              <p>
+                Medium, ciśnienie, temperatura, przyłącze, funkcja zaworu oraz
+                środowisko pracy instalacji.
+              </p>
+            </article>
+            <article class="page_faq_item reveal">
+              <h3>Czy pomagacie dobrać zamiennik?</h3>
+              <p>
+                Tak. Najlepiej przesłać typ starego produktu, numer katalogowy,
+                zdjęcie tabliczki lub dokumentację.
+              </p>
+            </article>
+            <article class="page_faq_item reveal">
+              <h3>Czy mogę zapytać o konkretny katalog PDF?</h3>
+              <p>
+                Tak. W modalach produktów znajdziesz katalogi PDF, a w
+                formularzu możesz dopisać, którego typu dotyczy zapytanie.
+              </p>
+            </article>
+          </div>
+        </section>
       </section>
     </main>
     <div class="product_modal_overlay" id="productModalOverlay">
@@ -402,88 +544,15 @@
         id="productModal"
         role="dialog"
       >
+        <!-- Content is rendered by js/products.js after selecting a product. -->
         <button
           aria-label="Zamknij okno"
           class="product_modal_close"
           id="productModalClose"
+          type="button"
         >
           <i class="fa-solid fa-xmark"> </i>
         </button>
-        <div
-          class="product_modal_custom_content"
-          id="productModalCustomContent"
-        ></div>
-        <div class="product_modal_left">
-          <div class="product_modal_image" id="productModalSingleImageBox">
-            <img alt="" id="productModalImage" src="" />
-          </div>
-          <div class="product_type_slider" id="productTypeSlider">
-            <h4>Najpopularniejsze typy produkt&oacute;w to:</h4>
-            <div class="product_type_slider_stage">
-              <button
-                aria-label="Poprzedni produkt"
-                class="product_type_slider_btn product_type_slider_prev"
-                id="productTypeSliderPrev"
-                type="button"
-              >
-                <i class="fa-solid fa-chevron-left"> </i>
-              </button>
-              <div class="product_type_slider_image">
-                <img alt="" id="productTypeSliderImage" src="" />
-              </div>
-              <button
-                aria-label="Nast&eogon;pny produkt"
-                class="product_type_slider_btn product_type_slider_next"
-                id="productTypeSliderNext"
-                type="button"
-              >
-                <i class="fa-solid fa-chevron-right"> </i>
-              </button>
-            </div>
-            <div
-              class="product_type_slider_name"
-              id="productTypeSliderName"
-            ></div>
-            <p class="product_type_slider_hint" id="productTypeSliderHint">
-              Kliknij zdj&eogon;cie, aby zobaczy&cacute; specyfikacj&eogon;
-              wybranego modelu.
-            </p>
-            <div
-              class="product_type_slider_dots"
-              id="productTypeSliderDots"
-            ></div>
-          </div>
-        </div>
-        <div class="product_modal_right">
-          <span id="productModalSubtype"> </span>
-          <h3 id="productModalTitle"></h3>
-          <button
-            class="product_modal_back"
-            id="productModalBack"
-            type="button"
-          >
-            <i class="fa-solid fa-arrow-left"> </i>
-            <span> Wr&oacute;&cacute; do opisu og&oacute;lnego </span>
-          </button>
-          <blockquote
-            class="product_modal_quote"
-            id="productModalQuote"
-          ></blockquote>
-          <p class="product_modal_description" id="productModalDescription"></p>
-          <div class="product_modal_spec" id="productModalSpec"></div>
-          <a
-            class="product_modal_pdf_link"
-            href="#"
-            id="productModalPdfLink"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <i class="fa-solid fa-file-pdf"> </i>
-            <span>
-              Otw&oacute;rz pe&lstrok;n&aogon; dokumentacj&eogon; PDF
-            </span>
-          </a>
-        </div>
       </div>
     </div>
     <footer>
@@ -493,9 +562,8 @@
             <a href="index.html"> Serwokontrol </a>
           </div>
           <p>
-            Automatyka przemys&lstrok;owa, doradztwo techniczne oraz dystrybucja
-            komponent&oacute;w firmy B&uuml;rkert na terenie ca&lstrok;ej
-            Polski.
+            Automatyka przemysłowa, doradztwo techniczne oraz dystrybucja
+            komponentów firmy Bürkert na terenie całej Polski.
           </p>
         </div>
         <div class="footer_column">
@@ -503,12 +571,12 @@
           <ul class="footer_contact">
             <li>
               <a
-                href="https://www.google.com/maps/dir/?api=1&amp;destination=ul.%20Przemkowska%2015,%2052-426%20Wroc&lstrok;aw"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <i class="fa-solid fa-house"> </i>
-                ul. Przemkowska 15, 52-426 Wroc&lstrok;aw
+                ul. Przemkowska 15, 52-426 Wrocław
               </a>
             </li>
             <li>
@@ -535,7 +603,7 @@
           <h3>Nawigacja</h3>
           <ul class="footer_nav">
             <li>
-              <a href="index.html"> Strona g&lstrok;&oacute;wna </a>
+              <a href="index.html"> Strona główna </a>
             </li>
             <li>
               <a href="products.html"> Produkty </a>
@@ -549,20 +617,22 @@
           </ul>
         </div>
         <div class="footer_bottom">
-          <p>&copy; 2026 Serwokontrol. Wszelkie prawa zastrze&zdot;one.</p>
+          <p>© 2026 Serwokontrol. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>
-    <button class="scroll_top_btn" id="scrollTopBtn">
+    <button
+      aria-label="Przewiń do góry"
+      class="scroll_top_btn"
+      id="scrollTopBtn"
+      type="button"
+    >
       <i class="fa-solid fa-arrow-up"> </i>
     </button>
     <div class="cookie_overlay" id="cookieOverlay"></div>
     <div class="cookie_banner" id="cookieBanner">
-      <p>
-        Ta strona u&zdot;ywa plik&oacute;w cookies w celu poprawnego
-        dzia&lstrok;ania serwisu.
-      </p>
-      <button id="acceptCookiesBtn">Akceptuj&eogon;</button>
+      <p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
+      <button id="acceptCookiesBtn" type="button">Akceptuję</button>
     </div>
     <script src="js/script.js"></script>
     <script src="js/products.js"></script>
