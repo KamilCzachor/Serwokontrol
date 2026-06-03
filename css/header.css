@@ -1607,3 +1607,1009 @@ body.dark_theme .sticky_theme_toggle:focus-visible {
   background: linear-gradient(135deg, #7090b7, #526f96);
   box-shadow: 0 9px 20px rgba(0, 0, 0, 0.24);
 }
+
+/* =========================================================
+   Bürkert Authorised Partner Logo in Header - final responsive
+   =========================================================
+
+   Układ:
+   - normalny header zostaje na flexie, więc nawigacja nie rozjeżdża się;
+   - logo Bürkert jest normalnym elementem między menu i ikonami kontaktu;
+   - sticky header ma kolejność wymuszoną przez order:
+     Serwokontrol → nawigacja → logo Bürkert → kontakt;
+   - szare tło za nawigacją ma szerokość tylko samej nawigacji, nie całego wolnego miejsca;
+   - logo skaluje się przez clamp(), bez sztywnych pozycji right/left.
+*/
+
+/* ---------- Normal header desktop ---------- */
+
+@media (min-width: 1181px) {
+  .main_header_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(12px, 1.25vw, 22px);
+  }
+
+  .logo {
+    flex: 0 0 auto;
+  }
+
+  .main_nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav_list {
+    flex: 0 0 auto;
+    width: max-content;
+    max-width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .buerkert_header_partner {
+    flex: 0 0 clamp(150px, 10.2vw, 188px);
+    width: clamp(150px, 10.2vw, 188px);
+    height: clamp(36px, 2.7vw, 46px);
+    margin-inline: clamp(4px, 0.7vw, 12px);
+  }
+
+  .header_actions {
+    flex: 0 0 auto;
+  }
+}
+
+/* ---------- Shared Bürkert logo styling ---------- */
+
+.buerkert_header_partner,
+.buerkert_sticky_partner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-decoration: none;
+  line-height: 0;
+
+  transition:
+    transform 0.28s ease,
+    filter 0.28s ease;
+}
+
+.buerkert_header_partner img,
+.buerkert_sticky_partner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: contrast(1.18) saturate(1.12)
+    drop-shadow(0 2px 3px rgba(31, 36, 40, 0.22));
+}
+
+body.dark_theme .buerkert_header_partner img,
+body.dark_theme .buerkert_sticky_partner img {
+  filter: contrast(1.2) saturate(1.12) brightness(1.05)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+.buerkert_header_partner:hover,
+.buerkert_header_partner:focus-visible,
+.buerkert_sticky_partner:hover,
+.buerkert_sticky_partner:focus-visible {
+  transform: translateY(-1px) scale(1.02);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.buerkert_header_partner:focus-visible,
+.buerkert_sticky_partner:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 5px;
+  border-radius: 10px;
+}
+
+/* ---------- Sticky header desktop ---------- */
+
+@media (min-width: 993px) {
+  .sticky_header_inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1vw, 18px);
+  }
+
+  .sticky_logo {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .sticky_hamburger {
+    order: 0;
+    display: none;
+  }
+
+  .sticky_nav {
+    order: 2;
+
+    /* Kluczowa poprawka: tło/pigułka nawigacji ma szerokość treści,
+       a nie całej wolnej przestrzeni sticky headera. */
+    flex: 0 0 auto;
+    width: max-content;
+    max-width: max-content;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: 0;
+
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .sticky_nav li {
+    flex: 0 0 auto;
+    opacity: 1;
+    transform: none;
+  }
+
+  .sticky_nav a {
+    white-space: nowrap;
+  }
+
+  .buerkert_sticky_partner {
+    order: 3;
+    flex: 0 0 clamp(132px, 8.4vw, 166px);
+    width: clamp(132px, 8.4vw, 166px);
+    height: clamp(30px, 2.25vw, 40px);
+    margin-left: clamp(6px, 0.7vw, 12px);
+    margin-right: clamp(2px, 0.45vw, 8px);
+  }
+
+  .sticky_contact {
+    order: 4;
+    flex: 0 0 auto;
+    margin: 0;
+  }
+}
+
+/* ---------- Narrow desktop ----------
+   Na mniejszych szerokościach logo znika zanim zacznie ściskać menu.
+*/
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .buerkert_header_partner {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) and (min-width: 993px) {
+  .buerkert_sticky_partner {
+    display: none;
+  }
+
+  .sticky_nav {
+    margin-left: auto;
+  }
+}
+
+/* ---------- Tablet/mobile ---------- */
+
+@media (max-width: 992px) {
+  .buerkert_sticky_partner {
+    display: none;
+  }
+
+  .sticky_nav {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .buerkert_header_partner {
+    display: none;
+  }
+}
+
+/* =========================================================
+   Sticky header final correction - centered nav + right partner logo
+   =========================================================
+   This block intentionally overrides the previous sticky desktop layout.
+   It keeps the navigation pill centered, prevents it from stretching, and
+   places the Bürkert logo between the centered nav and contact icons.
+*/
+
+@media (min-width: 993px) {
+  .sticky_header_inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1vw, 18px);
+  }
+
+  .sticky_logo {
+    order: 1;
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+
+  .sticky_hamburger {
+    display: none;
+  }
+
+  .sticky_nav {
+    order: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+
+    flex: 0 0 auto;
+    width: max-content;
+    max-width: max-content;
+    min-width: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .sticky_nav li {
+    flex: 0 0 auto;
+    opacity: 1;
+    transform: none;
+  }
+
+  .sticky_nav a {
+    white-space: nowrap;
+  }
+
+  .buerkert_sticky_partner {
+    order: 3;
+    flex: 0 0 clamp(142px, 8.8vw, 174px);
+    width: clamp(142px, 8.8vw, 174px);
+    height: clamp(32px, 2.35vw, 42px);
+    margin-left: auto;
+    margin-right: clamp(6px, 0.8vw, 14px);
+  }
+
+  .sticky_contact {
+    order: 4;
+    flex: 0 0 auto;
+    margin: 0;
+  }
+}
+
+/* Hide the partner logo before the right side gets too crowded. */
+@media (max-width: 1180px) and (min-width: 993px) {
+  .buerkert_sticky_partner {
+    display: none;
+  }
+}
+
+/* Mobile/tablet sticky keeps the hamburger layout from the original CSS. */
+@media (max-width: 992px) {
+  .sticky_nav {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(-10px) scale(0.98);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .sticky_nav.show {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   Serwokontrol SVG logo - header / sticky header
+   ========================================================= */
+
+.logo {
+  margin: 0;
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.site_logo_img {
+  display: block;
+  width: clamp(154px, 13vw, 225px);
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.logo a:hover .site_logo_img,
+.logo a:focus-visible .site_logo_img {
+  transform: translateY(-2px);
+}
+
+.logo a:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 5px;
+  border-radius: 10px;
+}
+
+.sticky_logo {
+  line-height: 0;
+}
+
+.sticky_logo a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.sticky_site_logo_img {
+  display: block;
+  width: clamp(132px, 10.5vw, 190px);
+  height: auto;
+  max-height: 38px;
+  object-fit: contain;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.sticky_logo a:hover .sticky_site_logo_img,
+.sticky_logo a:focus-visible .sticky_site_logo_img {
+  transform: translateY(-1px);
+}
+
+.sticky_logo a:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 5px;
+  border-radius: 10px;
+}
+
+body.dark_theme .site_logo_img,
+body.dark_theme .sticky_site_logo_img {
+  filter: brightness(1.04) contrast(1.08)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+@media (max-width: 992px) {
+  .site_logo_img {
+    width: clamp(138px, 34vw, 190px);
+    max-height: 44px;
+  }
+
+  .sticky_site_logo_img {
+    width: clamp(124px, 31vw, 172px);
+    max-height: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site_logo_img {
+    width: 138px;
+  }
+
+  .sticky_site_logo_img {
+    width: 124px;
+  }
+}
+
+/* =========================================================
+   Serwokontrol SVG Logos - sticky uses symbol only
+   ========================================================= */
+
+.logo a.site_logo_link::before,
+.sticky_logo a.sticky_site_symbol_link::before {
+  display: none;
+  content: none;
+}
+
+.logo a.site_logo_link {
+  gap: 0;
+}
+
+.sticky_logo a.sticky_site_symbol_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(38px, 3.4vw, 50px);
+  height: clamp(38px, 3.4vw, 50px);
+  padding: 0;
+  border-radius: 14px;
+  line-height: 0;
+}
+
+.sticky_site_symbol_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.sticky_logo a.sticky_site_symbol_link:hover .sticky_site_symbol_img,
+.sticky_logo a.sticky_site_symbol_link:focus-visible .sticky_site_symbol_img {
+  transform: translateY(-1px) scale(1.04);
+}
+
+body.dark_theme .sticky_site_symbol_img {
+  filter: brightness(1.05) contrast(1.08)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+@media (max-width: 992px) {
+  .sticky_logo a.sticky_site_symbol_link {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .sticky_logo a.sticky_site_symbol_link {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================================
+   Bürkert header partner - absolute floating badge experiment
+   =========================================================
+   Cel:
+   - większe logo Bürkert bez rozpychania nawigacji;
+   - pozycjonowanie względem .main_header_inner, czyli stabilnie
+     w ramach tego samego kontenera 1200px na różnych ekranach;
+   - pełne logo tylko na szerokim desktopie, żeby nie kolidowało
+     z menu, hamburgerem ani akcjami kontaktowymi.
+*/
+
+@media (min-width: 1181px) {
+  header {
+    overflow: visible;
+  }
+
+  .main_header_inner {
+    position: relative;
+  }
+
+  .buerkert_header_partner {
+    position: absolute !important;
+    right: 40px;
+    top: calc(100% + 8px);
+    z-index: 30;
+
+    flex: none !important;
+    width: clamp(220px, 18vw, 270px) !important;
+    height: clamp(48px, 3.9vw, 56px) !important;
+    margin: 0 !important;
+    padding: 7px 14px;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(112, 144, 183, 0.13),
+        transparent 46%
+      ),
+      linear-gradient(180deg, #ffffff, #f7f9fc);
+    border: 1px solid rgba(112, 144, 183, 0.24);
+    border-radius: 16px;
+    box-shadow:
+      0 12px 28px rgba(94, 106, 113, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    text-decoration: none;
+    line-height: 0;
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background-color 0.3s ease;
+  }
+
+  .buerkert_header_partner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 38px;
+    object-fit: contain;
+
+    filter: contrast(1.18) saturate(1.08)
+      drop-shadow(0 2px 4px rgba(31, 36, 40, 0.16));
+  }
+
+  .buerkert_header_partner:hover,
+  .buerkert_header_partner:focus-visible {
+    transform: translateY(-2px) scale(1.01);
+    border-color: rgba(112, 144, 183, 0.38);
+    box-shadow:
+      0 16px 34px rgba(94, 106, 113, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  }
+
+  .buerkert_header_partner:focus-visible {
+    outline: 3px solid rgba(112, 144, 183, 0.45);
+    outline-offset: 5px;
+  }
+
+  body.dark_theme .buerkert_header_partner {
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(112, 144, 183, 0.22),
+        transparent 46%
+      ),
+      linear-gradient(180deg, rgba(47, 57, 66, 0.96), rgba(36, 45, 53, 0.96));
+    border-color: rgba(226, 233, 241, 0.14);
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  body.dark_theme .buerkert_header_partner img {
+    filter: brightness(1.08) contrast(1.2) saturate(1.08)
+      drop-shadow(0 2px 5px rgba(0, 0, 0, 0.48));
+  }
+}
+
+@media (max-width: 1180px) {
+  .buerkert_header_partner {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   Bürkert Floating Partner Widget
+   ========================================================= */
+
+/* The Bürkert logo is no longer displayed inside the header layout. */
+.buerkert_header_partner,
+.buerkert_sticky_partner {
+  display: none !important;
+}
+
+.buerkert_floating_widget {
+  position: fixed;
+  right: 0;
+  top: 46%;
+  z-index: 9996;
+  transform: translateY(-50%);
+}
+
+.buerkert_floating_button {
+  width: 66px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 18px 0 0 18px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.38),
+      transparent 42%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7);
+
+  box-shadow:
+    0 12px 30px rgba(94, 106, 113, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.buerkert_floating_button:hover,
+.buerkert_floating_button:focus-visible {
+  width: 74px;
+  transform: translateX(-4px);
+  box-shadow:
+    0 16px 38px rgba(94, 106, 113, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.buerkert_floating_icon {
+  display: block;
+  width: 48px;
+  max-height: 30px;
+  object-fit: contain;
+
+  filter: brightness(0) invert(1) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+}
+
+.buerkert_floating_panel {
+  position: absolute;
+  right: 84px;
+  top: 50%;
+
+  width: min(370px, calc(100vw - 118px));
+  padding: 26px 26px 24px;
+
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.16),
+      transparent 38%
+    ),
+    linear-gradient(180deg, #ffffff, #f7f9fc);
+
+  border: 1px solid rgba(112, 144, 183, 0.2);
+
+  box-shadow:
+    0 24px 60px rgba(31, 42, 51, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transform: translateY(-50%) translateX(24px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.buerkert_floating_widget.is_open .buerkert_floating_panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+.buerkert_floating_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  color: #7090b7;
+  background-color: rgba(112, 144, 183, 0.12);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.buerkert_floating_close:hover,
+.buerkert_floating_close:focus-visible {
+  color: #ffffff;
+  background-color: #7090b7;
+  transform: rotate(90deg);
+}
+
+.buerkert_floating_label {
+  display: inline-flex;
+  margin-bottom: 14px;
+
+  color: #7090b7;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.buerkert_floating_logo {
+  display: block;
+  width: 100%;
+  max-width: 295px;
+  height: auto;
+  margin-bottom: 18px;
+
+  filter: contrast(1.14) saturate(1.06)
+    drop-shadow(0 5px 12px rgba(94, 106, 113, 0.16));
+}
+
+.buerkert_floating_panel p {
+  margin: 0 0 18px;
+
+  color: #5e6a71;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.buerkert_floating_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 11px 15px;
+
+  color: #ffffff;
+  background-color: #7090b7;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 8px 18px rgba(112, 144, 183, 0.26);
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.buerkert_floating_link:hover,
+.buerkert_floating_link:focus-visible {
+  background-color: #5e6a71;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(94, 106, 113, 0.28);
+}
+
+body.dark_theme .buerkert_floating_panel {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.22),
+      transparent 38%
+    ),
+    linear-gradient(180deg, #303942, #252d34);
+
+  border-color: rgba(226, 233, 241, 0.14);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.dark_theme .buerkert_floating_panel p {
+  color: #e2e9f1;
+}
+
+body.dark_theme .buerkert_floating_close {
+  color: #e2e9f1;
+  background-color: rgba(226, 233, 241, 0.1);
+}
+
+body.dark_theme .buerkert_floating_logo {
+  filter: brightness(1.08) contrast(1.14) saturate(1.06)
+    drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28));
+}
+
+@media (max-width: 768px) {
+  .buerkert_floating_widget {
+    top: auto;
+    right: 16px;
+    bottom: 92px;
+    transform: none;
+  }
+
+  .buerkert_floating_button {
+    width: 56px;
+    height: 52px;
+    border-radius: 18px;
+  }
+
+  .buerkert_floating_button:hover,
+  .buerkert_floating_button:focus-visible {
+    width: 56px;
+    transform: translateY(-3px);
+  }
+
+  .buerkert_floating_icon {
+    width: 40px;
+    max-height: 26px;
+  }
+
+  .buerkert_floating_panel {
+    right: 0;
+    top: auto;
+    bottom: 68px;
+
+    width: min(330px, calc(100vw - 32px));
+
+    transform: translateY(16px);
+  }
+
+  .buerkert_floating_widget.is_open .buerkert_floating_panel {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 420px) {
+  .buerkert_floating_panel {
+    padding: 22px 20px 20px;
+  }
+
+  .buerkert_floating_logo {
+    max-width: 250px;
+  }
+}
+
+/* End Bürkert Floating Partner Widget */
+
+/* =========================================================
+   Sticky header logo - small right shift
+   =========================================================
+   Replaces the previous large alignment offset. The sticky logo
+   stays close to its original position and moves only slightly right.
+*/
+
+.sticky_logo {
+  margin-left: clamp(10px, 1.1vw, 18px);
+}
+
+@media (max-width: 992px) {
+  .sticky_logo {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sticky_logo {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   Serwokontrol wordmark logo - symbol + text
+   Header version
+   ========================================================= */
+
+.logo a.site_wordmark_link::before {
+  display: none;
+  content: none;
+}
+
+.logo a.site_wordmark_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(8px, 0.8vw, 12px);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.site_logo_symbol_img {
+  display: block;
+  width: clamp(28px, 2.8vw, 39px);
+  height: clamp(30px, 3vw, 42px);
+  object-fit: contain;
+  flex: 0 0 auto;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.site_logo_wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(23px, 2.15vw, 34px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  transform: translateY(1px);
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.site_logo_wordmark_primary {
+  color: #5e6a71;
+}
+
+.site_logo_wordmark_accent {
+  color: #7090b7;
+}
+
+.logo a.site_wordmark_link:hover .site_logo_symbol_img,
+.logo a.site_wordmark_link:focus-visible .site_logo_symbol_img {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 6px 12px rgba(94, 106, 113, 0.16));
+}
+
+.logo a.site_wordmark_link:hover .site_logo_wordmark,
+.logo a.site_wordmark_link:focus-visible .site_logo_wordmark {
+  transform: translateY(-1px);
+}
+
+body.dark_theme .site_logo_symbol_img {
+  filter: brightness(1.05) contrast(1.08)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+body.dark_theme .site_logo_wordmark_primary {
+  color: #e2e9f1;
+}
+
+body.dark_theme .site_logo_wordmark_accent {
+  color: #9fb8d7;
+}
+
+@media (max-width: 992px) {
+  .logo a.site_wordmark_link {
+    gap: 8px;
+  }
+
+  .site_logo_symbol_img {
+    width: 31px;
+    height: 34px;
+  }
+
+  .site_logo_wordmark {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site_logo_symbol_img {
+    width: 28px;
+    height: 31px;
+  }
+
+  .site_logo_wordmark {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site_logo_wordmark {
+    font-size: 20px;
+  }
+}

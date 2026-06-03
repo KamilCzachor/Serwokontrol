@@ -1,36 +1,55 @@
 <!doctype html>
+
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Serwokontrol</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+      href="images/serwokontrol-symbol.svg"
+      rel="icon"
+      type="image/svg+xml"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&amp;display=swap"
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
     />
   </head>
   <body>
     <header>
       <div class="header_inner main_header_inner">
         <h1 class="logo">
-          <a href="index.html">Serwokontrol</a>
+          <a
+            aria-label="Serwokontrol - strona główna"
+            class="site_logo_link site_wordmark_link"
+            href="index.html"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="site_logo_symbol_img"
+              src="images/serwokontrol-symbol.svg"
+            />
+            <span class="site_logo_wordmark" aria-hidden="true">
+              <span class="site_logo_wordmark_primary">Serwo</span
+              ><span class="site_logo_wordmark_accent">kontrol</span>
+            </span>
+          </a>
         </h1>
-
         <nav class="main_nav">
-          <button class="hamburger" id="hamburgerBtn" aria-label="Otwórz menu">
+          <button aria-label="Otwórz menu" class="hamburger" id="hamburgerBtn">
             <i class="fa-solid fa-bars"></i>
           </button>
-
           <ul class="nav_list" id="navMenu">
             <li><a class="active" href="index.html">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
@@ -38,30 +57,27 @@
             <li><a href="contact.html">Kontakt</a></li>
           </ul>
         </nav>
-
         <div class="header_actions">
           <a
+            aria-label="Zadzwoń"
             class="header_action_link"
             href="tel:+48601764871"
-            aria-label="Zadzwoń"
           >
             <i class="fa-solid fa-phone"></i>
             <span>+48 601 764 871</span>
           </a>
-
           <a
+            aria-label="Wyślij email"
             class="header_action_link"
             href="mailto:biuro@serwokontrol.pl"
-            aria-label="Wyślij email"
           >
             <i class="fa-solid fa-envelope"></i>
             <span>biuro@serwokontrol.pl</span>
           </a>
-
           <button
+            aria-label="Zmień motyw"
             class="theme_toggle theme_toggle_expand"
             id="themeToggle"
-            aria-label="Zmień motyw"
           >
             <i class="fa-solid fa-moon"></i>
             <span>Motyw</span>
@@ -69,44 +85,48 @@
         </div>
       </div>
     </header>
-
     <div class="sticky_header" id="stickyHeader">
       <div class="sticky_header_inner">
         <div class="sticky_logo">
-          <a href="index.html">Serwokontrol</a>
+          <a
+            aria-label="Serwokontrol - strona główna"
+            class="sticky_site_symbol_link"
+            href="index.html"
+          >
+            <img
+              alt="Serwokontrol"
+              class="sticky_site_symbol_img"
+              src="images/serwokontrol-symbol.svg"
+            />
+          </a>
         </div>
-
         <button
+          aria-label="Otwórz menu"
           class="sticky_hamburger"
           id="stickyHamburgerBtn"
-          aria-label="Otwórz menu"
         >
           <i class="fa-solid fa-bars"></i>
         </button>
-
         <ul class="sticky_contact">
           <li>
-            <a href="tel:+48601764871" aria-label="Zadzwoń">
+            <a aria-label="Zadzwoń" href="tel:+48601764871">
               <i class="fa-solid fa-phone"></i>
             </a>
           </li>
-
           <li>
-            <a href="mailto:biuro@serwokontrol.pl" aria-label="Wyślij email">
+            <a aria-label="Wyślij email" href="mailto:biuro@serwokontrol.pl">
               <i class="fa-solid fa-envelope"></i>
             </a>
           </li>
-
           <li>
             <button
-              class="theme_toggle sticky_theme_toggle"
               aria-label="Zmień motyw"
+              class="theme_toggle sticky_theme_toggle"
             >
               <i class="fa-solid fa-moon"></i>
             </button>
           </li>
         </ul>
-
         <ul class="sticky_nav" id="stickyNavMenu">
           <li><a class="active" href="index.html">Strona główna</a></li>
           <li><a href="products.html">Produkty</a></li>
@@ -115,12 +135,11 @@
         </ul>
       </div>
     </div>
-
     <main class="home_main">
       <section
+        aria-label="Najważniejsze informacje"
         class="home_hero"
         id="homeHero"
-        aria-label="Najważniejsze informacje"
       >
         <div class="home_hero_bg" data-parallax-speed="0.18"></div>
         <div class="home_hero_overlay"></div>
@@ -132,7 +151,6 @@
           class="home_hero_circle home_hero_circle_two"
           data-parallax-speed="0.13"
         ></div>
-
         <div class="home_hero_inner">
           <div class="home_hero_slider" id="homeHeroSlider">
             <article class="home_hero_slide is_active" data-slide-index="0">
@@ -155,7 +173,6 @@
                 </a>
               </div>
             </article>
-
             <article class="home_hero_slide" data-slide-index="1">
               <span class="home_eyebrow">Pomiar i kontrola procesu</span>
               <h2>Rozwiązania dla przepływu, ciśnienia i sterowania</h2>
@@ -173,7 +190,6 @@
                 </a>
               </div>
             </article>
-
             <article class="home_hero_slide" data-slide-index="2">
               <span class="home_eyebrow">Wsparcie regionalne</span>
               <h2>Znajdź specjalistę odpowiedzialnego za Twój region</h2>
@@ -198,8 +214,7 @@
               </div>
             </article>
           </div>
-
-          <aside class="home_hero_card" data-parallax-card>
+          <aside class="home_hero_card" data-parallax-card="">
             <div class="home_hero_card_icon">
               <i class="fa-solid fa-sliders"></i>
             </div>
@@ -210,39 +225,35 @@
             </p>
           </aside>
         </div>
-
         <button
+          aria-label="Poprzedni slajd"
           class="home_slider_arrow home_slider_arrow_prev"
           id="homeHeroPrev"
           type="button"
-          aria-label="Poprzedni slajd"
         >
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-
-        <div class="home_slider_controls" aria-label="Sterowanie sliderem">
+        <div aria-label="Sterowanie sliderem" class="home_slider_controls">
           <div class="home_slider_dots" id="homeHeroDots">
             <button
+              aria-label="Pokaż slajd 1"
               class="is_active"
               type="button"
-              aria-label="Pokaż slajd 1"
             ></button>
-            <button type="button" aria-label="Pokaż slajd 2"></button>
-            <button type="button" aria-label="Pokaż slajd 3"></button>
+            <button aria-label="Pokaż slajd 2" type="button"></button>
+            <button aria-label="Pokaż slajd 3" type="button"></button>
           </div>
         </div>
-
         <button
+          aria-label="Następny slajd"
           class="home_slider_arrow home_slider_arrow_next"
           id="homeHeroNext"
           type="button"
-          aria-label="Następny slajd"
         >
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </section>
-
-      <section class="home_highlights" aria-label="Najważniejsze atuty">
+      <section aria-label="Najważniejsze atuty" class="home_highlights">
         <div class="home_highlights_inner">
           <article class="home_highlight reveal reveal_delay_1">
             <i class="fa-solid fa-certificate"></i>
@@ -281,8 +292,7 @@
           </article>
         </div>
       </section>
-
-      <section class="home_stats reveal" aria-label="Dlaczego Serwokontrol">
+      <section aria-label="Dlaczego Serwokontrol" class="home_stats reveal">
         <div class="home_stats_inner">
           <div class="home_stats_text">
             <span>Dlaczego Serwokontrol?</span>
@@ -292,7 +302,6 @@
               szybką analizą aplikacji i kontaktem z właściwym specjalistą.
             </p>
           </div>
-
           <div class="home_stats_grid">
             <article class="home_stat_card reveal">
               <strong><span data-count-to="3">0</span></strong>
@@ -322,7 +331,6 @@
               zestawienie grup produktowych znajdziesz na podstronie Produkty.
             </p>
           </div>
-
           <div class="home_products_grid">
             <a
               class="home_product_tile home_product_tile_featured"
@@ -380,7 +388,6 @@
             </a>
           </div>
         </section>
-
         <section class="home_section home_selector reveal" id="homeSelector">
           <div class="home_selector_text">
             <span>Szybki dobór rozwiązania</span>
@@ -391,7 +398,6 @@
               grupy produktów.
             </p>
           </div>
-
           <div class="home_selector_panel">
             <div class="home_selector_fields">
               <label>
@@ -422,7 +428,6 @@
                 </select>
               </label>
             </div>
-
             <div class="home_selector_result">
               <span>Proponowany kierunek</span>
               <h3 id="doborTitle">Zawory elektromagnetyczne</h3>
@@ -437,7 +442,6 @@
             </div>
           </div>
         </section>
-
         <section class="home_section home_process reveal" id="homeProcess">
           <div class="home_section_header">
             <span>Jak pracujemy</span>
@@ -477,7 +481,6 @@
             </article>
           </div>
         </section>
-
         <section class="home_section home_partner reveal" id="homePartner">
           <div class="home_partner_content">
             <span>Serwokontrol</span>
@@ -492,9 +495,21 @@
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
-          <div class="home_partner_mark" aria-hidden="true">Bürkert</div>
+          <div class="home_partner_mark">
+            <a
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+              class="home_partner_logo_link"
+              href="https://www.buerkert.pl/pl"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Bürkert Fluid Control Systems"
+                src="images/buerkert-subline.png"
+              />
+            </a>
+          </div>
         </section>
-
         <section
           class="home_section home_region_cta reveal"
           id="homeRegionContact"
@@ -525,49 +540,71 @@
         </section>
       </section>
     </main>
-
     <footer>
       <div class="footer_inner">
         <div class="footer_brand">
           <div class="footer_logo">
-            <a href="index.html">Serwokontrol</a>
+            <a
+              aria-label="Serwokontrol - strona główna"
+              class="footer_wordmark_link"
+              href="index.html"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="footer_logo_symbol_img"
+                src="images/serwokontrol-symbol.svg"
+              />
+              <span class="footer_logo_wordmark" aria-hidden="true">
+                <span class="footer_logo_wordmark_primary">Serwo</span
+                ><span class="footer_logo_wordmark_accent">kontrol</span>
+              </span>
+            </a>
           </div>
-
           <p>
             Automatyka przemysłowa, doradztwo techniczne oraz dystrybucja
             komponentów firmy Bürkert na terenie całej Polski.
           </p>
+          <div class="footer_partner">
+            <span>Autoryzowany Dystrybutor produktów firmy</span>
+            <a
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+              href="https://www.buerkert.pl/pl"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Bürkert Authorised Partner"
+                src="images/buerkert-authorised-partner.png"
+              />
+            </a>
+          </div>
         </div>
-
         <div class="footer_column">
           <h3>Kontakt</h3>
-
           <ul class="footer_contact">
             <li>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
-                target="_blank"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=ul.%20Przemkowska%2015,%2052-426%20Wrocław"
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 <i class="fa-solid fa-house"></i>
                 ul. Przemkowska 15, 52-426 Wrocław
               </a>
             </li>
-
             <li>
               <a href="mailto:biuro@serwokontrol.pl">
                 <i class="fa-solid fa-envelope"></i>
                 biuro@serwokontrol.pl
               </a>
             </li>
-
             <li>
               <a href="tel:+48601764871">
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 +48 601 764 871
               </a>
             </li>
-
             <li>
               <a href="tel:+48713737964">
                 <i class="fa-solid fa-phone-volume"></i>
@@ -576,10 +613,8 @@
             </li>
           </ul>
         </div>
-
         <div class="footer_column">
           <h3>Nawigacja</h3>
-
           <ul class="footer_nav">
             <li><a href="index.html">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
@@ -587,29 +622,82 @@
             <li><a href="contact.html">Kontakt</a></li>
           </ul>
         </div>
-
         <div class="footer_bottom">
           <p>© 2026 Serwokontrol. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>
+    <div class="buerkert_floating_widget" id="buerkertFloatingWidget">
+      <button
+        class="buerkert_floating_button"
+        id="buerkertFloatingButton"
+        type="button"
+        aria-label="Pokaż informacje o partnerstwie Bürkert"
+        aria-expanded="false"
+        aria-controls="buerkertFloatingPanel"
+      >
+        <img
+          src="images/buerkert-subline.png"
+          alt=""
+          class="buerkert_floating_icon"
+          aria-hidden="true"
+        />
+      </button>
+
+      <div
+        class="buerkert_floating_panel"
+        id="buerkertFloatingPanel"
+        aria-hidden="true"
+      >
+        <button
+          class="buerkert_floating_close"
+          id="buerkertFloatingClose"
+          type="button"
+          aria-label="Zamknij panel Bürkert"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <span class="buerkert_floating_label">Autoryzowany partner</span>
+
+        <img
+          src="images/buerkert-authorised-partner.png"
+          alt="Bürkert Authorised Partner"
+          class="buerkert_floating_logo"
+        />
+
+        <p>
+          Jesteśmy autoryzowanym partnerem Bürkert w zakresie doboru i sprzedaży
+          rozwiązań dla automatyki procesowej oraz systemów kontroli przepływu.
+        </p>
+
+        <a
+          href="https://www.buerkert.pl/pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="buerkert_floating_link"
+        >
+          Przejdź na stronę Bürkert
+          <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </div>
+    </div>
 
     <button
-      id="scrollTopBtn"
-      class="scroll_top_btn"
       aria-label="Przewiń do góry"
+      class="scroll_top_btn"
+      id="scrollTopBtn"
     >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <div class="cookie_overlay" id="cookieOverlay"></div>
-
     <div class="cookie_banner" id="cookieBanner">
       <p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
-
       <button id="acceptCookiesBtn">Akceptuję</button>
     </div>
-
     <script src="js/index.js"></script>
     <script src="js/script.js"></script>
   </body>

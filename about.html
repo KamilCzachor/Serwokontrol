@@ -24,7 +24,22 @@
     <header>
       <div class="header_inner main_header_inner">
         <h1 class="logo">
-          <a href="index.html">Serwokontrol</a>
+          <a
+            aria-label="Serwokontrol - strona główna"
+            class="site_logo_link site_wordmark_link"
+            href="index.html"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="site_logo_symbol_img"
+              src="images/serwokontrol-symbol.svg"
+            />
+            <span class="site_logo_wordmark" aria-hidden="true">
+              <span class="site_logo_wordmark_primary">Serwo</span
+              ><span class="site_logo_wordmark_accent">kontrol</span>
+            </span>
+          </a>
         </h1>
         <nav class="main_nav">
           <button aria-label="Otwórz menu" class="hamburger" id="hamburgerBtn">
@@ -137,6 +152,18 @@
             <span>
               Doradztwo, sprzedaż, serwis i automatyzacja procesów przemysłowych
             </span>
+            <a
+              class="about_us_box_partner_logo"
+              href="https://www.buerkert.pl/pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+            >
+              <img
+                src="images/buerkert-subline.png"
+                alt="Bürkert Fluid Control Systems"
+              />
+            </a>
           </div>
         </div>
         <div class="about_numbers">
@@ -229,8 +256,18 @@
             </p>
           </div>
           <div class="about_partner_feature">
-            <span>Bürkert</span>
-            <small>kontrola i pomiar przepływu mediów</small>
+            <a
+              class="about_partner_logo_link"
+              href="https://www.buerkert.pl/pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+            >
+              <img
+                src="images/buerkert-subline.png"
+                alt="Bürkert Fluid Control Systems"
+              />
+            </a>
           </div>
         </div>
         <div class="about_cards">
@@ -301,12 +338,42 @@
       <div class="footer_inner">
         <div class="footer_brand">
           <div class="footer_logo">
-            <a href="index.html">Serwokontrol</a>
+            <a
+              aria-label="Serwokontrol - strona główna"
+              class="footer_wordmark_link"
+              href="index.html"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="footer_logo_symbol_img"
+                src="images/serwokontrol-symbol.svg"
+              />
+              <span class="footer_logo_wordmark" aria-hidden="true">
+                <span class="footer_logo_wordmark_primary">Serwo</span
+                ><span class="footer_logo_wordmark_accent">kontrol</span>
+              </span>
+            </a>
           </div>
           <p>
             Automatyka przemysłowa, doradztwo techniczne oraz dystrybucja
             komponentów firmy Bürkert na terenie całej Polski.
           </p>
+
+          <div class="footer_partner">
+            <span>Autoryzowany Dystrybutor produktów firmy</span>
+            <a
+              href="https://www.buerkert.pl/pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+            >
+              <img
+                src="images/buerkert-authorised-partner.png"
+                alt="Bürkert Authorised Partner"
+              />
+            </a>
+          </div>
         </div>
         <div class="footer_column">
           <h3>Kontakt</h3>
@@ -355,6 +422,65 @@
         </div>
       </div>
     </footer>
+    <div class="buerkert_floating_widget" id="buerkertFloatingWidget">
+      <button
+        class="buerkert_floating_button"
+        id="buerkertFloatingButton"
+        type="button"
+        aria-label="Pokaż informacje o partnerstwie Bürkert"
+        aria-expanded="false"
+        aria-controls="buerkertFloatingPanel"
+      >
+        <img
+          src="images/buerkert-subline.png"
+          alt=""
+          class="buerkert_floating_icon"
+          aria-hidden="true"
+        />
+      </button>
+
+      <div
+        class="buerkert_floating_panel"
+        id="buerkertFloatingPanel"
+        aria-hidden="true"
+      >
+        <button
+          class="buerkert_floating_close"
+          id="buerkertFloatingClose"
+          type="button"
+          aria-label="Zamknij panel Bürkert"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <span class="buerkert_floating_label">Autoryzowany partner</span>
+
+        <img
+          src="images/buerkert-authorised-partner.png"
+          alt="Bürkert Authorised Partner"
+          class="buerkert_floating_logo"
+        />
+
+        <p>
+          Jesteśmy autoryzowanym partnerem Bürkert w zakresie doboru i sprzedaży
+          rozwiązań dla automatyki procesowej oraz systemów kontroli przepływu.
+        </p>
+
+        <a
+          href="https://www.buerkert.pl/pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="buerkert_floating_link"
+        >
+          Przejdź na stronę Bürkert
+          <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </div>
+    </div>
+
     <button class="scroll_top_btn" id="scrollTopBtn">
       <i class="fa-solid fa-arrow-up"></i>
     </button>

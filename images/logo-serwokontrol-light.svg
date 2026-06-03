@@ -1,0 +1,35 @@
+<svg width="560" height="92" viewBox="0 0 560 92" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Serwokontrol</title>
+  <desc id="desc">Jasna wersja logo Serwokontrol bez dolnego tekstu do ciemnych sekcji.</desc>
+  <defs>
+    <linearGradient id="sk-icon-graphite" x1="5" y1="5" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FAFC"/>
+      <stop offset="0.55" stop-color="#E2E9F1"/>
+      <stop offset="1" stop-color="#BFD0E2"/>
+    </linearGradient>
+    <linearGradient id="sk-icon-blue" x1="7" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8E7F7"/>
+      <stop offset="0.52" stop-color="#AFC8E4"/>
+      <stop offset="1" stop-color="#7EA4CF"/>
+    </linearGradient>
+    <filter id="sk-icon-soft-shadow" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="3" stdDeviation="1.8" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <filter id="sk-word-soft-shadow" x="-5%" y="-40%" width="110%" height="180%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2.2" stdDeviation="1.15" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#sk-icon-soft-shadow)" transform="translate(16 17) scale(1.46)">
+    <g transform="translate(-85.590431,-125.03373)">
+      <path fill="url(#sk-icon-graphite)" d="m 91.21283,140.72279 12.86264,18.34666 7.14986,-5.05264 -9.83781,-13.65615 7.13609,-5.0409 2.44667,3.47211 15.57617,-11.69301 a 1.1474693,1.1474693 59.292469 0 0 -1.16509,-1.96166 z"/>
+      <path fill="url(#sk-icon-blue)" d="m 91.21283,140.72279 12.86264,18.34666 7.14986,-5.05264 -9.83781,-13.65615 7.13609,-5.0409 2.44667,3.47211 15.57617,-11.69301 a 1.1474693,1.1474693 59.292469 0 0 -1.16509,-1.96166 z" transform="rotate(180,106.29773,147.17789)"/>
+    </g>
+  </g>
+
+  <g filter="url(#sk-word-soft-shadow)">
+    <text x="94" y="60" font-family="Inter, Arial, Helvetica, sans-serif" font-size="48" font-weight="820" letter-spacing="-1.65">
+      <tspan fill="#FFFFFF">Serwo</tspan><tspan fill="#D8E7F7">kontrol</tspan>
+    </text>
+  </g>
+</svg>

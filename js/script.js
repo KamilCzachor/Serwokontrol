@@ -1768,3 +1768,77 @@ function handleRepresentativesHashOpen() {
 window.addEventListener("hashchange", handleRepresentativesHashOpen);
 window.addEventListener("load", handleRepresentativesHashOpen);
 handleRepresentativesHashOpen();
+
+/* =========================================================
+   Bürkert Floating Partner Widget
+   ========================================================= */
+
+(function () {
+  const buerkertFloatingWidget = document.getElementById(
+    "buerkertFloatingWidget",
+  );
+  const buerkertFloatingButton = document.getElementById(
+    "buerkertFloatingButton",
+  );
+  const buerkertFloatingPanel = document.getElementById(
+    "buerkertFloatingPanel",
+  );
+  const buerkertFloatingClose = document.getElementById(
+    "buerkertFloatingClose",
+  );
+
+  if (!buerkertFloatingWidget || !buerkertFloatingButton) return;
+
+  function closeBuerkertWidget() {
+    buerkertFloatingWidget.classList.remove("is_open");
+    buerkertFloatingButton.setAttribute("aria-expanded", "false");
+
+    if (buerkertFloatingPanel) {
+      buerkertFloatingPanel.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  function openBuerkertWidget() {
+    buerkertFloatingWidget.classList.add("is_open");
+    buerkertFloatingButton.setAttribute("aria-expanded", "true");
+
+    if (buerkertFloatingPanel) {
+      buerkertFloatingPanel.setAttribute("aria-hidden", "false");
+    }
+  }
+
+  function toggleBuerkertWidget() {
+    if (buerkertFloatingWidget.classList.contains("is_open")) {
+      closeBuerkertWidget();
+    } else {
+      openBuerkertWidget();
+    }
+  }
+
+  buerkertFloatingButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    toggleBuerkertWidget();
+  });
+
+  if (buerkertFloatingClose) {
+    buerkertFloatingClose.addEventListener("click", function (event) {
+      event.stopPropagation();
+      closeBuerkertWidget();
+      buerkertFloatingButton.focus();
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!buerkertFloatingWidget.contains(event.target)) {
+      closeBuerkertWidget();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeBuerkertWidget();
+    }
+  });
+})();
+
+/* End Bürkert Floating Partner Widget */

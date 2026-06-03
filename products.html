@@ -24,7 +24,22 @@
     <header>
       <div class="header_inner main_header_inner">
         <h1 class="logo">
-          <a href="index.html"> Serwokontrol </a>
+          <a
+            aria-label="Serwokontrol - strona główna"
+            class="site_logo_link site_wordmark_link"
+            href="index.html"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="site_logo_symbol_img"
+              src="images/serwokontrol-symbol.svg"
+            />
+            <span class="site_logo_wordmark" aria-hidden="true">
+              <span class="site_logo_wordmark_primary">Serwo</span
+              ><span class="site_logo_wordmark_accent">kontrol</span>
+            </span>
+          </a>
         </h1>
         <nav class="main_nav">
           <button aria-label="Otwórz menu" class="hamburger" id="hamburgerBtn">
@@ -216,8 +231,6 @@
             data-modal-type="valve2000"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe grzybkowe w wersji on/off"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory procesowe grzybkowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -239,8 +252,6 @@
             data-modal-type="valveMembrane"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe membranowe w wersji on/off"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory procesowe membranowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -262,8 +273,6 @@
             data-modal-type="valveBall"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe kulowe w wersji on/off"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory procesowe kulowe w wersji on/off"
             tabindex="0"
           >
             <div class="product_image">
@@ -285,8 +294,6 @@
             data-modal-type="valveIslands"
             data-subtype="Automatyka przemysłowa"
             data-title="Wyspy zaworowe"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Wyspy zaworowe"
             tabindex="0"
           >
             <div class="product_image">
@@ -308,8 +315,6 @@
             data-modal-type="valveControl"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe regulacyjne"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory procesowe regulacyjne"
             tabindex="0"
           >
             <div class="product_image">
@@ -331,8 +336,6 @@
             data-modal-type="solenoidValves"
             data-subtype="Zawory elektromagnetyczne"
             data-title="Zawory elektromagnetyczne"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory elektromagnetyczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -354,8 +357,6 @@
             data-modal-type="flowmeters"
             data-subtype="Pomiar przepływu"
             data-title="Przepływomierze"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Przepływomierze"
             tabindex="0"
           >
             <div class="product_image">
@@ -377,8 +378,6 @@
             data-modal-type="valveHygienic"
             data-subtype="Zawory procesowe"
             data-title="Zawory procesowe higieniczne"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory procesowe higieniczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -400,8 +399,6 @@
             data-modal-type="massFlowControllers"
             data-subtype="Regulacja przepływu"
             data-title="Masowe regulatory przepływu gazów i cieczy"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Masowe regulatory przepływu gazów i cieczy"
             tabindex="0"
           >
             <div class="product_image">
@@ -423,8 +420,6 @@
             data-modal-type="proportionalSolenoidValves"
             data-subtype="Zawory proporcjonalne"
             data-title="Zawory proporcjonalne elektromagnetyczne"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Zawory proporcjonalne elektromagnetyczne"
             tabindex="0"
           >
             <div class="product_image">
@@ -446,8 +441,6 @@
             data-modal-type="sensorsTransmitters"
             data-subtype="Aparatura pomiarowa"
             data-title="Czujniki / przetworniki pomiarowe"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Czujniki / przetworniki pomiarowe"
             tabindex="0"
           >
             <div class="product_image">
@@ -469,8 +462,6 @@
             data-modal-type="otherProducts"
             data-subtype="Pozostała oferta"
             data-title="Inne produkty"
-            role="button"
-            aria-label="Otwórz szczegóły produktu: Inne produkty"
             tabindex="0"
           >
             <div class="product_image">
@@ -559,12 +550,42 @@
       <div class="footer_inner">
         <div class="footer_brand">
           <div class="footer_logo">
-            <a href="index.html"> Serwokontrol </a>
+            <a
+              aria-label="Serwokontrol - strona główna"
+              class="footer_wordmark_link"
+              href="index.html"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="footer_logo_symbol_img"
+                src="images/serwokontrol-symbol.svg"
+              />
+              <span class="footer_logo_wordmark" aria-hidden="true">
+                <span class="footer_logo_wordmark_primary">Serwo</span
+                ><span class="footer_logo_wordmark_accent">kontrol</span>
+              </span>
+            </a>
           </div>
           <p>
             Automatyka przemysłowa, doradztwo techniczne oraz dystrybucja
             komponentów firmy Bürkert na terenie całej Polski.
           </p>
+
+          <div class="footer_partner">
+            <span>Autoryzowany Dystrybutor produktów firmy</span>
+            <a
+              href="https://www.buerkert.pl/pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Przejdź na oficjalną stronę Bürkert"
+            >
+              <img
+                src="images/buerkert-authorised-partner.png"
+                alt="Bürkert Authorised Partner"
+              />
+            </a>
+          </div>
         </div>
         <div class="footer_column">
           <h3>Kontakt</h3>
@@ -621,6 +642,65 @@
         </div>
       </div>
     </footer>
+    <div class="buerkert_floating_widget" id="buerkertFloatingWidget">
+      <button
+        class="buerkert_floating_button"
+        id="buerkertFloatingButton"
+        type="button"
+        aria-label="Pokaż informacje o partnerstwie Bürkert"
+        aria-expanded="false"
+        aria-controls="buerkertFloatingPanel"
+      >
+        <img
+          src="images/buerkert-subline.png"
+          alt=""
+          class="buerkert_floating_icon"
+          aria-hidden="true"
+        />
+      </button>
+
+      <div
+        class="buerkert_floating_panel"
+        id="buerkertFloatingPanel"
+        aria-hidden="true"
+      >
+        <button
+          class="buerkert_floating_close"
+          id="buerkertFloatingClose"
+          type="button"
+          aria-label="Zamknij panel Bürkert"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <span class="buerkert_floating_label">Autoryzowany partner</span>
+
+        <img
+          src="images/buerkert-authorised-partner.png"
+          alt="Bürkert Authorised Partner"
+          class="buerkert_floating_logo"
+        />
+
+        <p>
+          Jesteśmy autoryzowanym partnerem Bürkert w zakresie doboru i sprzedaży
+          rozwiązań dla automatyki procesowej oraz systemów kontroli przepływu.
+        </p>
+
+        <a
+          href="https://www.buerkert.pl/pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="buerkert_floating_link"
+        >
+          Przejdź na stronę Bürkert
+          <i
+            class="fa-solid fa-arrow-up-right-from-square"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </div>
+    </div>
+
     <button
       aria-label="Przewiń do góry"
       class="scroll_top_btn"

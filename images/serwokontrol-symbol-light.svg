@@ -1,0 +1,23 @@
+<svg width="164" height="176" viewBox="-1 -1 43.349976 46.358" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Serwokontrol symbol light</title>
+  <desc id="desc">Oryginalny symbol Serwokontrol z jasną kolorystyką premium.</desc>
+  <defs>
+    <linearGradient id="sk-icon-graphite" x1="5" y1="5" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FAFE"/>
+      <stop offset="0.58" stop-color="#E2E9F1"/>
+      <stop offset="1" stop-color="#C9D7E6"/>
+    </linearGradient>
+    <linearGradient id="sk-icon-blue" x1="7" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#AFC7E4"/>
+      <stop offset="0.52" stop-color="#8FAACB"/>
+      <stop offset="1" stop-color="#7090B7"/>
+    </linearGradient>
+    <filter id="sk-icon-soft-shadow" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2.2" stdDeviation="1.6" flood-color="#E2E9F1" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <g filter="url(#sk-icon-soft-shadow)" transform="translate(-85.590431,-125.03373)">
+    <path fill="url(#sk-icon-graphite)" d="m 91.21283,140.72279 12.86264,18.34666 7.14986,-5.05264 -9.83781,-13.65615 7.13609,-5.0409 2.44667,3.47211 15.57617,-11.69301 a 1.1474693,1.1474693 59.292469 0 0 -1.16509,-1.96166 z"/>
+    <path fill="url(#sk-icon-blue)" d="m 91.21283,140.72279 12.86264,18.34666 7.14986,-5.05264 -9.83781,-13.65615 7.13609,-5.0409 2.44667,3.47211 15.57617,-11.69301 a 1.1474693,1.1474693 59.292469 0 0 -1.16509,-1.96166 z" transform="rotate(180,106.29773,147.17789)"/>
+  </g>
+</svg>

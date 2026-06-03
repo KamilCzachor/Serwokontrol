@@ -1685,3 +1685,89 @@ body.dark_theme .page_faq_item:hover,
 body.dark_theme .page_faq_item:focus-within {
   box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
 }
+
+/* =========================================================
+   Bürkert Subline Logo - About Page
+   ========================================================= */
+
+.about_us_box_partner_logo,
+.about_partner_logo_link {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 0;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.about_us_box_partner_logo {
+  width: min(100%, 270px);
+  margin-top: 12px;
+  align-self: flex-start;
+}
+
+.about_partner_logo_link {
+  width: min(100%, 390px);
+  margin: auto;
+}
+
+.about_us_box_partner_logo img,
+.about_partner_logo_link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: contrast(1.14) saturate(1.1)
+    drop-shadow(0 3px 7px rgba(0, 0, 0, 0.22));
+}
+
+.about_us_box_partner_logo:hover,
+.about_us_box_partner_logo:focus-visible,
+.about_partner_logo_link:hover,
+.about_partner_logo_link:focus-visible {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.about_us_box_partner_logo:focus-visible,
+.about_partner_logo_link:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.45);
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+.about_us_box_partner_logo:hover img,
+.about_us_box_partner_logo:focus-visible img,
+.about_partner_logo_link:hover img,
+.about_partner_logo_link:focus-visible img {
+  filter: contrast(1.2) saturate(1.14)
+    drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
+}
+
+body.dark_theme .about_us_box_partner_logo img,
+body.dark_theme .about_partner_logo_link img {
+  filter: contrast(1.18) saturate(1.12)
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.42));
+}
+
+.about_partner_feature {
+  align-items: center;
+}
+
+.about_partner_feature .about_partner_logo_link {
+  position: relative;
+  z-index: 4;
+}
+
+@media (max-width: 768px) {
+  .about_us_box_partner_logo {
+    width: min(100%, 240px);
+  }
+
+  .about_partner_logo_link {
+    width: min(100%, 330px);
+  }
+}
