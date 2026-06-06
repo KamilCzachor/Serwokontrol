@@ -1099,3 +1099,39 @@ body.dark_theme .footer_logo_wordmark_accent {
     height: 37px;
   }
 }
+
+
+/* =========================================================
+   V18 - Reliable footer logo theme switching
+   ========================================================= */
+.footer_logo_symbol_img_light {
+  display: none;
+}
+
+.footer_logo_symbol_img_dark {
+  display: block;
+}
+
+body.dark_theme .footer_logo_symbol_img_dark {
+  display: none;
+}
+
+body.dark_theme .footer_logo_symbol_img_light {
+  display: block;
+}
+
+.footer_logo_wordmark_primary {
+  color: #e2e9f1;
+}
+
+.footer_logo_wordmark_accent {
+  color: #9fb8d7;
+}
+
+body.dark_theme .footer_logo_wordmark_primary {
+  color: #f7f9fc;
+}
+
+body.dark_theme .footer_logo_wordmark_accent {
+  color: #aac2de;
+}

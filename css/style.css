@@ -1738,3 +1738,523 @@ select:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   V17 - Integrated subpage title treatment
+   ========================================================= */
+
+.page_breadcrumb + h2 {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding: 6px 0 8px 18px;
+  border-left: 4px solid #7090b7;
+  color: #5f7fa7;
+  font-size: clamp(30px, 3.4vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.page_breadcrumb + h2::after {
+  content: none;
+  display: none;
+}
+
+body.dark_theme .page_breadcrumb + h2 {
+  border-left-color: #9db6d2;
+  color: #9db6d2;
+}
+
+@media (max-width: 560px) {
+  .page_breadcrumb + h2 {
+    margin-bottom: 24px;
+    padding-left: 14px;
+    font-size: 30px;
+  }
+}
+
+
+
+/* =========================================================
+   V18 - Refined subpage title treatment
+   ========================================================= */
+.container > .page_breadcrumb + h2,
+.products_page > .page_breadcrumb + h2,
+.about_page > .page_breadcrumb + h2,
+.contact_page > .page_breadcrumb + h2 {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 34px;
+  padding: 0 0 16px;
+  border-left: 0;
+  color: #5f7fa7;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.container > .page_breadcrumb + h2::before,
+.products_page > .page_breadcrumb + h2::before,
+.about_page > .page_breadcrumb + h2::before,
+.contact_page > .page_breadcrumb + h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 92px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0.24));
+  box-shadow: 0 8px 18px rgba(112, 144, 183, 0.18);
+}
+
+.container > .page_breadcrumb + h2::after,
+.products_page > .page_breadcrumb + h2::after,
+.about_page > .page_breadcrumb + h2::after,
+.contact_page > .page_breadcrumb + h2::after {
+  content: "";
+  position: absolute;
+  left: 104px;
+  bottom: -1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #7090b7;
+  box-shadow: 0 0 0 6px rgba(112, 144, 183, 0.12);
+}
+
+body.dark_theme .container > .page_breadcrumb + h2,
+body.dark_theme .products_page > .page_breadcrumb + h2,
+body.dark_theme .about_page > .page_breadcrumb + h2,
+body.dark_theme .contact_page > .page_breadcrumb + h2 {
+  color: #9db6d2;
+}
+
+body.dark_theme .container > .page_breadcrumb + h2::before,
+body.dark_theme .products_page > .page_breadcrumb + h2::before,
+body.dark_theme .about_page > .page_breadcrumb + h2::before,
+body.dark_theme .contact_page > .page_breadcrumb + h2::before {
+  background: linear-gradient(90deg, #9db6d2, rgba(157, 182, 210, 0.22));
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+body.dark_theme .container > .page_breadcrumb + h2::after,
+body.dark_theme .products_page > .page_breadcrumb + h2::after,
+body.dark_theme .about_page > .page_breadcrumb + h2::after,
+body.dark_theme .contact_page > .page_breadcrumb + h2::after {
+  background-color: #9db6d2;
+  box-shadow: 0 0 0 6px rgba(157, 182, 210, 0.12);
+}
+
+@media (max-width: 560px) {
+  .container > .page_breadcrumb + h2,
+  .products_page > .page_breadcrumb + h2,
+  .about_page > .page_breadcrumb + h2,
+  .contact_page > .page_breadcrumb + h2 {
+    margin-bottom: 28px;
+    padding-bottom: 13px;
+    font-size: 32px;
+  }
+
+  .container > .page_breadcrumb + h2::before,
+  .products_page > .page_breadcrumb + h2::before,
+  .about_page > .page_breadcrumb + h2::before,
+  .contact_page > .page_breadcrumb + h2::before {
+    width: 72px;
+    height: 3px;
+  }
+
+  .container > .page_breadcrumb + h2::after,
+  .products_page > .page_breadcrumb + h2::after,
+  .about_page > .page_breadcrumb + h2::after,
+  .contact_page > .page_breadcrumb + h2::after {
+    left: 82px;
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* =========================================================
+   Scroll to top - vertical pill indicator
+   ========================================================= */
+
+.scroll_top_btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+
+  width: 44px;
+  height: 72px;
+  padding: 0;
+  border: 3px solid #7090b7;
+  border-radius: 999px;
+
+  background-color: #ffffff;
+  color: #7090b7;
+  box-shadow: none;
+  cursor: pointer;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.scroll_top_btn.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll_top_btn::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+
+  width: 8px;
+  height: 24px;
+  border-radius: 999px;
+
+  background-color: rgba(112, 144, 183, 0.18);
+  transform: translateX(-50%);
+  opacity: 1;
+
+  transition:
+    background-color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.scroll_top_btn::after {
+  content: none;
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+
+  font-size: 17px;
+  line-height: 1;
+  transform: translateY(8px);
+
+  transition: color 0.25s ease;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  background-color: #7090b7;
+  border-color: #7090b7;
+  color: #ffffff;
+  outline: none;
+}
+
+.scroll_top_btn:hover::before,
+.scroll_top_btn:focus-visible::before {
+  background-color: rgba(255, 255, 255, 0.28);
+  animation: scroll-top-guide 0.9s ease-in-out infinite;
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  animation: scroll-top-arrow 0.9s ease-in-out infinite;
+}
+
+body.dark_theme .scroll_top_btn {
+  background-color: #4f5a61;
+  border-color: #9db6d2;
+  color: #e2e9f1;
+}
+
+body.dark_theme .scroll_top_btn::before {
+  background-color: rgba(226, 233, 241, 0.18);
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  background-color: #9db6d2;
+  border-color: #9db6d2;
+  color: #2f3840;
+}
+
+body.dark_theme .scroll_top_btn:hover::before,
+body.dark_theme .scroll_top_btn:focus-visible::before {
+  background-color: rgba(47, 56, 64, 0.18);
+}
+
+@keyframes scroll-top-arrow {
+  0%,
+  100% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-top-guide {
+  0%,
+  100% {
+    transform: translate(-50%, 8px);
+    opacity: 0.35;
+  }
+
+  45% {
+    transform: translate(-50%, -4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 20px;
+    width: 40px;
+    height: 64px;
+  }
+
+  .scroll_top_btn i {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll_top_btn,
+  .scroll_top_btn::before,
+  .scroll_top_btn i {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Scroll to top - pill arrow animation refinement
+   Removes the visible inner line and animates only the arrow.
+   ========================================================= */
+
+.scroll_top_btn::before,
+.scroll_top_btn::after {
+  content: none !important;
+}
+
+.scroll_top_btn i {
+  transform: translateY(10px);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    color 0.25s ease;
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  animation: scroll-top-arrow-only 1.05s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+body.dark_theme .scroll_top_btn:hover i,
+body.dark_theme .scroll_top_btn:focus-visible i {
+  animation: scroll-top-arrow-only 1.05s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+@keyframes scroll-top-arrow-only {
+  0% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  58% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll_top_btn:hover i,
+  .scroll_top_btn:focus-visible i,
+  body.dark_theme .scroll_top_btn:hover i,
+  body.dark_theme .scroll_top_btn:focus-visible i {
+    animation: none !important;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   Scroll-to-top button v21 - circle to pill on hover
+   ========================================================= */
+
+.scroll_top_btn {
+  right: 28px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #ffffff;
+  background-color: rgba(112, 144, 183, 0.9);
+  border: 1px solid rgba(112, 144, 183, 0.35);
+  box-shadow: 0 8px 20px rgba(94, 106, 113, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transform-origin: center bottom;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition:
+    width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.scroll_top_btn.show {
+  display: inline-flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll_top_btn::before,
+.scroll_top_btn::after {
+  content: none;
+}
+
+.scroll_top_btn i {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  line-height: 1;
+  filter: none;
+  transform: translateY(0);
+  transition: color 0.22s ease;
+}
+
+.scroll_top_btn:hover,
+.scroll_top_btn:focus-visible {
+  width: 48px;
+  height: 74px;
+  border-radius: 999px;
+  color: #ffffff;
+  background-color: #5f7fa7;
+  border-color: rgba(95, 127, 167, 0.48);
+  box-shadow: 0 10px 24px rgba(94, 106, 113, 0.22);
+  transform: translateY(0);
+}
+
+.scroll_top_btn:hover i,
+.scroll_top_btn:focus-visible i {
+  animation: scrollTopArrowGuide 1.05s cubic-bezier(0.42, 0, 0.2, 1) infinite;
+}
+
+@keyframes scrollTopArrowGuide {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  28% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+
+  68% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+body.dark_theme .scroll_top_btn {
+  color: #ffffff;
+  background-color: rgba(95, 127, 167, 0.82);
+  border-color: rgba(226, 233, 241, 0.16);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.26);
+}
+
+body.dark_theme .scroll_top_btn:hover,
+body.dark_theme .scroll_top_btn:focus-visible {
+  background-color: #7090b7;
+  border-color: rgba(226, 233, 241, 0.26);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+}
+
+.scroll_top_btn.is_popping,
+.scroll_top_btn.is_popping i {
+  animation: none;
+}
+
+@media (max-width: 560px) {
+  .scroll_top_btn {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+  }
+
+  .scroll_top_btn:hover,
+  .scroll_top_btn:focus-visible {
+    width: 46px;
+    height: 68px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll_top_btn,
+  .scroll_top_btn i {
+    transition: none;
+    animation: none !important;
+  }
+
+  .scroll_top_btn:hover,
+  .scroll_top_btn:focus-visible {
+    height: 48px;
+    border-radius: 50%;
+  }
+}

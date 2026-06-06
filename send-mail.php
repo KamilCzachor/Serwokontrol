@@ -1,20 +1,69 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
+header("X-Content-Type-Options: nosniff");
+header("Referrer-Policy: strict-origin-when-cross-origin");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+function json_response($success, $message, $status_code = 200) {
+  http_response_code($status_code);
   echo json_encode([
-    "success" => false,
-    "message" => "Nieprawidłowa metoda wysyłki."
-  ]);
+    "success" => $success,
+    "message" => $message
+  ], JSON_UNESCAPED_UNICODE);
   exit;
 }
 
-$name = trim($_POST["name"] ?? "");
-$email = trim($_POST["email"] ?? "");
-$phone = trim($_POST["phone"] ?? "");
+function text_length($value) {
+  return function_exists("mb_strlen") ? mb_strlen($value, "UTF-8") : strlen($value);
+}
+
+function clean_header_value($value) {
+  return trim(str_replace(["\r", "\n"], " ", $value));
+}
+
+function get_client_ip() {
+  $ip = $_SERVER["REMOTE_ADDR"] ?? "unknown";
+  return preg_replace('/[^0-9a-fA-F:.]/', '', $ip) ?: "unknown";
+}
+
+function check_rate_limit($limit = 5, $window_seconds = 900) {
+  $ip = get_client_ip();
+  $file = sys_get_temp_dir() . "/serwokontrol-contact-" . hash("sha256", $ip) . ".json";
+  $now = time();
+  $attempts = [];
+
+  if (is_readable($file)) {
+    $decoded = json_decode((string) file_get_contents($file), true);
+    if (is_array($decoded)) {
+      $attempts = $decoded;
+    }
+  }
+
+  $attempts = array_values(array_filter($attempts, function ($timestamp) use ($now, $window_seconds) {
+    return is_int($timestamp) && ($now - $timestamp) < $window_seconds;
+  }));
+
+  if (count($attempts) >= $limit) {
+    json_response(false, "Wysłano zbyt wiele wiadomości w krótkim czasie. Spróbuj ponownie później.", 429);
+  }
+
+  $attempts[] = $now;
+  @file_put_contents($file, json_encode($attempts), LOCK_EX);
+}
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+  json_response(false, "Nieprawidłowa metoda wysyłki.", 405);
+}
+
+check_rate_limit();
+
+$name = clean_header_value($_POST["name"] ?? "");
+$email = clean_header_value($_POST["email"] ?? "");
+$phone = clean_header_value($_POST["phone"] ?? "");
+$company = clean_header_value($_POST["company"] ?? "");
 $message = trim($_POST["message"] ?? "");
-$company = trim($_POST["company"] ?? "");
 $website = trim($_POST["website"] ?? "");
+$formStartedAt = trim($_POST["form_started_at"] ?? "");
 
 /*
   Honeypot antyspamowy.
@@ -23,78 +72,52 @@ $website = trim($_POST["website"] ?? "");
   żeby nie podpowiadać botowi, że został wykryty.
 */
 if ($website !== "") {
-  echo json_encode([
-    "success" => true,
-    "message" => "Wiadomość została wysłana. Dziękujemy za kontakt."
-  ]);
-  exit;
+  json_response(true, "Wiadomość została wysłana. Dziękujemy za kontakt.");
 }
 
-$name = str_replace(["\r", "\n"], " ", $name);
-$email = str_replace(["\r", "\n"], " ", $email);
-$phone = str_replace(["\r", "\n"], " ", $phone);
-$company = str_replace(["\r", "\n"], " ", $company);
+/*
+  Prosta ochrona przed automatycznymi wysyłkami: formularz nie powinien zostać
+  wysłany natychmiast po załadowaniu strony.
+*/
+if ($formStartedAt !== "" && ctype_digit($formStartedAt)) {
+  $elapsedMs = (int) round(microtime(true) * 1000) - (int) $formStartedAt;
+  if ($elapsedMs >= 0 && $elapsedMs < 2500) {
+    json_response(true, "Wiadomość została wysłana. Dziękujemy za kontakt.");
+  }
+}
 
 if ($name === "" || $email === "" || $message === "") {
-  echo json_encode([
-    "success" => false,
-    "message" => "Uzupełnij wymagane pola: imię i nazwisko, e-mail oraz wiadomość."
-  ]);
-  exit;
+  json_response(false, "Uzupełnij wymagane pola: imię i nazwisko, e-mail oraz wiadomość.", 422);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Podaj poprawny adres e-mail."
-  ]);
-  exit;
+  json_response(false, "Podaj poprawny adres e-mail.", 422);
 }
 
-function text_length($value) {
-  return function_exists("mb_strlen") ? mb_strlen($value, "UTF-8") : strlen($value);
+if ($phone !== "" && !preg_match('/^[0-9+()\s.-]{5,40}$/u', $phone)) {
+  json_response(false, "Podaj poprawny numer telefonu albo zostaw pole puste.", 422);
 }
 
 if (text_length($name) > 120) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Pole imię i nazwisko jest zbyt długie."
-  ]);
-  exit;
+  json_response(false, "Pole imię i nazwisko jest zbyt długie.", 422);
 }
 
 if (text_length($company) > 160) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Pole firma jest zbyt długie."
-  ]);
-  exit;
+  json_response(false, "Pole firma jest zbyt długie.", 422);
 }
 
 if (text_length($phone) > 40) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Pole telefon jest zbyt długie."
-  ]);
-  exit;
+  json_response(false, "Pole telefon jest zbyt długie.", 422);
 }
 
 $messageLength = text_length($message);
 
 if ($messageLength < 5) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Wiadomość jest zbyt krótka."
-  ]);
-  exit;
+  json_response(false, "Wiadomość jest zbyt krótka.", 422);
 }
 
 if ($messageLength > 5000) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Wiadomość jest zbyt długa. Skróć ją i spróbuj ponownie."
-  ]);
-  exit;
+  json_response(false, "Wiadomość jest zbyt długa. Skróć ją i spróbuj ponownie.", 422);
 }
 
 /*
@@ -119,7 +142,7 @@ $emailBody .= "Telefon: " . ($phone !== "" ? $phone : "Nie podano") . "\n\n";
 $emailBody .= "Wiadomość:\n";
 $emailBody .= $message . "\n";
 
-$replyToName = addslashes($name);
+$replyToName = addcslashes($name, "\\\"");
 
 $headers = "From: Serwokontrol <" . $from . ">\r\n";
 $headers .= "Reply-To: \"" . $replyToName . "\" <" . $email . ">\r\n";
@@ -130,17 +153,9 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $sent = mail($to, $subject, $emailBody, $headers);
 
 if ($sent) {
-  echo json_encode([
-    "success" => true,
-    "message" => "Wiadomość została wysłana. Dziękujemy za kontakt."
-  ]);
-  exit;
+  json_response(true, "Wiadomość została wysłana. Dziękujemy za kontakt.");
 }
 
 error_log("Serwokontrol contact form: mail() failed for " . $email);
 
-echo json_encode([
-  "success" => false,
-  "message" => "Nie udało się wysłać wiadomości. Spróbuj ponownie później lub skontaktuj się telefonicznie."
-]);
-exit;
+json_response(false, "Nie udało się wysłać wiadomości. Spróbuj ponownie później lub skontaktuj się telefonicznie.", 500);

@@ -447,7 +447,7 @@
 .product_modal_close:focus-visible {
   background-color: #7090b7;
   color: #ffffff;
-  transform: translateY(-2px) rotate(8deg);
+  transform: rotate(90deg);
   box-shadow: 0 10px 22px rgba(94, 106, 113, 0.22);
 }
 
@@ -4453,4 +4453,102 @@ body.dark_theme .catalog_tile:focus-within,
 body.dark_theme .catalog_product_row:hover,
 body.dark_theme .catalog_product_row:focus-within {
   box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
+}
+
+/* =========================================================
+   V17 - Products FAQ above filters
+   ========================================================= */
+
+.products_faq {
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.products_faq .page_faq_header {
+  max-width: 780px;
+  margin-bottom: 20px;
+}
+
+.products_faq .page_faq_grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.products_faq .page_faq_item {
+  padding: 18px;
+}
+
+.products_filter_bar {
+  scroll-margin-top: 118px;
+}
+
+@media (max-width: 900px) {
+  .products_faq .page_faq_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* =========================================================
+   V18 - Collapsible products FAQ
+   ========================================================= */
+.products_faq_accordion {
+  margin-top: 30px;
+  margin-bottom: 28px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.products_faq_accordion .products_faq_summary {
+  list-style: none;
+  cursor: pointer;
+  padding: clamp(22px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.products_faq_accordion .products_faq_summary::-webkit-details-marker {
+  display: none;
+}
+
+.products_faq_accordion .products_faq_summary .page_faq_header {
+  margin-bottom: 0;
+}
+
+.products_faq_accordion .products_faq_summary > i {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #7090b7;
+  box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
+  transition: transform 0.28s ease, background-color 0.28s ease;
+}
+
+.products_faq_accordion[open] .products_faq_summary > i {
+  transform: rotate(180deg);
+}
+
+.products_faq_accordion .page_faq_grid {
+  padding: 0 clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px);
+}
+
+body.dark_theme .products_faq_accordion .products_faq_summary > i {
+  background-color: #9db6d2;
+  color: #1f2931;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+}
+
+@media (max-width: 680px) {
+  .products_faq_accordion .products_faq_summary {
+    align-items: flex-start;
+  }
 }

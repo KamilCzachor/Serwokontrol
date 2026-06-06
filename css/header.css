@@ -2249,8 +2249,8 @@ body.dark_theme .sticky_site_symbol_img {
 
 .buerkert_floating_button:hover,
 .buerkert_floating_button:focus-visible {
-  width: 74px;
-  transform: translateX(-4px);
+  width: 78px;
+  transform: translateX(0);
   box-shadow:
     0 16px 38px rgba(94, 106, 113, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.34);
@@ -2612,4 +2612,27 @@ body.dark_theme .site_logo_wordmark_accent {
   .site_logo_wordmark {
     font-size: 20px;
   }
+}
+
+/* =========================================================
+   Theme-aware logo variants - main header and sticky header
+   ========================================================= */
+.site_logo_symbol_img_light,
+.sticky_site_symbol_img_light {
+  display: none !important;
+}
+
+.site_logo_symbol_img_dark,
+.sticky_site_symbol_img_dark {
+  display: block !important;
+}
+
+body.dark_theme .site_logo_symbol_img_dark,
+body.dark_theme .sticky_site_symbol_img_dark {
+  display: none !important;
+}
+
+body.dark_theme .site_logo_symbol_img_light,
+body.dark_theme .sticky_site_symbol_img_light {
+  display: block !important;
 }

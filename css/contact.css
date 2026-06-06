@@ -753,10 +753,11 @@ textarea:focus-visible {
     transform 0.3s ease;
 }
 
-.representatives_map_close:hover {
+.representatives_map_close:hover,
+.representatives_map_close:focus-visible {
   background-color: #7090b7;
   color: #ffffff;
-  transform: translateY(-2px) rotate(8deg);
+  transform: rotate(90deg);
 }
 
 .representatives_map_header {
@@ -835,15 +836,16 @@ textarea:focus-visible {
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.active_city_clear:hover {
-  background-color: rgba(112, 144, 183, 0.16);
-  color: #5e6a71;
-  transform: scale(1.08) rotate(8deg);
+.active_city_clear:hover,
+.active_city_clear:focus-visible {
+  background-color: #7090b7;
+  color: #ffffff;
+  transform: rotate(90deg);
 }
 
 @keyframes activeCityPremiumPop {
@@ -1379,8 +1381,12 @@ body.dark_theme .representatives_map_close {
   color: #ffffff;
 }
 
-body.dark_theme .representatives_map_close:hover {
+body.dark_theme .representatives_map_close:hover,
+body.dark_theme .representatives_map_close:focus-visible,
+body.dark_theme .active_city_clear:hover,
+body.dark_theme .active_city_clear:focus-visible {
   background-color: #7090b7;
+  color: #ffffff;
 }
 
 body.dark_theme .active_city_info,
@@ -3625,4 +3631,106 @@ body.dark_theme .contact_cta:focus-within,
 body.dark_theme .page_faq_item:hover,
 body.dark_theme .page_faq_item:focus-within {
   box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
+}
+
+/* Anti-spam field: visible to bots, hidden from users */
+.form_honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact_page h1 {
+  align-self: flex-start;
+}
+
+/* External SVG map loader states */
+.poland_map_loading,
+.poland_map_error {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: #5e6a71;
+  background-color: rgba(226, 233, 241, 0.55);
+  border: 1px dashed rgba(112, 144, 183, 0.45);
+  border-radius: 18px;
+}
+
+.poland_map_error {
+  color: #8a3a3a;
+  background-color: rgba(255, 235, 235, 0.76);
+}
+
+body.dark_theme .poland_map_loading,
+body.dark_theme .poland_map_error {
+  color: #e2e9f1;
+  background-color: rgba(226, 233, 241, 0.08);
+  border-color: rgba(226, 233, 241, 0.24);
+}
+
+
+/* =========================================================
+   V16 - Collapsible contact FAQ
+   ========================================================= */
+.contact_faq_accordion {
+  overflow: hidden;
+}
+
+.contact_faq_accordion .contact_faq_summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 0;
+}
+
+.contact_faq_accordion .contact_faq_summary::-webkit-details-marker {
+  display: none;
+}
+
+.contact_faq_accordion .contact_faq_summary .page_faq_header {
+  flex: 1 1 auto;
+}
+
+.contact_faq_accordion .contact_faq_summary > i {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  color: #7090b7;
+  background-color: rgba(112, 144, 183, 0.12);
+  transition: transform 0.28s ease, background-color 0.28s ease;
+}
+
+.contact_faq_accordion[open] .contact_faq_summary > i {
+  transform: rotate(180deg);
+}
+
+.contact_faq_accordion .page_faq_grid {
+  margin-top: 22px;
+}
+
+body.dark_theme .contact_faq_accordion .contact_faq_summary > i {
+  color: #d7e4f2;
+  background-color: rgba(158, 184, 215, 0.16);
+}
+
+@media (max-width: 640px) {
+  .contact_faq_accordion .contact_faq_summary {
+    align-items: center;
+  }
 }

@@ -10,6 +10,7 @@
 
   const productCardsArray = Array.from(productCards);
   let activeProductCardIndex = -1;
+  let lastFocusedProductCard = null;
 
   /* =========================================================
      1. Catalog data
@@ -1146,7 +1147,7 @@
       <div class="catalog_modal_scroll">
         <section class="catalog_hero">
           <nav class="catalog_breadcrumb" aria-label="Ścieżka"><span>Produkty</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span class="catalog_breadcrumb_badge">${escapeHtml(subtitle)}</span></nav>
-          <h3>${escapeHtml(title)}</h3>
+          <h3 id="productModalTitle">${escapeHtml(title)}</h3>
           ${data.lead ? `<p class="catalog_lead">${escapeHtml(data.lead)}</p>` : ""}
           ${data.description ? `<p>${escapeHtml(data.description)}</p>` : ""}
           ${renderFeatureList(data.features)}
@@ -1200,7 +1201,7 @@
       <div class="catalog_modal_scroll">
         <section class="catalog_hero">
           <span>${escapeHtml(fallback.subtype || "Produkty")}</span>
-          <h3>${escapeHtml(fallback.title || "Produkt")}</h3>
+          <h3 id="productModalTitle">${escapeHtml(fallback.title || "Produkt")}</h3>
           ${fallback.description ? `<p class="catalog_lead">${escapeHtml(fallback.description)}</p>` : ""}
         </section>
         <div class="catalog_single_visual">${image}</div>
@@ -1214,6 +1215,7 @@
     if (!card || !productModalOverlay || !productModal) return;
 
     activeProductCardIndex = productCardsArray.indexOf(card);
+    lastFocusedProductCard = card;
 
     const modalType = card.dataset.modalType || "";
     const fallback = {
@@ -1234,6 +1236,10 @@
     updateModalNavigationState();
 
     productModalOverlay.classList.add("show");
+    productModalOverlay.setAttribute("aria-hidden", "false");
+    productModal.setAttribute("role", "dialog");
+    productModal.setAttribute("aria-modal", "true");
+    productModal.setAttribute("aria-labelledby", "productModalTitle");
     document.body.classList.add("no_scroll");
 
     const firstHeading = productModal.querySelector("h3");
@@ -1244,8 +1250,71 @@
   function closeProductModal() {
     if (!productModalOverlay) return;
     productModalOverlay.classList.remove("show");
+    productModalOverlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no_scroll");
     activeProductCardIndex = -1;
+
+    if (
+      lastFocusedProductCard &&
+      typeof lastFocusedProductCard.focus === "function"
+    ) {
+      lastFocusedProductCard.focus({ preventScroll: true });
+    }
+  }
+
+  function keepFocusInsideModal(event) {
+    if (
+      event.key !== "Tab" ||
+      !productModalOverlay ||
+      !productModalOverlay.classList.contains("show") ||
+      !productModal
+    ) {
+      return;
+    }
+
+    const focusableElements = Array.from(
+      productModalOverlay.querySelectorAll(
+        'a[href], button:not([disabled]):not([hidden]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      ),
+    ).filter(function (element) {
+      return !!(
+        element.offsetWidth ||
+        element.offsetHeight ||
+        element.getClientRects().length
+      );
+    });
+
+    if (!focusableElements.length) return;
+
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstFocusable) {
+      event.preventDefault();
+      lastFocusable.focus();
+    } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+      event.preventDefault();
+      firstFocusable.focus();
+    }
+  }
+
+  function redirectFocusToModal(event) {
+    if (
+      !productModalOverlay ||
+      !productModalOverlay.classList.contains("show") ||
+      productModalOverlay.contains(event.target)
+    ) {
+      return;
+    }
+
+    const closeButton = productModalOverlay.querySelector("#productModalClose");
+    const heading = productModalOverlay.querySelector("#productModalTitle");
+
+    if (closeButton) {
+      closeButton.focus({ preventScroll: true });
+    } else if (heading) {
+      heading.focus({ preventScroll: true });
+    }
   }
 
   /* =========================================================
@@ -1270,6 +1339,26 @@
 
   function getProductCategory(card) {
     const subtype = normalizeCategoryName(card.dataset.subtype || "");
+    const modalType = card.dataset.modalType || "";
+
+    if (
+      modalType === "valveControl" ||
+      modalType === "proportionalSolenoidValves"
+    ) {
+      return "control";
+    }
+
+    if (modalType === "valveIslands") {
+      return "automation";
+    }
+
+    if (
+      modalType === "flowmeters" ||
+      modalType === "sensorsTransmitters" ||
+      modalType === "massFlowControllers"
+    ) {
+      return "measurement";
+    }
 
     if (subtype.includes("pomiar") || subtype.includes("regulacja")) {
       return "measurement";
@@ -1303,58 +1392,123 @@
   function setupProductFilters() {
     const filterButtons = document.querySelectorAll(".products_filter_btn");
     const emptyState = document.getElementById("productsEmptyState");
+    const availableFilters = Array.from(filterButtons).map(function (button) {
+      return button.dataset.productFilter || "all";
+    });
 
     if (filterButtons.length === 0) return;
 
-    filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        const activeFilter = button.dataset.productFilter || "all";
+    function applyProductFilter(activeFilter, options) {
+      const settings = options || {};
+      const normalizedFilter = availableFilters.includes(activeFilter)
+        ? activeFilter
+        : "all";
 
-        filterButtons.forEach(function (item) {
-          const isActive = item === button;
-          item.classList.toggle("is_active", isActive);
-          item.setAttribute("aria-pressed", isActive ? "true" : "false");
-        });
+      filterButtons.forEach(function (item) {
+        const isActive =
+          (item.dataset.productFilter || "all") === normalizedFilter;
+        item.classList.toggle("is_active", isActive);
+        item.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
 
-        let visibleIndex = 0;
+      let visibleIndex = 0;
 
-        productCardsArray.forEach(function (card) {
-          const shouldShow =
-            activeFilter === "all" || card.dataset.category === activeFilter;
+      productCardsArray.forEach(function (card) {
+        const shouldShow =
+          normalizedFilter === "all" ||
+          card.dataset.category === normalizedFilter;
 
-          card.classList.toggle("is_filtered_out", !shouldShow);
-          card.hidden = !shouldShow;
-          card.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+        card.classList.toggle("is_filtered_out", !shouldShow);
+        card.hidden = !shouldShow;
+        card.setAttribute("aria-hidden", shouldShow ? "false" : "true");
 
-          if (shouldShow) {
-            card.style.setProperty(
-              "--product-filter-delay",
-              visibleIndex * 38 + "ms",
-            );
-            card.classList.remove("show", "is_visible");
-            visibleIndex += 1;
-          }
-        });
-
-        if (emptyState) {
-          const hasResults = visibleIndex > 0;
-          emptyState.hidden = hasResults;
-          emptyState.classList.toggle("show", !hasResults);
-          emptyState.classList.toggle("is_visible", !hasResults);
-        }
-
-        updateModalNavigationState();
-
-        if (window.SerwokontrolRevealRefresh) {
-          window.SerwokontrolRevealRefresh({ resetVisible: true });
+        if (shouldShow) {
+          card.style.setProperty(
+            "--product-filter-delay",
+            visibleIndex * 38 + "ms",
+          );
+          card.classList.remove("show", "is_visible");
+          visibleIndex += 1;
         }
       });
+
+      if (emptyState) {
+        const hasResults = visibleIndex > 0;
+        emptyState.hidden = hasResults;
+        emptyState.classList.toggle("show", !hasResults);
+        emptyState.classList.toggle("is_visible", !hasResults);
+      }
+
+      updateModalNavigationState();
+
+      if (window.SerwokontrolRevealRefresh) {
+        window.SerwokontrolRevealRefresh({ resetVisible: true });
+      }
+
+      if (settings.updateUrl) {
+        const url = new URL(window.location.href);
+
+        if (normalizedFilter === "all") {
+          url.searchParams.delete("filter");
+        } else {
+          url.searchParams.set("filter", normalizedFilter);
+        }
+
+        url.hash = "productsFilter";
+        window.history.replaceState({}, "", url.toString());
+
+        const target =
+          document.querySelector("#productsFilter") ||
+          document.querySelector("#productsGrid") ||
+          document.querySelector(".products_grid");
+
+        if (target) {
+          window.setTimeout(function () {
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 40);
+        }
+      }
+    }
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyProductFilter(button.dataset.productFilter || "all", {
+          updateUrl: true,
+        });
+      });
     });
+
+    const params = new URLSearchParams(window.location.search);
+    const initialFilter = params.get("filter") || params.get("productFilter");
+
+    if (initialFilter && availableFilters.includes(initialFilter)) {
+      applyProductFilter(initialFilter, { updateUrl: false });
+
+      if (
+        window.location.hash === "#productsGrid" ||
+        window.location.hash === "#productsFilter"
+      ) {
+        window.setTimeout(function () {
+          const target =
+            document.querySelector("#productsFilter") ||
+            document.querySelector("#productsGrid") ||
+            document.querySelector(".products_grid");
+
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 160);
+      }
+    }
   }
 
   /* =========================================================
      8. Init
      ========================================================= */
+
+  if (productModalOverlay) {
+    productModalOverlay.setAttribute("aria-hidden", "true");
+  }
 
   setupImageFallbacks(document);
   setupProductCardCategories();
@@ -1379,6 +1533,8 @@
     });
   }
 
+  document.addEventListener("focusin", redirectFocusToModal);
+
   document.addEventListener("keydown", function (event) {
     if (
       !productModalOverlay ||
@@ -1386,6 +1542,8 @@
     ) {
       return;
     }
+
+    keepFocusInsideModal(event);
 
     if (event.key === "Escape") {
       closeProductModal();

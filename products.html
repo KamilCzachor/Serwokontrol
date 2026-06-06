@@ -5,6 +5,11 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Serwokontrol</title>
+    <link
+      href="images/serwokontrol-symbol.svg"
+      rel="icon"
+      type="image/svg+xml"
+    />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/header.css" rel="stylesheet" />
     <link href="css/footer.css" rel="stylesheet" />
@@ -32,8 +37,14 @@
             <img
               alt=""
               aria-hidden="true"
-              class="site_logo_symbol_img"
+              class="site_logo_symbol_img site_logo_symbol_img_dark"
               src="images/serwokontrol-symbol.svg"
+            />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="site_logo_symbol_img site_logo_symbol_img_light"
+              src="images/serwokontrol-symbol-light.svg"
             />
             <span class="site_logo_wordmark" aria-hidden="true">
               <span class="site_logo_wordmark_primary">Serwo</span
@@ -91,7 +102,24 @@
     <div class="sticky_header" id="stickyHeader">
       <div class="sticky_header_inner">
         <div class="sticky_logo">
-          <a href="index.html"> Serwokontrol </a>
+          <a
+            aria-label="Serwokontrol - strona główna"
+            class="sticky_site_symbol_link"
+            href="index.html"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="sticky_site_symbol_img sticky_site_symbol_img_dark"
+              src="images/serwokontrol-symbol.svg"
+            />
+            <img
+              alt=""
+              aria-hidden="true"
+              class="sticky_site_symbol_img sticky_site_symbol_img_light"
+              src="images/serwokontrol-symbol-light.svg"
+            />
+          </a>
         </div>
         <button
           aria-label="Otwórz menu"
@@ -152,8 +180,50 @@
             kafelek, aby zobaczyć więcej informacji.
           </p>
         </div>
+        <details
+          id="productsFaq"
+          aria-label="Najczęstsze pytania o produkty"
+          class="products_faq products_faq_accordion page_faq reveal"
+        >
+          <summary class="products_faq_summary">
+            <div class="page_faq_header">
+              <span>Pomoc w doborze</span>
+              <h2>Najczęstsze pytania o produkty</h2>
+              <p>
+                Przygotuj podstawowe informacje o aplikacji, a szybciej wskażemy
+                właściwą grupę produktów.
+              </p>
+            </div>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </summary>
+          <div class="page_faq_grid">
+            <article class="page_faq_item reveal">
+              <h3>Jakie dane podać przy zapytaniu?</h3>
+              <p>
+                Medium, ciśnienie, temperatura, przyłącze, funkcja zaworu oraz
+                środowisko pracy instalacji.
+              </p>
+            </article>
+            <article class="page_faq_item reveal">
+              <h3>Czy pomagacie dobrać zamiennik?</h3>
+              <p>
+                Tak. Najlepiej przesłać typ starego produktu, numer katalogowy,
+                zdjęcie tabliczki lub dokumentację.
+              </p>
+            </article>
+            <article class="page_faq_item reveal">
+              <h3>Czy mogę zapytać o konkretny katalog PDF?</h3>
+              <p>
+                Tak. W modalach produktów znajdziesz katalogi PDF, a w
+                formularzu możesz dopisać, którego typu dotyczy zapytanie.
+              </p>
+            </article>
+          </div>
+        </details>
+        
         <div
           aria-label="Filtrowanie produktów"
+          id="productsFilter"
           class="products_filter_bar reveal"
         >
           <div class="products_filter_intro">
@@ -490,42 +560,7 @@
           </p>
           <a href="contact.html#contactFormSection">Skonsultuj dobór</a>
         </div>
-        <section
-          aria-label="Najczęstsze pytania o produkty"
-          class="products_faq page_faq reveal"
-        >
-          <div class="page_faq_header">
-            <span>Pomoc w doborze</span>
-            <h2>Najczęstsze pytania o produkty</h2>
-            <p>
-              Przygotuj podstawowe informacje o aplikacji, a szybciej wskażemy
-              właściwą grupę produktów.
-            </p>
-          </div>
-          <div class="page_faq_grid">
-            <article class="page_faq_item reveal">
-              <h3>Jakie dane podać przy zapytaniu?</h3>
-              <p>
-                Medium, ciśnienie, temperatura, przyłącze, funkcja zaworu oraz
-                środowisko pracy instalacji.
-              </p>
-            </article>
-            <article class="page_faq_item reveal">
-              <h3>Czy pomagacie dobrać zamiennik?</h3>
-              <p>
-                Tak. Najlepiej przesłać typ starego produktu, numer katalogowy,
-                zdjęcie tabliczki lub dokumentację.
-              </p>
-            </article>
-            <article class="page_faq_item reveal">
-              <h3>Czy mogę zapytać o konkretny katalog PDF?</h3>
-              <p>
-                Tak. W modalach produktów znajdziesz katalogi PDF, a w
-                formularzu możesz dopisać, którego typu dotyczy zapytanie.
-              </p>
-            </article>
-          </div>
-        </section>
+
       </section>
     </main>
     <div class="product_modal_overlay" id="productModalOverlay">
@@ -558,8 +593,14 @@
               <img
                 alt=""
                 aria-hidden="true"
-                class="footer_logo_symbol_img"
+                class="footer_logo_symbol_img footer_logo_symbol_img_dark"
                 src="images/serwokontrol-symbol.svg"
+              />
+              <img
+                alt=""
+                aria-hidden="true"
+                class="footer_logo_symbol_img footer_logo_symbol_img_light"
+                src="images/serwokontrol-symbol-light.svg"
               />
               <span class="footer_logo_wordmark" aria-hidden="true">
                 <span class="footer_logo_wordmark_primary">Serwo</span
