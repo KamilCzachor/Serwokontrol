@@ -3734,3 +3734,12 @@ body.dark_theme .contact_faq_accordion .contact_faq_summary > i {
     align-items: center;
   }
 }
+
+
+/* === Serwokontrol improvements: form honeypot, privacy and external SVG map === */
+.form_honeypot { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.form_privacy { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.88rem; line-height: 1.5; color: var(--text-muted, #5f6b7a); }
+.form_privacy input { margin-top: 0.2rem; flex: 0 0 auto; }
+.poland_map_mount { width: 100%; }
+.poland_map_mount svg { display: block; width: 100%; height: auto; }
+.poland_map_loading, .poland_map_error { margin: 1rem 0; padding: 1rem; border-radius: 1rem; background: rgba(15, 98, 254, 0.08); color: var(--text-color, #1d2433); text-align: center; }

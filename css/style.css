@@ -2258,3 +2258,9 @@ body.dark_theme .scroll_top_btn:focus-visible {
     border-radius: 50%;
   }
 }
+
+
+/* === Serwokontrol improvements: accessibility and reduced motion === */
+:focus-visible { outline: 3px solid rgba(15, 98, 254, 0.75); outline-offset: 3px; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid rgba(15, 98, 254, 0.75); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.001ms !important; } }

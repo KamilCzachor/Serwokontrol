@@ -64,6 +64,7 @@ $company = clean_header_value($_POST["company"] ?? "");
 $message = trim($_POST["message"] ?? "");
 $website = trim($_POST["website"] ?? "");
 $formStartedAt = trim($_POST["form_started_at"] ?? "");
+$privacy = trim($_POST["privacy"] ?? "");
 
 /*
   Honeypot antyspamowy.
@@ -84,6 +85,10 @@ if ($formStartedAt !== "" && ctype_digit($formStartedAt)) {
   if ($elapsedMs >= 0 && $elapsedMs < 2500) {
     json_response(true, "Wiadomość została wysłana. Dziękujemy za kontakt.");
   }
+}
+
+if ($privacy !== "1") {
+  json_response(false, "Potwierdź zgodę na kontakt w odpowiedzi na zapytanie.", 422);
 }
 
 if ($name === "" || $email === "" || $message === "") {
@@ -141,6 +146,10 @@ $emailBody .= "E-mail: " . $email . "\n";
 $emailBody .= "Telefon: " . ($phone !== "" ? $phone : "Nie podano") . "\n\n";
 $emailBody .= "Wiadomość:\n";
 $emailBody .= $message . "\n";
+$emailBody .= "\n---\n";
+$emailBody .= "Data wysyłki: " . date("Y-m-d H:i:s") . "\n";
+$emailBody .= "IP: " . get_client_ip() . "\n";
+$emailBody .= "User-Agent: " . ($_SERVER["HTTP_USER_AGENT"] ?? "Nieznany") . "\n";
 
 $replyToName = addcslashes($name, "\\\"");
 

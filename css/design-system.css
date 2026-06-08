@@ -1,0 +1,504 @@
+/* =========================================================
+   Serwokontrol Design System v3
+   Centralne tokeny, spójna kolorystyka i wspólny język animacji.
+   Plik ładowany jako ostatni, żeby porządkował różnice między podstronami.
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --sk-color-primary: #7090b7;
+  --sk-color-primary-hover: #587ca8;
+  --sk-color-primary-dark: #324f75;
+  --sk-color-secondary: #5e6a71;
+  --sk-color-secondary-dark: #4f5a61;
+
+  --sk-color-bg: #e2e9f1;
+  --sk-color-bg-soft: #eef3f8;
+  --sk-color-surface: #ffffff;
+  --sk-color-surface-soft: #f7f9fb;
+  --sk-color-text: #1f2428;
+  --sk-color-text-muted: #5e6a71;
+  --sk-color-border: rgba(112, 144, 183, 0.18);
+  --sk-color-border-strong: rgba(112, 144, 183, 0.32);
+
+  --sk-gradient-primary: linear-gradient(135deg, #5e6a71 0%, #7090b7 100%);
+  --sk-gradient-primary-soft: linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(226, 233, 241, 0.28));
+  --sk-gradient-hero: linear-gradient(135deg, rgba(75, 88, 98, 0.94), rgba(112, 144, 183, 0.84));
+  --sk-gradient-panel: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.14), transparent 34%), linear-gradient(135deg, #ffffff 0%, #f7f9fb 100%);
+
+  --sk-radius-sm: 12px;
+  --sk-radius-md: 18px;
+  --sk-radius-lg: 24px;
+  --sk-radius-xl: 30px;
+  --sk-radius-pill: 999px;
+
+  --sk-shadow-sm: 0 8px 22px rgba(94, 106, 113, 0.10);
+  --sk-shadow-md: 0 14px 34px rgba(94, 106, 113, 0.15);
+  --sk-shadow-lg: 0 22px 54px rgba(94, 106, 113, 0.22);
+  --sk-shadow-focus: 0 0 0 4px rgba(112, 144, 183, 0.20);
+
+  --sk-motion-fast: 180ms;
+  --sk-motion-base: 280ms;
+  --sk-motion-slow: 620ms;
+  --sk-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --sk-ease-pop: cubic-bezier(0.2, 0.9, 0.2, 1.2);
+
+  --sk-section-gap: clamp(32px, 5vw, 58px);
+}
+
+body.dark_theme {
+  color-scheme: dark;
+
+  --sk-color-bg: #1f2428;
+  --sk-color-bg-soft: #26313a;
+  --sk-color-surface: #242c32;
+  --sk-color-surface-soft: #2f3c46;
+  --sk-color-text: #e2e9f1;
+  --sk-color-text-muted: #c4d4e4;
+  --sk-color-border: rgba(226, 233, 241, 0.14);
+  --sk-color-border-strong: rgba(226, 233, 241, 0.28);
+
+  --sk-gradient-panel: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.20), transparent 34%), linear-gradient(135deg, #242c32 0%, #1f2428 100%);
+  --sk-shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.20);
+  --sk-shadow-md: 0 14px 34px rgba(0, 0, 0, 0.26);
+  --sk-shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.34);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--sk-color-bg);
+  color: var(--sk-color-text);
+  text-rendering: optimizeLegibility;
+}
+
+main,
+.home_main {
+  background: var(--sk-color-bg);
+}
+
+.container {
+  line-height: 1.72;
+}
+
+.container > h1,
+.container > h2 {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 clamp(28px, 4vw, 42px);
+  padding-bottom: 12px;
+  color: var(--sk-color-primary);
+  font-size: clamp(32px, 4.2vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.container > h1::after,
+.container > h2::after,
+.about_section_title::after,
+.home_section_header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(100% + 34px, 160px);
+  height: 3px;
+  border-radius: var(--sk-radius-pill);
+  background: linear-gradient(90deg, var(--sk-color-primary), rgba(112, 144, 183, 0.18));
+}
+
+.container p,
+.about_us_text p,
+.about_card p,
+.products_intro p,
+.contact_card p,
+.contact_cta p,
+.page_faq_item p {
+  color: var(--sk-color-text-muted);
+}
+
+/* Wspólny wygląd kart i paneli */
+.products_intro,
+.products_filter_bar,
+.products_faq,
+.product_card,
+.about_us_text,
+.about_us_box,
+.about_number_card,
+.about_card,
+.about_partners,
+.about_register,
+.contact_card,
+.representative_card,
+.representatives_intro,
+.representatives_map_panel,
+.contact_cta,
+.contact_faq,
+.contact_form_box,
+.map_box,
+.page_faq_item,
+.home_highlight,
+.home_stat_card,
+.home_product_tile,
+.home_selector_panel,
+.home_process_step,
+.home_region_cta,
+.buerkert_floating_panel {
+  border: 1px solid var(--sk-color-border);
+  border-radius: var(--sk-radius-lg);
+  background: var(--sk-gradient-panel);
+  box-shadow: var(--sk-shadow-sm);
+  transition:
+    transform var(--sk-motion-base) var(--sk-ease-standard),
+    box-shadow var(--sk-motion-base) ease,
+    border-color var(--sk-motion-base) ease,
+    background-color var(--sk-motion-base) ease,
+    color var(--sk-motion-base) ease;
+}
+
+.products_intro:hover,
+.products_intro:focus-within,
+.product_card:hover,
+.product_card:focus-visible,
+.about_us_text:hover,
+.about_us_text:focus-within,
+.about_us_box:hover,
+.about_us_box:focus-within,
+.about_number_card:hover,
+.about_card:hover,
+.about_card:focus-within,
+.about_partners:hover,
+.about_partners:focus-within,
+.about_register:hover,
+.about_register:focus-within,
+.contact_card:hover,
+.contact_card:focus-within,
+.representative_card:hover,
+.representative_card:focus-within,
+.representative_card.is_active,
+.contact_cta:hover,
+.contact_cta:focus-within,
+.page_faq_item:hover,
+.page_faq_item:focus-within,
+.home_highlight:hover,
+.home_stat_card:hover,
+.home_product_tile:hover,
+.home_selector_panel:hover,
+.home_process_step:hover,
+.home_region_cta:hover,
+.buerkert_floating_panel:hover {
+  transform: translateY(-5px);
+  border-color: var(--sk-color-border-strong);
+  box-shadow: var(--sk-shadow-md);
+}
+
+/* Subtelny pasek akcentu na panelach informacyjnych */
+.products_intro::before,
+.about_us_text::before,
+.contact_cta::before,
+.contact_form_box::before,
+.representatives_intro::before {
+  background: linear-gradient(180deg, var(--sk-color-primary), rgba(112, 144, 183, 0.28));
+  border-radius: var(--sk-radius-pill);
+}
+
+/* Przyciski i CTA */
+.home_btn,
+.header_action_link,
+.sticky_contact,
+.products_filter_btn,
+.representative_region_btn,
+.contact_form button,
+.cookie_banner button,
+.buerkert_floating_button,
+.buerkert_floating_link,
+.active_city_clear,
+.product_modal_close,
+.representatives_map_close,
+.scroll_top_btn {
+  transition:
+    transform var(--sk-motion-fast) var(--sk-ease-standard),
+    box-shadow var(--sk-motion-fast) ease,
+    background-color var(--sk-motion-fast) ease,
+    color var(--sk-motion-fast) ease,
+    border-color var(--sk-motion-fast) ease;
+}
+
+.home_btn_primary,
+.contact_form button,
+.products_filter_btn.is_active,
+.representative_card.is_active .representative_region_btn,
+.scroll_top_btn,
+.cookie_banner button {
+  background: var(--sk-gradient-primary);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 12px 28px rgba(112, 144, 183, 0.26);
+}
+
+.home_btn:hover,
+.header_action_link:hover,
+.sticky_contact:hover,
+.products_filter_btn:hover,
+.representative_region_btn:hover,
+.contact_form button:hover,
+.cookie_banner button:hover,
+.buerkert_floating_button:hover,
+.buerkert_floating_link:hover,
+.active_city_clear:hover,
+.scroll_top_btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sk-shadow-md);
+}
+
+/* Header i nawigacja */
+header,
+.sticky_header {
+  border-bottom: 1px solid var(--sk-color-border);
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.08);
+}
+
+.nav_list li a,
+.header_action_link,
+.sticky_contact {
+  border-radius: var(--sk-radius-pill);
+}
+
+.nav_list li a::after {
+  border-radius: var(--sk-radius-pill);
+}
+
+/* Hero - spójniejszy, mniej agresywny ruch wizualny */
+.home_hero {
+  background:
+    var(--sk-gradient-hero),
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.16), transparent 32%),
+    var(--sk-gradient-primary);
+}
+
+.home_hero_slide {
+  transition:
+    opacity var(--sk-motion-slow) ease,
+    transform var(--sk-motion-slow) var(--sk-ease-standard),
+    visibility var(--sk-motion-slow) ease;
+}
+
+.home_hero_card,
+.home_selector_result {
+  border: 1px solid rgba(226, 233, 241, 0.28);
+  border-radius: var(--sk-radius-lg);
+  backdrop-filter: blur(14px);
+}
+
+/* Produkty */
+.product_card {
+  overflow: hidden;
+}
+
+.product_card::after,
+.home_product_tile::after,
+.about_card::after,
+.representative_card::after {
+  opacity: 0.7;
+  transition: opacity var(--sk-motion-base) ease;
+}
+
+.product_card:hover::after,
+.home_product_tile:hover::after,
+.about_card:hover::after,
+.representative_card:hover::after {
+  opacity: 1;
+}
+
+.product_image img {
+  transition:
+    transform var(--sk-motion-slow) var(--sk-ease-standard),
+    filter var(--sk-motion-base) ease;
+}
+
+.product_card:hover .product_image img,
+.product_card:focus-visible .product_image img {
+  transform: scale(1.045);
+}
+
+/* Mapa przedstawicieli */
+.map_region .map_area {
+  fill: #c8d4e2;
+  stroke: rgba(255, 255, 255, 0.74);
+  stroke-width: 0.85;
+  transition:
+    fill var(--sk-motion-base) ease,
+    stroke var(--sk-motion-base) ease,
+    filter var(--sk-motion-base) ease,
+    transform var(--sk-motion-base) var(--sk-ease-standard);
+}
+
+.map_region .map_area:hover,
+.map_area:focus-visible {
+  fill: var(--sk-color-primary-hover);
+  filter: drop-shadow(0 10px 14px rgba(50, 79, 117, 0.22));
+}
+
+.representatives_section.active_south .map_south .map_area,
+.representatives_section.active_west .map_west .map_area,
+.representatives_section.active_center .map_center .map_area,
+.representatives_section .map_region .map_area.is_selected_city {
+  fill: var(--sk-color-primary-dark);
+  filter: drop-shadow(0 12px 18px rgba(50, 79, 117, 0.28));
+}
+
+body.dark_theme .map_region .map_area {
+  fill: #3a444c;
+  stroke: rgba(226, 233, 241, 0.20);
+}
+
+body.dark_theme .map_region .map_area:hover,
+body.dark_theme .map_area:focus-visible,
+body.dark_theme .representatives_section.active_south .map_south .map_area,
+body.dark_theme .representatives_section.active_west .map_west .map_area,
+body.dark_theme .representatives_section.active_center .map_center .map_area,
+body.dark_theme .representatives_section .map_region .map_area.is_selected_city {
+  fill: #9bb7d8;
+}
+
+/* Formularze */
+input,
+textarea,
+select {
+  border-color: var(--sk-color-border);
+  border-radius: var(--sk-radius-md);
+  transition:
+    border-color var(--sk-motion-fast) ease,
+    box-shadow var(--sk-motion-fast) ease,
+    background-color var(--sk-motion-fast) ease;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--sk-color-primary);
+  box-shadow: var(--sk-shadow-focus);
+}
+
+/* Jeden system reveal dla całej strony */
+.reveal,
+.reveal_sequence_item {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  will-change: opacity, transform;
+  transition-property: opacity, transform, box-shadow, border-color, background-color, color;
+  transition-duration: 520ms, 620ms, 280ms, 280ms, 280ms, 280ms;
+  transition-timing-function: ease, var(--sk-ease-standard), ease, ease, ease, ease;
+}
+
+.reveal.show,
+.reveal.is_visible,
+.reveal_sequence_item.show,
+.reveal_sequence_item.is_visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal_scrolling_up:not(.show):not(.is_visible),
+.reveal_scrolling_down:not(.show):not(.is_visible),
+.reveal_sequence_item.reveal_scrolling_up:not(.show):not(.is_visible),
+.reveal_sequence_item.reveal_scrolling_down:not(.show):not(.is_visible) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.reveal_delay_1:not(.show):not(.is_visible) { transition-delay: 70ms; }
+.reveal_delay_2:not(.show):not(.is_visible) { transition-delay: 140ms; }
+.reveal_delay_3:not(.show):not(.is_visible) { transition-delay: 210ms; }
+.reveal_delay_4:not(.show):not(.is_visible) { transition-delay: 280ms; }
+
+@keyframes sk-soft-pop {
+  0% { opacity: 0; transform: translate3d(0, 18px, 0) scale(0.98); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+.product_modal,
+.product_catalog_modal,
+.representatives_map_panel,
+.city_suggestions {
+  animation-duration: 360ms;
+  animation-timing-function: var(--sk-ease-standard);
+}
+
+/* Spójny focus */
+:focus-visible {
+  outline: 3px solid rgba(112, 144, 183, 0.58);
+  outline-offset: 4px;
+}
+
+/* Stopka */
+footer {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(112, 144, 183, 0.28), transparent 34%),
+    linear-gradient(135deg, #4f5a61 0%, #3f4950 100%);
+}
+
+.footer_logo a:hover,
+.footer_nav a:hover,
+.footer_contact a:hover {
+  transform: translateY(-2px);
+}
+
+/* Mniej chaosu na małych ekranach: animacje krótsze i mniejsze przesunięcia */
+@media (max-width: 768px) {
+  :root {
+    --sk-radius-lg: 20px;
+    --sk-section-gap: 34px;
+  }
+
+  .reveal,
+  .reveal_sequence_item {
+    transform: translate3d(0, 22px, 0);
+    transition-duration: 420ms, 520ms, 240ms, 240ms, 240ms, 240ms;
+  }
+
+  .products_intro:hover,
+  .product_card:hover,
+  .about_us_text:hover,
+  .about_number_card:hover,
+  .about_card:hover,
+  .about_partners:hover,
+  .about_register:hover,
+  .contact_card:hover,
+  .representative_card:hover,
+  .contact_cta:hover,
+  .home_highlight:hover,
+  .home_stat_card:hover,
+  .home_product_tile:hover,
+  .home_process_step:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal,
+  .reveal.show,
+  .reveal.is_visible,
+  .reveal_sequence_item,
+  .reveal_sequence_item.show,
+  .reveal_sequence_item.is_visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
