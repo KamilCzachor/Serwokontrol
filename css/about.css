@@ -1,6 +1,4 @@
-/* =========================================================
-   About Page
-   ========================================================= */
+/* About Page */
 
 .about_page {
   display: flex;
@@ -13,9 +11,7 @@
   margin-bottom: -5px;
 }
 
-/* =========================================================
-   About Intro
-   ========================================================= */
+/* About Intro */
 
 .about_us {
   display: grid;
@@ -27,12 +23,10 @@
 .about_us_text {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
@@ -44,14 +38,11 @@
   left: 0;
   top: 28px;
   bottom: 28px;
-
   width: 4px;
   border-radius: 999px;
   background-color: #7090b7;
-
   transform: scaleY(0.55);
   transform-origin: center;
-
   transition: transform 0.35s ease;
 }
 
@@ -83,17 +74,11 @@
   margin-bottom: 0;
 }
 
-/* =========================================================
-   Top Blue Info Box
-   ========================================================= */
-
 .about_us_box {
   position: relative;
   overflow: hidden;
-
   padding: 30px;
   border-radius: 18px;
-
   background-image:
     linear-gradient(#7090b7, #7090b7),
     radial-gradient(
@@ -108,29 +93,23 @@
       transparent 96px
     ),
     linear-gradient(135deg, #7090b7, #5f7fa7);
-
   background-size:
     4px 56%,
     auto,
     auto,
     auto;
-
   background-position:
     left center,
     center,
     center,
     center;
-
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-
   color: #ffffff;
   box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 14px;
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease,
@@ -139,13 +118,11 @@
 
 .about_us_box:hover {
   transform: translateY(-4px);
-
   background-size:
     4px 100%,
     auto,
     auto,
     auto;
-
   box-shadow: 0 18px 38px rgba(94, 106, 113, 0.26);
 }
 
@@ -153,7 +130,6 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     110deg,
     transparent 0%,
@@ -162,7 +138,6 @@
     transparent 62%,
     transparent 100%
   );
-
   transform: translateX(-120%);
   pointer-events: none;
   z-index: 2;
@@ -182,7 +157,6 @@
 .about_us_box i {
   font-size: 44px;
   opacity: 0.95;
-
   transition:
     transform 0.35s ease,
     opacity 0.35s ease;
@@ -205,18 +179,17 @@
 }
 
 @keyframes aboutScan {
-  from {
-    transform: translateX(-120%);
-  }
-
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
 
-/* =========================================================
-   About Numbers
-   ========================================================= */
+to {
+  transform: translateX(120%);
+}
+}
+
+
+/* About Numbers */
 
 .about_numbers {
   display: grid;
@@ -227,13 +200,11 @@
 .about_number_card {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   padding: 24px;
   border-radius: 18px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -243,16 +214,13 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(112, 144, 183, 0.16),
     transparent 50%
   );
-
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.35s ease;
 }
 
@@ -261,16 +229,12 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-
   width: 46px;
   height: 4px;
-
   border-radius: 999px 999px 0 0;
   background-color: #7090b7;
-
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
-
   transition: transform 0.35s ease;
 }
 
@@ -299,7 +263,6 @@
   color: #7090b7;
   font-size: 34px;
   font-weight: 800;
-
   transition: transform 0.35s ease;
 }
 
@@ -313,9 +276,7 @@
   font-weight: 600;
 }
 
-/* =========================================================
-   About Cards
-   ========================================================= */
+/* About Cards */
 
 .about_cards {
   display: grid;
@@ -326,12 +287,10 @@
 .about_card {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   padding: 28px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -341,16 +300,13 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(112, 144, 183, 0.14),
     transparent 48%
   );
-
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.35s ease;
 }
 
@@ -360,14 +316,11 @@
   left: 28px;
   right: 28px;
   bottom: 0;
-
   height: 4px;
   border-radius: 999px 999px 0 0;
   background-color: #7090b7;
-
   transform: scaleX(0);
   transform-origin: left;
-
   transition: transform 0.35s ease;
 }
 
@@ -395,16 +348,13 @@
   width: 48px;
   height: 48px;
   margin-bottom: 20px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 14px;
   background-color: rgba(112, 144, 183, 0.14);
   color: #7090b7;
   font-size: 22px;
-
   transition:
     background-color 0.35s ease,
     color 0.35s ease,
@@ -431,24 +381,19 @@
   line-height: 1.75;
 }
 
-/* =========================================================
-   Partner Section
-   ========================================================= */
+/* Partner Section */
 
 .about_partners {
   position: relative;
   overflow: hidden;
-
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
   gap: 30px;
   align-items: stretch;
-
   background-color: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
@@ -460,14 +405,11 @@
   left: 0;
   top: 28px;
   bottom: 28px;
-
   width: 4px;
   border-radius: 999px;
   background-color: #7090b7;
-
   transform: scaleY(0.55);
   transform-origin: center;
-
   transition: transform 0.35s ease;
 }
 
@@ -505,19 +447,15 @@
   margin-bottom: 0;
 }
 
-/* =========================================================
-   Bürkert Inner Box
-   ========================================================= */
+/* Bürkert Inner Box */
 
 .about_partner_feature {
   position: relative;
   overflow: hidden;
-
   min-height: 220px;
   padding: 30px;
   border-radius: 16px;
   border-left: none;
-
   background:
     radial-gradient(
       circle at top right,
@@ -525,11 +463,9 @@
       transparent 36%
     ),
     #e2e9f1;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
@@ -539,7 +475,6 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     110deg,
     transparent 0%,
@@ -548,7 +483,6 @@
     transparent 62%,
     transparent 100%
   );
-
   transform: translateX(-120%);
   pointer-events: none;
   z-index: 2;
@@ -558,17 +492,14 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(112, 144, 183, 0.18),
     transparent 48%
   );
-
   opacity: 0;
   pointer-events: none;
   z-index: 1;
-
   transition: opacity 0.35s ease;
 }
 
@@ -594,7 +525,6 @@
 .about_partner_feature span {
   display: block;
   margin-bottom: 8px;
-
   color: #7090b7;
   font-size: 38px;
   font-weight: 800;
@@ -608,23 +538,21 @@
 }
 
 @keyframes burkertBoxShine {
-  from {
-    transform: translateX(-120%);
-  }
-
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
 
-/* =========================================================
-   Mission Section
-   ========================================================= */
+to {
+  transform: translateX(120%);
+}
+}
+
+
+/* Mission Section */
 
 .about_mission {
   position: relative;
   overflow: hidden;
-
   padding: 30px;
   border-radius: 18px;
   background:
@@ -635,7 +563,6 @@
     ),
     linear-gradient(135deg, #7090b7, #5f7fa7);
   box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -646,7 +573,6 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     110deg,
     transparent 0%,
@@ -655,7 +581,6 @@
     transparent 62%,
     transparent 100%
   );
-
   transform: translateX(-120%);
   pointer-events: none;
 }
@@ -669,7 +594,6 @@
   position: absolute;
   right: -80px;
   bottom: -100px;
-
   width: 210px;
   height: 210px;
   border-radius: 50%;
@@ -701,7 +625,6 @@
   color: #ffffff;
   font-size: 48px;
   opacity: 0.9;
-
   transition:
     transform 0.35s ease,
     opacity 0.35s ease;
@@ -712,19 +635,15 @@
   opacity: 1;
 }
 
-/* =========================================================
-   Register Data
-   ========================================================= */
+/* Register Data */
 
 .about_register {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
@@ -736,14 +655,11 @@
   left: 0;
   top: 28px;
   bottom: 28px;
-
   width: 4px;
   border-radius: 999px;
   background-color: #7090b7;
-
   transform: scaleY(0.55);
   transform-origin: center;
-
   transition: transform 0.35s ease;
 }
 
@@ -767,7 +683,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px 28px;
-
   list-style: none;
   margin: 0;
   padding: 0;
@@ -775,15 +690,12 @@
 
 .about_register li {
   position: relative;
-
   display: flex;
   flex-direction: column;
   gap: 4px;
-
   padding: 14px 16px;
   border-radius: 14px;
   background-color: rgba(112, 144, 183, 0.08);
-
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
@@ -806,9 +718,7 @@
   overflow-wrap: break-word;
 }
 
-/* =========================================================
-   Focus
-   ========================================================= */
+/* Focus */
 
 .about_us_text:focus-visible,
 .about_us_box:focus-visible,
@@ -821,276 +731,14 @@
   outline-offset: 4px;
 }
 
-/* =========================================================
-   About Page Dark Theme
-   ========================================================= */
+/* About Page Dark Theme */
 
-body.dark_theme .about_us_text,
-body.dark_theme .about_number_card,
-body.dark_theme .about_card,
-body.dark_theme .about_partners,
-body.dark_theme .about_register {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
 
-body.dark_theme .about_us_text h3,
-body.dark_theme .about_card h3,
-body.dark_theme .about_partners_text h3,
-body.dark_theme .about_register h3 {
-  color: #7090b7;
-}
+/* Responsive */
 
-body.dark_theme .about_us_text p,
-body.dark_theme .about_card p,
-body.dark_theme .about_partners_text p,
-body.dark_theme .about_register strong {
-  color: #e2e9f1;
-}
+/* Reduced Motion */
 
-body.dark_theme .about_us_text:hover,
-body.dark_theme .about_partners:hover,
-body.dark_theme .about_register:hover {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
-}
-
-body.dark_theme .about_number_card:hover,
-body.dark_theme .about_card:hover {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
-}
-
-body.dark_theme .about_number_card span,
-body.dark_theme .about_partner_feature small,
-body.dark_theme .about_register span {
-  color: #e2e9f1;
-  opacity: 0.75;
-}
-
-body.dark_theme .about_card_icon {
-  background-color: rgba(112, 144, 183, 0.18);
-  color: #7090b7;
-}
-
-body.dark_theme .about_card:hover .about_card_icon {
-  background-color: #7090b7;
-  color: #ffffff;
-}
-
-body.dark_theme .about_partner_feature {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.16),
-      transparent 36%
-    ),
-    #1f2428;
-  border-left: none;
-}
-
-body.dark_theme .about_partner_feature::after {
-  background: linear-gradient(
-    135deg,
-    rgba(112, 144, 183, 0.22),
-    transparent 48%
-  );
-}
-
-body.dark_theme .about_partner_feature:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
-}
-
-body.dark_theme .about_partner_feature span {
-  color: #7090b7;
-}
-
-body.dark_theme .about_register li {
-  background-color: rgba(112, 144, 183, 0.1);
-}
-
-body.dark_theme .about_register li:hover {
-  background-color: rgba(112, 144, 183, 0.16);
-}
-
-body.dark_theme .about_us_box {
-  background-image:
-    linear-gradient(#7090b7, #7090b7),
-    radial-gradient(
-      circle at top right,
-      rgba(255, 255, 255, 0.18),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at calc(100% + 70px) calc(100% + 90px),
-      rgba(255, 255, 255, 0.1) 0,
-      rgba(255, 255, 255, 0.1) 95px,
-      transparent 96px
-    ),
-    linear-gradient(135deg, #7090b7, #5f7fa7);
-
-  background-size:
-    4px 56%,
-    auto,
-    auto,
-    auto;
-
-  background-position:
-    left center,
-    center,
-    center,
-    center;
-
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-}
-
-body.dark_theme .about_us_box:hover {
-  background-size:
-    4px 100%,
-    auto,
-    auto,
-    auto;
-
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
-}
-
-body.dark_theme .about_mission {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(255, 255, 255, 0.18),
-      transparent 34%
-    ),
-    linear-gradient(135deg, #7090b7, #5f7fa7);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-}
-
-body.dark_theme .about_us_box,
-body.dark_theme .about_us_box strong,
-body.dark_theme .about_us_box span,
-body.dark_theme .about_us_box i,
-body.dark_theme .about_mission h3,
-body.dark_theme .about_mission p,
-body.dark_theme .about_mission i {
-  color: #ffffff;
-}
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 992px) {
-  .about_us {
-    grid-template-columns: 1fr;
-  }
-
-  .about_numbers {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about_cards {
-    grid-template-columns: 1fr;
-  }
-
-  .about_partners {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .about_us {
-    grid-template-columns: 1fr;
-  }
-
-  .about_us_text,
-  .about_us_box,
-  .about_partners,
-  .about_mission,
-  .about_register {
-    padding: 24px;
-  }
-
-  .about_us_text::before,
-  .about_partners::before,
-  .about_register::before {
-    top: 24px;
-    bottom: 24px;
-  }
-
-  .about_numbers {
-    grid-template-columns: 1fr;
-  }
-
-  .about_mission {
-    align-items: flex-start;
-  }
-
-  .about_mission i {
-    display: none;
-  }
-
-  .about_register ul {
-    grid-template-columns: 1fr;
-  }
-
-  .about_partner_feature {
-    min-height: 180px;
-  }
-
-  .about_partner_feature span {
-    font-size: 32px;
-  }
-}
-
-/* =========================================================
-   Reduced Motion
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .about_us_text,
-  .about_us_text::before,
-  .about_us_box,
-  .about_us_box::before,
-  .about_number_card,
-  .about_number_card::before,
-  .about_number_card::after,
-  .about_card,
-  .about_card::before,
-  .about_card::after,
-  .about_card_icon,
-  .about_partners,
-  .about_partners::before,
-  .about_partner_feature,
-  .about_partner_feature::before,
-  .about_partner_feature::after,
-  .about_mission::before,
-  .about_register,
-  .about_register::before,
-  .about_register li,
-  .about_us_box i,
-  .about_mission i {
-    animation: none;
-    transition: none;
-  }
-
-  .about_us_text:hover,
-  .about_us_box:hover,
-  .about_number_card:hover,
-  .about_card:hover,
-  .about_partners:hover,
-  .about_partner_feature:hover,
-  .about_register:hover,
-  .about_register li:hover,
-  .about_us_box:hover i,
-  .about_mission:hover i {
-    transform: none;
-  }
-}
-
-/* =========================================================
-   Decorative Background Circles - About Page
-   Delikatne akcenty spójne z kafelkiem "Specjaliści Bürkert".
-   ========================================================= */
+/* Decorative Background Circles */
 
 .about_us_text,
 .about_partners,
@@ -1154,98 +802,11 @@ body.dark_theme .about_mission i {
     rgba(112, 144, 183, 0.08);
 }
 
-body.dark_theme .about_us_text,
-body.dark_theme .about_number_card,
-body.dark_theme .about_card,
-body.dark_theme .about_partners,
-body.dark_theme .about_register {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.12),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at calc(100% + 74px) calc(100% + 78px),
-      rgba(112, 144, 183, 0.07) 0,
-      rgba(112, 144, 183, 0.07) 88px,
-      transparent 90px
-    ),
-    #242c32;
-}
-
-body.dark_theme .about_number_card,
-body.dark_theme .about_card {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.12),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at calc(100% + 58px) calc(100% + 62px),
-      rgba(112, 144, 183, 0.07) 0,
-      rgba(112, 144, 183, 0.07) 72px,
-      transparent 74px
-    ),
-    #242c32;
-}
-
-body.dark_theme .about_partner_feature {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.16),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at calc(100% + 68px) calc(100% + 72px),
-      rgba(112, 144, 183, 0.08) 0,
-      rgba(112, 144, 183, 0.08) 84px,
-      transparent 86px
-    ),
-    #1f2428;
-}
-
-body.dark_theme .about_register li {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.09),
-      transparent 42%
-    ),
-    rgba(112, 144, 183, 0.1);
-}
-
-/* =========================================================
-   Final correction: decorative circles only as bottom-right card accents
-   ========================================================= */
-
-/* Partner section container stays clean: no decorative circle on text area. */
-.about_partners,
-body.dark_theme .about_partners {
-  background-color: #ffffff;
-  background-image: none;
-}
-
-body.dark_theme .about_partners {
-  background-color: #242c32;
-}
-
-/* The inner Bürkert distributor card gets the accent, fixed to the bottom-right corner. */
-.about_partner_feature,
-body.dark_theme .about_partner_feature {
-  overflow: hidden;
-  background-image: none;
-}
 
 .about_partner_feature {
   background-color: #e2e9f1;
 }
 
-body.dark_theme .about_partner_feature {
-  background-color: #1f2428;
-}
 
 .about_partner_feature::after {
   content: "";
@@ -1262,9 +823,6 @@ body.dark_theme .about_partner_feature {
   transition: none;
 }
 
-body.dark_theme .about_partner_feature::after {
-  background-color: rgba(112, 144, 183, 0.12);
-}
 
 .about_partner_feature span,
 .about_partner_feature small {
@@ -1272,20 +830,11 @@ body.dark_theme .about_partner_feature::after {
   z-index: 3;
 }
 
-/* Register card: the circle deliberately extends outside the card frame. */
-.about_register,
-body.dark_theme .about_register {
-  overflow: visible;
-  background-image: none;
-}
 
 .about_register {
   background-color: #ffffff;
 }
 
-body.dark_theme .about_register {
-  background-color: #242c32;
-}
 
 .about_register::after {
   content: "";
@@ -1300,9 +849,6 @@ body.dark_theme .about_register {
   z-index: 0;
 }
 
-body.dark_theme .about_register::after {
-  background-color: rgba(112, 144, 183, 0.1);
-}
 
 .about_register::before {
   z-index: 2;
@@ -1314,28 +860,7 @@ body.dark_theme .about_register::after {
   z-index: 1;
 }
 
-.about_register li,
-body.dark_theme .about_register li {
-  background-image: none;
-}
 
-/* =========================================================
-   Final precise corner accents
-   ========================================================= */
-
-/* Keep the "Partner Bürkert" logo card clean — no decorative circle on the Bürkert word. */
-.about_partner_feature,
-body.dark_theme .about_partner_feature {
-  background-image: none !important;
-}
-
-.about_partner_feature::after,
-body.dark_theme .about_partner_feature::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* Bottom-right accent only on the "Autoryzowany Dystrybutor Bürkert" card. */
 .about_us_box {
   overflow: hidden;
   background-image: linear-gradient(135deg, #7090b7, #5f7fa7) !important;
@@ -1361,11 +886,6 @@ body.dark_theme .about_partner_feature::after {
   z-index: 3;
 }
 
-/* Smaller register accent: exits the frame, but does not run into the footer or list items. */
-.about_register,
-body.dark_theme .about_register {
-  overflow: visible !important;
-}
 
 .about_register::after {
   content: "";
@@ -1380,81 +900,8 @@ body.dark_theme .about_register {
   z-index: 0;
 }
 
-body.dark_theme .about_register::after {
-  background-color: rgba(112, 144, 183, 0.09);
-}
 
-/* =========================================================
-   Final override: restore blue Autoryzowany Dystrybutor card
-   ========================================================= */
-
-/* The top card must stay blue; the decorative circle is only a corner accent. */
-.about_us_box,
-body.dark_theme .about_us_box {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  color: #ffffff !important;
-  background-color: #7090b7 !important;
-  background-image:
-    linear-gradient(#7090b7, #7090b7), linear-gradient(135deg, #7090b7, #5f7fa7) !important;
-  background-size:
-    4px 56%,
-    auto !important;
-  background-position:
-    left center,
-    center !important;
-  background-repeat: no-repeat, no-repeat !important;
-}
-
-.about_us_box:hover,
-body.dark_theme .about_us_box:hover {
-  background-size:
-    4px 100%,
-    auto !important;
-}
-
-.about_us_box::after,
-body.dark_theme .about_us_box::after {
-  content: "";
-  position: absolute;
-  right: -82px;
-  bottom: -92px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.12);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.about_us_box::before,
-body.dark_theme .about_us_box::before {
-  z-index: 2;
-}
-
-.about_us_box i,
-.about_us_box strong,
-.about_us_box span,
-body.dark_theme .about_us_box i,
-body.dark_theme .about_us_box strong,
-body.dark_theme .about_us_box span {
-  position: relative;
-  z-index: 3;
-  color: #ffffff !important;
-}
-
-/* The Partner Bürkert logo card stays clean and keeps its original grey card style. */
-.about_partner_feature::after,
-body.dark_theme .about_partner_feature::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* =========================================================
-   Unified reversible reveal animation fix
-   Keeps fade/slide transitions visible even on cards that define their own transitions.
-   ========================================================= */
+/* Unified reversible reveal animation */
 
 .reveal {
   opacity: 0;
@@ -1495,17 +942,6 @@ body.dark_theme .about_partner_feature::after {
   transition-delay: 0.32s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.show,
-  .reveal.is_visible {
-    opacity: 1;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* Reveal + hover compatibility for about page */
 .about_number_card.reveal.show:hover,
 .about_number_card.reveal.is_visible:hover,
 .about_card.reveal.show:hover,
@@ -1522,20 +958,8 @@ body.dark_theme .about_partner_feature::after {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
 }
 
-body.dark_theme .about_number_card.reveal.show:hover,
-body.dark_theme .about_number_card.reveal.is_visible:hover,
-body.dark_theme .about_card.reveal.show:hover,
-body.dark_theme .about_card.reveal.is_visible:hover,
-body.dark_theme .about_partners.reveal.show:hover,
-body.dark_theme .about_partners.reveal.is_visible:hover,
-body.dark_theme .about_register.reveal.show:hover,
-body.dark_theme .about_register.reveal.is_visible:hover {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-}
 
-/* =========================================================
-   About page reveal v3 - intro sections + hover compatibility
-   ========================================================= */
+/* About page reveal */
 
 .about_us_text.reveal,
 .about_us_box.reveal {
@@ -1562,9 +986,7 @@ body.dark_theme .about_register.reveal.is_visible:hover {
   transition-delay: 0s !important;
 }
 
-/* =========================================================
-   About ordered reveal v4
-   ========================================================= */
+/* About ordered reveal */
 
 .about_number_card.reveal_sequence_item {
   opacity: 0;
@@ -1588,14 +1010,8 @@ body.dark_theme .about_register.reveal.is_visible:hover {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
 
-body.dark_theme .about_number_card.reveal_sequence_item.show:hover,
-body.dark_theme .about_number_card.reveal_sequence_item.is_visible:hover {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-}
 
-/* =========================================================
-   About numbers ordered reveal hover compatibility
-   ========================================================= */
+/* About numbers ordered reveal hover compatibility */
 
 .about_number_card.reveal_sequence_item.show:hover,
 .about_number_card.reveal_sequence_item.is_visible:hover,
@@ -1605,9 +1021,7 @@ body.dark_theme .about_number_card.reveal_sequence_item.is_visible:hover {
   transition-delay: 0s !important;
 }
 
-/* =========================================================
-   About page consistency pass v23
-   ========================================================= */
+/* About page */
 
 .about_us_text,
 .about_us_box,
@@ -1667,28 +1081,8 @@ body.dark_theme .about_number_card.reveal_sequence_item.is_visible:hover {
   transition-delay: 0s !important;
 }
 
-body.dark_theme .about_us_text:hover,
-body.dark_theme .about_us_text:focus-within,
-body.dark_theme .about_us_box:hover,
-body.dark_theme .about_us_box:focus-within,
-body.dark_theme .about_number_card:hover,
-body.dark_theme .about_number_card:focus-within,
-body.dark_theme .about_card:hover,
-body.dark_theme .about_card:focus-within,
-body.dark_theme .about_partners:hover,
-body.dark_theme .about_partners:focus-within,
-body.dark_theme .about_partner_feature:hover,
-body.dark_theme .about_partner_feature:focus-within,
-body.dark_theme .about_register:hover,
-body.dark_theme .about_register:focus-within,
-body.dark_theme .page_faq_item:hover,
-body.dark_theme .page_faq_item:focus-within {
-  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
-}
 
-/* =========================================================
-   Bürkert Subline Logo - About Page
-   ========================================================= */
+/* Bürkert Subline Logo */
 
 .about_us_box_partner_logo,
 .about_partner_logo_link {
@@ -1747,11 +1141,6 @@ body.dark_theme .page_faq_item:focus-within {
     drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
 }
 
-body.dark_theme .about_us_box_partner_logo img,
-body.dark_theme .about_partner_logo_link img {
-  filter: contrast(1.18) saturate(1.12)
-    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.42));
-}
 
 .about_partner_feature {
   align-items: center;
@@ -1761,20 +1150,6 @@ body.dark_theme .about_partner_logo_link img {
   position: relative;
   z-index: 4;
 }
-
-@media (max-width: 768px) {
-  .about_us_box_partner_logo {
-    width: min(100%, 240px);
-  }
-
-  .about_partner_logo_link {
-    width: min(100%, 330px);
-  }
-}
-
-/* =========================================================
-   V17 - Top Bürkert logo glass card
-   ========================================================= */
 
 .about_us_box_partner_logo {
   width: min(100%, 270px);
@@ -1803,27 +1178,6 @@ body.dark_theme .about_partner_logo_link img {
   background: rgba(255, 255, 255, 0.2);
 }
 
-body.dark_theme .about_us_box_partner_logo {
-  border-color: rgba(226, 233, 241, 0.2);
-  background: rgba(226, 233, 241, 0.11);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 14px 30px rgba(0, 0, 0, 0.24);
-}
-
-@media (max-width: 768px) {
-  .about_us_box_partner_logo {
-    width: min(100%, 250px);
-    min-height: 88px;
-    padding: 18px 20px;
-  }
-}
-
-
-
-/* =========================================================
-   V18 - Stronger light-theme shadow for top Bürkert logo card
-   ========================================================= */
 .about_us_box_partner_logo {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
@@ -1839,15 +1193,8 @@ body.dark_theme .about_us_box_partner_logo {
     0 8px 18px rgba(35, 48, 58, 0.16);
 }
 
-body.dark_theme .about_us_box_partner_logo {
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 14px 30px rgba(0, 0, 0, 0.24);
-}
 
-/* =========================================================
-   Bürkert logo readability - authorised distributor card
-   ========================================================= */
+/* Bürkert logo readability */
 
 .about_us_box_partner_logo {
   background:
@@ -1896,16 +1243,232 @@ body.dark_theme .about_us_box_partner_logo {
   filter: contrast(1.26) saturate(1.12) drop-shadow(0 9px 16px rgba(31, 42, 51, 0.22)) !important;
 }
 
-body.dark_theme .about_us_box_partner_logo {
+
+/* About page - Bürkert logo frame matched to home partner card */
+.about_us_box_partner_logo {
+  position: relative !important;
+  overflow: hidden !important;
+  width: min(100%, 270px) !important;
+  min-height: 112px !important;
+  margin-top: 16px !important;
+  padding: 22px 24px !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
   background:
-    linear-gradient(135deg, rgba(244, 248, 252, 0.96), rgba(226, 233, 241, 0.92)),
-    #f4f8fc !important;
-  border-color: rgba(255, 255, 255, 0.24) !important;
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.24),
+      rgba(255, 255, 255, 0.1)
+    ),
+    rgba(255, 255, 255, 0.12) !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 20px 42px rgba(0, 0, 0, 0.34) !important;
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 18px 38px rgba(94, 106, 113, 0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease !important;
 }
 
-body.dark_theme .about_us_box_partner_logo img {
-  filter: contrast(1.22) saturate(1.1) drop-shadow(0 7px 14px rgba(0, 0, 0, 0.2)) !important;
+.about_us_box_partner_logo::after {
+  display: none !important;
+  content: none !important;
+}
+
+.about_us_box_partner_logo:hover,
+.about_us_box_partner_logo:focus-visible {
+  transform: translateY(-4px) !important;
+  border-color: rgba(255, 255, 255, 0.48) !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.24),
+      rgba(255, 255, 255, 0.1)
+    ),
+    rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    0 24px 48px rgba(94, 106, 113, 0.24) !important;
+}
+
+.about_us_box_partner_logo img {
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: min(100%, 205px) !important;
+  max-height: none !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 10px 16px rgba(31, 42, 51, 0.18)) !important;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease !important;
+}
+
+.about_us_box_partner_logo:hover img,
+.about_us_box_partner_logo:focus-visible img {
+  transform: scale(1.035) !important;
+  filter: drop-shadow(0 12px 18px rgba(31, 42, 51, 0.22)) !important;
+}
+
+/* =========================================================
+   About page - Bürkert logo frame white background
+   ========================================================= */
+
+
+.about_us_box_partner_logo {
+  border-color: rgba(226, 233, 241, 0.92) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 18px 38px rgba(31, 42, 51, 0.14) !important;
+}
+
+.about_us_box_partner_logo:hover,
+.about_us_box_partner_logo:focus-visible {
+  border-color: rgba(112, 144, 183, 0.34) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 24px 48px rgba(31, 42, 51, 0.18) !important;
+}
+
+
+/* =========================================================
+   About page - gradient hover bars for info cards
+   ========================================================= */
+body .about_page .about_number_card,
+body .about_page .about_card {
+  position: relative;
+  overflow: hidden;
+}
+
+body .about_page .about_number_card::after,
+body .about_page .about_card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  height: 4px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #7090b7 0%, rgba(112, 144, 183, 0.64) 46%, rgba(112, 144, 183, 0) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 1;
+  pointer-events: none;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  z-index: 3;
+}
+
+body .about_page .about_number_card:hover::after,
+body .about_page .about_number_card:focus-within::after,
+body .about_page .about_card:hover::after,
+body .about_page .about_card:focus-within::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   About page - Partner Bürkert section cleanup
+   ========================================================= */
+
+
+/* =========================================================
+   About page - mission text and register gradient line
+   ========================================================= */
+
+body .about_page .about_mission h3,
+body .about_page .about_mission p,
+body .about_page .about_mission i {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   About page - homepage regional CTA background parity
+   ========================================================= */
+
+body .about_page .about_us_box,
+body .about_page .about_mission {
+  color: #ffffff !important;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.12),
+      transparent 38%
+    ),
+    linear-gradient(135deg, #7fa0c7 0%, #7090b7 46%, #5f7fa7 100%) !important;
+  background-size: auto !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22) !important;
+}
+
+body .about_page .about_us_box:hover,
+body .about_page .about_mission:hover {
+  box-shadow: 0 18px 38px rgba(94, 106, 113, 0.26) !important;
+}
+
+body .about_page .about_us_box::after,
+body .about_page .about_mission::after {
+  content: "";
+  position: absolute;
+  right: -92px;
+  bottom: -104px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body .about_page .about_us_box i,
+body .about_page .about_us_box strong,
+body .about_page .about_us_box span,
+body .about_page .about_us_box .about_us_box_partner_logo,
+body .about_page .about_mission div,
+body .about_page .about_mission i {
+  position: relative;
+  z-index: 3;
+}
+
+body .about_page .about_us_box strong,
+body .about_page .about_us_box span,
+body .about_page .about_us_box i,
+body .about_page .about_mission h3,
+body .about_page .about_mission p,
+body .about_page .about_mission i {
+  color: #ffffff !important;
+}
+
+body .about_page .about_us_box span,
+body .about_page .about_mission p {
+  opacity: 0.88;
+}
+
+
+/* =========================================================
+   DARK THEME REFRESH - about page
+   ========================================================= */
+
+
+/* =========================================================
+   PATCH - restore original Partner Bürkert logo background
+   ========================================================= */
+
+
+.about_page .about_partner_feature .about_partner_logo_link img {
+  filter: contrast(1.14) saturate(1.1)
+    drop-shadow(0 3px 7px rgba(0, 0, 0, 0.22)) !important;
 }

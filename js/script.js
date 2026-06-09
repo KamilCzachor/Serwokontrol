@@ -35,6 +35,24 @@ if (scrollTopBtn) {
   updateScrollTopButton();
 }
 
+/* Safe storage helpers */
+
+function safeStorageGet(key) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+
+function safeStorageSet(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (error) {
+    // Storage can be unavailable in private/restricted browsing modes.
+  }
+}
+
 /* Cookies Consent Banner */
 
 const cookieBanner = document.getElementById("cookieBanner");
@@ -42,16 +60,38 @@ const acceptCookiesBtn = document.getElementById("acceptCookiesBtn");
 const cookieOverlay = document.getElementById("cookieOverlay");
 
 if (cookieBanner && acceptCookiesBtn && cookieOverlay) {
-  if (!localStorage.getItem("cookiesAccepted")) {
+  function showCookieBanner() {
     cookieBanner.classList.add("show");
     cookieOverlay.classList.add("show");
+    cookieBanner.setAttribute("aria-hidden", "false");
+    cookieOverlay.setAttribute("aria-hidden", "false");
+
+    window.setTimeout(function () {
+      acceptCookiesBtn.focus();
+    }, 0);
+  }
+
+  function hideCookieBanner() {
+    cookieBanner.classList.remove("show");
+    cookieOverlay.classList.remove("show");
+    cookieBanner.setAttribute("aria-hidden", "true");
+    cookieOverlay.setAttribute("aria-hidden", "true");
+  }
+
+  if (!safeStorageGet("cookiesAccepted")) {
+    showCookieBanner();
   }
 
   acceptCookiesBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "true");
+    safeStorageSet("cookiesAccepted", "true");
+    hideCookieBanner();
+  });
 
-    cookieBanner.classList.remove("show");
-    cookieOverlay.classList.remove("show");
+  cookieBanner.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      safeStorageSet("cookiesAccepted", "true");
+      hideCookieBanner();
+    }
   });
 }
 
@@ -63,6 +103,8 @@ const navMenu = document.getElementById("navMenu");
 function setMenuState(button, menu, isOpen) {
   if (!button || !menu) return;
 
+  const wasFocusedInside = menu.contains(document.activeElement);
+
   menu.classList.toggle("show", isOpen);
   button.setAttribute("aria-expanded", String(isOpen));
 
@@ -70,6 +112,20 @@ function setMenuState(button, menu, isOpen) {
   if (icon) {
     icon.classList.toggle("fa-bars", !isOpen);
     icon.classList.toggle("fa-xmark", isOpen);
+  }
+
+  if (isOpen) {
+    const firstFocusable = menu.querySelector(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+
+    if (firstFocusable) {
+      window.setTimeout(function () {
+        firstFocusable.focus();
+      }, 0);
+    }
+  } else if (wasFocusedInside) {
+    button.focus();
   }
 }
 
@@ -136,6 +192,25 @@ document.addEventListener("click", function (event) {
   }
 });
 
+
+/* Close Mobile Menus With Escape */
+
+document.addEventListener("keydown", function (event) {
+  if (event.key !== "Escape") return;
+
+  if (navMenu && hamburgerBtn && navMenu.classList.contains("show")) {
+    setMenuState(hamburgerBtn, navMenu, false);
+  }
+
+  if (
+    stickyNavMenu &&
+    stickyHamburgerBtn &&
+    stickyNavMenu.classList.contains("show")
+  ) {
+    setMenuState(stickyHamburgerBtn, stickyNavMenu, false);
+  }
+});
+
 /* Sticky Header */
 
 const stickyHeader = document.getElementById("stickyHeader");
@@ -192,7 +267,7 @@ function updateThemeIcons() {
   });
 }
 
-if (localStorage.getItem("theme") === "dark") {
+if (safeStorageGet("theme") === "dark") {
   document.body.classList.add("dark_theme");
 }
 
@@ -203,9 +278,9 @@ themeToggles.forEach(function (button) {
     document.body.classList.toggle("dark_theme");
 
     if (document.body.classList.contains("dark_theme")) {
-      localStorage.setItem("theme", "dark");
+      safeStorageSet("theme", "dark");
     } else {
-      localStorage.setItem("theme", "light");
+      safeStorageSet("theme", "light");
     }
 
     updateThemeIcons();

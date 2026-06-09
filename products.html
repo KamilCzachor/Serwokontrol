@@ -4,12 +4,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Serwokontrol – produkty Bürkert: zawory, przepływomierze i czujniki</title><meta content="Serwokontrol – produkty Bürkert: zawory procesowe, membranowe, kulowe, elektromagnetyczne, regulacyjne, przepływomierze, czujniki, wyspy zaworowe i regulatory przepływu." name="description"/><link href="https://www.serwokontrol.pl/products.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Serwokontrol – produkty Bürkert" property="og:title"/><meta content="Serwokontrol – katalog głównych grup produktów Bürkert: zawory, przepływomierze, czujniki, wyspy zaworowe i regulatory przepływu." property="og:description"/><meta content="https://www.serwokontrol.pl/products.html" property="og:url"/><meta content="https://www.serwokontrol.pl/images/products/zawory-procesowe-grzybkowe-on-off.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/>
+<title>Serwokontrol – produkty Bürkert: zawory, przepływomierze i czujniki</title><meta content="Serwokontrol – produkty Bürkert: zawory procesowe, membranowe, kulowe, elektromagnetyczne, regulacyjne, przepływomierze, czujniki, wyspy zaworowe i regulatory przepływu." name="description"/><link href="https://www.serwokontrol.pl/products.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Serwokontrol – produkty Bürkert" property="og:title"/><meta content="Serwokontrol – katalog głównych grup produktów Bürkert: zawory, przepływomierze, czujniki, wyspy zaworowe i regulatory przepływu." property="og:description"/><meta content="https://www.serwokontrol.pl/products.html" property="og:url"/><meta content="https://www.serwokontrol.pl/images/products/zawory-procesowe-grzybkowe-on-off.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/>
 <link href="images/serwokontrol-symbol.svg" rel="icon" type="image/svg+xml"/>
 <link href="css/style.css" rel="stylesheet"/>
 <link href="css/header.css" rel="stylesheet"/>
 <link href="css/footer.css" rel="stylesheet"/>
 <link href="css/products.css" rel="stylesheet"/>
+<link href="css/design-system.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<link href="css/dark-theme.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&amp;display=swap" rel="stylesheet"/>
@@ -70,7 +73,7 @@
 <img alt="" aria-hidden="true" class="sticky_site_symbol_img sticky_site_symbol_img_light" decoding="async" height="352" src="images/serwokontrol-symbol-light.svg" width="328"/>
 </a>
 </div>
-<button aria-label="Otwórz menu" class="sticky_hamburger" id="stickyHamburgerBtn" type="button">
+<button aria-controls="stickyNavMenu" aria-expanded="false" aria-label="Otwórz menu" class="sticky_hamburger" id="stickyHamburgerBtn" type="button">
 <i aria-hidden="true" class="fa-solid fa-bars"> </i>
 </button>
 <ul class="sticky_contact">
@@ -111,7 +114,7 @@
 <nav aria-label="Ścieżka strony" class="page_breadcrumb reveal">
 <a href="index.html">Strona główna</a><i aria-hidden="true" class="fa-solid fa-chevron-right"></i><span>Produkty</span>
 </nav>
-<h1>Produkty Bürkert</h1>
+<h1>Produkty</h1>
 <div class="products_intro reveal">
 <h3>Oferta produktów</h3>
 <p>
@@ -185,10 +188,10 @@
             </button>
 </div>
 </div>
-<div class="products_grid">
-<article aria-label="Zobacz produkty: Zawory procesowe grzybkowe w wersji on/off" class="product_card reveal reveal_delay_1" data-description="Zawory procesowe grzybkowe Bürkert do automatyzacji odcinania przepływu mediów ciekłych i gazowych w instalacjach przemysłowych." data-image="images/products/zawory-procesowe-grzybkowe-on-off.png" data-modal-type="valve2000" data-subtype="Zawory procesowe" data-title="Zawory procesowe grzybkowe w wersji on/off" role="button" tabindex="0">
+<div class="products_grid" id="productsGrid">
+<article aria-label="Zobacz produkty: Zawory procesowe grzybkowe w wersji on/off" class="product_card reveal reveal_delay_1" data-description="Zawory procesowe grzybkowe Bürkert do automatyzacji odcinania przepływu mediów ciekłych i gazowych w instalacjach przemysłowych." data-image="images/products/zawory-procesowe-grzybkowe-on-off.webp" data-modal-type="valve2000" data-subtype="Zawory procesowe" data-title="Zawory procesowe grzybkowe w wersji on/off" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory procesowe grzybkowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-grzybkowe-on-off.png" width="1200"/>
+<img alt="Zawory procesowe grzybkowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-grzybkowe-on-off.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory procesowe </span>
@@ -196,9 +199,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory procesowe membranowe w wersji on/off" class="product_card reveal reveal_delay_2" data-description="Zawory membranowe Bürkert do aplikacji procesowych, higienicznych i mediów wymagających separacji od mechanizmu zaworu." data-image="images/products/zawory-procesowe-membranowe-on-off.png" data-modal-type="valveMembrane" data-subtype="Zawory procesowe" data-title="Zawory procesowe membranowe w wersji on/off" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory procesowe membranowe w wersji on/off" class="product_card reveal reveal_delay_2" data-description="Zawory membranowe Bürkert do aplikacji procesowych, higienicznych i mediów wymagających separacji od mechanizmu zaworu." data-image="images/products/zawory-procesowe-membranowe-on-off.webp" data-modal-type="valveMembrane" data-subtype="Zawory procesowe" data-title="Zawory procesowe membranowe w wersji on/off" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory procesowe membranowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-membranowe-on-off.png" width="1200"/>
+<img alt="Zawory procesowe membranowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-membranowe-on-off.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory procesowe </span>
@@ -206,9 +209,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory procesowe kulowe w wersji on/off" class="product_card reveal reveal_delay_3" data-description="Zawory kulowe z napędami do odcinania przepływu w instalacjach przemysłowych i technologicznych." data-image="images/products/zawory-procesowe-kulowe-on-off.png" data-modal-type="valveBall" data-subtype="Zawory procesowe" data-title="Zawory procesowe kulowe w wersji on/off" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory procesowe kulowe w wersji on/off" class="product_card reveal reveal_delay_3" data-description="Zawory kulowe z napędami do odcinania przepływu w instalacjach przemysłowych i technologicznych." data-image="images/products/zawory-procesowe-kulowe-on-off.webp" data-modal-type="valveBall" data-subtype="Zawory procesowe" data-title="Zawory procesowe kulowe w wersji on/off" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory procesowe kulowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-kulowe-on-off.png" width="1200"/>
+<img alt="Zawory procesowe kulowe on/off" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-kulowe-on-off.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory procesowe </span>
@@ -216,9 +219,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Wyspy zaworowe" class="product_card reveal reveal_delay_1" data-description="Wyspy zaworowe Bürkert do sterowania pneumatycznego i integracji z systemami automatyki." data-image="images/products/wyspy-zaworowe.png" data-modal-type="valveIslands" data-subtype="Automatyka przemysłowa" data-title="Wyspy zaworowe" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Wyspy zaworowe" class="product_card reveal reveal_delay_1" data-description="Wyspy zaworowe Bürkert do sterowania pneumatycznego i integracji z systemami automatyki." data-image="images/products/wyspy-zaworowe.webp" data-modal-type="valveIslands" data-subtype="Automatyka przemysłowa" data-title="Wyspy zaworowe" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Wyspy zaworowe" decoding="async" height="1200" loading="lazy" src="images/products/wyspy-zaworowe.png" width="1200"/>
+<img alt="Wyspy zaworowe" decoding="async" height="1200" loading="lazy" src="images/products/wyspy-zaworowe.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Automatyka przemysłowa </span>
@@ -226,9 +229,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory procesowe regulacyjne" class="product_card reveal reveal_delay_2" data-description="Zawory regulacyjne Bürkert do precyzyjnej kontroli przepływu, ciśnienia i parametrów procesu." data-image="images/products/zawory-procesowe-regulacyjne.png" data-modal-type="valveControl" data-subtype="Zawory procesowe" data-title="Zawory procesowe regulacyjne" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory procesowe regulacyjne" class="product_card reveal reveal_delay_2" data-description="Zawory regulacyjne Bürkert do precyzyjnej kontroli przepływu, ciśnienia i parametrów procesu." data-image="images/products/zawory-procesowe-regulacyjne.webp" data-modal-type="valveControl" data-subtype="Zawory procesowe" data-title="Zawory procesowe regulacyjne" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory procesowe regulacyjne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-regulacyjne.png" width="1200"/>
+<img alt="Zawory procesowe regulacyjne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-regulacyjne.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory procesowe </span>
@@ -236,9 +239,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory elektromagnetyczne" class="product_card reveal reveal_delay_3" data-description="Zawory elektromagnetyczne Bürkert do sterowania przepływem cieczy i gazów w układach automatyki." data-image="images/products/zawory-elektromagnetyczne.png" data-modal-type="solenoidValves" data-subtype="Zawory elektromagnetyczne" data-title="Zawory elektromagnetyczne" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory elektromagnetyczne" class="product_card reveal reveal_delay_3" data-description="Zawory elektromagnetyczne Bürkert do sterowania przepływem cieczy i gazów w układach automatyki." data-image="images/products/zawory-elektromagnetyczne.webp" data-modal-type="solenoidValves" data-subtype="Zawory elektromagnetyczne" data-title="Zawory elektromagnetyczne" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory elektromagnetyczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-elektromagnetyczne.png" width="1200"/>
+<img alt="Zawory elektromagnetyczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-elektromagnetyczne.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory elektromagnetyczne </span>
@@ -246,9 +249,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Przepływomierze" class="product_card reveal reveal_delay_1" data-description="Przepływomierze Bürkert do pomiaru przepływu cieczy i gazów w aplikacjach przemysłowych." data-image="images/products/przeplywomierze.png" data-modal-type="flowmeters" data-subtype="Pomiar przepływu" data-title="Przepływomierze" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Przepływomierze" class="product_card reveal reveal_delay_1" data-description="Przepływomierze Bürkert do pomiaru przepływu cieczy i gazów w aplikacjach przemysłowych." data-image="images/products/przeplywomierze.webp" data-modal-type="flowmeters" data-subtype="Pomiar przepływu" data-title="Przepływomierze" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Przepływomierze" decoding="async" height="1200" loading="lazy" src="images/products/przeplywomierze.png" width="1200"/>
+<img alt="Przepływomierze" decoding="async" height="1200" loading="lazy" src="images/products/przeplywomierze.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Pomiar przepływu </span>
@@ -256,9 +259,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory procesowe higieniczne" class="product_card reveal reveal_delay_2" data-description="Zawory higieniczne Bürkert do instalacji wymagających wysokiej czystości procesu i łatwego mycia." data-image="images/products/zawory-procesowe-higieniczne.png" data-modal-type="valveHygienic" data-subtype="Zawory procesowe" data-title="Zawory procesowe higieniczne" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory procesowe higieniczne" class="product_card reveal reveal_delay_2" data-description="Zawory higieniczne Bürkert do instalacji wymagających wysokiej czystości procesu i łatwego mycia." data-image="images/products/zawory-procesowe-higieniczne.webp" data-modal-type="valveHygienic" data-subtype="Zawory procesowe" data-title="Zawory procesowe higieniczne" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory procesowe higieniczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-higieniczne.png" width="1200"/>
+<img alt="Zawory procesowe higieniczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-higieniczne.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory procesowe </span>
@@ -266,9 +269,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Masowe regulatory przepływu gazów i cieczy" class="product_card reveal reveal_delay_3" data-description="Masowe regulatory przepływu Bürkert do dokładnego dozowania i regulacji przepływu gazów oraz cieczy." data-image="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.png" data-modal-type="massFlowControllers" data-subtype="Regulacja przepływu" data-title="Masowe regulatory przepływu gazów i cieczy" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Masowe regulatory przepływu gazów i cieczy" class="product_card reveal reveal_delay_3" data-description="Masowe regulatory przepływu Bürkert do dokładnego dozowania i regulacji przepływu gazów oraz cieczy." data-image="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.webp" data-modal-type="massFlowControllers" data-subtype="Regulacja przepływu" data-title="Masowe regulatory przepływu gazów i cieczy" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Masowe regulatory przepływu gazów i cieczy" decoding="async" height="1200" loading="lazy" src="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.png" width="1200"/>
+<img alt="Masowe regulatory przepływu gazów i cieczy" decoding="async" height="1200" loading="lazy" src="images/products/masowe-regulatory-przeplywu-gazow-i-cieczy.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Regulacja przepływu </span>
@@ -276,9 +279,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Zawory proporcjonalne elektromagnetyczne" class="product_card reveal reveal_delay_1" data-description="Zawory proporcjonalne elektromagnetyczne Bürkert do płynnej regulacji przepływu i ciśnienia." data-image="images/products/zawory-proporcjonalne-elektromagnetyczne.png" data-modal-type="proportionalSolenoidValves" data-subtype="Zawory proporcjonalne" data-title="Zawory proporcjonalne elektromagnetyczne" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Zawory proporcjonalne elektromagnetyczne" class="product_card reveal reveal_delay_1" data-description="Zawory proporcjonalne elektromagnetyczne Bürkert do płynnej regulacji przepływu i ciśnienia." data-image="images/products/zawory-proporcjonalne-elektromagnetyczne.webp" data-modal-type="proportionalSolenoidValves" data-subtype="Zawory proporcjonalne" data-title="Zawory proporcjonalne elektromagnetyczne" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Zawory proporcjonalne elektromagnetyczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-proporcjonalne-elektromagnetyczne.png" width="1200"/>
+<img alt="Zawory proporcjonalne elektromagnetyczne" decoding="async" height="1200" loading="lazy" src="images/products/zawory-proporcjonalne-elektromagnetyczne.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Zawory proporcjonalne </span>
@@ -286,9 +289,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Czujniki / przetworniki pomiarowe" class="product_card reveal reveal_delay_2" data-description="Czujniki i przetworniki Bürkert do monitorowania parametrów procesu, takich jak przepływ, poziom, pH, przewodność czy ciśnienie." data-image="images/products/czujniki-przetworniki-pomiarowe.png" data-modal-type="sensorsTransmitters" data-subtype="Aparatura pomiarowa" data-title="Czujniki / przetworniki pomiarowe" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Czujniki / przetworniki pomiarowe" class="product_card reveal reveal_delay_2" data-description="Czujniki i przetworniki Bürkert do monitorowania parametrów procesu, takich jak przepływ, poziom, pH, przewodność czy ciśnienie." data-image="images/products/czujniki-przetworniki-pomiarowe.webp" data-modal-type="sensorsTransmitters" data-subtype="Aparatura pomiarowa" data-title="Czujniki / przetworniki pomiarowe" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Czujniki / przetworniki pomiarowe" decoding="async" height="1200" loading="lazy" src="images/products/czujniki-przetworniki-pomiarowe.png" width="1200"/>
+<img alt="Czujniki / przetworniki pomiarowe" decoding="async" height="1200" loading="lazy" src="images/products/czujniki-przetworniki-pomiarowe.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Aparatura pomiarowa </span>
@@ -296,9 +299,9 @@
 <p>Kliknij, aby zobaczyć więcej informacji.</p>
 </div>
 </article>
-<article aria-label="Zobacz produkty: Inne produkty" class="product_card reveal reveal_delay_3" data-description="Pozostałe produkty Bürkert oraz rozwiązania uzupełniające dla automatyki procesowej i przemysłowej." data-image="images/products/inne-produkty.png" data-modal-type="otherProducts" data-subtype="Pozostała oferta" data-title="Inne produkty" role="button" tabindex="0">
+<article aria-label="Zobacz produkty: Inne produkty" class="product_card reveal reveal_delay_3" data-description="Pozostałe produkty Bürkert oraz rozwiązania uzupełniające dla automatyki procesowej i przemysłowej." data-image="images/products/inne-produkty.webp" data-modal-type="otherProducts" data-subtype="Pozostała oferta" data-title="Inne produkty" role="button" tabindex="0">
 <div class="product_image">
-<img alt="Inne produkty" decoding="async" height="1200" loading="lazy" src="images/products/inne-produkty.png" width="1200"/>
+<img alt="Inne produkty" decoding="async" height="1200" loading="lazy" src="images/products/inne-produkty.webp" width="1200"/>
 </div>
 <div class="product_content">
 <span> Pozostała oferta </span>
@@ -318,7 +321,7 @@
 </div>
 </section>
 </main>
-<div class="product_modal_overlay" id="productModalOverlay">
+<div aria-hidden="true" class="product_modal_overlay" id="productModalOverlay">
 <div aria-modal="true" class="product_modal" id="productModal" role="dialog">
 <!-- Content is rendered by js/products.js after selecting a product. -->
 <button aria-label="Zamknij okno" class="product_modal_close" id="productModalClose" type="button">
@@ -423,9 +426,9 @@
 <button aria-label="Przewiń do góry" class="scroll_top_btn" id="scrollTopBtn" type="button">
 <i aria-hidden="true" class="fa-solid fa-arrow-up"> </i>
 </button>
-<div class="cookie_overlay" id="cookieOverlay"></div>
-<div class="cookie_banner" id="cookieBanner">
-<p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
+<div aria-hidden="true" class="cookie_overlay" id="cookieOverlay"></div>
+<div aria-hidden="true" aria-labelledby="cookieBannerTitle" class="cookie_banner" id="cookieBanner" role="dialog">
+<p id="cookieBannerTitle">Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
 <button id="acceptCookiesBtn" type="button">Akceptuję</button>
 </div>
 <script defer="" src="js/script.js"></script>

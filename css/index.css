@@ -1,6 +1,4 @@
-/* =========================================================
-   Home Page - Full Landing Layout
-   ========================================================= */
+/* Home Page */
 
 .home_main {
   margin-top: 0;
@@ -28,9 +26,7 @@
   outline-offset: 4px;
 }
 
-/* =========================================================
-   Hero
-   ========================================================= */
+/* Hero */
 
 .home_hero {
   position: relative;
@@ -54,7 +50,6 @@
   position: absolute;
   inset: -120px 0;
   z-index: -3;
-
   background-image:
     linear-gradient(
       115deg,
@@ -70,18 +65,16 @@
       url("../images/hero-cip-large.webp") type("image/webp"),
       url("../images/hero-cip-large.jpg") type("image/jpeg")
     );
-
   background-size: auto, auto, cover;
   background-position:
     center,
     center,
     center center;
   background-repeat: repeat, repeat, no-repeat;
-
   filter: saturate(1.1) contrast(1.08) brightness(0.96);
-
   will-change: transform;
 }
+
 .home_hero_overlay {
   position: absolute;
   inset: 0;
@@ -100,6 +93,7 @@
       transparent 34%
     );
 }
+
 .home_hero_circle {
   position: absolute;
   z-index: -1;
@@ -424,9 +418,7 @@
   background-color: #ffffff;
 }
 
-/* =========================================================
-   Highlights
-   ========================================================= */
+/* Highlights */
 
 .home_highlights {
   position: relative;
@@ -486,9 +478,7 @@
   line-height: 1.65;
 }
 
-/* =========================================================
-   Shared sections
-   ========================================================= */
+/* Shared sections */
 
 .home_page {
   display: flex;
@@ -526,9 +516,7 @@
   line-height: 1.8;
 }
 
-/* =========================================================
-   Products overview
-   ========================================================= */
+/* Products overview */
 
 .home_products {
   padding: 30px;
@@ -655,9 +643,7 @@
   font-size: 14px;
 }
 
-/* =========================================================
-   Selector
-   ========================================================= */
+/* Selector */
 
 .home_selector {
   display: grid;
@@ -780,9 +766,7 @@
   text-decoration: none;
 }
 
-/* =========================================================
-   Process
-   ========================================================= */
+/* Process */
 
 .home_process_grid {
   display: grid;
@@ -827,9 +811,7 @@
   line-height: 1.75;
 }
 
-/* =========================================================
-   Partner and CTA
-   ========================================================= */
+/* Partner and CTA */
 
 .home_partner,
 .home_region_cta {
@@ -912,193 +894,25 @@
   background-color: rgba(255, 255, 255, 0.16);
 }
 
-/* =========================================================
-   Animations
-   ========================================================= */
+/* Animations */
 
 @keyframes homeScan {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
 
-/* =========================================================
-   Dark theme
-   ========================================================= */
-
-body.dark_theme .home_main {
-  background-color: #26313a;
+to {
+  transform: translateX(120%);
+}
 }
 
-body.dark_theme .home_highlight,
-body.dark_theme .home_products,
-body.dark_theme .home_product_tile,
-body.dark_theme .home_selector_text,
-body.dark_theme .home_selector_panel,
-body.dark_theme .home_process_step {
-  background-color: #2f3c46;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-}
 
-body.dark_theme .home_highlight h3,
-body.dark_theme .home_product_tile h3,
-body.dark_theme .home_process_step h3 {
-  color: #e2e9f1;
-}
+/* Dark theme */
 
-body.dark_theme .home_highlight p,
-body.dark_theme .home_section_header p,
-body.dark_theme .home_selector_text p,
-body.dark_theme .home_product_tile p,
-body.dark_theme .home_process_step p {
-  color: #d7e0e8;
-}
 
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) {
-  border-color: rgba(226, 233, 241, 0.12);
-}
+/* Responsive */
 
-body.dark_theme .home_selector_fields label {
-  color: #e2e9f1;
-}
-
-body.dark_theme .home_selector_fields select {
-  color: #e2e9f1;
-  border-color: rgba(226, 233, 241, 0.16);
-  background-color: #26313a;
-}
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 1100px) {
-  .home_hero_inner {
-    grid-template-columns: 1fr;
-    width: min(1000px, calc(100% - 48px));
-    gap: 30px;
-  }
-
-  .home_hero_slider {
-    min-height: 370px;
-  }
-
-  .home_hero_card {
-    min-height: auto;
-  }
-
-  .home_highlights_inner,
-  .home_process_grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .home_selector,
-  .home_partner {
-    grid-template-columns: 1fr;
-  }
-
-  .home_partner_mark {
-    justify-self: start;
-  }
-}
-
-@media (max-width: 800px) {
-  .home_hero {
-    min-height: auto;
-  }
-
-  .home_hero_inner {
-    padding: 70px 0 120px;
-  }
-
-  .home_hero_slider {
-    min-height: 460px;
-  }
-
-  .home_hero h2 {
-    font-size: 40px;
-  }
-
-  .home_hero p {
-    font-size: 17px;
-  }
-
-  .home_highlights {
-    margin-top: -28px;
-  }
-
-  .home_highlights_inner,
-  .home_products_grid,
-  .home_selector_panel,
-  .home_process_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home_product_tile_featured {
-    grid-column: auto;
-  }
-
-  .home_region_cta {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 560px) {
-  .home_hero_inner {
-    width: calc(100% - 34px);
-    padding-top: 54px;
-  }
-
-  .home_hero_slider {
-    min-height: 500px;
-  }
-
-  .home_hero h2 {
-    font-size: 34px;
-  }
-
-  .home_hero_actions,
-  .home_region_actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .home_btn {
-    width: 100%;
-  }
-
-  .home_slider_controls {
-    bottom: 28px;
-  }
-
-  .home_page {
-    padding-top: 44px;
-  }
-
-  .home_products,
-  .home_selector_text,
-  .home_selector_panel,
-  .home_partner,
-  .home_region_cta {
-    padding: 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home_hero_bg,
-  .home_hero_circle,
-  .home_hero_card {
-    transform: none !important;
-  }
-}
-
-/* =========================================================
-   Home Layout Refinement - spacious layout, responsive, dark theme
-   ========================================================= */
+/* Home Layout */
 
 .container.home_page {
   max-width: 1240px;
@@ -1228,269 +1042,14 @@ body.dark_theme .home_selector_fields select {
   max-width: 720px;
 }
 
-/* Better visual rhythm on wide screens */
-@media (min-width: 1180px) {
-  .home_main {
-    padding-bottom: 104px;
-  }
+/* Dark theme */
 
-  .home_products_grid {
-    grid-template-columns: 1.18fr 1fr 1fr;
-  }
-
-  .home_product_tile_featured {
-    grid-row: span 2;
-    grid-column: auto;
-  }
-}
-
-/* Dark theme refinement */
-body.dark_theme .home_main {
-  background:
-    radial-gradient(
-      circle at 10% 14%,
-      rgba(112, 144, 183, 0.12),
-      transparent 28%
-    ),
-    #26313a;
-  box-shadow: inset 0 8px 14px rgba(0, 0, 0, 0.18);
-}
-
-body.dark_theme .home_hero {
-  background:
-    linear-gradient(135deg, rgba(32, 42, 50, 0.96), rgba(83, 103, 122, 0.82)),
-    radial-gradient(
-      circle at 15% 18%,
-      rgba(255, 255, 255, 0.12),
-      transparent 32%
-    ),
-    linear-gradient(135deg, #202a32, #526a82);
-}
-
-body.dark_theme .home_hero_bg {
-  filter: saturate(0.98) contrast(1.12) brightness(0.76);
-}
-
-body.dark_theme .home_hero_overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(25, 34, 42, 0.96) 0%,
-    rgba(25, 34, 42, 0.76) 42%,
-    rgba(25, 34, 42, 0.54) 68%,
-    rgba(25, 34, 42, 0.72) 100%
-  );
-}
-
-body.dark_theme .home_products,
-body.dark_theme .home_highlight,
-body.dark_theme .home_selector_text,
-body.dark_theme .home_selector_panel,
-body.dark_theme .home_process_step {
-  border-color: rgba(226, 233, 241, 0.08);
-}
-
-body.dark_theme .home_section_header h2,
-body.dark_theme .home_selector_text h2 {
-  color: #9db6d2;
-}
-
-body.dark_theme .home_section_header span,
-body.dark_theme .home_selector_text span {
-  color: #9db6d2;
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) {
-  background-color: #34434e;
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured):hover,
-body.dark_theme
-  .home_product_tile:not(.home_product_tile_featured):focus-visible {
-  background-color: #3a4a56;
-}
-
-body.dark_theme .home_product_tile span {
-  color: #9db6d2;
-}
-
-body.dark_theme .home_product_tile i,
-body.dark_theme .home_highlight i {
-  color: #c4d4e4;
-  background-color: rgba(157, 182, 210, 0.15);
-}
-
-body.dark_theme .home_selector_fields select:focus-visible {
-  box-shadow: 0 0 0 4px rgba(157, 182, 210, 0.16);
-}
-
-body.dark_theme .home_process_step strong {
-  color: rgba(157, 182, 210, 0.34);
-}
-
-body.dark_theme .home_btn_primary {
-  color: #526a82;
-}
-
-body.dark_theme .home_btn_primary:hover,
-body.dark_theme .home_btn_primary:focus-visible {
-  color: #ffffff;
-  background-color: #202a32;
-}
 
 /* Tablet */
-@media (max-width: 1100px) {
-  .container.home_page {
-    max-width: 960px;
-    gap: 66px;
-    padding-top: 74px;
-  }
-
-  .home_highlights_inner {
-    max-width: 960px;
-  }
-
-  .home_products_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home_product_tile_featured {
-    grid-column: span 2;
-    grid-row: auto;
-  }
-
-  .home_selector,
-  .home_partner {
-    gap: 26px;
-  }
-}
-
-/* Small tablet and large phones */
-@media (max-width: 800px) {
-  .container.home_page {
-    width: min(100% - 34px, 680px);
-    gap: 54px;
-    padding-top: 60px;
-  }
-
-  .home_highlights {
-    padding: 0 17px;
-  }
-
-  .home_highlights_inner {
-    width: min(100%, 680px);
-    gap: 18px;
-  }
-
-  .home_highlight {
-    min-height: auto;
-    padding: 24px;
-  }
-
-  .home_section_header {
-    margin-bottom: 26px;
-  }
-
-  .home_products,
-  .home_selector_text,
-  .home_selector_panel,
-  .home_partner,
-  .home_region_cta {
-    border-radius: 24px;
-  }
-
-  .home_products {
-    padding: 28px;
-  }
-
-  .home_product_tile,
-  .home_process_step {
-    min-height: auto;
-  }
-
-  .home_product_tile_featured {
-    grid-column: auto;
-  }
-
-  .home_selector_panel {
-    gap: 24px;
-  }
-
-  .home_process_grid {
-    gap: 18px;
-  }
-
-  .home_partner_mark {
-    font-size: clamp(44px, 14vw, 78px);
-  }
-}
 
 /* Phones */
-@media (max-width: 560px) {
-  .home_main {
-    padding-bottom: 66px;
-  }
 
-  .container.home_page {
-    width: calc(100% - 28px);
-    gap: 44px;
-    padding-top: 50px;
-  }
-
-  .home_highlights {
-    margin-top: -22px;
-    padding: 0 14px;
-  }
-
-  .home_highlight {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .home_products,
-  .home_selector_text,
-  .home_selector_panel,
-  .home_partner,
-  .home_region_cta {
-    padding: 22px;
-    border-radius: 20px;
-  }
-
-  .home_product_tile {
-    padding: 24px;
-    border-radius: 20px;
-  }
-
-  .home_product_tile i {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 18px;
-  }
-
-  .home_selector_fields select {
-    min-height: 50px;
-  }
-
-  .home_selector_result {
-    padding: 24px;
-  }
-
-  .home_process_step {
-    padding: 24px;
-  }
-
-  .home_process_step strong {
-    margin-bottom: 16px;
-    font-size: 38px;
-  }
-
-  .home_partner_mark {
-    word-break: break-word;
-  }
-}
-
-/* =========================================================
-   Home final refinement - width, even grids, contrast
-   ========================================================= */
+/* Home final */
 
 .container.home_page,
 .home_highlights_inner {
@@ -1607,104 +1166,8 @@ body.dark_theme .home_btn_primary:focus-visible {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
-@media (min-width: 1180px) {
-  .home_products_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* Hero slider controls */
 
-  .home_product_tile_featured {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}
-
-@media (max-width: 1100px) {
-  .container.home_page,
-  .home_highlights_inner {
-    max-width: 940px;
-  }
-
-  .home_highlights_inner,
-  .home_products_grid,
-  .home_process_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 800px) {
-  .container.home_page {
-    width: min(100% - 34px, 700px);
-  }
-
-  .home_highlights_inner,
-  .home_products_grid,
-  .home_process_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home_highlight,
-  .home_product_tile,
-  .home_process_step {
-    min-width: 0;
-  }
-}
-
-@media (max-width: 620px) {
-  .home_highlights_inner,
-  .home_products_grid,
-  .home_process_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home_product_tile {
-    min-height: auto;
-  }
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) {
-  background: linear-gradient(135deg, #34434e, #2f3c46 72%), #2f3c46;
-  border-color: rgba(226, 233, 241, 0.11);
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) h3 {
-  color: #e2e9f1;
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) p {
-  color: #d7e0e8;
-}
-
-body.dark_theme .home_product_tile:not(.home_product_tile_featured) span,
-body.dark_theme .home_section_header h2,
-body.dark_theme .home_selector_text h2 {
-  color: #aec2d8;
-}
-
-body.dark_theme .home_section_header h2::after,
-body.dark_theme .home_selector_text h2::after {
-  background-color: #aec2d8;
-}
-
-body.dark_theme .home_product_tile_featured {
-  background:
-    radial-gradient(
-      circle at right bottom,
-      rgba(255, 255, 255, 0.12),
-      transparent 38%
-    ),
-    linear-gradient(135deg, #5f7fa7, #465e78);
-}
-
-/* =========================================================
-   Hero slider controls - final fix
-   ========================================================= */
-
-/*
-  The original HTML keeps the dots and arrows in the hero area.
-  These rules also work if the arrows are still inside .home_slider_controls,
-  because the controls layer covers the whole hero and only the buttons
-  receive pointer events.
-*/
 .home_hero {
   position: relative;
 }
@@ -1817,15 +1280,12 @@ body.dark_theme .home_product_tile_featured {
   text-shadow: 0 12px 28px rgba(36, 45, 53, 0.72);
 }
 
-/* Restore the original highlight overlap requested by the user. */
 .home_highlights {
   z-index: 5;
   margin-top: -42px;
 }
 
-/* =========================================================
-   Reversible scroll reveal
-   ========================================================= */
+/* Reversible scroll reveal */
 
 .reveal {
   opacity: 0;
@@ -1865,88 +1325,21 @@ body.dark_theme .home_product_tile_featured {
   transition-delay: 0s;
 }
 
-@media (max-width: 800px) {
-  .home_slider_dots {
-    bottom: 42px;
-  }
-
-  .home_slider_arrow_prev,
-  #homeHeroPrev {
-    left: 10px;
-  }
-
-  .home_slider_arrow_next,
-  #homeHeroNext {
-    right: 10px;
-  }
-
-  .home_highlights {
-    margin-top: -28px;
-  }
-}
-
-@media (max-width: 560px) {
-  .home_slider_dots {
-    bottom: 28px;
-  }
-
-  .home_slider_arrow,
-  .home_hero > .home_slider_arrow {
-    top: 50%;
-    bottom: auto;
-    width: 42px;
-    height: 42px;
-    font-size: 21px;
-    transform: translateY(-50%);
-  }
-
-  .home_slider_arrow:hover,
-  .home_slider_arrow:focus-visible,
-  .home_hero > .home_slider_arrow:hover,
-  .home_hero > .home_slider_arrow:focus-visible {
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  .home_highlights {
-    margin-top: -22px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none !important;
-    transition: none;
-  }
-}
-
-/* =========================================================
-   Slider dots / highlights hover / stronger reversible reveal patch
-   ========================================================= */
-
-/* Dots lifted higher so the overlapping highlights never cover them. */
 .home_slider_dots {
   bottom: clamp(78px, 8vh, 104px);
 }
 
-/* Keep the original highlight overlap exactly as requested. */
 .home_highlights {
   margin-top: -42px;
 }
 
-/* Restore hover lift that was being overridden by .reveal.is_visible. */
 .home_highlight.reveal.is_visible:hover,
 .home_highlight.reveal.is_visible:focus-within {
   transform: translateY(-5px);
   box-shadow: 0 18px 40px rgba(94, 106, 113, 0.22);
 }
 
-body.dark_theme .home_highlight.reveal.is_visible:hover,
-body.dark_theme .home_highlight.reveal.is_visible:focus-within {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-}
 
-/* Stronger reverse state used when user scrolls back up. */
 .reveal.reveal_hiding_up:not(.is_visible) {
   opacity: 0;
   transform: translate3d(0, 42px, 0);
@@ -1958,30 +1351,7 @@ body.dark_theme .home_highlight.reveal.is_visible:focus-within {
   transform: translate3d(0, -34px, 0);
 }
 
-@media (max-width: 800px) {
-  .home_slider_dots {
-    bottom: 76px;
-  }
-
-  .home_highlights {
-    margin-top: -28px;
-  }
-}
-
-@media (max-width: 560px) {
-  .home_slider_dots {
-    bottom: 64px;
-  }
-
-  .home_highlights {
-    margin-top: -22px;
-  }
-}
-
-/* =========================================================
-   Unified reversible reveal animation fix
-   Keeps fade/slide transitions visible even on cards that define their own transitions.
-   ========================================================= */
+/* Unified reversible reveal animation */
 
 .reveal {
   opacity: 0;
@@ -2022,17 +1392,6 @@ body.dark_theme .home_highlight.reveal.is_visible:focus-within {
   transition-delay: 0.32s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.show,
-  .reveal.is_visible {
-    opacity: 1;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* Reveal + hover compatibility for home cards */
 .home_highlight.reveal.show:hover,
 .home_highlight.reveal.is_visible:hover,
 .home_highlight.reveal.show:focus-within,
@@ -2047,16 +1406,8 @@ body.dark_theme .home_highlight.reveal.is_visible:focus-within {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
 }
 
-body.dark_theme .home_highlight.reveal.show:hover,
-body.dark_theme .home_highlight.reveal.is_visible:hover,
-body.dark_theme .home_highlight.reveal.show:focus-within,
-body.dark_theme .home_highlight.reveal.is_visible:focus-within {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-}
 
-/* =========================================================
-   Home highlights hover responsiveness fix
-   ========================================================= */
+/* Home highlights hover responsiveness */
 
 .home_highlight,
 .home_highlight.reveal,
@@ -2074,9 +1425,7 @@ body.dark_theme .home_highlight.reveal.is_visible:focus-within {
   transition-delay: 0s !important;
 }
 
-/* =========================================================
-   Home ordered reveal v4
-   ========================================================= */
+/* Home ordered reveal */
 
 .home_highlight.reveal_sequence_item,
 .home_process_step.reveal_sequence_item,
@@ -2121,16 +1470,8 @@ body.dark_theme .home_highlight.reveal.is_visible:focus-within {
   transform: translateY(-6px);
 }
 
-body.dark_theme .home_highlight.reveal_sequence_item.show:hover,
-body.dark_theme .home_highlight.reveal_sequence_item.is_visible:hover,
-body.dark_theme .home_highlight.reveal_sequence_item.show:focus-within,
-body.dark_theme .home_highlight.reveal_sequence_item.is_visible:focus-within {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-}
 
-/* =========================================================
-   Home stats / why Serwokontrol
-   ========================================================= */
+/* Home stats / why Serwokontrol */
 
 .home_stats {
   position: relative;
@@ -2239,70 +1580,10 @@ body.dark_theme .home_highlight.reveal_sequence_item.is_visible:focus-within {
   transition-delay: 0s !important;
 }
 
-body.dark_theme .home_stats_inner,
-body.dark_theme .home_stat_card {
-  background-color: #2f3c46;
-  border-color: rgba(226, 233, 241, 0.08);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
-}
+/* Home dark CTA readability */
 
-body.dark_theme .home_stat_card {
-  background: linear-gradient(135deg, #34434e, #2f3c46);
-}
 
-body.dark_theme .home_stats_text h2,
-body.dark_theme .home_stats_text span,
-body.dark_theme .home_stat_card strong {
-  color: #9db6d2;
-}
-
-body.dark_theme .home_stats_text p,
-body.dark_theme .home_stat_card p {
-  color: #d7e0e8;
-}
-
-@media (max-width: 900px) {
-  .home_stats_inner {
-    width: min(100% - 34px, 700px);
-    grid-template-columns: 1fr;
-  }
-
-  .home_stats_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .home_stats {
-    padding: 32px 0 0;
-  }
-
-  .home_stats_inner {
-    width: calc(100% - 28px);
-    padding: 22px;
-    border-radius: 22px;
-  }
-}
-
-/* =========================================================
-   Home dark CTA readability v16
-   ========================================================= */
-
-body.dark_theme .home_partner_content h2,
-body.dark_theme .home_region_cta h2,
-body.dark_theme .home_partner_content span,
-body.dark_theme .home_region_cta span {
-  color: #ffffff;
-}
-
-body.dark_theme .home_partner_content h2::after,
-body.dark_theme .home_region_cta h2::after {
-  background-color: rgba(255, 255, 255, 0.68);
-}
-
-/* =========================================================
-   Home page consistency pass v23
-   ========================================================= */
+/* Home page */
 
 .home_highlight,
 .home_product_tile,
@@ -2366,21 +1647,8 @@ body.dark_theme .home_region_cta h2::after {
   transition-delay: 0s !important;
 }
 
-body.dark_theme .home_highlight:hover,
-body.dark_theme .home_highlight:focus-within,
-body.dark_theme .home_product_tile:not(.home_product_tile_featured):hover,
-body.dark_theme
-  .home_product_tile:not(.home_product_tile_featured):focus-visible,
-body.dark_theme .home_process_step:hover,
-body.dark_theme .home_process_step:focus-within,
-body.dark_theme .home_stat_card:hover,
-body.dark_theme .home_stat_card:focus-within {
-  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
-}
 
-/* =========================================================
-   Bürkert Subline Logo - Home Partner
-   ========================================================= */
+/* Bürkert Subline Logo */
 
 .home_partner_mark {
   justify-self: end;
@@ -2429,76 +1697,9 @@ body.dark_theme .home_stat_card:focus-within {
     drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
 }
 
-body.dark_theme .home_partner_logo_link img {
-  filter: contrast(1.18) saturate(1.12)
-    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.42));
-}
+/* Hero CIP background */
 
-@media (max-width: 980px) {
-  .home_partner_mark {
-    justify-self: start;
-    width: min(100%, 360px);
-    margin-top: 8px;
-  }
-}
-
-@media (max-width: 560px) {
-  .home_partner_mark {
-    width: min(100%, 300px);
-  }
-}
-
-/* =========================================================
-   Hero CIP background - fitted to full hero section
-   ========================================================= */
-
-body.dark_theme .home_hero_overlay {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(20, 27, 33, 0.93) 0%,
-      rgba(20, 27, 33, 0.74) 42%,
-      rgba(20, 27, 33, 0.54) 68%,
-      rgba(20, 27, 33, 0.7) 100%
-    ),
-    radial-gradient(
-      circle at 76% 42%,
-      rgba(112, 144, 183, 0.16),
-      transparent 34%
-    );
-}
-
-@media (max-width: 900px) {
-  .home_hero_bg {
-    background-position:
-      center,
-      center,
-      58% center;
-  }
-
-  .home_hero_overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(31, 42, 51, 0.94) 0%,
-      rgba(31, 42, 51, 0.76) 58%,
-      rgba(31, 42, 51, 0.7) 100%
-    );
-  }
-}
-
-@media (max-width: 640px) {
-  .home_hero_bg {
-    inset: -80px 0;
-    background-position:
-      center,
-      center,
-      62% center;
-  }
-}
-
-/* =========================================================
-   Layout adjustments - partner logo and selector panel
-   ========================================================= */
+/* Layout adjustments */
 
 .home_partner_logo_link {
   position: relative;
@@ -2574,19 +1775,7 @@ body.dark_theme .home_hero_overlay {
   max-width: 760px;
 }
 
-@media (max-width: 768px) {
-  .home_selector_fields {
-    grid-template-columns: 1fr;
-  }
-
-  .home_selector_result {
-    padding: 24px;
-  }
-}
-
-/* =========================================================
-   Layout correction 6 - Partner logo and selector support
-   ========================================================= */
+/* Layout correction 6 */
 
 .home_partner_logo_link {
   position: relative;
@@ -2717,15 +1906,7 @@ body.dark_theme .home_hero_overlay {
   line-height: 1.5;
 }
 
-@media (max-width: 992px) {
-  .home_selector_support {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   Layout correction 7 - Partner position/logo and products cards
-   ========================================================= */
+/* Layout correction 7 */
 
 .home_products .home_section_header span {
   display: inline-flex;
@@ -2898,85 +2079,23 @@ body.dark_theme .home_hero_overlay {
 }
 
 @keyframes homePartnerLogoShine {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
 
-body.dark_theme .home_product_tile,
-body.dark_theme .home_product_tile_featured {
-  background: linear-gradient(135deg, #2f3941, #283139 70%);
-  border-color: rgba(155, 183, 216, 0.18);
-  color: #e2e9f1;
+to {
+  transform: translateX(120%);
+}
 }
 
-body.dark_theme .home_product_tile h3,
-body.dark_theme .home_product_tile_featured h3 {
-  color: #e2e9f1;
-}
+/* Layout corrections 8 */
 
-body.dark_theme .home_product_tile p,
-body.dark_theme .home_product_tile_featured p {
-  color: rgba(226, 233, 241, 0.82);
-}
-
-body.dark_theme .home_product_tile span,
-body.dark_theme .home_product_tile_featured span,
-body.dark_theme .home_product_tile i,
-body.dark_theme .home_product_tile_featured i {
-  color: #9bb7d8;
-}
-
-body.dark_theme .home_product_tile i,
-body.dark_theme .home_product_tile_featured i {
-  background-color: rgba(155, 183, 216, 0.12);
-}
-
-@media (max-width: 1180px) {
-  .home_products_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 980px) {
-  .home_partner {
-    grid-template-columns: 1fr;
-  }
-
-  .home_partner_mark {
-    justify-self: start;
-    width: min(100%, 390px);
-  }
-}
-
-@media (max-width: 640px) {
-  .home_products_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home_partner_logo_link {
-    min-height: 190px;
-    padding: 26px;
-  }
-}
-
-/* =========================================================
-   Layout corrections 8 - partner rhythm and product groups
-   ========================================================= */
-
-/* Keep the Bürkert partner block in the same readable width as the rest of the
-   content and add breathing room from the highlights above it. */
 .home_partner {
   width: min(1240px, calc(100% - 56px));
   margin: clamp(46px, 5vw, 72px) auto 0;
   max-width: 1240px;
 }
 
-/* Softer reveal for the moved partner section so it matches the rest of the
-   page instead of snapping in/out too aggressively. */
 .home_partner.reveal {
   transform: translateY(24px);
   transition:
@@ -3035,8 +2154,6 @@ body.dark_theme .home_product_tile_featured i {
   filter: drop-shadow(0 10px 16px rgba(31, 42, 51, 0.18));
 }
 
-/* Product groups: keep three equal cards per row, remove the old featured card
-   treatment and add one calm background effect for the whole section. */
 .home_products {
   position: relative;
   overflow: hidden;
@@ -3138,84 +2255,7 @@ body.dark_theme .home_product_tile_featured i {
   color: #7090b7;
 }
 
-body.dark_theme .home_partner_logo_link {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.14),
-      rgba(255, 255, 255, 0.06)
-    ),
-    rgba(255, 255, 255, 0.08);
-  border-color: rgba(226, 233, 241, 0.22);
-}
-
-body.dark_theme .home_products {
-  background:
-    linear-gradient(115deg, rgba(36, 44, 50, 0.92), rgba(36, 44, 50, 0.98)),
-    radial-gradient(
-      circle at 22% 0%,
-      rgba(155, 183, 216, 0.12),
-      transparent 34%
-    ),
-    #242c32;
-}
-
-body.dark_theme .home_products::after {
-  background-color: rgba(155, 183, 216, 0.08);
-}
-
-body.dark_theme .home_product_tile,
-body.dark_theme .home_product_tile_featured {
-  color: #e2e9f1;
-  background-color: rgba(31, 36, 40, 0.82);
-  border-color: rgba(226, 233, 241, 0.12);
-}
-
-body.dark_theme .home_product_tile_featured i,
-body.dark_theme .home_product_tile i {
-  color: #9bb7d8;
-  background-color: rgba(155, 183, 216, 0.16);
-}
-
-body.dark_theme .home_product_tile_featured span,
-body.dark_theme .home_product_tile span {
-  color: #9bb7d8;
-}
-
-@media (max-width: 992px) {
-  .home_partner {
-    width: min(100% - 40px, 760px);
-    grid-template-columns: 1fr;
-  }
-
-  .home_partner_mark {
-    justify-self: stretch;
-  }
-
-  .home_partner_logo_link {
-    width: 100%;
-    min-height: 180px;
-  }
-
-  .home_products_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .home_partner {
-    width: calc(100% - 32px);
-    margin-top: 40px;
-  }
-
-  .home_products_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   Layout corrections 9 - partner width alignment
-   ========================================================= */
+/* Layout corrections 9 */
 
 .home_partner {
   width: min(1160px, calc(100% - 56px));
@@ -3230,22 +2270,7 @@ body.dark_theme .home_product_tile span {
     transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (max-width: 992px) {
-  .home_partner {
-    width: min(100% - 40px, 760px);
-  }
-}
-
-@media (max-width: 640px) {
-  .home_partner {
-    width: calc(100% - 32px);
-    margin-top: 44px;
-  }
-}
-
-/* =========================================================
-   Layout corrections 10 - partner width and logo alignment
-   ========================================================= */
+/* Layout corrections 10 */
 
 .home_partner {
   width: min(1160px, calc(100% - 56px));
@@ -3261,95 +2286,457 @@ body.dark_theme .home_product_tile span {
   justify-self: end;
 }
 
-@media (max-width: 980px) {
-  .home_partner {
-    grid-template-columns: 1fr;
-    width: min(1160px, calc(100% - 32px));
-  }
-
-  .home_partner_mark {
-    justify-self: start;
-    width: min(100%, 390px);
-  }
-}
-
-/* =========================================================
-   Layout corrections 11 - partner logo desktop offset
-   ========================================================= */
+/* Layout corrections 11 */
 
 .home_partner_mark {
   position: relative;
   left: 20%;
 }
 
-@media (max-width: 980px) {
-  .home_partner_mark {
-    left: 0;
-  }
+/* Dark theme product groups background */
+
+
+/* Home partner CTA background */
+.home_partner {
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7) !important;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
 }
+
+.home_partner_content h2,
+.home_partner_content p,
+.home_partner_content span {
+  color: #ffffff;
+}
+
+.home_partner_content p {
+  opacity: 0.9;
+}
+
+
+/* Home visual refinements 2.10 */
+.home_partner,
+.products_intro_style_reference_unused {
+  color: #ffffff;
+}
+
+.home_partner {
+  background:
+    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.18), transparent 34%),
+    radial-gradient(circle at left top, rgba(255, 255, 255, 0.1), transparent 38%),
+    linear-gradient(135deg, #7090b7 0%, #5f7fa7 56%, #526f95 100%) !important;
+}
+
+
+.home_highlight,
+.home_selector_text,
+.home_product_tile,
+.home_process_step {
+  position: relative;
+  overflow: hidden;
+}
+
+.home_highlight::before,
+.home_selector_text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #7090b7, rgba(112, 144, 183, 0.28));
+  transform: scaleY(0.48);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.home_highlight:hover::before,
+.home_highlight:focus-within::before,
+.home_selector_text:hover::before,
+.home_selector_text:focus-within::before {
+  transform: scaleY(1);
+}
+
+
+.home_highlight > *,
+.home_selector_text > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home_product_tile::before,
+.home_process_step::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  height: 4px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0));
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 1;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 3;
+}
+
+.home_product_tile:hover::before,
+.home_product_tile:focus-visible::before,
+.home_process_step:hover::after,
+.home_process_step:focus-within::after {
+  transform: scaleX(1);
+}
+
 /* =========================================================
-   Dark theme product groups background fix
-   Removes the bright/glossy background effect from the
-   "Główne grupy rozwiązań" section in dark mode.
+   Home visual adjustments - main product groups section
    ========================================================= */
 
-body.dark_theme .home_products {
-  background: #2f3c46 !important;
-  border-color: rgba(226, 233, 241, 0.08);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+/* Remove underline only under the "Główne grupy rozwiązań" section title. */
+.home_products .home_section_header h2::after {
+  display: none;
 }
 
-body.dark_theme .home_products::before,
-body.dark_theme .home_products::after {
-  display: none !important;
-  opacity: 0 !important;
+/* Keep the animated underline on product tiles, but slow it down and make it a subtle gradient bar. */
+.home_products .home_product_tile::after,
+.home_products .home_product_tile_featured::after {
+  background: linear-gradient(90deg, #5f7fa7 0%, #7090b7 48%, #9bb7d8 100%);
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home_products .home_product_tile:hover::after,
+.home_products .home_product_tile:focus-visible::after,
+.home_products .home_product_tile_featured:hover::after,
+.home_products .home_product_tile_featured:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   Home product groups - corrected bottom gradient lines
+   ========================================================= */
+
+/* Disable the earlier decorative line on ::before so only one bottom line is visible. */
+.home_products .home_product_tile::before,
+.home_products .home_product_tile_featured::before {
   content: none !important;
+  display: none !important;
 }
 
-body.dark_theme .home_product_tile::before {
+/* One clean gradient line under every tile.
+   It stays hidden by default and appears on hover/focus, expanding from left to right
+   like the cards in the “Od aplikacji do dobranego rozwiązania” section. */
+.home_products .home_product_tile::after,
+.home_products .home_product_tile_featured::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 0 999px 999px 0;
   background: linear-gradient(
-    135deg,
-    rgba(155, 183, 216, 0.08),
-    transparent 58%
+    90deg,
+    #7090b7 0%,
+    rgba(112, 144, 183, 0.48) 62%,
+    rgba(112, 144, 183, 0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition:
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.18s ease;
+  z-index: 3;
+}
+
+.home_products .home_product_tile:hover::after,
+.home_products .home_product_tile:focus-visible::after,
+.home_products .home_product_tile_featured:hover::after,
+.home_products .home_product_tile_featured:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   Home selector section - remove heading underline
+   ========================================================= */
+
+.home_selector_text h2::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   Home process section - remove heading underline
+   ========================================================= */
+
+#homeProcess .home_section_header h2::after,
+.home_process .home_section_header h2::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: none !important;
+}
+
+/* =========================================================
+   Home visual step 6
+   Region CTA: make the “Przejdź do formularza” button match
+   the primary hero slider CTA style, with dark theme support.
+   ========================================================= */
+
+.home_region_cta .home_region_actions .home_btn_secondary {
+  color: #7090b7;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 12px 30px rgba(39, 48, 56, 0.25);
+}
+
+.home_region_cta .home_region_actions .home_btn_secondary::before {
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(112, 144, 183, 0.18),
+    transparent
   );
 }
 
+.home_region_cta .home_region_actions .home_btn_secondary:hover,
+.home_region_cta .home_region_actions .home_btn_secondary:focus-visible {
+  color: #ffffff;
+  background-color: #5e6a71;
+  border-color: #5e6a71;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
+}
+
+
 /* =========================================================
-   Fix - equal product group cards in dark theme
+   Home visual step 7
+   Region CTA: blue gradient button matching the hero slider CTA style.
    ========================================================= */
 
-body.dark_theme .home_products .home_product_tile,
-body.dark_theme .home_products .home_product_tile_featured {
-  background: linear-gradient(135deg, #2f3941, #283139 70%);
-  border-color: rgba(155, 183, 216, 0.18);
-  color: #e2e9f1;
+.home_region_cta .home_region_actions .home_btn_secondary {
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, #7090b7 0%, #5f7fa7 55%, #587ca8 100%);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 30px rgba(39, 48, 56, 0.25);
 }
 
-body.dark_theme .home_products .home_product_tile:hover,
-body.dark_theme .home_products .home_product_tile:focus-visible,
-body.dark_theme .home_products .home_product_tile_featured:hover,
-body.dark_theme .home_products .home_product_tile_featured:focus-visible {
-  background: linear-gradient(135deg, #33404a, #2d3740 70%);
+.home_region_cta .home_region_actions .home_btn_secondary::before {
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.26),
+    transparent
+  );
 }
 
-body.dark_theme .home_products .home_product_tile h3,
-body.dark_theme .home_products .home_product_tile_featured h3 {
-  color: #e2e9f1;
+.home_region_cta .home_region_actions .home_btn_secondary:hover,
+.home_region_cta .home_region_actions .home_btn_secondary:focus-visible {
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, #587ca8 0%, #5f7fa7 52%, #4f6f98 100%);
+  border-color: rgba(255, 255, 255, 0.48);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
 }
 
-body.dark_theme .home_products .home_product_tile p,
-body.dark_theme .home_products .home_product_tile_featured p {
-  color: rgba(226, 233, 241, 0.82);
+
+/* =========================================================
+   DARK THEME REFRESH - home page
+   ========================================================= */
+
+
+/* =========================================================
+   PATCH - home product featured tile parity
+   Makes "Zawory procesowe" tile match the other solution tiles.
+   ========================================================= */
+.home_products .home_product_tile.home_product_tile_featured {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  color: #333333 !important;
+  background: linear-gradient(135deg, #ffffff, #f8fafc 68%), #ffffff !important;
+  border: 1px solid rgba(112, 144, 183, 0.16) !important;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12) !important;
 }
 
-body.dark_theme .home_products .home_product_tile span,
-body.dark_theme .home_products .home_product_tile_featured span,
-body.dark_theme .home_products .home_product_tile i,
-body.dark_theme .home_products .home_product_tile_featured i {
-  color: #9bb7d8;
+.home_products .home_product_tile.home_product_tile_featured i {
+  color: #7090b7 !important;
+  background-color: rgba(112, 144, 183, 0.14) !important;
 }
 
-body.dark_theme .home_products .home_product_tile i,
-body.dark_theme .home_products .home_product_tile_featured i {
-  background-color: rgba(155, 183, 216, 0.16);
+.home_products .home_product_tile.home_product_tile_featured h3 {
+  color: #4f5a61 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured p {
+  color: #333333 !important;
+  opacity: 0.9 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured span {
+  color: #7090b7 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured::after {
+  background: linear-gradient(90deg, #7090b7 0%, #86a6cf 52%, #5f7fa7 100%) !important;
+  transform: scaleX(0) !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured:hover::after,
+.home_products .home_product_tile.home_product_tile_featured:focus-visible::after {
+  transform: scaleX(1) !important;
+}
+
+
+/* =========================================================
+   PATCH - featured home product tile exact parity with regular tiles
+   ========================================================= */
+.home_products .home_product_tile.home_product_tile_featured {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  color: #333333 !important;
+  background: linear-gradient(135deg, #ffffff, #f8fafc 68%), #ffffff !important;
+  border: 1px solid rgba(112, 144, 183, 0.16) !important;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12) !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured:hover,
+.home_products .home_product_tile.home_product_tile_featured:focus-visible {
+  background: #ffffff !important;
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18) !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured::before {
+  background: linear-gradient(135deg, rgba(112, 144, 183, 0.12), transparent 52%) !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured::after {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: auto !important;
+  width: 100% !important;
+  height: 4px !important;
+  border-radius: 999px 999px 0 0 !important;
+  background: linear-gradient(90deg, #7090b7 0%, #86a6cf 52%, #5f7fa7 100%) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition:
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured:hover::after,
+.home_products .home_product_tile.home_product_tile_featured:focus-visible::after {
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured i {
+  color: #5f7fa7 !important;
+  background-color: rgba(112, 144, 183, 0.13) !important;
+  border-color: transparent !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured h3 {
+  color: #4f5a61 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured p {
+  color: #333333 !important;
+  opacity: 0.9 !important;
+}
+
+.home_products .home_product_tile.home_product_tile_featured span {
+  color: #5f7fa7 !important;
+}
+
+
+/* =========================================================
+   PATCH - featured home product tile light-theme parity final
+   Makes "Zawory procesowe" visually match regular tiles such as
+   "Zawory elektromagnetyczne" in light theme.
+   ========================================================= */
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  color: #333333 !important;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.08),
+      rgba(255, 255, 255, 0)
+    ),
+    #f7f9fb !important;
+  border: 1px solid rgba(112, 144, 183, 0.18) !important;
+  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12) !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured:hover,
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured:focus-visible {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.26),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.1),
+      rgba(255, 255, 255, 0)
+    ),
+    #ffffff !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18) !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured i {
+  color: #7090b7 !important;
+  background-color: rgba(112, 144, 183, 0.14) !important;
+  border-color: transparent !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured h3 {
+  color: #7090b7 !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured p {
+  color: #333333 !important;
+  opacity: 0.9 !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured span {
+  color: #7090b7 !important;
+}
+
+body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured::after {
+  background: linear-gradient(
+    90deg,
+    #7090b7 0%,
+    rgba(112, 144, 183, 0.48) 62%,
+    rgba(112, 144, 183, 0) 100%
+  ) !important;
 }

@@ -1,6 +1,4 @@
-/* =========================================================
-   Products Page
-   ========================================================= */
+/* Products Page */
 
 .products_page {
   display: flex;
@@ -13,19 +11,15 @@
   margin-bottom: 0;
 }
 
-/* =========================================================
-   Products Intro
-   ========================================================= */
+/* Products Intro */
 
 .products_intro {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
@@ -37,14 +31,11 @@
   left: 0;
   top: 28px;
   bottom: 28px;
-
   width: 4px;
   border-radius: 999px;
   background-color: #7090b7;
-
   transform: scaleY(0.55);
   transform-origin: center;
-
   transition: transform 0.35s ease;
 }
 
@@ -52,16 +43,13 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(112, 144, 183, 0.16),
     transparent 50%
   );
-
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.35s ease;
 }
 
@@ -98,9 +86,7 @@
   line-height: 1.8;
 }
 
-/* =========================================================
-   Products Grid
-   ========================================================= */
+/* Products Grid */
 
 .products_grid {
   display: grid;
@@ -108,22 +94,17 @@
   gap: 25px;
 }
 
-/* =========================================================
-   Product Card
-   ========================================================= */
+/* Product Card */
 
 .product_card {
   position: relative;
   overflow: hidden;
-
   background-color: #ffffff;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -133,17 +114,14 @@
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(112, 144, 183, 0.2),
     rgba(112, 144, 183, 0.04) 48%,
     transparent 72%
   );
-
   opacity: 0;
   pointer-events: none;
-
   transition: opacity 0.35s ease;
 }
 
@@ -153,14 +131,11 @@
   left: 24px;
   right: 24px;
   bottom: 0;
-
   height: 4px;
   border-radius: 999px 999px 0 0;
   background-color: #7090b7;
-
   transform: scaleX(0);
   transform-origin: left;
-
   transition: transform 0.35s ease;
 }
 
@@ -202,7 +177,6 @@
     linear-gradient(135deg, rgba(112, 144, 183, 0.08), rgba(255, 255, 255, 0));
   overflow: hidden;
   padding: 22px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,13 +186,10 @@
   content: "";
   position: absolute;
   inset: 18px;
-
   border-radius: 16px;
   border: 1px solid rgba(112, 144, 183, 0.14);
-
   opacity: 0;
   pointer-events: none;
-
   transition:
     opacity 0.35s ease,
     border-color 0.35s ease;
@@ -233,14 +204,11 @@
 .product_image img {
   position: relative;
   z-index: 1;
-
   width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
-
   filter: drop-shadow(0 10px 14px rgba(94, 106, 113, 0.1));
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.35s ease;
@@ -254,9 +222,7 @@
 
 .product_content {
   flex: 1;
-
   padding: 24px;
-
   display: flex;
   flex-direction: column;
 }
@@ -281,16 +247,13 @@
   width: fit-content;
   margin: auto 0 0;
   padding: 9px 13px;
-
   border: 1px solid rgba(112, 144, 183, 0.38);
   border-radius: 999px;
   background-color: #eef3f8;
   color: #587ca8;
-
   font-size: 14px;
   font-weight: 800;
   line-height: 1.3;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -308,19 +271,15 @@
   box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
 }
 
-/* =========================================================
-   Product Modal Overlay
-   ========================================================= */
+/* Product Modal Overlay */
 
 .product_modal_overlay {
   position: fixed;
   inset: 0;
   z-index: 10000;
-
   display: none;
   justify-content: center;
   align-items: center;
-
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(7px);
@@ -332,31 +291,27 @@
 }
 
 @keyframes productOverlayFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+from {
+  opacity: 0;
 }
 
-/* =========================================================
-   Product Modal
-   ========================================================= */
+to {
+  opacity: 1;
+}
+}
+
+
+/* Product Modal */
 
 .product_modal {
   position: relative;
   overflow: hidden;
-
   width: min(1120px, calc(100vw - 40px));
   min-height: 620px;
   max-height: calc(100vh - 40px);
-
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
-
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
 }
@@ -366,23 +321,23 @@
 }
 
 @keyframes productModalEnter {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.985);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+from {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
 }
+
+to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+}
+
 
 .product_modal::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-
   background: linear-gradient(
     110deg,
     transparent 0%,
@@ -391,7 +346,6 @@
     transparent 62%,
     transparent 100%
   );
-
   transform: translateX(-120%);
   pointer-events: none;
 }
@@ -401,14 +355,15 @@
 }
 
 @keyframes productModalScan {
-  from {
-    transform: translateX(-120%);
-  }
-
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
+
+to {
+  transform: translateX(120%);
+}
+}
+
 
 .product_modal > * {
   position: relative;
@@ -420,22 +375,17 @@
   top: 16px;
   right: 16px;
   z-index: 5;
-
   width: 40px;
   height: 40px;
-
   border: none;
   border-radius: 50%;
   background-color: #e2e9f1;
   color: #7090b7;
-
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   font-size: 18px;
   cursor: pointer;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -456,16 +406,12 @@
   outline-offset: 4px;
 }
 
-/* =========================================================
-   Modal Layout
-   ========================================================= */
+/* Modal Layout */
 
 .product_modal_left {
   position: relative;
   overflow: hidden;
-
   padding: 42px 38px;
-
   background:
     radial-gradient(
       circle at top right,
@@ -473,7 +419,6 @@
       transparent 38%
     ),
     #e2e9f1;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -481,7 +426,6 @@
 
 .product_modal_right {
   padding: 46px 42px 42px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -490,7 +434,6 @@
 .product_modal_right > span {
   display: inline-block;
   margin-bottom: 10px;
-
   color: #7090b7;
   font-size: 14px;
   font-weight: 800;
@@ -499,7 +442,6 @@
 .product_modal_right h3 {
   margin-top: 0;
   margin-bottom: 18px;
-
   color: #7090b7;
   font-size: 30px;
   line-height: 1.25;
@@ -507,15 +449,12 @@
 
 .product_modal_quote {
   display: none;
-
   margin: 0 0 18px;
   padding: 14px 16px;
-
   border-left: 4px solid #7090b7;
   border-radius: 10px;
   background-color: rgba(112, 144, 183, 0.12);
   color: #5e6a71;
-
   font-size: 18px;
   font-weight: 800;
   line-height: 1.55;
@@ -523,7 +462,6 @@
 
 .product_modal_description {
   display: none;
-
   margin: 0 0 20px;
   color: #333;
   font-size: 16px;
@@ -534,7 +472,6 @@
   display: none;
   gap: 10px;
   margin-top: 2px;
-
   list-style: none;
   padding: 0;
 }
@@ -543,15 +480,12 @@
   display: flex;
   gap: 10px;
   align-items: flex-start;
-
   padding: 10px 12px;
   border-radius: 12px;
   background-color: #f7f9fb;
-
   color: #5e6a71;
   font-size: 15px;
   line-height: 1.45;
-
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;
@@ -566,29 +500,24 @@
   margin-top: 3px;
   color: #7090b7;
 }
-/* =========================================================
-   Product Modal PDF Link
-   ========================================================= */
+
+/* Product Modal PDF Link */
 
 .product_modal_pdf_link {
   width: fit-content;
   margin-top: 14px;
   padding: 9px 13px;
-
   border: 1px solid rgba(112, 144, 183, 0.38);
   border-radius: 999px;
   background-color: rgba(112, 144, 183, 0.08);
   color: #587ca8;
-
   font-size: 14px;
   font-weight: 800;
   line-height: 1.3;
   text-decoration: none;
-
   display: none;
   align-items: center;
   gap: 8px;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -615,42 +544,25 @@
   outline-offset: 4px;
 }
 
-body.dark_theme .product_modal_pdf_link {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.38);
-}
 
-body.dark_theme .product_modal_pdf_link:hover,
-body.dark_theme .product_modal_pdf_link:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-/* =========================================================
-   Modal Back Button
-   ========================================================= */
+/* Modal Back Button */
 
 .product_modal_back {
   width: fit-content;
   margin: -4px 0 16px;
   padding: 9px 13px;
-
   border: 1px solid rgba(112, 144, 183, 0.38);
   border-radius: 999px;
   background-color: rgba(112, 144, 183, 0.1);
   color: #587ca8;
-
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 800;
   line-height: 1.3;
   cursor: pointer;
-
   display: none;
   align-items: center;
   gap: 8px;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -676,14 +588,12 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   outline: 3px solid rgba(112, 144, 183, 0.45);
   outline-offset: 4px;
 }
-/* =========================================================
-   Single Modal Image
-   ========================================================= */
+
+/* Single Modal Image */
 
 .product_modal_image {
   position: relative;
   z-index: 1;
-
   width: 100%;
   height: 100%;
   min-height: 360px;
@@ -697,34 +607,26 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   height: 100%;
   display: block;
   object-fit: contain;
-
   filter: drop-shadow(0 16px 20px rgba(94, 106, 113, 0.16));
 }
 
-/* =========================================================
-   Product Type Slider
-   ========================================================= */
+/* Product Type Slider */
 
 .product_type_slider {
   position: relative;
   z-index: 1;
-
   width: 100%;
   height: 100%;
-
   display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
   padding-top: 10px;
 }
 
 .product_type_slider h4 {
   margin: 0 0 18px;
-
   align-self: stretch;
-
   color: #7090b7;
   font-size: 22px;
   line-height: 1.25;
@@ -739,11 +641,9 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 .product_type_slider_image {
   width: 100%;
   height: 360px;
-
   background-color: transparent;
   border-radius: 18px;
   padding: 24px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -754,11 +654,8 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   height: 100%;
   display: block;
   object-fit: contain;
-
   filter: drop-shadow(0 16px 20px rgba(94, 106, 113, 0.16));
-
   animation: productSlideImageEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.35s ease;
@@ -775,28 +672,26 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 }
 
 @keyframes productSlideImageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+from {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
 }
+
+to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+}
+
 
 .product_type_slider_placeholder {
   width: 100%;
   height: 100%;
-
   border: 2px dashed rgba(112, 144, 183, 0.32);
   border-radius: 18px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: #5e6a71;
   font-weight: 800;
   text-align: center;
@@ -806,24 +701,18 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   position: absolute;
   top: 50%;
   z-index: 3;
-
   width: 42px;
   height: 42px;
-
   border: none;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.92);
   color: #7090b7;
-
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   cursor: pointer;
   transform: translateY(-50%);
-
   box-shadow: 0 8px 20px rgba(94, 106, 113, 0.16);
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -861,7 +750,6 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 .product_type_slider_name {
   min-height: 34px;
   margin-top: 16px;
-
   color: #5e6a71;
   font-size: 22px;
   font-weight: 800;
@@ -871,23 +759,19 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 
 .product_type_slider_dots {
   margin-top: 16px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 9px;
 }
-/* =========================================================
-   Product Slider Hint
-   ========================================================= */
+
+/* Product Slider Hint */
 
 .product_type_slider_hint {
   order: 5;
-
   width: 100%;
   margin: auto 0 0;
   padding-top: 14px;
-
   color: #5e6a71;
   font-size: 13px;
   font-weight: 700;
@@ -911,17 +795,15 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 .product_type_slider_name {
   order: 3;
 }
+
 .product_type_slider_dots button {
   width: 11px;
   height: 11px;
   padding: 0;
-
   border: none;
   border-radius: 999px;
-
   background-color: #c8d4e2;
   cursor: pointer;
-
   transition:
     width 0.3s ease,
     background-color 0.3s ease,
@@ -944,18 +826,17 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   background-color: #7090b7;
 }
 
-/* =========================================================
-   Individual Product Modal Classes
-   ========================================================= */
+/* Individual Product Modal Classes */
 
 .product_modal.modal_valve2000 {
   min-height: 620px;
-  /* Modal grzybkowych korzysta z bazowego wyglądu. */
 }
+
 .product_modal.modal_valve2000 .product_type_slider_image {
   height: 360px;
   padding: 14px 34px;
 }
+
 .product_modal.modal_valveMembrane {
 }
 
@@ -1000,9 +881,7 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   padding: 14px 34px;
 }
 
-/* =========================================================
-   Solenoid Valves Modal
-   ========================================================= */
+/* Solenoid Valves Modal */
 
 .product_modal.modal_solenoidValves {
   width: min(1120px, calc(100vw - 40px));
@@ -1025,14 +904,12 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 .product_modal.modal_solenoidValves .product_modal_quote {
   margin-bottom: 16px;
   padding: 13px 15px;
-
   font-size: 16px;
   line-height: 1.5;
 }
 
 .product_modal.modal_solenoidValves .product_modal_description {
   margin-bottom: 16px;
-
   font-size: 15px;
   line-height: 1.6;
 }
@@ -1043,14 +920,12 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 
 .product_modal.modal_solenoidValves .product_modal_spec_item {
   padding: 9px 11px;
-
   font-size: 14px;
   line-height: 1.4;
 }
 
 .product_modal.modal_solenoidValves .product_type_slider h4 {
   margin-bottom: 16px;
-
   font-size: 21px;
 }
 
@@ -1062,7 +937,6 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
 .product_modal.modal_solenoidValves .product_type_slider_name {
   min-height: 48px;
   margin-top: 14px;
-
   font-size: 18px;
   line-height: 1.35;
 }
@@ -1071,312 +945,14 @@ body.dark_theme .product_modal_pdf_link:focus-visible {
   margin-top: 14px;
 }
 
-/* =========================================================
-   Products Page Dark Theme
-   ========================================================= */
+/* Products Page Dark Theme */
 
-body.dark_theme .products_intro,
-body.dark_theme .product_card,
-body.dark_theme .product_modal {
-  background-color: #242c32;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
 
-body.dark_theme .products_intro:hover,
-body.dark_theme .product_card:hover,
-body.dark_theme .product_card:focus-visible {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
-}
+/* Responsive */
 
-body.dark_theme .products_intro h3,
-body.dark_theme .product_content span,
-body.dark_theme .product_content h3,
-body.dark_theme .product_modal_right span,
-body.dark_theme .product_modal_right h3,
-body.dark_theme .product_type_slider h4 {
-  color: #7090b7;
-}
+/* Reduced Motion */
 
-body.dark_theme .products_intro p,
-body.dark_theme .product_modal_description,
-body.dark_theme .product_modal_spec_item,
-body.dark_theme .product_type_slider_name {
-  color: #e2e9f1;
-}
-
-body.dark_theme .product_content p {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.38);
-}
-
-body.dark_theme .product_card:hover .product_content p,
-body.dark_theme .product_card:focus-visible .product_content p {
-  background-color: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-
-body.dark_theme .product_image,
-body.dark_theme .product_modal_image,
-body.dark_theme .product_type_slider_image {
-  background-color: transparent;
-}
-
-body.dark_theme .product_image img,
-body.dark_theme .product_modal_image img,
-body.dark_theme .product_type_slider_image img {
-  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.24));
-}
-
-body.dark_theme .product_modal_left {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.14),
-      transparent 38%
-    ),
-    #1f2428;
-}
-
-body.dark_theme .product_modal::before {
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-    transparent 38%,
-    rgba(112, 144, 183, 0.16) 50%,
-    transparent 62%,
-    transparent 100%
-  );
-}
-
-body.dark_theme .product_modal_quote {
-  background-color: rgba(112, 144, 183, 0.16);
-  color: #e2e9f1;
-}
-
-body.dark_theme .product_modal_spec_item {
-  background-color: #1f2428;
-}
-
-body.dark_theme .product_modal_spec_item:hover {
-  background-color: rgba(112, 144, 183, 0.14);
-}
-
-body.dark_theme .product_modal_back {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.38);
-}
-
-body.dark_theme .product_modal_back:hover,
-body.dark_theme .product_modal_back:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-
-body.dark_theme .product_type_slider_hint {
-  color: #e2e9f1;
-  opacity: 0.72;
-}
-
-body.dark_theme .product_type_slider_placeholder {
-  border-color: rgba(112, 144, 183, 0.45);
-  color: #e2e9f1;
-}
-
-body.dark_theme .product_type_slider_btn {
-  background-color: rgba(226, 233, 241, 0.92);
-  color: #7090b7;
-}
-
-body.dark_theme .product_type_slider_btn:hover,
-body.dark_theme .product_type_slider_btn:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-}
-
-body.dark_theme .product_type_slider_dots button {
-  background-color: #5e6a71;
-}
-
-body.dark_theme .product_type_slider_dots button:hover,
-body.dark_theme .product_type_slider_dots button:focus-visible,
-body.dark_theme .product_type_slider_dots button.is_active {
-  background-color: #7090b7;
-}
-
-body.dark_theme .product_modal_close {
-  background-color: #5e6a71;
-  color: #ffffff;
-}
-
-body.dark_theme .product_modal_close:hover,
-body.dark_theme .product_modal_close:focus-visible {
-  background-color: #7090b7;
-}
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 992px) {
-  .products_grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .product_modal {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    max-height: calc(100vh - 24px);
-    overflow: auto;
-  }
-
-  .product_modal_left {
-    order: 1;
-  }
-
-  .product_modal_right {
-    order: 2;
-  }
-
-  .product_modal_left,
-  .product_modal_right,
-  .product_modal.modal_solenoidValves .product_modal_left,
-  .product_modal.modal_solenoidValves .product_modal_right {
-    padding: 28px;
-  }
-
-  .product_type_slider_image,
-  .product_modal.modal_solenoidValves .product_type_slider_image {
-    height: 280px;
-  }
-
-  .product_modal_image {
-    min-height: 280px;
-  }
-}
-
-@media (max-width: 768px) {
-  .products_grid {
-    grid-template-columns: 1fr;
-  }
-
-  .products_intro,
-  .product_content {
-    padding: 24px;
-  }
-
-  .product_image {
-    height: 220px;
-  }
-
-  .product_modal_overlay {
-    padding: 12px;
-  }
-
-  .product_modal {
-    width: 100%;
-    max-height: calc(100vh - 24px);
-  }
-
-  .product_modal_left,
-  .product_modal_right,
-  .product_modal.modal_solenoidValves .product_modal_left,
-  .product_modal.modal_solenoidValves .product_modal_right {
-    padding: 24px;
-  }
-
-  .product_modal_right h3,
-  .product_modal.modal_solenoidValves .product_modal_right h3 {
-    font-size: 24px;
-  }
-
-  .product_modal_quote,
-  .product_modal.modal_solenoidValves .product_modal_quote {
-    font-size: 16px;
-  }
-
-  .product_modal_description,
-  .product_modal.modal_solenoidValves .product_modal_description {
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .product_type_slider h4,
-  .product_modal.modal_solenoidValves .product_type_slider h4 {
-    font-size: 19px;
-  }
-
-  .product_type_slider_image,
-  .product_modal.modal_solenoidValves .product_type_slider_image {
-    height: 230px;
-    padding: 18px 48px;
-  }
-
-  .product_modal_image {
-    min-height: 220px;
-    padding: 18px;
-  }
-
-  .product_type_slider_name,
-  .product_modal.modal_solenoidValves .product_type_slider_name {
-    font-size: 19px;
-  }
-
-  .product_type_slider_btn {
-    width: 38px;
-    height: 38px;
-  }
-}
-
-/* =========================================================
-   Reduced Motion
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .products_intro,
-  .products_intro::before,
-  .products_intro::after,
-  .product_card,
-  .product_card::before,
-  .product_card::after,
-  .product_image::before,
-  .product_image img,
-  .product_content p,
-  .product_modal_overlay.show,
-  .product_modal_overlay.show .product_modal,
-  .product_modal_overlay.show .product_modal::before,
-  .product_modal_close,
-  .product_modal_back,
-  .product_modal_spec_item,
-  .product_type_slider_image img,
-  .product_type_slider_btn,
-  .product_type_slider_dots button {
-    animation: none;
-    transition: none;
-  }
-
-  .products_intro:hover,
-  .product_card:hover,
-  .product_card:focus-visible,
-  .product_card:hover .product_image img,
-  .product_card:focus-visible .product_image img,
-  .product_card:hover .product_content p,
-  .product_card:focus-visible .product_content p,
-  .product_modal_close:hover,
-  .product_modal_back:hover,
-  .product_modal_spec_item:hover,
-  .product_type_slider_image img.is_clickable:hover,
-  .product_type_slider_btn:hover,
-  .product_type_slider_dots button:hover {
-    transform: none;
-  }
-}
-/* =========================================================
-   Product Modal - Back Button, Hint & Text Switch Animation
-   ========================================================= */
+/* Product Modal */
 
 /* Animacja przełączania prawej kolumny modala */
 
@@ -1396,39 +972,34 @@ body.dark_theme .product_modal_close:focus-visible {
 }
 
 @keyframes productDetailEnter {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+from {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
-/* Przycisk "Wróć do opisu ogólnego" */
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
 
 .product_modal_back {
   width: fit-content;
   margin: -6px 0 16px;
   padding: 9px 13px;
-
   border: 1px solid rgba(112, 144, 183, 0.38);
   border-radius: 999px;
   background-color: rgba(112, 144, 183, 0.1);
   color: #587ca8;
-
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 800;
   line-height: 1.3;
   cursor: pointer;
-
   display: none;
   align-items: center;
   gap: 8px;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -1454,8 +1025,6 @@ body.dark_theme .product_modal_close:focus-visible {
   outline: 3px solid rgba(112, 144, 183, 0.45);
   outline-offset: 4px;
 }
-
-/* Usuwa ewentualny stary dynamiczny przycisk, jeśli został gdzieś w CSS/JS */
 
 .product_modal_back_btn {
   display: none !important;
@@ -1485,22 +1054,17 @@ body.dark_theme .product_modal_close:focus-visible {
   order: 4;
 }
 
-/* Napis na dole modala pod sliderem */
-
 .product_type_slider_hint {
   order: 5;
-
   width: 100%;
   margin: auto 0 0;
   padding-top: 14px;
-
   color: #5e6a71;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.45;
   text-align: center;
   opacity: 0.78;
-
   display: none;
 }
 
@@ -1524,8 +1088,6 @@ body.dark_theme .product_modal_close:focus-visible {
   transform: translateY(6px);
 }
 
-/* Klikalne zdjęcie w sliderze */
-
 .product_type_slider_image img.is_clickable {
   cursor: pointer;
 }
@@ -1544,55 +1106,10 @@ body.dark_theme .product_modal_close:focus-visible {
 
 /* Dark Theme */
 
-body.dark_theme .product_modal_back {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.38);
-}
-
-body.dark_theme .product_modal_back:hover,
-body.dark_theme .product_modal_back:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-
-body.dark_theme .product_type_slider_hint {
-  color: #e2e9f1;
-  opacity: 0.72;
-}
-
-body.dark_theme .product_type_slider_image img.is_clickable:hover,
-body.dark_theme .product_type_slider_image img.is_clickable:focus-visible {
-  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.32));
-}
 
 /* Reduced Motion */
 
-@media (prefers-reduced-motion: reduce) {
-  .product_modal_right,
-  .product_modal_right.is_detail_mode,
-  .product_modal_back,
-  .product_type_slider_image img,
-  .product_type_slider_name,
-  .product_type_slider_image img.is_changing,
-  .product_type_slider_name.is_changing,
-  .product_type_slider_image img.is_clickable {
-    animation: none;
-    transition: none;
-    transform: none;
-  }
-
-  .product_modal_right.is_switching,
-  .product_modal_back:hover,
-  .product_type_slider_image img.is_clickable:hover {
-    transform: none;
-  }
-}
-
-/* =========================================================
-   PDF Catalog Product Modals - unified layout
-   ========================================================= */
+/* PDF Catalog Product Modals */
 
 .product_modal.product_catalog_modal {
   display: block;
@@ -1991,150 +1508,42 @@ body.dark_theme .product_type_slider_image img.is_clickable:focus-visible {
 }
 
 @keyframes catalogPanelEnter {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+from {
+  opacity: 0;
+  transform: translateY(18px);
 }
+
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
 
 @keyframes catalogRowEnter {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+from {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
 }
+
+to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+}
+
 
 @keyframes catalogScan {
-  from {
-    transform: translateX(-125%);
-  }
-  to {
-    transform: translateX(125%);
-  }
+from {
+  transform: translateX(-125%);
 }
 
-body.dark_theme .product_modal.product_catalog_modal {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.16),
-      transparent 34%
-    ),
-    #15191c;
+to {
+  transform: translateX(125%);
+}
 }
 
-body.dark_theme .catalog_hero,
-body.dark_theme .catalog_product_row,
-body.dark_theme .catalog_additional_gallery figure {
-  background-color: #1f2428;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-}
-
-body.dark_theme .catalog_hero {
-  background:
-    linear-gradient(135deg, rgba(112, 144, 183, 0.13), rgba(31, 36, 40, 0.95)),
-    #1f2428;
-}
-
-body.dark_theme .catalog_hero p,
-body.dark_theme .catalog_product_text p,
-body.dark_theme .catalog_feature_box li,
-body.dark_theme .catalog_product_features li,
-body.dark_theme .catalog_closing p {
-  color: #e2e9f1;
-}
-
-body.dark_theme .catalog_hero .catalog_lead {
-  color: #ffffff;
-}
-
-body.dark_theme .catalog_feature_box,
-body.dark_theme .catalog_product_features,
-body.dark_theme .catalog_closing {
-  background-color: rgba(112, 144, 183, 0.12);
-  border-color: rgba(112, 144, 183, 0.28);
-}
-
-body.dark_theme .catalog_product_image,
-body.dark_theme .catalog_single_visual {
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(112, 144, 183, 0.18),
-      transparent 58%
-    ),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.14), rgba(31, 36, 40, 0.82));
-}
-
-body.dark_theme .catalog_pdf_btn {
-  background-color: rgba(112, 144, 183, 0.16);
-  color: #e2e9f1;
-}
-
-body.dark_theme .catalog_pdf_btn:hover,
-body.dark_theme .catalog_pdf_btn:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-}
-
-@media (max-width: 900px) {
-  .product_catalog_modal .catalog_modal_scroll {
-    padding: 34px 22px 26px;
-  }
-
-  .catalog_product_row,
-  .catalog_product_row.is_reversed {
-    grid-template-columns: 1fr;
-  }
-
-  .catalog_product_row.is_reversed .catalog_product_visual,
-  .catalog_product_row.is_reversed .catalog_product_text {
-    order: initial;
-  }
-
-  .catalog_product_image {
-    min-height: 230px;
-  }
-}
-
-@media (max-width: 560px) {
-  .product_modal.product_catalog_modal {
-    width: min(100vw - 18px, 1180px);
-    max-height: calc(100vh - 18px);
-  }
-
-  .product_catalog_modal .catalog_modal_scroll {
-    max-height: calc(100vh - 18px);
-    padding: 30px 16px 20px;
-  }
-
-  .catalog_hero,
-  .catalog_product_row {
-    padding: 20px;
-    border-radius: 16px;
-  }
-
-  .catalog_product_image {
-    min-height: 200px;
-    padding: 16px;
-  }
-
-  .catalog_additional_gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* =========================================================
-   PDF Catalog Product Modals - card layouts from PDF files
-   ========================================================= */
+/* PDF Catalog Product Modals */
 
 .catalog_products_list.is_cards {
   display: grid;
@@ -2284,38 +1693,7 @@ body.dark_theme .catalog_pdf_btn:focus-visible {
   font-size: clamp(23px, 3vw, 32px);
 }
 
-body.dark_theme .catalog_product_tile {
-  background-color: #1f2428;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-}
-
-body.dark_theme .catalog_tile_image {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.18),
-      transparent 46%
-    ),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.14), rgba(31, 36, 40, 0));
-}
-
-body.dark_theme .catalog_tile_content p {
-  color: #e2e9f1;
-}
-
-@media (max-width: 560px) {
-  .catalog_products_list.is_cards {
-    grid-template-columns: 1fr;
-  }
-
-  .catalog_tile_image {
-    min-height: 190px;
-  }
-}
-
-/* =========================================================
-   Refinements: balanced modal grids + polished motion
-   ========================================================= */
+/* Refinements: balanced modal grids + polished motion */
 
 .product_catalog_modal .catalog_modal_scroll {
   scrollbar-gutter: stable;
@@ -2348,46 +1726,55 @@ body.dark_theme .catalog_tile_content p {
 .catalog_additional_gallery figure:nth-child(1) {
   --catalog-delay: 40ms;
 }
+
 .catalog_product_tile:nth-child(2),
 .catalog_product_row:nth-child(2),
 .catalog_additional_gallery figure:nth-child(2) {
   --catalog-delay: 90ms;
 }
+
 .catalog_product_tile:nth-child(3),
 .catalog_product_row:nth-child(3),
 .catalog_additional_gallery figure:nth-child(3) {
   --catalog-delay: 140ms;
 }
+
 .catalog_product_tile:nth-child(4),
 .catalog_product_row:nth-child(4),
 .catalog_additional_gallery figure:nth-child(4) {
   --catalog-delay: 190ms;
 }
+
 .catalog_product_tile:nth-child(5),
 .catalog_product_row:nth-child(5),
 .catalog_additional_gallery figure:nth-child(5) {
   --catalog-delay: 240ms;
 }
+
 .catalog_product_tile:nth-child(6),
 .catalog_product_row:nth-child(6),
 .catalog_additional_gallery figure:nth-child(6) {
   --catalog-delay: 290ms;
 }
+
 .catalog_product_tile:nth-child(7),
 .catalog_product_row:nth-child(7),
 .catalog_additional_gallery figure:nth-child(7) {
   --catalog-delay: 340ms;
 }
+
 .catalog_product_tile:nth-child(8),
 .catalog_product_row:nth-child(8),
 .catalog_additional_gallery figure:nth-child(8) {
   --catalog-delay: 390ms;
 }
+
 .catalog_product_tile:nth-child(9),
 .catalog_product_row:nth-child(9),
 .catalog_additional_gallery figure:nth-child(9) {
   --catalog-delay: 440ms;
 }
+
 .catalog_product_tile:nth-child(10),
 .catalog_product_row:nth-child(10),
 .catalog_additional_gallery figure:nth-child(10) {
@@ -2474,67 +1861,6 @@ body.dark_theme .catalog_tile_content p {
   filter: drop-shadow(0 20px 22px rgba(94, 106, 113, 0.22));
 }
 
-body.dark_theme .catalog_tile_image::after,
-body.dark_theme .catalog_product_image::after,
-body.dark_theme .catalog_additional_gallery figure::after {
-  background: linear-gradient(
-    110deg,
-    transparent 0%,
-    transparent 42%,
-    rgba(112, 144, 183, 0.18) 50%,
-    transparent 58%,
-    transparent 100%
-  );
-}
-
-@media (max-width: 1060px) {
-  .catalog_products_list.is_cards,
-  .catalog_products_list.is_cards[data-count="4"],
-  .catalog_products_list.is_cards[data-count="6"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .catalog_additional_gallery,
-  .catalog_additional_gallery[data-count="5"],
-  .catalog_additional_gallery[data-count="6"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .catalog_products_list.is_cards,
-  .catalog_products_list.is_cards[data-count],
-  .catalog_additional_gallery,
-  .catalog_additional_gallery[data-count] {
-    grid-template-columns: 1fr;
-  }
-
-  .catalog_additional_gallery figure {
-    min-height: 170px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .catalog_hero,
-  .catalog_product_row,
-  .catalog_product_tile,
-  .catalog_closing,
-  .catalog_additional_gallery figure,
-  .catalog_tile_image img,
-  .catalog_product_image img,
-  .catalog_additional_gallery img,
-  .catalog_pdf_btn,
-  .catalog_pdf_btn i {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* =========================================================
-   Hidden Modal Scrollbars
-   Scroll stays active, only the visible scrollbar is hidden.
-   ========================================================= */
-
 .product_modal,
 .product_catalog_modal .catalog_modal_scroll {
   scrollbar-width: none;
@@ -2551,11 +1877,6 @@ body.dark_theme .catalog_additional_gallery figure::after {
 .product_catalog_modal .catalog_modal_scroll::-webkit-scrollbar-thumb {
   background: transparent;
 }
-
-/* =========================================================
-   Products Page + Modal UX Refinements
-   Filters, mobile layout, image panels, breadcrumbs and fallbacks.
-   ========================================================= */
 
 .products_filter_bar {
   position: relative;
@@ -2660,15 +1981,17 @@ body.dark_theme .catalog_additional_gallery figure::after {
 }
 
 @keyframes productFilterEnter {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+from {
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
 }
+
+to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+}
+
 
 .catalog_breadcrumb {
   display: inline-flex;
@@ -2906,130 +2229,7 @@ body.dark_theme .catalog_additional_gallery figure::after {
   margin-top: 16px;
 }
 
-body.dark_theme .products_filter_bar,
-body.dark_theme .catalog_closing {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.17),
-      transparent 42%
-    ),
-    #1f2428;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-}
-
-body.dark_theme .products_filter_intro h3,
-body.dark_theme .products_filter_intro span,
-body.dark_theme .catalog_breadcrumb i,
-body.dark_theme .catalog_closing_content > span,
-body.dark_theme .catalog_closing h4 {
-  color: #7090b7;
-}
-
-body.dark_theme .catalog_breadcrumb {
-  color: #e2e9f1;
-}
-
-body.dark_theme .products_filter_btn,
-body.dark_theme .catalog_closing_actions a {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.36);
-}
-
-body.dark_theme .products_filter_btn:hover,
-body.dark_theme .products_filter_btn:focus-visible,
-body.dark_theme .products_filter_btn.is_active,
-body.dark_theme .catalog_closing_actions a:hover,
-body.dark_theme .catalog_closing_actions a:focus-visible {
-  background-color: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-
-body.dark_theme .catalog_product_image,
-body.dark_theme .catalog_single_visual,
-body.dark_theme .catalog_tile_image,
-body.dark_theme .catalog_additional_gallery figure {
-  background:
-    radial-gradient(
-      circle at 55% 42%,
-      rgba(112, 144, 183, 0.22),
-      transparent 58%
-    ),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.15), rgba(31, 36, 40, 0.94));
-  border-color: rgba(112, 144, 183, 0.16);
-}
-
-@media (max-width: 900px) {
-  .products_filter_bar {
-    grid-template-columns: 1fr;
-  }
-
-  .products_filter_actions {
-    justify-content: flex-start;
-  }
-
-  .catalog_product_row .catalog_product_visual,
-  .catalog_product_row.is_reversed .catalog_product_visual {
-    order: 1;
-  }
-
-  .catalog_product_row .catalog_product_text,
-  .catalog_product_row.is_reversed .catalog_product_text {
-    order: 2;
-  }
-
-  .catalog_pdf_btn_visual {
-    display: none;
-  }
-
-  .catalog_pdf_btn_mobile {
-    display: inline-flex;
-  }
-}
-
-@media (max-width: 640px) {
-  .products_filter_bar {
-    padding: 20px;
-  }
-
-  .products_filter_actions {
-    gap: 8px;
-  }
-
-  .products_filter_btn {
-    padding: 8px 11px;
-    font-size: 12px;
-  }
-
-  .catalog_closing {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .catalog_closing_actions {
-    width: 100%;
-  }
-
-  .catalog_closing_actions a {
-    justify-content: center;
-    flex: 1 1 160px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product_card,
-  .products_filter_btn,
-  .catalog_closing_actions a {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* =========================================================
-   Products Modal - Layout Refinements
-   ========================================================= */
+/* Products Modal */
 
 .catalog_breadcrumb .catalog_breadcrumb_badge {
   padding: 7px 11px;
@@ -3134,26 +2334,24 @@ body.dark_theme .catalog_additional_gallery figure {
 }
 
 @keyframes catalogButtonScan {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translateX(120%);
-  }
+from {
+  transform: translateX(-120%);
 }
 
-/* =========================================================
-   Modal External Product Navigation
-   ========================================================= */
+to {
+  transform: translateX(120%);
+}
+}
+
+
+/* Modal External Product Navigation */
 
 .product_modal_nav {
   position: fixed;
   top: 50%;
   z-index: 10002;
-
   width: 52px;
   height: 52px;
-
   border: 1px solid rgba(112, 144, 183, 0.36);
   border-radius: 999px;
   background: radial-gradient(
@@ -3162,16 +2360,13 @@ body.dark_theme .catalog_additional_gallery figure {
     rgba(255, 255, 255, 0.95)
   );
   color: #7090b7;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
-
   transform: translateY(-50%);
   transition:
     transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
@@ -3212,86 +2407,8 @@ body.dark_theme .catalog_additional_gallery figure {
   pointer-events: none;
 }
 
-body.dark_theme .catalog_breadcrumb .catalog_breadcrumb_badge {
-  background-color: rgba(112, 144, 183, 0.14);
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.38);
-}
+/* Products Polish */
 
-body.dark_theme .catalog_hero:hover,
-body.dark_theme .catalog_closing:hover {
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-body.dark_theme .product_modal_nav {
-  background: radial-gradient(
-    circle at top right,
-    rgba(112, 144, 183, 0.26),
-    rgba(36, 44, 50, 0.96)
-  );
-  color: #e2e9f1;
-  border-color: rgba(112, 144, 183, 0.42);
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-body.dark_theme .product_modal_nav:hover,
-body.dark_theme .product_modal_nav:focus-visible {
-  background: #7090b7;
-  color: #ffffff;
-  border-color: #7090b7;
-}
-
-@media (max-width: 1180px) {
-  .product_modal_nav_prev {
-    left: 18px;
-  }
-  .product_modal_nav_next {
-    right: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .product_modal_nav {
-    top: auto;
-    bottom: 18px;
-    width: 46px;
-    height: 46px;
-    transform: none;
-  }
-
-  .product_modal_nav:hover,
-  .product_modal_nav:focus-visible {
-    transform: scale(1.06);
-  }
-
-  .product_modal_nav_prev {
-    left: 18px;
-  }
-  .product_modal_nav_next {
-    right: 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .catalog_hero,
-  .catalog_feature_box,
-  .catalog_closing,
-  .catalog_feature_box li,
-  .catalog_product_features li,
-  .product_modal_nav {
-    transition: none !important;
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
-/* =========================================================
-   Products Polish - Spacing, Decorations, CTA and Shine Fixes
-   ========================================================= */
-
-/* Mniejszy odstęp między opisem/filtrami a siatką produktów */
 .products_page {
   gap: 24px;
 }
@@ -3331,7 +2448,6 @@ body.dark_theme .product_modal_nav:focus-visible {
     #ffffff;
 }
 
-/* Spójne dekoracyjne koła w modalach, bez przesady */
 .product_modal.product_catalog_modal {
   background:
     radial-gradient(
@@ -3390,7 +2506,6 @@ body.dark_theme .product_modal_nav:focus-visible {
     #ffffff;
 }
 
-/* CTA: efekt ikony jak na podstronie O nas */
 .catalog_closing_icon {
   transition:
     transform 0.35s ease,
@@ -3412,7 +2527,6 @@ body.dark_theme .product_modal_nav:focus-visible {
   transform: translateY(-1px) scale(1.08);
 }
 
-/* Naprawa błysku przycisku Katalog produktu: błysk jest tylko w obrębie przycisku */
 .catalog_pdf_btn {
   position: relative;
   overflow: hidden;
@@ -3432,7 +2546,6 @@ body.dark_theme .product_modal_nav:focus-visible {
   z-index: 1;
 }
 
-/* Wyłączamy błysk całego kafelka poziomego, który zatrzymywał się na opisach co drugi produkt. */
 .catalog_product_row::after {
   display: none !important;
 }
@@ -3441,7 +2554,6 @@ body.dark_theme .product_modal_nav:focus-visible {
   animation: none !important;
 }
 
-/* Zostaje wyłącznie kontrolowany błysk na samym panelu zdjęcia. */
 .catalog_tile_image::after,
 .catalog_product_image::after,
 .catalog_additional_gallery figure::after {
@@ -3456,7 +2568,6 @@ body.dark_theme .product_modal_nav:focus-visible {
   z-index: 1;
 }
 
-/* Subtelniejsze, spójne zachowanie boxów z cechami. */
 .catalog_feature_box,
 .catalog_product_features {
   will-change: transform;
@@ -3470,118 +2581,11 @@ body.dark_theme .product_modal_nav:focus-visible {
 }
 
 /* Dark theme dla nowych dekoracji */
-body.dark_theme .products_intro,
-body.dark_theme .products_filter_bar {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.16),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at calc(100% + 76px) calc(100% + 78px),
-      rgba(112, 144, 183, 0.08) 0,
-      rgba(112, 144, 183, 0.08) 90px,
-      transparent 92px
-    ),
-    #242c32;
-}
-
-body.dark_theme .product_modal.product_catalog_modal {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.17),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at calc(100% + 120px) calc(100% + 120px),
-      rgba(112, 144, 183, 0.08) 0,
-      rgba(112, 144, 183, 0.08) 145px,
-      transparent 147px
-    ),
-    #15191c;
-}
-
-body.dark_theme .catalog_hero {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.2),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at calc(100% + 82px) calc(100% + 82px),
-      rgba(112, 144, 183, 0.09) 0,
-      rgba(112, 144, 183, 0.09) 92px,
-      transparent 94px
-    ),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.13), rgba(31, 36, 40, 0.95)),
-    #1f2428;
-}
-
-body.dark_theme .catalog_closing {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(112, 144, 183, 0.2),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at calc(100% + 78px) calc(100% + 82px),
-      rgba(112, 144, 183, 0.11) 0,
-      rgba(112, 144, 183, 0.11) 90px,
-      transparent 92px
-    ),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.15), rgba(31, 36, 40, 0.94)),
-    #1f2428;
-}
-
-@media (max-width: 640px) {
-  .products_page {
-    gap: 20px;
-  }
-
-  .products_filter_bar {
-    margin-top: -2px;
-    margin-bottom: -2px;
-    padding: 16px 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .catalog_closing_icon,
-  .catalog_closing_actions a i,
-  .catalog_feature_box li,
-  .catalog_product_features li {
-    transition: none !important;
-  }
-
-  .catalog_closing:hover .catalog_closing_icon,
-  .catalog_closing_actions a:hover i,
-  .catalog_closing_actions a:focus-visible i {
-    transform: none !important;
-  }
-}
-
-/* =========================================================
-   Final correction: decorative circles as bottom-right card accents only
-   ========================================================= */
-
-/* Main products intro: one corner accent, not a background behind text. */
-.products_intro,
-body.dark_theme .products_intro {
-  overflow: hidden;
-  background-image: none;
-}
 
 .products_intro {
   background-color: #ffffff;
 }
 
-body.dark_theme .products_intro {
-  background-color: #242c32;
-}
 
 .products_intro::after {
   content: "";
@@ -3600,9 +2604,6 @@ body.dark_theme .products_intro {
   transition: none;
 }
 
-body.dark_theme .products_intro::after {
-  background: rgba(112, 144, 183, 0.1);
-}
 
 .products_intro::before {
   z-index: 2;
@@ -3618,20 +2619,11 @@ body.dark_theme .products_intro::after {
   opacity: 1;
 }
 
-/* Modal first description card: one bottom-right accent only. */
-.catalog_hero,
-body.dark_theme .catalog_hero {
-  overflow: hidden;
-  background-image: none;
-}
 
 .catalog_hero {
   background-color: #ffffff;
 }
 
-body.dark_theme .catalog_hero {
-  background-color: #1f2428;
-}
 
 .catalog_hero::after {
   content: "";
@@ -3650,9 +2642,6 @@ body.dark_theme .catalog_hero {
   animation: none !important;
 }
 
-body.dark_theme .catalog_hero::after {
-  background: rgba(112, 144, 183, 0.11);
-}
 
 .product_modal_overlay.show .catalog_hero::after {
   animation: none !important;
@@ -3670,20 +2659,11 @@ body.dark_theme .catalog_hero::after {
   z-index: 1;
 }
 
-/* Modal CTA: one bottom-right accent only. */
-.catalog_closing,
-body.dark_theme .catalog_closing {
-  overflow: hidden;
-  background-image: none;
-}
 
 .catalog_closing {
   background-color: #ffffff;
 }
 
-body.dark_theme .catalog_closing {
-  background-color: #1f2428;
-}
 
 .catalog_closing::after {
   content: "";
@@ -3698,9 +2678,6 @@ body.dark_theme .catalog_closing {
   z-index: 0;
 }
 
-body.dark_theme .catalog_closing::after {
-  background: rgba(112, 144, 183, 0.11);
-}
 
 .catalog_closing::before {
   z-index: 2;
@@ -3713,17 +2690,6 @@ body.dark_theme .catalog_closing::after {
   z-index: 1;
 }
 
-/* =========================================================
-   Final precise corner accents
-   ========================================================= */
-
-/* Main products description card: bottom-right accent only. */
-.products_intro,
-body.dark_theme .products_intro {
-  position: relative;
-  overflow: hidden !important;
-  background-image: none !important;
-}
 
 .products_intro::after {
   content: "";
@@ -3742,9 +2708,6 @@ body.dark_theme .products_intro {
   animation: none !important;
 }
 
-body.dark_theme .products_intro::after {
-  background-color: rgba(112, 144, 183, 0.1);
-}
 
 .products_intro h3,
 .products_intro p {
@@ -3752,13 +2715,6 @@ body.dark_theme .products_intro::after {
   z-index: 1;
 }
 
-/* Modal first description card: register-style circle in the bottom-right corner, contained by the modal area. */
-.catalog_hero,
-body.dark_theme .catalog_hero {
-  position: relative;
-  overflow: visible !important;
-  background-image: none !important;
-}
 
 .catalog_hero::after {
   content: "";
@@ -3777,9 +2733,6 @@ body.dark_theme .catalog_hero {
   animation: none !important;
 }
 
-body.dark_theme .catalog_hero::after {
-  background-color: rgba(112, 144, 183, 0.1);
-}
 
 .product_modal_overlay.show .catalog_hero::after {
   animation: none !important;
@@ -3794,12 +2747,7 @@ body.dark_theme .catalog_hero::after {
 }
 
 /* Modal CTA: bottom-right accent only. */
-.catalog_closing,
-body.dark_theme .catalog_closing {
-  position: relative;
-  overflow: hidden !important;
-  background-image: none !important;
-}
+
 
 .catalog_closing::after {
   content: "";
@@ -3814,9 +2762,6 @@ body.dark_theme .catalog_closing {
   z-index: 0;
 }
 
-body.dark_theme .catalog_closing::after {
-  background-color: rgba(112, 144, 183, 0.1);
-}
 
 .catalog_closing_icon,
 .catalog_closing_content,
@@ -3825,10 +2770,7 @@ body.dark_theme .catalog_closing::after {
   z-index: 1;
 }
 
-/* =========================================================
-   Unified reversible reveal animation fix
-   Keeps fade/slide transitions visible even on cards that define their own transitions.
-   ========================================================= */
+/* Unified reversible reveal animation */
 
 .reveal {
   opacity: 0;
@@ -3869,17 +2811,6 @@ body.dark_theme .catalog_closing::after {
   transition-delay: 0.32s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.show,
-  .reveal.is_visible {
-    opacity: 1;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* Reveal + hover compatibility for products page */
 .products_intro.reveal.show:hover,
 .products_intro.reveal.is_visible:hover {
   transform: translateY(-4px);
@@ -3898,14 +2829,8 @@ body.dark_theme .catalog_closing::after {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
 
-body.dark_theme .product_card.reveal.show:hover,
-body.dark_theme .product_card.reveal.is_visible:hover {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
-}
 
-/* =========================================================
-   Products reveal v3 - cards + filters compatibility
-   ========================================================= */
+/* Products reveal */
 
 .product_card.reveal {
   animation: none !important;
@@ -3959,24 +2884,7 @@ body.dark_theme .product_card.reveal.is_visible:hover {
   transition-delay: 0s !important;
 }
 
-body.dark_theme .product_card.reveal.show:hover,
-body.dark_theme .product_card.reveal.is_visible:hover {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product_card.reveal,
-  .catalog_product_tile.reveal {
-    opacity: 1;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* =========================================================
-   Products ordered reveal v4
-   ========================================================= */
+/* Products ordered reveal */
 
 .products_grid {
   margin-top: 14px;
@@ -4008,23 +2916,7 @@ body.dark_theme .product_card.reveal.is_visible:hover {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
 
-body.dark_theme .product_card.reveal_sequence_item.show:hover,
-body.dark_theme .product_card.reveal_sequence_item.is_visible:hover,
-body.dark_theme .product_card.reveal_sequence_item.show:focus-visible,
-body.dark_theme .product_card.reveal_sequence_item.is_visible:focus-visible {
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
-}
-
-@media (max-width: 768px) {
-  .products_grid {
-    margin-top: 8px;
-    padding-top: 6px;
-  }
-}
-
-/* =========================================================
-   Product filters + clearer card CTA refinement
-   ========================================================= */
+/* Product filters + clearer card CTA */
 
 .products_filter_bar {
   margin-top: 4px;
@@ -4045,9 +2937,7 @@ body.dark_theme .product_card.reveal_sequence_item.is_visible:focus-visible {
   margin-top: 18px;
 }
 
-/* =========================================================
-   Products modal premium refinement v12 - coherent, not decorative
-   ========================================================= */
+/* Products modal premium */
 
 .product_modal_overlay {
   background:
@@ -4155,117 +3045,6 @@ body.dark_theme .product_card.reveal_sequence_item.is_visible:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-body.dark_theme .product_modal_overlay {
-  background:
-    radial-gradient(
-      circle at 50% 18%,
-      rgba(157, 182, 210, 0.12),
-      transparent 34%
-    ),
-    rgba(10, 14, 18, 0.66);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-body.dark_theme .product_modal {
-  border-color: rgba(226, 233, 241, 0.08);
-  background: linear-gradient(
-    135deg,
-    rgba(38, 49, 58, 0.98),
-    rgba(31, 42, 50, 0.98)
-  );
-  box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-}
-
-body.dark_theme .product_modal::after {
-  background:
-    radial-gradient(
-      circle at 12% 10%,
-      rgba(157, 182, 210, 0.08),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 94% 92%,
-      rgba(157, 182, 210, 0.055),
-      transparent 30%
-    );
-}
-
-body.dark_theme .product_modal_left {
-  background:
-    radial-gradient(
-      circle at 18% 16%,
-      rgba(226, 233, 241, 0.07),
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at 82% 84%,
-      rgba(157, 182, 210, 0.1),
-      transparent 36%
-    ),
-    linear-gradient(135deg, #202a32, #26313a);
-}
-
-body.dark_theme .product_modal_image,
-body.dark_theme .product_type_slider_image {
-  border-color: rgba(226, 233, 241, 0.08);
-  background: linear-gradient(
-    135deg,
-    rgba(226, 233, 241, 0.045),
-    rgba(226, 233, 241, 0.015)
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 18px 42px rgba(0, 0, 0, 0.22);
-}
-
-body.dark_theme .product_modal_right {
-  background: linear-gradient(
-    180deg,
-    rgba(47, 60, 70, 0.34),
-    rgba(47, 60, 70, 0)
-  );
-}
-
-body.dark_theme .product_modal_right > span {
-  background-color: rgba(157, 182, 210, 0.12);
-  color: #9db6d2;
-}
-
-body.dark_theme .product_modal_quote,
-body.dark_theme .product_modal_spec_item {
-  border-color: rgba(226, 233, 241, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-body.dark_theme .product_modal_spec_item {
-  background: linear-gradient(135deg, #26313a, #202a32);
-}
-
-body.dark_theme .product_modal_close {
-  background-color: rgba(47, 60, 70, 0.92);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
-
-@media (max-width: 760px) {
-  .product_modal_overlay {
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-  }
-
-  .product_modal_right > span {
-    padding: 6px 10px;
-  }
-}
-
-/* =========================================================
-   V13 - Product empty state and modal inquiry CTA
-   ========================================================= */
-
 .products_empty_state {
   margin-top: 24px;
   padding: 30px;
@@ -4337,34 +3116,8 @@ body.dark_theme .product_modal_close {
   box-shadow: 0 12px 26px rgba(94, 106, 113, 0.18);
 }
 
-body.dark_theme .products_empty_state {
-  border-color: rgba(226, 233, 241, 0.08);
-  background:
-    radial-gradient(
-      circle at right bottom,
-      rgba(157, 182, 210, 0.1),
-      transparent 34%
-    ),
-    #2f3c46;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-}
 
-body.dark_theme .products_empty_state h3,
-body.dark_theme .products_empty_state > i {
-  color: #9db6d2;
-}
-
-body.dark_theme .products_empty_state > i {
-  background-color: rgba(157, 182, 210, 0.13);
-}
-
-body.dark_theme .products_empty_state p {
-  color: #d7e0e8;
-}
-
-/* =========================================================
-   Products page consistency pass v23
-   ========================================================= */
+/* Products page */
 
 .products_intro,
 .products_filter_bar,
@@ -4440,24 +3193,6 @@ body.dark_theme .products_empty_state p {
   background-color: var(--ui-color-primary-strong, #5f7fa7);
 }
 
-body.dark_theme .product_card:hover,
-body.dark_theme .product_card:focus-visible,
-body.dark_theme .products_intro:hover,
-body.dark_theme .products_intro:focus-within,
-body.dark_theme .page_faq_item:hover,
-body.dark_theme .page_faq_item:focus-within,
-body.dark_theme .catalog_feature_box:hover,
-body.dark_theme .catalog_feature_box:focus-within,
-body.dark_theme .catalog_tile:hover,
-body.dark_theme .catalog_tile:focus-within,
-body.dark_theme .catalog_product_row:hover,
-body.dark_theme .catalog_product_row:focus-within {
-  box-shadow: var(--ui-shadow-card-hover, 0 14px 32px rgba(0, 0, 0, 0.3));
-}
-
-/* =========================================================
-   V17 - Products FAQ above filters
-   ========================================================= */
 
 .products_faq {
   margin-top: 0;
@@ -4483,17 +3218,6 @@ body.dark_theme .catalog_product_row:focus-within {
   scroll-margin-top: 118px;
 }
 
-@media (max-width: 900px) {
-  .products_faq .page_faq_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* =========================================================
-   V18 - Collapsible products FAQ
-   ========================================================= */
 .products_faq_accordion {
   margin-top: 30px;
   margin-bottom: 28px;
@@ -4541,14 +3265,391 @@ body.dark_theme .catalog_product_row:focus-within {
   padding: 0 clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px);
 }
 
-body.dark_theme .products_faq_accordion .products_faq_summary > i {
-  background-color: #9db6d2;
-  color: #1f2931;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+/* Product filters refinement */
+.products_filter_bar {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 16px;
+  padding: 24px 26px 26px;
 }
 
-@media (max-width: 680px) {
-  .products_faq_accordion .products_faq_summary {
-    align-items: flex-start;
-  }
+.products_filter_bar::before {
+  top: 24px;
+  bottom: 24px;
+  transform: scaleY(0.48);
+  transform-origin: center;
+  transition: transform 0.35s ease;
 }
+
+.products_filter_bar:hover::before,
+.products_filter_bar:focus-within::before {
+  transform: scaleY(1);
+}
+
+.products_filter_intro {
+  display: block;
+  max-width: 100%;
+  padding-left: 2px;
+}
+
+.products_filter_intro span {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 9px;
+}
+
+.products_filter_intro span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 52px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0));
+}
+
+.products_filter_intro h3 {
+  display: block;
+  margin-top: 0;
+}
+
+.products_filter_actions {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.products_filter_btn {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 9px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.18;
+}
+
+
+/* Products intro CTA background */
+.products_intro {
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7, #5f7fa7) !important;
+  box-shadow: 0 12px 30px rgba(94, 106, 113, 0.22);
+}
+
+.products_intro::before {
+  background-color: rgba(255, 255, 255, 0.86);
+}
+
+.products_intro::after {
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.16),
+    transparent 44%
+  );
+}
+
+.products_intro h3,
+.products_intro p {
+  color: #ffffff;
+}
+
+.products_intro p {
+  opacity: 0.9;
+}
+
+/* Products visual refinements 2.10 */
+.products_intro {
+  background:
+    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.18), transparent 34%),
+    radial-gradient(circle at left top, rgba(255, 255, 255, 0.1), transparent 38%),
+    linear-gradient(135deg, #7090b7 0%, #5f7fa7 56%, #526f95 100%) !important;
+}
+
+
+.products_intro::before {
+  display: none !important;
+  content: none !important;
+}
+
+.products_intro::after {
+  right: -92px;
+  bottom: -104px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12) !important;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.products_filter_bar {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  align-items: stretch;
+}
+
+.products_filter_intro {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.products_filter_intro span,
+.products_filter_intro h3 {
+  display: block;
+  width: 100%;
+}
+
+.products_filter_actions {
+  grid-column: 1 / -1;
+  width: 100%;
+  justify-content: stretch;
+}
+
+.products_filter_bar::before {
+  background: linear-gradient(180deg, #7090b7, rgba(112, 144, 183, 0.28));
+}
+
+/* =========================================================
+   Serwokontrol correction - Products quick filtering label
+   Scope: products.html -> #productsFilter .products_filter_intro
+   Purpose:
+   - replace the underline under "Szybkie filtrowanie" with the same dash
+     used by "Pomoc w doborze" (.page_faq_header span::before),
+   - keep product card text colors blue,
+   - avoid touching the rest of the Products page layout.
+   ========================================================= */
+
+#productsFilter .products_filter_intro > span {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content !important;
+  max-width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 0 !important;
+  color: #7090b7;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+#productsFilter .products_filter_intro > span::before {
+  content: "";
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 3px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background-color: currentColor;
+}
+
+#productsFilter .products_filter_intro > span::after,
+#productsFilter .products_filter_intro > h3::after {
+  content: none !important;
+  display: none !important;
+}
+
+.products_page .product_card .product_content span,
+.products_page .product_card .product_content h3 {
+  color: #7090b7;
+}
+
+.products_page .product_card .product_content p {
+  color: #587ca8;
+}
+
+.products_page .product_card:hover .product_content p,
+.products_page .product_card:focus-visible .product_content p {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   Product cards underline animation refinement
+   Scope: products.html -> product cards grid
+   Purpose: gradient line hidden by default, revealed on hover/focus
+   from left to right across the full card width.
+   ========================================================= */
+
+.products_page .product_card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  height: 4px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0));
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 1;
+  pointer-events: none;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 3;
+}
+
+.products_page .product_card:hover::after,
+.products_page .product_card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   Serwokontrol fix - Product card gradient underline override
+   Note: design-system.css is loaded after products.css and uses !important
+   on .product_card::after, so this selector is intentionally more specific
+   and also uses !important.
+   ========================================================= */
+
+.products_page .products_grid .product_card::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: 0 !important;
+  top: auto !important;
+  width: 100% !important;
+  height: 4px !important;
+  border-radius: 0 999px 999px 0 !important;
+  background: linear-gradient(90deg, #7090b7 0%, #5f7fa7 48%, rgba(112, 144, 183, 0) 100%) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  z-index: 3 !important;
+}
+
+.products_page .products_grid .product_card:hover::after,
+.products_page .products_grid .product_card:focus-visible::after {
+  transform: scaleX(1) !important;
+}
+
+/* =========================================================
+   Serwokontrol fix - Catalog modal intro vertical gradient line
+   Keeps the existing hover scale animation, changes only the line fill.
+   ========================================================= */
+
+.product_modal.product_catalog_modal .catalog_hero::before {
+  background: linear-gradient(
+    180deg,
+    #7090b7 0%,
+    #5f7fa7 48%,
+    rgba(112, 144, 183, 0.18) 100%
+  ) !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   Serwokontrol fix - Catalog modal closing CTA gradient panel
+   Scope: product catalog modals -> "Potrzebujesz pomocy w doborze?"
+   Purpose: blue gradient panel inspired by the home regional CTA, with
+   a gradient vertical accent line and readable light/dark theme colors.
+   ========================================================= */
+
+.product_modal.product_catalog_modal .catalog_closing {
+  border: 1px solid rgba(226, 233, 241, 0.22) !important;
+  border-left: none !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #7090b7 0%, #5f7fa7 100%) !important;
+  box-shadow: 0 14px 34px rgba(94, 106, 113, 0.24) !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing::before {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #dce9f6 44%,
+    rgba(255, 255, 255, 0.22) 100%
+  ) !important;
+  background-color: transparent !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing::after {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_icon {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  box-shadow: 0 14px 26px rgba(50, 79, 117, 0.24) !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_content > span,
+.product_modal.product_catalog_modal .catalog_closing h4,
+.product_modal.product_catalog_modal .catalog_closing p {
+  color: #ffffff !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_content > span,
+.product_modal.product_catalog_modal .catalog_closing p {
+  opacity: 0.9;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_actions a {
+  border-color: rgba(255, 255, 255, 0.36) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_actions a i {
+  color: currentColor !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_actions a:hover,
+.product_modal.product_catalog_modal .catalog_closing_actions a:focus-visible {
+  border-color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #5f7fa7 !important;
+  box-shadow: 0 12px 24px rgba(50, 79, 117, 0.22) !important;
+}
+
+.product_modal.product_catalog_modal .catalog_closing_actions a:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.52) !important;
+  outline-offset: 3px !important;
+}
+
+
+/* =========================================================
+   Serwokontrol fix - remove left accent line from modal closing CTA
+   Scope: product catalog modals -> "Potrzebujesz pomocy w doborze?"
+   ========================================================= */
+
+
+/* =========================================================
+   DARK THEME REFRESH - products page and product modals
+   ========================================================= */

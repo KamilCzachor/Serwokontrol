@@ -21,6 +21,17 @@ function clean_header_value($value) {
   return trim(str_replace(["\r", "\n"], " ", $value));
 }
 
+function clean_mail_body_value($value, $max_length = 300) {
+  $value = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', (string) $value);
+  $value = trim($value);
+
+  if (function_exists("mb_substr")) {
+    return mb_substr($value, 0, $max_length, "UTF-8");
+  }
+
+  return substr($value, 0, $max_length);
+}
+
 function get_client_ip() {
   $ip = $_SERVER["REMOTE_ADDR"] ?? "unknown";
   return preg_replace('/[^0-9a-fA-F:.]/', '', $ip) ?: "unknown";
@@ -149,7 +160,7 @@ $emailBody .= $message . "\n";
 $emailBody .= "\n---\n";
 $emailBody .= "Data wysyłki: " . date("Y-m-d H:i:s") . "\n";
 $emailBody .= "IP: " . get_client_ip() . "\n";
-$emailBody .= "User-Agent: " . ($_SERVER["HTTP_USER_AGENT"] ?? "Nieznany") . "\n";
+$emailBody .= "User-Agent: " . clean_mail_body_value($_SERVER["HTTP_USER_AGENT"] ?? "Nieznany") . "\n";
 
 $replyToName = addcslashes($name, "\\\"");
 

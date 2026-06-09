@@ -10,6 +10,9 @@
 <link href="css/header.css" rel="stylesheet"/>
 <link href="css/footer.css" rel="stylesheet"/>
 <link href="css/contact.css" rel="stylesheet"/>
+<link href="css/design-system.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<link href="css/dark-theme.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&amp;display=swap" rel="stylesheet"/>
@@ -78,7 +81,7 @@
 <img alt="" aria-hidden="true" class="sticky_site_symbol_img sticky_site_symbol_img_light" decoding="async" height="352" src="images/serwokontrol-symbol-light.svg" width="328"/>
 </a>
 </div>
-<button aria-label="Otwórz menu" class="sticky_hamburger" id="stickyHamburgerBtn" type="button">
+<button aria-controls="stickyNavMenu" aria-expanded="false" aria-label="Otwórz menu" class="sticky_hamburger" id="stickyHamburgerBtn" type="button">
 <i aria-hidden="true" class="fa-solid fa-bars"></i>
 </button>
 <ul class="sticky_contact">
@@ -248,7 +251,7 @@
 </div>
 <div class="contact_cta reveal">
 <p>Nie wiesz, z kim się skontaktować?</p>
-<a href="mailto:biuro@serwokontrol.pl">Napisz do biura</a>
+<a href="#contactFormSection">Napisz do biura</a>
 </div>
 <details aria-label="Najczęstsze pytania kontaktowe" class="contact_faq contact_faq_accordion page_faq reveal" id="contactFaq">
 <summary class="contact_faq_summary">
@@ -298,7 +301,7 @@
 <input autocomplete="tel" id="phone" maxlength="40" name="phone" type="tel"/>
 <label for="message">Wiadomość *</label>
 <textarea id="message" maxlength="5000" minlength="5" name="message" required="" rows="6"></textarea>
-<label class="form_privacy"><input name="privacy" required="" type="checkbox" value="1"/><span>Wyrażam zgodę na kontakt w odpowiedzi na przesłane zapytanie i zapoznałem/am się z <a href="privacy.html" rel="noopener noreferrer" target="_blank">polityką prywatności</a>.</span></label><button id="contactFormSubmit" type="submit">
+<label class="form_privacy" for="privacy"><input id="privacy" name="privacy" required="" type="checkbox" value="1"/><span>Wyrażam zgodę na kontakt w odpowiedzi na przesłane zapytanie i zapoznałem/am się z <a href="privacy.html" rel="noopener noreferrer" target="_blank">polityką prywatności</a>.</span></label><button id="contactFormSubmit" type="submit">
               Wyślij wiadomość
             </button>
 <p aria-live="polite" class="form_status" id="formStatus"></p>
@@ -428,9 +431,9 @@
 <button aria-label="Przewiń do góry" class="scroll_top_btn" id="scrollTopBtn" type="button">
 <i aria-hidden="true" class="fa-solid fa-arrow-up"></i>
 </button>
-<div class="cookie_overlay" id="cookieOverlay"></div>
-<div class="cookie_banner" id="cookieBanner">
-<p>Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
+<div aria-hidden="true" class="cookie_overlay" id="cookieOverlay"></div>
+<div aria-hidden="true" aria-labelledby="cookieBannerTitle" class="cookie_banner" id="cookieBanner" role="dialog">
+<p id="cookieBannerTitle">Ta strona używa plików cookies w celu poprawnego działania serwisu.</p>
 <button id="acceptCookiesBtn" type="button">Akceptuję</button>
 </div>
 <script defer="" src="js/regions-data.js"></script>

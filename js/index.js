@@ -39,7 +39,9 @@
     });
 
     dots.forEach(function (dot, dotIndex) {
-      dot.classList.toggle("is_active", dotIndex === activeSlide);
+      const isActive = dotIndex === activeSlide;
+      dot.classList.toggle("is_active", isActive);
+      dot.setAttribute("aria-current", String(isActive));
     });
   }
 
@@ -89,6 +91,138 @@
     if (hero) {
       hero.addEventListener("mouseenter", stopSlider);
       hero.addEventListener("mouseleave", startSlider);
+      hero.addEventListener("focusin", stopSlider);
+      hero.addEventListener("focusout", startSlider);
+    }
+
+    /* Touch swipe visual hint. */
+
+    let heroSwipeHintTimer = null;
+
+    function hideHeroSwipeHint() {
+      if (heroSwipeHintTimer) {
+        window.clearTimeout(heroSwipeHintTimer);
+        heroSwipeHintTimer = null;
+      }
+
+      const hint = document.getElementById("homeSwipeHint");
+      if (hint) {
+        hint.classList.remove("is_visible");
+      }
+    }
+
+    function setupHeroSwipeHint() {
+      if (!hero || !isTouchDevice || slides.length < 2) return;
+      if (document.getElementById("homeSwipeHint")) return;
+
+      const hint = document.createElement("div");
+      hint.className = "swipe_hint home_swipe_hint";
+      hint.id = "homeSwipeHint";
+      hint.setAttribute("aria-hidden", "true");
+      hint.innerHTML = `
+        <span class="swipe_hint_icon" aria-hidden="true">
+          <i class="fa-solid fa-arrow-left"></i>
+          <i class="fa-solid fa-hand-pointer"></i>
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
+        <span class="swipe_hint_text">Przesuń palcem</span>
+      `;
+
+      hero.appendChild(hint);
+
+      window.setTimeout(function () {
+        hint.classList.add("is_visible");
+
+        heroSwipeHintTimer = window.setTimeout(function () {
+          hideHeroSwipeHint();
+        }, 3600);
+      }, 700);
+    }
+
+    setupHeroSwipeHint();
+
+    /* Touch / pen swipe navigation for phones and touch laptops. */
+
+    const swipeTarget = slider || hero;
+
+    if (swipeTarget && window.PointerEvent) {
+      let swipePointerId = null;
+      let swipeStartX = 0;
+      let swipeStartY = 0;
+      let swipeCurrentX = 0;
+      let swipeCurrentY = 0;
+      let swipeStartedAt = 0;
+      let isSwipeTracking = false;
+
+      function resetHeroSwipe() {
+        swipePointerId = null;
+        isSwipeTracking = false;
+        swipeStartX = 0;
+        swipeStartY = 0;
+        swipeCurrentX = 0;
+        swipeCurrentY = 0;
+        swipeStartedAt = 0;
+      }
+
+      swipeTarget.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "mouse" || slides.length < 2) return;
+
+        hideHeroSwipeHint();
+
+        swipePointerId = event.pointerId;
+        swipeStartX = event.clientX;
+        swipeStartY = event.clientY;
+        swipeCurrentX = event.clientX;
+        swipeCurrentY = event.clientY;
+        swipeStartedAt = Date.now();
+        isSwipeTracking = true;
+        stopSlider();
+
+        if (typeof swipeTarget.setPointerCapture === "function") {
+          try {
+            swipeTarget.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // Pointer capture can fail on some embedded browsers.
+          }
+        }
+      });
+
+      swipeTarget.addEventListener("pointermove", function (event) {
+        if (!isSwipeTracking || event.pointerId !== swipePointerId) return;
+
+        swipeCurrentX = event.clientX;
+        swipeCurrentY = event.clientY;
+      });
+
+      function finishHeroSwipe(event) {
+        if (!isSwipeTracking || event.pointerId !== swipePointerId) return;
+
+        const deltaX = swipeCurrentX - swipeStartX;
+        const deltaY = swipeCurrentY - swipeStartY;
+        const elapsed = Date.now() - swipeStartedAt;
+        const isMostlyHorizontal = Math.abs(deltaX) > Math.abs(deltaY) * 1.35;
+        const hasEnoughDistance = Math.abs(deltaX) > 48;
+        const hasEnoughVelocity = Math.abs(deltaX) > 34 && elapsed < 420;
+
+        if (isMostlyHorizontal && (hasEnoughDistance || hasEnoughVelocity)) {
+          if (deltaX < 0) {
+            showSlide(activeSlide + 1);
+          } else {
+            showSlide(activeSlide - 1);
+          }
+        }
+
+        resetHeroSwipe();
+        startSlider();
+      }
+
+      swipeTarget.addEventListener("pointerup", finishHeroSwipe);
+      swipeTarget.addEventListener("pointercancel", function (event) {
+        if (event.pointerId === swipePointerId) {
+          resetHeroSwipe();
+          startSlider();
+        }
+      });
     }
   }
 

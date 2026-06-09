@@ -11,6 +11,9 @@
   const productCardsArray = Array.from(productCards);
   let activeProductCardIndex = -1;
   let lastFocusedProductCard = null;
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  let modalSwipeHintTimer = null;
 
   /* =========================================================
      1. Catalog data
@@ -1187,7 +1190,171 @@
     if (currentIndex < 0) currentIndex = 0;
 
     const nextIndex = (currentIndex + direction + cards.length) % cards.length;
-    openProductModal(cards[nextIndex]);
+    openProductModal(cards[nextIndex], { fromModalNavigation: true });
+  }
+
+  function ensureModalSwipeHint() {
+    if (!productModalOverlay) return null;
+
+    let hint = productModalOverlay.querySelector("#productModalSwipeHint");
+    if (hint) return hint;
+
+    hint = document.createElement("div");
+    hint.className = "swipe_hint product_modal_swipe_hint";
+    hint.id = "productModalSwipeHint";
+    hint.setAttribute("aria-hidden", "true");
+    hint.innerHTML = `
+      <span class="swipe_hint_icon" aria-hidden="true">
+        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-hand-pointer"></i>
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
+      <span class="swipe_hint_text">Przesuń palcem</span>
+    `;
+
+    productModalOverlay.appendChild(hint);
+    return hint;
+  }
+
+  function hideModalSwipeHint() {
+    if (modalSwipeHintTimer) {
+      window.clearTimeout(modalSwipeHintTimer);
+      modalSwipeHintTimer = null;
+    }
+
+    const hint = productModalOverlay
+      ? productModalOverlay.querySelector("#productModalSwipeHint")
+      : null;
+
+    if (hint) {
+      hint.classList.remove("is_visible");
+    }
+  }
+
+  function showModalSwipeHint() {
+    if (!isTouchDevice || getNavigableCards().length <= 1) return;
+
+    const hint = ensureModalSwipeHint();
+    if (!hint) return;
+
+    hideModalSwipeHint();
+
+    window.setTimeout(function () {
+      if (!productModalOverlay.classList.contains("show")) return;
+
+      hint.classList.add("is_visible");
+
+      modalSwipeHintTimer = window.setTimeout(function () {
+        hideModalSwipeHint();
+      }, 3600);
+    }, 350);
+  }
+
+  function setupProductModalSwipe() {
+    if (!productModalOverlay || !window.PointerEvent) return;
+
+    let swipePointerId = null;
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+    let swipeCurrentX = 0;
+    let swipeCurrentY = 0;
+    let swipeStartedAt = 0;
+    let isSwipeTracking = false;
+    let isHorizontalSwipe = false;
+
+    function resetModalSwipe() {
+      swipePointerId = null;
+      isSwipeTracking = false;
+      isHorizontalSwipe = false;
+      swipeStartX = 0;
+      swipeStartY = 0;
+      swipeCurrentX = 0;
+      swipeCurrentY = 0;
+      swipeStartedAt = 0;
+
+      productModalOverlay.classList.remove("is_swiping");
+    }
+
+    function shouldIgnoreModalSwipeTarget(target) {
+      return !!(
+        target &&
+        target.closest &&
+        target.closest(
+          'a[href], button, input, textarea, select, .product_modal_close',
+        )
+      );
+    }
+
+    productModalOverlay.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "mouse") return;
+      if (!productModalOverlay.classList.contains("show")) return;
+      if (getNavigableCards().length <= 1) return;
+      if (shouldIgnoreModalSwipeTarget(event.target)) return;
+
+      hideModalSwipeHint();
+
+      swipePointerId = event.pointerId;
+      swipeStartX = event.clientX;
+      swipeStartY = event.clientY;
+      swipeCurrentX = event.clientX;
+      swipeCurrentY = event.clientY;
+      swipeStartedAt = Date.now();
+      isSwipeTracking = true;
+
+      if (typeof productModalOverlay.setPointerCapture === "function") {
+        try {
+          productModalOverlay.setPointerCapture(event.pointerId);
+        } catch (error) {
+          // Pointer capture can fail on some embedded browsers.
+        }
+      }
+    });
+
+    productModalOverlay.addEventListener(
+      "pointermove",
+      function (event) {
+        if (!isSwipeTracking || event.pointerId !== swipePointerId) return;
+
+        swipeCurrentX = event.clientX;
+        swipeCurrentY = event.clientY;
+
+        const deltaX = swipeCurrentX - swipeStartX;
+        const deltaY = swipeCurrentY - swipeStartY;
+        const isMostlyHorizontal = Math.abs(deltaX) > Math.abs(deltaY) * 1.18;
+
+        if (!isHorizontalSwipe && Math.abs(deltaX) > 12 && isMostlyHorizontal) {
+          isHorizontalSwipe = true;
+          productModalOverlay.classList.add("is_swiping");
+        }
+
+        if (isHorizontalSwipe && event.cancelable) {
+          event.preventDefault();
+        }
+      },
+      { passive: false },
+    );
+
+    function finishModalSwipe(event) {
+      if (!isSwipeTracking || event.pointerId !== swipePointerId) return;
+
+      const deltaX = swipeCurrentX - swipeStartX;
+      const deltaY = swipeCurrentY - swipeStartY;
+      const elapsed = Date.now() - swipeStartedAt;
+      const isMostlyHorizontal = Math.abs(deltaX) > Math.abs(deltaY) * 1.35;
+      const hasEnoughDistance = Math.abs(deltaX) > 54;
+      const hasEnoughVelocity = Math.abs(deltaX) > 38 && elapsed < 420;
+
+      if (isMostlyHorizontal && (hasEnoughDistance || hasEnoughVelocity)) {
+        navigateProductModal(deltaX < 0 ? 1 : -1);
+      }
+
+      resetModalSwipe();
+    }
+
+    productModalOverlay.addEventListener("pointerup", finishModalSwipe);
+    productModalOverlay.addEventListener("pointercancel", function (event) {
+      if (event.pointerId === swipePointerId) resetModalSwipe();
+    });
   }
 
   /* =========================================================
@@ -1272,8 +1439,11 @@
     if (closeButton) closeButton.addEventListener("click", closeProductModal);
   }
 
-  function openProductModal(card) {
+  function openProductModal(card, options) {
     if (!card || !productModalOverlay || !productModal) return;
+
+    const openOptions = options || {};
+    const shouldShowSwipeHint = !openOptions.fromModalNavigation;
 
     activeProductCardIndex = productCardsArray.indexOf(card);
     lastFocusedProductCard = card;
@@ -1306,10 +1476,17 @@
     const firstHeading = productModal.querySelector("h3");
     if (firstHeading) firstHeading.setAttribute("tabindex", "-1");
     if (firstHeading) firstHeading.focus({ preventScroll: true });
+
+    if (shouldShowSwipeHint) {
+      showModalSwipeHint();
+    } else {
+      hideModalSwipeHint();
+    }
   }
 
   function closeProductModal() {
     if (!productModalOverlay) return;
+    hideModalSwipeHint();
     productModalOverlay.classList.remove("show");
     productModalOverlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no_scroll");
@@ -1569,6 +1746,7 @@
 
   if (productModalOverlay) {
     productModalOverlay.setAttribute("aria-hidden", "true");
+    setupProductModalSwipe();
   }
 
   setupImageFallbacks(document);
