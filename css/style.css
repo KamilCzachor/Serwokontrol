@@ -1571,3 +1571,31 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 /* =========================================================
    DARK THEME REFRESH - global layout and shared components
    ========================================================= */
+
+/* =========================================================
+   Scroll Up - Smooth Hide After Click
+   ========================================================= */
+
+.scroll_top_btn.is_returning_to_top {
+  pointer-events: none;
+}
+
+.scroll_top_btn.is_hiding_after_scroll,
+.scroll_top_btn.show.is_hiding_after_scroll {
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  transform: translateY(-16px) scale(0.92) !important;
+  transition:
+    opacity 0.38s ease,
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.42s ease !important;
+}
+
+.scroll_top_btn.is_hiding_after_scroll i,
+.scroll_top_btn.show.is_hiding_after_scroll i,
+.scroll_top_btn.is_hiding_after_scroll svg,
+.scroll_top_btn.show.is_hiding_after_scroll svg {
+  transform: translateY(-3px) !important;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}

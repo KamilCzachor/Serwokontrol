@@ -3572,3 +3572,180 @@ body .about_page .about_number_card::after,
     transform: none !important;
   }
 }
+
+/* =========================================================
+   Mobile Polish - Scroll Up Smooth Hide After Click
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .scroll_top_btn.is_returning_to_top {
+    pointer-events: none !important;
+  }
+
+  .scroll_top_btn.is_hiding_after_scroll,
+  .scroll_top_btn.show.is_hiding_after_scroll {
+    opacity: 0 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    transform: translateY(-14px) scale(0.92) !important;
+    transition:
+      opacity 0.38s ease,
+      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.42s ease !important;
+  }
+
+  .scroll_top_btn.is_hiding_after_scroll i,
+  .scroll_top_btn.show.is_hiding_after_scroll i,
+  .scroll_top_btn.is_hiding_after_scroll svg,
+  .scroll_top_btn.show.is_hiding_after_scroll svg {
+    animation: none !important;
+    transform: translateY(-3px) !important;
+  }
+}
+
+/* =========================================================
+   Mobile Polish - Main Header Actions Fit on Narrow Devices
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .main_header_inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    grid-template-columns: 36px minmax(0, 1fr) minmax(0, 108px) !important;
+    column-gap: 6px !important;
+    padding-inline: max(10px, env(safe-area-inset-left)) max(10px, env(safe-area-inset-right)) !important;
+  }
+
+  .main_nav {
+    min-width: 0;
+  }
+
+  .hamburger {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    flex: 0 0 36px !important;
+    padding: 0 !important;
+  }
+
+  .logo {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .logo a.site_wordmark_link {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+
+  .site_logo_symbol_img {
+    width: 27px !important;
+    height: 30px !important;
+  }
+
+  .site_logo_wordmark {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    font-size: clamp(18px, 5vw, 21px) !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  .header_actions {
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: 108px !important;
+    gap: 5px !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .header_actions .header_action_link,
+  .header_actions .theme_toggle,
+  .header_actions .theme_toggle_expand,
+  .header_actions .header_action_link:hover,
+  .header_actions .header_action_link:focus-visible,
+  .header_actions .theme_toggle:hover,
+  .header_actions .theme_toggle:focus-visible,
+  .header_actions .theme_toggle_expand:hover,
+  .header_actions .theme_toggle_expand:focus-visible {
+    flex: 0 0 32px !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+
+  .header_actions .header_action_link span,
+  .header_actions .theme_toggle span,
+  .header_actions .theme_toggle_expand span {
+    display: none !important;
+  }
+
+  .header_actions .header_action_link i,
+  .header_actions .theme_toggle i,
+  .header_actions .theme_toggle_expand i {
+    width: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .main_header_inner {
+    grid-template-columns: 34px minmax(0, 1fr) minmax(0, 101px) !important;
+    column-gap: 5px !important;
+    padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right)) !important;
+  }
+
+  .hamburger {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    flex-basis: 34px !important;
+  }
+
+  .site_logo_symbol_img {
+    width: 25px !important;
+    height: 28px !important;
+  }
+
+  .site_logo_wordmark {
+    font-size: clamp(17px, 4.9vw, 19px) !important;
+  }
+
+  .header_actions {
+    max-width: 101px !important;
+    gap: 4px !important;
+  }
+
+  .header_actions .header_action_link,
+  .header_actions .theme_toggle,
+  .header_actions .theme_toggle_expand,
+  .header_actions .header_action_link:hover,
+  .header_actions .header_action_link:focus-visible,
+  .header_actions .theme_toggle:hover,
+  .header_actions .theme_toggle:focus-visible,
+  .header_actions .theme_toggle_expand:hover,
+  .header_actions .theme_toggle_expand:focus-visible {
+    flex-basis: 31px !important;
+    width: 31px !important;
+    min-width: 31px !important;
+    max-width: 31px !important;
+    height: 31px !important;
+    min-height: 31px !important;
+    max-height: 31px !important;
+  }
+}

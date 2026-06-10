@@ -3,10 +3,52 @@
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 if (scrollTopBtn) {
+  let isScrollTopReturning = false;
+  let scrollTopHideTimer = null;
+
+  function clearScrollTopHideTimer() {
+    if (scrollTopHideTimer) {
+      window.clearTimeout(scrollTopHideTimer);
+      scrollTopHideTimer = null;
+    }
+  }
+
+  function finishScrollTopReturn() {
+    if (!isScrollTopReturning) return;
+
+    isScrollTopReturning = false;
+    clearScrollTopHideTimer();
+
+    scrollTopBtn.classList.remove("is_returning_to_top", "is_popping");
+
+    // Restart końcowej animacji zanikania po dojechaniu do góry.
+    void scrollTopBtn.offsetWidth;
+    scrollTopBtn.classList.add("show", "is_hiding_after_scroll");
+
+    scrollTopHideTimer = window.setTimeout(function () {
+      scrollTopBtn.classList.remove("show", "is_hiding_after_scroll");
+      clearScrollTopHideTimer();
+    }, 460);
+  }
+
   function updateScrollTopButton() {
     if (window.scrollY > 250) {
       scrollTopBtn.classList.add("show");
-    } else {
+      scrollTopBtn.classList.remove("is_hiding_after_scroll");
+      return;
+    }
+
+    if (isScrollTopReturning) {
+      scrollTopBtn.classList.add("show");
+
+      if (window.scrollY <= 4) {
+        finishScrollTopReturn();
+      }
+
+      return;
+    }
+
+    if (!scrollTopBtn.classList.contains("is_hiding_after_scroll")) {
       scrollTopBtn.classList.remove("show");
     }
   }
@@ -16,20 +58,23 @@ if (scrollTopBtn) {
   });
 
   scrollTopBtn.addEventListener("click", function () {
-    scrollTopBtn.classList.remove("is_popping");
+    isScrollTopReturning = true;
+    clearScrollTopHideTimer();
 
-    // Restart krótkiej animacji kliknięcia.
-    void scrollTopBtn.offsetWidth;
-    scrollTopBtn.classList.add("is_popping");
-
-    window.setTimeout(function () {
-      scrollTopBtn.classList.remove("is_popping");
-    }, 520);
+    scrollTopBtn.classList.remove("is_popping", "is_hiding_after_scroll");
+    scrollTopBtn.classList.add("show", "is_returning_to_top");
 
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+
+    // Fallback dla przeglądarek/ustawień, w których smooth scroll kończy się natychmiast.
+    window.setTimeout(function () {
+      if (window.scrollY <= 4) {
+        finishScrollTopReturn();
+      }
+    }, 80);
   });
 
   updateScrollTopButton();

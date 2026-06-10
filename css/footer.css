@@ -840,3 +840,48 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
 /* =========================================================
    PATCH - restore original dark footer partner capsule background
    ========================================================= */
+
+/* =========================================================
+   Footer Accordion Structure
+   Kontakt/Nawigacja collapse only on mobile via responsive.css.
+   ========================================================= */
+
+.footer_accordion_column {
+  display: block;
+}
+
+.footer_accordion_summary {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  list-style: none;
+  cursor: default;
+}
+
+.footer_accordion_summary::-webkit-details-marker {
+  display: none;
+}
+
+.footer_accordion_summary::marker {
+  content: "";
+}
+
+.footer_accordion_summary h3 {
+  margin-top: 0;
+}
+
+.footer_accordion_summary i {
+  display: none;
+  flex: 0 0 auto;
+  color: rgba(226, 233, 241, 0.86);
+  font-size: 14px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer_accordion_column:not([open]) > .footer_contact,
+.footer_accordion_column:not([open]) > .footer_nav {
+  display: flex;
+}
