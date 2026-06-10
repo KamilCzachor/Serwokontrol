@@ -3332,3 +3332,243 @@ body .about_page .about_number_card::after,
     transition: none;
   }
 }
+
+/* =========================================================
+   Mobile Polish - Hamburger & Bürkert Flag Cleanup
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hamburger,
+  .sticky_hamburger {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger:focus,
+  .hamburger:active,
+  .sticky_hamburger:focus,
+  .sticky_hamburger:active {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .hamburger:focus-visible,
+  .sticky_hamburger:focus-visible {
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .buerkert_floating_widget {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .buerkert_floating_widget {
+    display: block;
+  }
+}
+
+/* =========================================================
+   Mobile Patch - Transparent Hamburger, Header Bürkert Flag,
+   and Round Scroll-Up Button
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hamburger,
+  .sticky_hamburger,
+  .hamburger:hover,
+  .hamburger:focus,
+  .hamburger:active,
+  .hamburger:focus-visible,
+  .sticky_hamburger:hover,
+  .sticky_hamburger:focus,
+  .sticky_hamburger:active,
+  .sticky_hamburger:focus-visible {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    filter: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger i,
+  .sticky_hamburger i {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .buerkert_floating_widget {
+    display: block !important;
+    position: fixed !important;
+    right: 0 !important;
+    top: calc(76px + env(safe-area-inset-top)) !important;
+    z-index: 10001 !important;
+    width: 58px !important;
+    transform: none !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .buerkert_floating_button,
+  .buerkert_floating_button:hover,
+  .buerkert_floating_button:focus-visible {
+    width: 54px !important;
+    height: 48px !important;
+    min-width: 54px !important;
+    border-radius: 16px 0 0 16px !important;
+    transform: none !important;
+  }
+
+  .buerkert_floating_icon {
+    width: 40px !important;
+    max-height: 24px !important;
+  }
+
+  .buerkert_floating_panel {
+    right: 64px !important;
+    top: 0 !important;
+    width: min(300px, calc(100vw - 82px)) !important;
+    max-height: calc(100vh - 96px) !important;
+    overflow: auto !important;
+    transform: translateX(18px) !important;
+  }
+
+  .buerkert_floating_widget.is_open .buerkert_floating_panel {
+    transform: translateX(0) !important;
+  }
+
+  .scroll_top_btn,
+  .scroll_top_btn.show,
+  .scroll_top_btn:hover,
+  .scroll_top_btn:focus-visible {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    aspect-ratio: 1 / 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .scroll_top_btn i,
+  .scroll_top_btn svg {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .scroll_top_btn:hover i,
+  .scroll_top_btn:focus-visible i,
+  .scroll_top_btn:hover svg,
+  .scroll_top_btn:focus-visible svg {
+    transform: translateY(-1px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .buerkert_floating_widget {
+    top: calc(70px + env(safe-area-inset-top)) !important;
+  }
+
+  .buerkert_floating_button,
+  .buerkert_floating_button:hover,
+  .buerkert_floating_button:focus-visible {
+    width: 50px !important;
+    height: 44px !important;
+    min-width: 50px !important;
+  }
+
+  .buerkert_floating_icon {
+    width: 36px !important;
+    max-height: 22px !important;
+  }
+}
+
+/* =========================================================
+   Mobile Polish - Scroll Up Capsule Animation Restore
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .scroll_top_btn,
+  .scroll_top_btn.show {
+    right: 18px !important;
+    bottom: 18px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: none !important;
+    max-height: none !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    aspect-ratio: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    transform: translateY(0);
+  }
+
+  .scroll_top_btn::before,
+  .scroll_top_btn::after {
+    content: none !important;
+    display: none !important;
+    animation: none !important;
+  }
+
+  .scroll_top_btn:hover,
+  .scroll_top_btn:focus-visible {
+    width: 48px !important;
+    height: 66px !important;
+    min-width: 48px !important;
+    min-height: 66px !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 999px !important;
+    transform: translateY(0) !important;
+  }
+
+  .scroll_top_btn i,
+  .scroll_top_btn svg {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: translateY(0) !important;
+    transform-origin: center !important;
+  }
+
+  .scroll_top_btn:hover i,
+  .scroll_top_btn:focus-visible i,
+  .scroll_top_btn:hover svg,
+  .scroll_top_btn:focus-visible svg {
+    animation: scrollTopArrowGuide 1.05s cubic-bezier(0.42, 0, 0.2, 1) infinite !important;
+    transform: none !important;
+  }
+
+  .scroll_top_btn.is_popping,
+  .scroll_top_btn.is_popping i,
+  .scroll_top_btn.is_popping svg {
+    transform: none !important;
+  }
+}

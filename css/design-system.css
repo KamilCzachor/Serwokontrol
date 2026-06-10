@@ -979,3 +979,29 @@ footer {
 /* =========================================================
    DARK THEME SYSTEM REFRESH - shared palette and foundations
    ========================================================= */
+
+/* =========================================================
+   FAQ Cards Lift Polish
+   ========================================================= */
+
+.products_faq_accordion[open] .page_faq_item,
+.contact_faq_accordion[open] .page_faq_item {
+  transform: translateY(0);
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s ease,
+    border-color 0.42s ease,
+    background-color 0.42s ease;
+  will-change: transform;
+}
+
+.products_faq_accordion[open] .page_faq_item:hover,
+.products_faq_accordion[open] .page_faq_item:focus-within,
+.contact_faq_accordion[open] .page_faq_item:hover,
+.contact_faq_accordion[open] .page_faq_item:focus-within {
+  transform: translateY(-7px);
+  border-color: rgba(112, 144, 183, 0.34);
+  box-shadow:
+    0 18px 38px rgba(94, 106, 113, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.86) inset;
+}
