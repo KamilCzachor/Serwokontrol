@@ -3749,3 +3749,345 @@ body .about_page .about_number_card::after,
     max-height: 31px !important;
   }
 }
+
+/* =========================================================
+   Mobile Polish - Final UX Refinements
+   ========================================================= */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .container,
+  .home_hero_inner,
+  .footer_inner {
+    width: min(100% - 28px, 1000px) !important;
+  }
+
+  /* Hero: shorter first screen and calmer spacing */
+  .home_hero {
+    min-height: auto !important;
+  }
+
+  .home_hero_inner {
+    padding-top: 70px !important;
+    padding-bottom: 68px !important;
+    gap: 26px !important;
+  }
+
+  .home_hero_slider {
+    min-height: clamp(330px, 72vh, 520px) !important;
+  }
+
+  .home_hero_slide {
+    justify-content: center !important;
+  }
+
+  .home_hero h2 {
+    font-size: clamp(34px, 11vw, 48px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.045em !important;
+    margin-bottom: 18px !important;
+  }
+
+  .home_hero p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  .home_hero_actions,
+  .home_region_actions {
+    margin-top: 24px !important;
+    gap: 10px !important;
+  }
+
+  .home_hero_actions .home_btn,
+  .home_region_actions .home_btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 50px !important;
+  }
+
+  /* Sticky header: safe-area aware floating bar */
+  .sticky_header {
+    top: calc(10px + env(safe-area-inset-top)) !important;
+  }
+
+  .sticky_header_inner {
+    width: min(100% - 24px, 520px) !important;
+  }
+
+  /* Footer mobile accordion */
+  .footer_accordion_column {
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .footer_accordion_toggle {
+    width: 100%;
+    min-height: 56px;
+    padding: 18px 20px;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .footer_accordion_toggle span {
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .footer_accordion_toggle i {
+    flex: 0 0 auto;
+    color: #e2e9f1;
+    transform: rotate(0deg);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .footer_accordion_column.is_open .footer_accordion_toggle i {
+    transform: rotate(180deg);
+  }
+
+  .footer_accordion_panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.28s ease;
+  }
+
+  .footer_accordion_column.is_open .footer_accordion_panel {
+    max-height: 460px;
+    opacity: 1;
+  }
+
+  .footer_accordion_panel .footer_contact,
+  .footer_accordion_panel .footer_nav {
+    padding: 0 20px 22px !important;
+  }
+
+  /* Products: less scrolling and larger tap targets */
+  .products_grid {
+    gap: 18px !important;
+  }
+
+  .product_image {
+    height: clamp(150px, 42vw, 190px) !important;
+    padding: 18px !important;
+  }
+
+  .product_content {
+    padding: 20px !important;
+  }
+
+  .product_content h3 {
+    font-size: 20px !important;
+  }
+
+  .product_modal_body {
+    padding-bottom: 24px !important;
+  }
+
+  .catalog_product_actions,
+  .catalog_product_links,
+  .catalog_modal_product_links {
+    gap: 12px !important;
+  }
+
+  .catalog_product a,
+  .catalog_modal_product a,
+  .catalog_pdf_link,
+  .modal_pdf_link {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Contact map: make search primary and map easier to read */
+  .city_search_box {
+    padding: 22px !important;
+    border-radius: 18px !important;
+    background-color: rgba(255, 255, 255, 0.72) !important;
+    box-shadow: 0 10px 26px rgba(94, 106, 113, 0.12) !important;
+  }
+
+  .city_search_field input {
+    height: 54px !important;
+    font-size: 16px !important;
+  }
+
+  .representatives_map_hint {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .map_legend {
+    gap: 10px !important;
+  }
+
+  .map_legend span {
+    width: 100% !important;
+  }
+
+  .poland_map {
+    max-width: 100% !important;
+  }
+
+  /* Contact form: more comfortable mobile input rhythm */
+  .contact_form {
+    gap: 16px !important;
+  }
+
+  .contact_form input,
+  .contact_form textarea {
+    min-height: 50px !important;
+    font-size: 16px !important;
+  }
+
+  .contact_form textarea {
+    min-height: 150px !important;
+  }
+
+  .contact_form button[type="submit"] {
+    width: 100% !important;
+    min-height: 52px !important;
+  }
+
+  .form_privacy {
+    gap: 14px !important;
+    padding: 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .form_privacy input[type="checkbox"] {
+    flex: 0 0 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    margin-top: 2px !important;
+  }
+
+  .form_privacy span {
+    line-height: 1.55 !important;
+  }
+
+  /* Scroll up: keep it away from Android/iOS bottom chrome */
+  .scroll_top_btn,
+  .scroll_top_btn.show {
+    right: max(18px, env(safe-area-inset-right)) !important;
+    bottom: calc(24px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .home_hero_inner {
+    padding-top: 58px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .home_hero_slider {
+    min-height: clamp(315px, 70vh, 480px) !important;
+  }
+
+  .footer_accordion_toggle {
+    padding-inline: 18px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .footer_accordion_toggle {
+    pointer-events: none;
+  }
+
+  .footer_accordion_toggle i {
+    display: none;
+  }
+
+  .footer_accordion_panel {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer_accordion_panel,
+  .footer_accordion_toggle i {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Footer Accordion - Base Styling After HTML Refactor
+   ========================================================= */
+
+.footer_accordion_toggle {
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: default;
+}
+
+.footer_accordion_toggle span {
+  color: inherit;
+  font: inherit;
+}
+
+.footer_accordion_toggle i {
+  color: #e2e9f1;
+  font-size: 14px;
+}
+
+.footer_accordion_panel {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer_accordion_toggle {
+    margin-bottom: 0 !important;
+    cursor: pointer !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer_accordion_toggle {
+    min-height: 56px !important;
+    padding: 18px 20px !important;
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+  }
+
+  .footer_accordion_toggle i {
+    display: inline-flex !important;
+  }
+}

@@ -235,6 +235,7 @@
   const doborCondition = document.getElementById("doborCondition");
   const doborTitle = document.getElementById("doborTitle");
   const doborText = document.getElementById("doborText");
+  const doborConsultLink = document.querySelector(".home_selector_result a");
 
   function updateDobor() {
     if (
@@ -283,6 +284,60 @@
 
     doborTitle.textContent = title;
     doborText.textContent = text;
+
+    if (doborConsultLink) {
+      const params = new URLSearchParams({
+        dobor: "1",
+        medium: medium,
+        task: task,
+        condition: condition,
+      });
+
+      doborConsultLink.href =
+        "contact.html?" + params.toString() + "#contactFormSection";
+    }
+  }
+
+  function getSelectedOptionText(select) {
+    if (!select || !select.options || select.selectedIndex < 0) return "";
+    return select.options[select.selectedIndex].textContent.trim();
+  }
+
+  function saveDoborSelectionForContact() {
+    if (
+      !doborMedium ||
+      !doborTask ||
+      !doborCondition ||
+      !doborTitle ||
+      !doborText
+    ) {
+      return;
+    }
+
+    const payload = {
+      medium: doborMedium.value,
+      mediumText: getSelectedOptionText(doborMedium),
+      task: doborTask.value,
+      taskText: getSelectedOptionText(doborTask),
+      condition: doborCondition.value,
+      conditionText: getSelectedOptionText(doborCondition),
+      resultTitle: doborTitle.textContent.trim(),
+      resultText: doborText.textContent.trim(),
+      savedAt: Date.now(),
+    };
+
+    try {
+      window.sessionStorage.setItem(
+        "serwokontrolDoborSelection",
+        JSON.stringify(payload),
+      );
+    } catch (error) {
+      // Query parameters in the link are used as a fallback.
+    }
+  }
+
+  if (doborConsultLink) {
+    doborConsultLink.addEventListener("click", saveDoborSelectionForContact);
   }
 
   [doborMedium, doborTask, doborCondition].forEach(function (field) {

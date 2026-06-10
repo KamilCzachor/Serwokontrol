@@ -1710,6 +1710,122 @@ if (contactForm && formStatus && contactFormSubmit) {
 
   setFormStartedAt();
 
+  function getDoborLabel(type, value) {
+    const labels = {
+      medium: {
+        water: "Woda / media neutralne",
+        air: "Powietrze / gazy techniczne",
+        steam: "Para",
+        chemical: "Media chemiczne",
+      },
+      task: {
+        shutoff: "Odcinanie przepływu",
+        control: "Regulacja procesu",
+        measure: "Pomiar",
+        replace: "Dobór zamiennika",
+      },
+      condition: {
+        standard: "Standardowe",
+        highTemp: "Wysoka temperatura",
+        hygienic: "Aplikacja higieniczna",
+        aggressive: "Medium agresywne",
+      },
+    };
+
+    return (labels[type] && labels[type][value]) || "";
+  }
+
+  function readDoborSelectionFromStorage() {
+    try {
+      const raw = window.sessionStorage.getItem("serwokontrolDoborSelection");
+      if (!raw) return null;
+
+      const parsed = JSON.parse(raw);
+      window.sessionStorage.removeItem("serwokontrolDoborSelection");
+
+      if (!parsed || typeof parsed !== "object") return null;
+
+      return parsed;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function readDoborSelectionFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("dobor") !== "1") return null;
+
+    const medium = params.get("medium") || "";
+    const task = params.get("task") || "";
+    const condition = params.get("condition") || "";
+
+    if (!medium && !task && !condition) return null;
+
+    return {
+      medium: medium,
+      mediumText: getDoborLabel("medium", medium),
+      task: task,
+      taskText: getDoborLabel("task", task),
+      condition: condition,
+      conditionText: getDoborLabel("condition", condition),
+      resultTitle: "",
+      resultText: "",
+    };
+  }
+
+  function buildDoborMessage(selection) {
+    const lines = [
+      "Dzień dobry,",
+      "",
+      "proszę o konsultację doboru rozwiązania na podstawie poniższych warunków:",
+      "",
+      "Medium: " + (selection.mediumText || "nie podano"),
+      "Zadanie: " + (selection.taskText || "nie podano"),
+      "Warunki pracy: " + (selection.conditionText || "nie podano"),
+    ];
+
+    if (selection.resultTitle) {
+      lines.push("", "Proponowany kierunek: " + selection.resultTitle);
+    }
+
+    if (selection.resultText) {
+      lines.push("Podpowiedź ze strony: " + selection.resultText);
+    }
+
+    lines.push("", "Dodatkowe informacje o aplikacji:", "");
+
+    return lines.join("\n");
+  }
+
+  function prefillFormFromDoborSelection() {
+    const messageField = document.getElementById("message");
+    if (!messageField) return;
+
+    const selection = readDoborSelectionFromStorage() || readDoborSelectionFromUrl();
+    if (!selection) return;
+
+    const message = buildDoborMessage(selection);
+
+    if (messageField.value.trim()) {
+      messageField.value = messageField.value.trim() + "\n\n" + message;
+    } else {
+      messageField.value = message;
+    }
+
+    messageField.dispatchEvent(new Event("input", { bubbles: true }));
+
+    if (window.location.search.includes("dobor=1") && window.history.replaceState) {
+      window.history.replaceState(
+        null,
+        document.title,
+        window.location.pathname + window.location.hash,
+      );
+    }
+  }
+
+  prefillFormFromDoborSelection();
+
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -2044,4 +2160,82 @@ if (contactForm && formStatus && contactFormSubmit) {
   window.addEventListener("load", openFaqFromHash);
   window.addEventListener("hashchange", openFaqFromHash);
   openFaqFromHash();
+})();
+
+/* =========================================================
+   Mobile Footer Accordion
+   ========================================================= */
+
+(function () {
+  const footerColumns = Array.from(document.querySelectorAll(".footer_accordion_column"));
+  if (!footerColumns.length) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+  function setColumnState(column, isOpen) {
+    const toggle = column.querySelector(".footer_accordion_toggle");
+    const panel = column.querySelector(".footer_accordion_panel");
+
+    column.classList.toggle("is_open", isOpen);
+
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    if (panel) {
+      panel.setAttribute("aria-hidden", String(!isOpen && mobileQuery.matches));
+    }
+  }
+
+  function syncFooterAccordion() {
+    footerColumns.forEach(function (column) {
+      setColumnState(column, !mobileQuery.matches);
+    });
+  }
+
+  footerColumns.forEach(function (column) {
+    const toggle = column.querySelector(".footer_accordion_toggle");
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+      if (!mobileQuery.matches) return;
+      setColumnState(column, !column.classList.contains("is_open"));
+    });
+  });
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncFooterAccordion);
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(syncFooterAccordion);
+  }
+
+  syncFooterAccordion();
+})();
+
+/* =========================================================
+   Mobile Representatives Map Scroll Assist
+   ========================================================= */
+
+(function () {
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+  document.addEventListener("click", function (event) {
+    if (!mobileQuery.matches) return;
+
+    const trigger = event.target.closest(
+      ".representative_card, .representative_region_btn"
+    );
+
+    if (!trigger) return;
+
+    window.setTimeout(function () {
+      const panel = document.querySelector(".representatives_map_panel");
+      if (!panel || window.getComputedStyle(panel).display === "none") return;
+
+      panel.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 180);
+  });
 })();
