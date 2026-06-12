@@ -1256,3 +1256,393 @@ header {
 /* =========================================================
    DARK THEME REFRESH - header and sticky navigation
    ========================================================= */
+
+/* Sticky header wordmark logo - aligned with main header */
+.sticky_logo a.sticky_site_wordmark_link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(7px, 0.7vw, 10px);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.sticky_logo a.sticky_site_wordmark_link::before {
+  display: none;
+  content: none;
+}
+
+.sticky_logo a.sticky_site_wordmark_link .sticky_site_symbol_img {
+  display: block;
+  width: clamp(24px, 2.1vw, 32px);
+  height: clamp(27px, 2.3vw, 35px);
+  object-fit: contain;
+  flex: 0 0 auto;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.sticky_logo a.sticky_site_wordmark_link .sticky_site_logo_wordmark {
+  font-size: clamp(19px, 1.45vw, 25px);
+  transform: translateY(1px);
+}
+
+.sticky_logo a.sticky_site_wordmark_link:hover .sticky_site_symbol_img,
+.sticky_logo a.sticky_site_wordmark_link:focus-visible .sticky_site_symbol_img {
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 5px 10px rgba(94, 106, 113, 0.14));
+}
+
+.sticky_logo a.sticky_site_wordmark_link:hover .sticky_site_logo_wordmark,
+.sticky_logo a.sticky_site_wordmark_link:focus-visible .sticky_site_logo_wordmark {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   Header partner logo - Serwokontrol / Bürkert / nav / contact
+   ========================================================= */
+
+.buerkert_header_partner,
+.buerkert_sticky_partner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  line-height: 0;
+  overflow: visible;
+}
+
+.buerkert_header_partner img,
+.buerkert_sticky_partner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 3px rgba(31, 36, 40, 0.12));
+}
+
+.buerkert_header_partner {
+  width: clamp(135px, 12vw, 172px);
+  margin-left: clamp(-8px, -0.4vw, -2px);
+  margin-right: clamp(2px, 0.5vw, 10px);
+}
+
+.buerkert_sticky_partner {
+  order: 2;
+  width: clamp(110px, 9.6vw, 145px);
+  margin-left: clamp(-8px, -0.45vw, -3px);
+  margin-right: clamp(0px, 0.4vw, 8px);
+}
+
+.sticky_nav {
+  order: 3;
+}
+
+.sticky_contact {
+  order: 4;
+}
+
+@media (min-width: 993px) {
+  .sticky_header_inner {
+    gap: clamp(9px, 0.85vw, 16px);
+  }
+
+  .sticky_logo {
+    order: 1;
+  }
+
+  .sticky_hamburger {
+    order: 0;
+  }
+}
+
+/* Partner logo placement correction - header inline */
+.main_header_inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.buerkert_header_partner {
+  display: inline-flex !important;
+  position: static;
+  flex: 0 0 auto;
+  width: clamp(132px, 12vw, 186px);
+  height: 32px;
+  max-width: 186px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  line-height: 0;
+  transform: none;
+}
+
+.buerkert_header_partner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.main_nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-start;
+  margin-left: clamp(6px, 1vw, 14px);
+}
+
+.nav_list {
+  gap: clamp(22px, 2.2vw, 36px);
+}
+
+.header_actions {
+  margin-left: auto;
+}
+
+/* Partner logo placement correction - sticky header inline */
+.sticky_header_inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+.sticky_logo {
+  order: 1;
+  flex: 0 0 auto;
+}
+
+.buerkert_sticky_partner {
+  display: inline-flex !important;
+  position: static;
+  order: 2;
+  flex: 0 0 auto;
+  width: clamp(118px, 10vw, 160px);
+  height: 28px;
+  max-width: 160px;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  transform: none;
+}
+
+.buerkert_sticky_partner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sticky_nav {
+  order: 3;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-start;
+  margin-left: clamp(4px, 0.8vw, 12px);
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.sticky_contact {
+  order: 4;
+  margin-left: auto;
+}
+
+.sticky_hamburger {
+  order: 3;
+}
+
+@media (max-width: 1160px) {
+  .buerkert_header_partner {
+    width: 128px;
+    height: 28px;
+  }
+
+  .buerkert_sticky_partner {
+    width: 112px;
+    height: 25px;
+  }
+
+  .nav_list {
+    gap: 22px;
+  }
+
+  .sticky_nav {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 992px) {
+  .buerkert_header_partner,
+  .buerkert_sticky_partner {
+    display: none !important;
+  }
+
+  .main_nav,
+  .sticky_nav {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   FIX: Bürkert logo inline in sticky header
+   ========================================================= */
+@media (min-width: 993px) {
+  .sticky_header_inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(10px, 1.1vw, 18px) !important;
+  }
+
+  .sticky_header_inner > .sticky_logo {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .sticky_header_inner > .buerkert_sticky_partner {
+    order: 2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    flex: 0 0 clamp(104px, 8vw, 128px) !important;
+    width: clamp(104px, 8vw, 128px) !important;
+    height: 24px !important;
+    max-width: 128px !important;
+    margin: 0 clamp(8px, 0.9vw, 16px) 0 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+    line-height: 0 !important;
+  }
+
+  .sticky_header_inner > .buerkert_sticky_partner img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .sticky_header_inner > .sticky_nav {
+    order: 3 !important;
+    display: flex !important;
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    justify-content: flex-start !important;
+    z-index: 2 !important;
+  }
+
+  .sticky_header_inner > .sticky_contact {
+    order: 4 !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   Bürkert logo readability adjustment
+   Serwokontrol logo size restored to previous version
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner {
+    gap: clamp(18px, 1.55vw, 26px) !important;
+  }
+
+  .buerkert_header_partner {
+    flex-basis: clamp(174px, 15.8vw, 230px) !important;
+    width: clamp(174px, 15.8vw, 230px) !important;
+    height: clamp(38px, 3.25vw, 48px) !important;
+    max-width: 230px !important;
+    margin-right: clamp(2px, 0.45vw, 10px) !important;
+  }
+
+  .buerkert_header_partner img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .main_nav {
+    margin-left: clamp(2px, 0.45vw, 10px) !important;
+  }
+
+  .nav_list {
+    gap: clamp(18px, 1.75vw, 30px) !important;
+  }
+
+  .sticky_header_inner {
+    gap: clamp(9px, 0.9vw, 16px) !important;
+  }
+
+  .sticky_header_inner > .buerkert_sticky_partner {
+    flex-basis: clamp(132px, 10.5vw, 170px) !important;
+    width: clamp(132px, 10.5vw, 170px) !important;
+    height: clamp(28px, 2.2vw, 34px) !important;
+    max-width: 170px !important;
+    margin-right: clamp(4px, 0.55vw, 10px) !important;
+  }
+
+  .sticky_header_inner > .buerkert_sticky_partner img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .sticky_header_inner > .sticky_nav {
+    gap: clamp(13px, 1.45vw, 22px) !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1160px) {
+  .buerkert_header_partner {
+    flex-basis: 158px !important;
+    width: 158px !important;
+    height: 35px !important;
+    max-width: 158px !important;
+  }
+
+  .sticky_header_inner > .buerkert_sticky_partner {
+    flex-basis: 122px !important;
+    width: 122px !important;
+    height: 27px !important;
+    max-width: 122px !important;
+  }
+
+  .nav_list {
+    gap: clamp(15px, 1.4vw, 22px) !important;
+  }
+
+  .sticky_header_inner > .sticky_nav {
+    gap: clamp(10px, 1.1vw, 16px) !important;
+  }
+}
