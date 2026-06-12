@@ -6364,3 +6364,23 @@ body .about_page .about_number_card::after,
 .sticky_theme_toggle:focus-visible i {
   color: #ffffff !important;
 }
+
+/* Content width alignment with widened header */
+@media (min-width: 1181px) {
+  .container {
+    max-width: 1280px;
+  }
+
+  .container.home_page,
+  .home_highlights_inner,
+  .home_stats_inner,
+  .home_partner {
+    max-width: 1280px;
+  }
+
+  .home_highlights_inner,
+  .home_stats_inner,
+  .home_partner {
+    width: min(1280px, calc(100% - 56px));
+  }
+}
