@@ -6384,3 +6384,1765 @@ body .about_page .about_number_card::after,
     width: min(1280px, calc(100% - 56px));
   }
 }
+
+/* =========================================================
+   HEADER CONTACT TEXT ALIGNMENT FIX
+   Keep revealed labels aligned inside contact buttons after widening content.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner .header_action_link,
+  .main_header_inner .theme_toggle_expand,
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    padding: 0 12px !important;
+    text-align: left !important;
+    overflow: hidden !important;
+  }
+
+  .main_header_inner .header_action_link i,
+  .main_header_inner .theme_toggle_expand i,
+  .sticky_header_inner .sticky_contact a i,
+  .sticky_header_inner .sticky_contact button i,
+  .sticky_header_inner .sticky_theme_toggle i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .main_header_inner .header_action_link span,
+  .main_header_inner .theme_toggle_expand span,
+  .sticky_header_inner .sticky_contact a span,
+  .sticky_header_inner .sticky_contact button span,
+  .sticky_header_inner .sticky_theme_toggle span {
+    order: 2 !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateX(-4px) !important;
+  }
+
+  .main_header_inner .header_action_link:hover span,
+  .main_header_inner .header_action_link:focus-visible span,
+  .main_header_inner .theme_toggle_expand:hover span,
+  .main_header_inner .theme_toggle_expand:focus-visible span,
+  .sticky_header_inner .sticky_contact a:hover span,
+  .sticky_header_inner .sticky_contact a:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    transform: translateX(0) !important;
+  }
+
+  .main_header_inner .header_action_link[href^="tel"]:hover,
+  .main_header_inner .header_action_link[href^="tel"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible {
+    width: 164px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="tel"]:hover span,
+  .main_header_inner .header_action_link[href^="tel"]:focus-visible span,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover span,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible span {
+    max-width: 112px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible {
+    width: 218px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover span,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible span,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover span,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible span {
+    max-width: 166px !important;
+  }
+
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: 100px !important;
+  }
+
+  .main_header_inner .theme_toggle_expand:hover span,
+  .main_header_inner .theme_toggle_expand:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    max-width: 56px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .main_header_inner .header_action_link,
+  .main_header_inner .theme_toggle_expand,
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    gap: 6px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible {
+    width: 204px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover span,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible span,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover span,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible span {
+    max-width: 154px !important;
+  }
+}
+
+/* =========================================================
+   HEADER CONTACT TEXT CUT-OFF FIX v3
+   Give the revealed labels their full intrinsic width and make
+   the expanded buttons wide enough so text is not clipped on the right.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    overflow: visible !important;
+  }
+
+  .main_header_inner .header_action_link,
+  .main_header_inner .theme_toggle_expand,
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+  }
+
+  .main_header_inner .header_action_link:hover span,
+  .main_header_inner .header_action_link:focus-visible span,
+  .main_header_inner .theme_toggle_expand:hover span,
+  .main_header_inner .theme_toggle_expand:focus-visible span,
+  .sticky_header_inner .sticky_contact a:hover span,
+  .sticky_header_inner .sticky_contact a:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    max-width: none !important;
+    min-width: max-content !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+  }
+
+  .main_header_inner .header_action_link[href^="tel"]:hover,
+  .main_header_inner .header_action_link[href^="tel"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible {
+    width: 178px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible {
+    width: 248px !important;
+  }
+
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: 112px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .main_header_inner .header_action_link[href^="tel"]:hover,
+  .main_header_inner .header_action_link[href^="tel"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible {
+    width: 172px !important;
+  }
+
+  .main_header_inner .header_action_link[href^="mailto"]:hover,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible {
+    width: 238px !important;
+  }
+
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: 108px !important;
+  }
+}
+
+/* =========================================================
+   HEADER CONTACT HOVER WIDTH - content fitted
+   Removes the excessive empty space on the right while keeping
+   the revealed phone/mail/theme text fully visible.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner .header_action_link:hover,
+  .main_header_inner .header_action_link:focus-visible,
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact a:hover,
+  .sticky_header_inner .sticky_contact a:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: fit-content !important;
+    min-width: 38px !important;
+    max-width: none !important;
+  }
+
+  .main_header_inner .header_action_link:hover span,
+  .main_header_inner .header_action_link:focus-visible span,
+  .main_header_inner .theme_toggle_expand:hover span,
+  .main_header_inner .theme_toggle_expand:focus-visible span,
+  .sticky_header_inner .sticky_contact a:hover span,
+  .sticky_header_inner .sticky_contact a:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+  }
+
+  .main_header_inner .header_action_link[href^="tel"]:hover,
+  .main_header_inner .header_action_link[href^="tel"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible,
+  .main_header_inner .header_action_link[href^="mailto"]:hover,
+  .main_header_inner .header_action_link[href^="mailto"]:focus-visible,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="mailto"]:focus-visible,
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: fit-content !important;
+  }
+}
+
+/* =========================================================
+   STICKY HEADER CONTACT ALIGNMENT - move contact group slightly left
+   Aligns sticky phone/contact pills closer to their position in the main header.
+   ========================================================= */
+@media (min-width: 993px) {
+  .sticky_header_inner > .sticky_contact {
+    transform: translateX(-14px) !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .sticky_header_inner > .sticky_contact {
+    transform: translateX(-10px) !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .sticky_header_inner > .sticky_contact {
+    transform: translateX(-8px) !important;
+  }
+}
+
+/* =========================================================
+   STICKY CONTACT ALIGNMENT - mirror main header contact layout
+   Final override: sticky contacts use the same contact column,
+   internal direction and spacing as the main header. Removes the
+   previous manual translate shift.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    grid-template-columns:
+      auto
+      auto
+      minmax(410px, 1fr)
+      clamp(302px, 22vw, 352px) !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    grid-column: 4 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: clamp(302px, 22vw, 352px) !important;
+    min-width: 302px !important;
+    max-width: 352px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+
+  .sticky_header_inner .sticky_contact a i,
+  .sticky_header_inner .sticky_contact button i,
+  .sticky_header_inner .sticky_theme_toggle i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .sticky_header_inner .sticky_contact a span,
+  .sticky_header_inner .sticky_contact button span,
+  .sticky_header_inner .sticky_theme_toggle span {
+    order: 2 !important;
+    text-align: left !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    grid-template-columns:
+      auto
+      auto
+      minmax(0, 1fr)
+      clamp(286px, 22vw, 328px) !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    width: clamp(286px, 22vw, 328px) !important;
+    min-width: 286px !important;
+    max-width: 328px !important;
+    justify-content: flex-end !important;
+    transform: none !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    grid-template-columns:
+      auto
+      auto
+      minmax(0, 1fr)
+      clamp(258px, 24vw, 306px) !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    width: clamp(258px, 24vw, 306px) !important;
+    min-width: 258px !important;
+    max-width: 306px !important;
+    justify-content: flex-end !important;
+    gap: 5px !important;
+    transform: none !important;
+  }
+
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    gap: 6px !important;
+  }
+}
+
+/* =========================================================
+   FINAL STICKY CONTACT POSITION FIX
+   The sticky contact group is visually matched to the main header.
+   Sticky uses <ul><li><a> markup, so the list items are normalized and
+   the whole contact group is nudged right to line up with the main header
+   contact buttons instead of sitting too far left.
+   ========================================================= */
+@media (min-width: 993px) {
+  .sticky_header_inner > .sticky_contact {
+    justify-self: end !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateX(14px) !important;
+  }
+
+  .sticky_header_inner > .sticky_contact > li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .sticky_header_inner > .sticky_contact {
+    transform: translateX(10px) !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .sticky_header_inner > .sticky_contact {
+    transform: translateX(6px) !important;
+  }
+}
+
+/* =========================================================
+   FINAL HEADER/STICKY HEADER STRUCTURE ALIGNMENT
+   Sticky header previously still inherited flex/absolute rules, so its
+   contact list started from a different x-position than the main header.
+   This final override puts both bars on the same 4-column desktop grid:
+   Serwokontrol / Bürkert / Navigation / Contacts.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    display: grid !important;
+    grid-template-columns:
+      auto
+      auto
+      minmax(0, 1fr)
+      clamp(292px, 21vw, 342px) !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    column-gap: clamp(12px, 1vw, 20px) !important;
+    width: min(1520px, calc(100vw - 32px)) !important;
+    max-width: 1520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .main_header_inner > .logo,
+  .sticky_header_inner > .sticky_logo {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    order: initial !important;
+    margin: 0 !important;
+  }
+
+  .main_header_inner > .buerkert_header_partner,
+  .sticky_header_inner > .buerkert_sticky_partner {
+    grid-column: 2 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    order: initial !important;
+    position: static !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .main_header_inner > .main_nav,
+  .sticky_header_inner > .sticky_nav {
+    grid-column: 3 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    order: initial !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .main_header_inner .nav_list,
+  .sticky_header_inner > .sticky_nav {
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    flex: 0 1 auto !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    grid-column: 4 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    order: initial !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    width: clamp(292px, 21vw, 342px) !important;
+    min-width: 292px !important;
+    max-width: 342px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    list-style: none !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  .sticky_header_inner > .sticky_contact > li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .main_header_inner .header_action_link,
+  .main_header_inner .theme_toggle_expand,
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    flex: 0 0 auto !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    padding: 0 12px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    text-align: left !important;
+  }
+
+  .main_header_inner .header_action_link i,
+  .main_header_inner .theme_toggle_expand i,
+  .sticky_header_inner .sticky_contact a i,
+  .sticky_header_inner .sticky_contact button i,
+  .sticky_header_inner .sticky_theme_toggle i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .main_header_inner .header_action_link span,
+  .main_header_inner .theme_toggle_expand span,
+  .sticky_header_inner .sticky_contact a span,
+  .sticky_header_inner .sticky_contact button span,
+  .sticky_header_inner .sticky_theme_toggle span {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translateX(-4px) !important;
+  }
+
+  .main_header_inner .header_action_link:hover,
+  .main_header_inner .header_action_link:focus-visible,
+  .main_header_inner .theme_toggle_expand:hover,
+  .main_header_inner .theme_toggle_expand:focus-visible,
+  .sticky_header_inner .sticky_contact a:hover,
+  .sticky_header_inner .sticky_contact a:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: fit-content !important;
+    max-width: none !important;
+  }
+
+  .main_header_inner .header_action_link:hover span,
+  .main_header_inner .header_action_link:focus-visible span,
+  .main_header_inner .theme_toggle_expand:hover span,
+  .main_header_inner .theme_toggle_expand:focus-visible span,
+  .sticky_header_inner .sticky_contact a:hover span,
+  .sticky_header_inner .sticky_contact a:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    max-width: none !important;
+    overflow: visible !important;
+    transform: translateX(0) !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    grid-template-columns:
+      auto
+      auto
+      minmax(0, 1fr)
+      clamp(276px, 21vw, 320px) !important;
+    column-gap: clamp(8px, 0.75vw, 13px) !important;
+    width: min(1520px, calc(100vw - 28px)) !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    width: clamp(276px, 21vw, 320px) !important;
+    min-width: 276px !important;
+    max-width: 320px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .main_header_inner,
+  .sticky_header_inner {
+    grid-template-columns:
+      auto
+      auto
+      minmax(0, 1fr)
+      clamp(246px, 23vw, 292px) !important;
+    column-gap: clamp(6px, 0.7vw, 10px) !important;
+    width: min(1520px, calc(100vw - 24px)) !important;
+  }
+
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_contact {
+    width: clamp(246px, 23vw, 292px) !important;
+    min-width: 246px !important;
+    max-width: 292px !important;
+    gap: 5px !important;
+  }
+
+  .main_header_inner .header_action_link,
+  .main_header_inner .theme_toggle_expand,
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    gap: 6px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+/* =========================================================
+   FINAL STICKY HEADER VERTICAL ALIGNMENT FIX
+   Keeps sticky logo / Bürkert / navigation / contacts on one visual axis.
+   Previous desktop overrides centered the grid columns horizontally, but the
+   sticky navigation still inherited its own pill height/padding rhythm and
+   appeared lower than the logos and contact elements.
+   ========================================================= */
+@media (min-width: 993px) {
+  .sticky_header_inner {
+    align-items: center !important;
+  }
+
+  .sticky_header_inner > .sticky_logo,
+  .sticky_header_inner > .buerkert_sticky_partner,
+  .sticky_header_inner > .sticky_nav,
+  .sticky_header_inner > .sticky_contact {
+    align-self: center !important;
+  }
+
+  .sticky_header_inner > .sticky_nav {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .sticky_header_inner > .sticky_nav > li {
+    height: 100% !important;
+    min-height: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .sticky_header_inner > .sticky_nav a {
+    height: 30px !important;
+    min-height: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+  }
+
+  .sticky_header_inner > .sticky_nav a:hover:not(.active),
+  .sticky_header_inner > .sticky_nav a:focus-visible:not(.active),
+  .sticky_header_inner > .sticky_nav a.active,
+  .sticky_header_inner > .sticky_nav a.active:hover,
+  .sticky_header_inner > .sticky_nav a.active:focus-visible {
+    transform: none !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .sticky_header_inner > .sticky_nav {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .sticky_header_inner > .sticky_nav a {
+    height: 28px !important;
+  }
+}
+
+/* =========================================================
+   STICKY HEADER ROW FIX - keep nav in the same row as logos/contact
+   Sticky contact is before sticky nav in HTML, so explicit grid-row is needed.
+   ========================================================= */
+@media (min-width: 993px) {
+  .main_header_inner > .logo,
+  .main_header_inner > .buerkert_header_partner,
+  .main_header_inner > .main_nav,
+  .main_header_inner > .header_actions,
+  .sticky_header_inner > .sticky_logo,
+  .sticky_header_inner > .buerkert_sticky_partner,
+  .sticky_header_inner > .sticky_nav,
+  .sticky_header_inner > .sticky_contact {
+    grid-row: 1 !important;
+    align-self: center !important;
+  }
+
+  .sticky_header_inner > .sticky_hamburger {
+    display: none !important;
+    grid-row: 1 !important;
+  }
+
+  .sticky_header_inner > .sticky_nav {
+    grid-column: 3 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .sticky_header_inner > .sticky_contact {
+    grid-column: 4 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .sticky_header_inner {
+    grid-auto-flow: column !important;
+    align-items: center !important;
+  }
+}
+
+/* =========================================================
+   STICKY CONTACT FINAL PARITY FIX
+   The sticky contact list has <li> wrappers while the main header uses
+   direct action buttons. Remove the wrapper influence and make the phone
+   pill use the same inner spacing rhythm as the main header action.
+   ========================================================= */
+@media (min-width: 993px) {
+  .sticky_header_inner > .sticky_contact {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    justify-self: end !important;
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  .sticky_header_inner > .sticky_contact > li {
+    display: contents !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 12px !important;
+    gap: 9px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    flex: 0 0 auto !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  .sticky_header_inner .sticky_contact a i,
+  .sticky_header_inner .sticky_contact button i,
+  .sticky_header_inner .sticky_theme_toggle i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .sticky_header_inner .sticky_contact a span,
+  .sticky_header_inner .sticky_contact button span,
+  .sticky_header_inner .sticky_theme_toggle span {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transform: translateX(-3px) !important;
+  }
+
+  .sticky_header_inner .sticky_contact a:hover,
+  .sticky_header_inner .sticky_contact a:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    width: fit-content !important;
+    max-width: none !important;
+    padding-left: 13px !important;
+    padding-right: 14px !important;
+  }
+
+  .sticky_header_inner .sticky_contact a:hover span,
+  .sticky_header_inner .sticky_contact a:focus-visible span,
+  .sticky_header_inner .sticky_contact button:hover span,
+  .sticky_header_inner .sticky_contact button:focus-visible span,
+  .sticky_header_inner .sticky_theme_toggle:hover span,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible span {
+    min-width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    transform: translateX(0) !important;
+  }
+
+  .sticky_header_inner .sticky_contact a[href^="tel"]:hover,
+  .sticky_header_inner .sticky_contact a[href^="tel"]:focus-visible {
+    padding-left: 13px !important;
+    padding-right: 15px !important;
+    gap: 10px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .sticky_header_inner .sticky_contact a,
+  .sticky_header_inner .sticky_contact button,
+  .sticky_header_inner .sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    gap: 8px !important;
+  }
+
+  .sticky_header_inner .sticky_contact a:hover,
+  .sticky_header_inner .sticky_contact a:focus-visible,
+  .sticky_header_inner .sticky_contact button:hover,
+  .sticky_header_inner .sticky_contact button:focus-visible,
+  .sticky_header_inner .sticky_theme_toggle:hover,
+  .sticky_header_inner .sticky_theme_toggle:focus-visible {
+    padding-left: 11px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* =========================================================
+   FINAL STICKY CONTACT ANIMATION / CLIPPING FIX
+   Keeps sticky header contacts animated and prevents right-side clipping.
+   The widths below account for the other two collapsed contact icons in the
+   same fixed contact column at each desktop breakpoint.
+   ========================================================= */
+@media (min-width: 993px) {
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    flex-wrap: nowrap !important;
+    justify-self: end !important;
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li {
+    display: contents !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 9px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    text-align: left !important;
+    transform: none !important;
+    transition:
+      width 0.28s ease,
+      max-width 0.28s ease,
+      background 0.28s ease,
+      color 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > span {
+    order: 2 !important;
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transform: translateX(-5px) !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    font-weight: 750 !important;
+    letter-spacing: -0.01em !important;
+    transition:
+      max-width 0.28s ease,
+      opacity 0.2s ease,
+      transform 0.28s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    background: linear-gradient(135deg, #5f7f9e 0%, #7fa2c7 100%) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.36) !important;
+    box-shadow: 0 12px 28px rgba(69, 97, 125, 0.22) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible {
+    width: 168px !important;
+    max-width: 168px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible {
+    width: 218px !important;
+    max-width: 218px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    width: 106px !important;
+    max-width: 106px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible > span {
+    opacity: 1 !important;
+    overflow: hidden !important;
+    transform: translateX(0) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible > span {
+    max-width: 116px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible > span {
+    max-width: 156px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible > span {
+    max-width: 56px !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    gap: 6px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 11px !important;
+    gap: 8px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible {
+    width: 160px !important;
+    max-width: 160px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible {
+    width: 210px !important;
+    max-width: 210px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    width: 100px !important;
+    max-width: 100px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    gap: 5px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    gap: 7px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > span {
+    font-size: 13px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible {
+    width: 152px !important;
+    max-width: 152px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible {
+    width: 198px !important;
+    max-width: 198px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    width: 92px !important;
+    max-width: 92px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible > span {
+    max-width: 106px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible > span {
+    max-width: 144px !important;
+  }
+}
+
+/* =========================================================
+   FINAL STICKY CONTACT EXPAND FIX - content-driven width
+   =========================================================
+   Sticky contact items were clipped because several earlier breakpoint rules
+   forced fixed widths on the expanded pills and small max-width values on the
+   labels. The sticky header now works like a real expandable pill: the label
+   animates with max-width, and the button width follows the content instead of
+   cutting it off.
+*/
+@media (min-width: 993px) {
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: row !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 38px !important;
+    max-width: none !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 12px !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    transition:
+      background-color 0.22s ease,
+      border-color 0.22s ease,
+      color 0.22s ease,
+      box-shadow 0.22s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > i {
+    order: 1 !important;
+    flex: 0 0 14px !important;
+    width: 14px !important;
+    min-width: 14px !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > span {
+    order: 2 !important;
+    position: static !important;
+    display: inline-block !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateX(-4px) !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    font-weight: 750 !important;
+    letter-spacing: -0.01em !important;
+    text-align: left !important;
+    transition:
+      max-width 0.28s ease,
+      margin-left 0.28s ease,
+      opacity 0.2s ease,
+      visibility 0.2s ease,
+      transform 0.28s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible > span {
+    margin-left: 8px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible > span {
+    max-width: 132px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible > span {
+    max-width: 190px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible > span {
+    max-width: 78px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    gap: 5px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > span {
+    font-size: 12.5px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible > span {
+    max-width: 124px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible > span {
+    max-width: 178px !important;
+  }
+}
+
+/* =========================================================
+   Sticky header contact actions - same classes/behavior as main header
+   ========================================================= */
+@media (min-width: 993px) {
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    order: initial !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    transform: none !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-width: none !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    border-radius: 999px !important;
+    transform: none !important;
+    transition:
+      width 0.28s ease,
+      background 0.28s ease,
+      color 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand > i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    width: 15px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand > span {
+    order: 2 !important;
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transform: translateX(-6px) !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    transition:
+      max-width 0.28s ease,
+      opacity 0.2s ease,
+      visibility 0.2s ease,
+      transform 0.28s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:focus-visible {
+    background: linear-gradient(135deg, #5f7f9e 0%, #7fa2c7 100%) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.36) !important;
+    box-shadow: 0 12px 28px rgba(69, 97, 125, 0.22) !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:focus-visible {
+    width: 168px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:focus-visible {
+    width: 218px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:focus-visible {
+    width: 104px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link:hover > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:hover > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:focus-visible > span {
+    max-width: 190px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions {
+    gap: 6px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    gap: 8px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .header_action_link > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand > span {
+    font-size: 13px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:focus-visible {
+    width: 158px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:focus-visible {
+    width: 210px !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > .theme_toggle_expand:focus-visible {
+    width: 96px !important;
+  }
+}
+
+
+/* =========================================================
+   Logo wordmark - uppercase SERWOKONTROL
+   ========================================================= */
+.site_logo_wordmark {
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+}
+
+@media (min-width: 1367px) {
+  .main_header_inner .site_logo_wordmark {
+    font-size: 36px !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  .main_header_inner .site_logo_wordmark {
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  .main_header_inner .site_logo_wordmark {
+    font-size: 24px !important;
+    line-height: 1 !important;
+  }
+}
+
+/* =========================================================
+   HEADER NAV CENTERING FINAL
+   Centers navigation inside the free space between branding and contact
+   actions, instead of centering it against the whole viewport.
+   ========================================================= */
+@media (min-width: 1181px) {
+  html body header .main_header_inner,
+  html body .sticky_header .sticky_header_inner {
+    display: grid !important;
+    grid-template-columns: auto auto minmax(360px, 1fr) auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    column-gap: clamp(16px, 1.15vw, 24px) !important;
+    width: min(1520px, calc(100vw - 32px)) !important;
+    max-width: 1520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  html body header .main_header_inner > .logo,
+  html body .sticky_header .sticky_header_inner > .sticky_logo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    margin: 0 !important;
+    order: initial !important;
+  }
+
+  html body header .main_header_inner > .buerkert_header_partner,
+  html body .sticky_header .sticky_header_inner > .buerkert_sticky_partner {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    position: static !important;
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    transform: none !important;
+    order: initial !important;
+  }
+
+  html body header .main_header_inner > .main_nav,
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: stretch !important;
+    align-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    order: initial !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list,
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    width: max-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    flex: 0 1 auto !important;
+    flex-wrap: nowrap !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list li,
+  html body .sticky_header .sticky_header_inner > .sticky_nav li {
+    flex: 0 0 auto !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list a,
+  html body .sticky_header .sticky_header_inner > .sticky_nav a {
+    white-space: nowrap !important;
+  }
+
+  html body header .main_header_inner > .header_actions,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+    order: initial !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_hamburger {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  html body header .main_header_inner,
+  html body .sticky_header .sticky_header_inner {
+    grid-template-columns: auto auto minmax(330px, 1fr) auto !important;
+    column-gap: clamp(10px, 0.8vw, 16px) !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list,
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    gap: 5px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1180px) {
+  html body header .main_header_inner,
+  html body .sticky_header .sticky_header_inner {
+    display: grid !important;
+    grid-template-columns: auto minmax(310px, 1fr) auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    column-gap: clamp(8px, 0.8vw, 14px) !important;
+    width: min(1520px, calc(100vw - 24px)) !important;
+    max-width: 1520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  html body header .main_header_inner > .buerkert_header_partner,
+  html body .sticky_header .sticky_header_inner > .buerkert_sticky_partner {
+    display: none !important;
+  }
+
+  html body header .main_header_inner > .logo,
+  html body .sticky_header .sticky_header_inner > .sticky_logo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    margin: 0 !important;
+  }
+
+  html body header .main_header_inner > .main_nav,
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: stretch !important;
+    align-self: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list,
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    width: max-content !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    flex: 0 1 auto !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+  }
+
+  html body header .main_header_inner > .main_nav > .nav_list a,
+  html body .sticky_header .sticky_header_inner > .sticky_nav a {
+    white-space: nowrap !important;
+  }
+
+  html body header .main_header_inner > .header_actions,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_hamburger {
+    display: none !important;
+  }
+}

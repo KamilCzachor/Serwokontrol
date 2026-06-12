@@ -54,7 +54,7 @@
           <img alt="" aria-hidden="true" class="site_logo_symbol_img site_logo_symbol_img_light" decoding="async"
             height="352" src="images/serwokontrol-symbol-light.svg" width="328" />
           <span aria-hidden="true" class="site_logo_wordmark">
-            <span class="site_logo_wordmark_primary">Serwo</span><span class="site_logo_wordmark_accent">kontrol</span>
+            <span class="site_logo_wordmark_primary">SERWO</span><span class="site_logo_wordmark_accent">KONTROL</span>
           </span>
         </a>
       </div>
@@ -98,7 +98,7 @@
           <img alt="" aria-hidden="true" class="sticky_site_symbol_img sticky_site_symbol_img_light" decoding="async"
             height="352" src="images/serwokontrol-symbol-light.svg" width="328" />
           <span aria-hidden="true" class="site_logo_wordmark sticky_site_logo_wordmark">
-            <span class="site_logo_wordmark_primary">Serwo</span><span class="site_logo_wordmark_accent">kontrol</span>
+            <span class="site_logo_wordmark_primary">SERWO</span><span class="site_logo_wordmark_accent">KONTROL</span>
           </span>
         </a>
       </div>
@@ -109,26 +109,20 @@
         id="stickyHamburgerBtn" type="button">
         <i aria-hidden="true" class="fa-solid fa-bars"></i>
       </button>
-      <ul class="sticky_contact">
-        <li>
-          <a aria-label="Zadzwoń" href="tel:+48601764871">
-            <span>+48 601 764 871</span>
-            <i aria-hidden="true" class="fa-solid fa-phone"></i>
-          </a>
-        </li>
-        <li>
-          <a aria-label="Wyślij email" href="mailto:biuro@serwokontrol.pl">
-            <span>biuro@serwokontrol.pl</span>
-            <i aria-hidden="true" class="fa-solid fa-envelope"></i>
-          </a>
-        </li>
-        <li>
-          <button aria-label="Zmień motyw" class="theme_toggle sticky_theme_toggle" type="button">
-            <span>Ciemny</span>
-            <i aria-hidden="true" class="fa-solid fa-moon"></i>
-          </button>
-        </li>
-      </ul>
+      <div class="header_actions sticky_contact sticky_header_actions">
+        <a aria-label="Zadzwoń" class="header_action_link" href="tel:+48601764871">
+          <i aria-hidden="true" class="fa-solid fa-phone"></i>
+          <span>+48 601 764 871</span>
+        </a>
+        <a aria-label="Wyślij email" class="header_action_link" href="mailto:biuro@serwokontrol.pl">
+          <i aria-hidden="true" class="fa-solid fa-envelope"></i>
+          <span>biuro@serwokontrol.pl</span>
+        </a>
+        <button aria-label="Zmień motyw" class="theme_toggle theme_toggle_expand sticky_theme_toggle" type="button">
+          <i aria-hidden="true" class="fa-solid fa-moon"></i>
+          <span>Ciemny</span>
+        </button>
+      </div>
       <ul class="sticky_nav" id="stickyNavMenu">
         <li><a class="active" href="index.html">Strona główna</a></li>
         <li><a href="products.html">Produkty</a></li>
@@ -285,8 +279,8 @@
       </div>
       <div class="home_partner_mark">
         <a aria-label="" class="home_partner_logo_link" href="" rel="noopener noreferrer" target="_blank">
-          <img alt="Bürkert Fluid Control Systems" decoding="async" height="518" loading="lazy"
-            src="images/buerkert-subline.png" width="1400" />
+          <img alt="Bürkert authorised partner" decoding="async" height="280" loading="lazy"
+            src="images/buerkert-authorised-partner.png" width="1615" />
         </a>
       </div>
     </section>
@@ -327,62 +321,104 @@
           </p>
         </div>
         <div class="home_products_grid">
-          <a class="home_product_tile" href="products.html?filter=process#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-circle-nodes"></i>
-            <h3>Zawory procesowe</h3>
-            <p>
-              Grzybkowe, membranowe, kulowe i klapowe do instalacji
-              przemysłowych.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=process#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Zawory procesowe</h3>
+              <p>
+                Grzybkowe, membranowe, kulowe i klapowe do instalacji
+                przemysłowych.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/zawory-procesowe-grzybkowe-on-off.webp" type="image/webp" />
+                <img alt="Zawory procesowe Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-grzybkowe-on-off.png" width="1200" />
+              </picture>
+            </figure>
           </a>
-          <a class="home_product_tile" href="products.html?filter=solenoid#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-toggle-on"></i>
-            <h3>Zawory elektromagnetyczne</h3>
-            <p>
-              Szybkie odcinanie i sterowanie przepływem cieczy, gazów i
-              powietrza.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=solenoid#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Zawory elektromagnetyczne</h3>
+              <p>
+                Szybkie odcinanie i sterowanie przepływem cieczy, gazów i
+                powietrza.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/zawory-elektromagnetyczne.webp" type="image/webp" />
+                <img alt="Zawory elektromagnetyczne Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/zawory-elektromagnetyczne.png" width="1200" />
+              </picture>
+            </figure>
           </a>
-          <a class="home_product_tile" href="products.html?filter=measurement#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-chart-line"></i>
-            <h3>Przepływomierze</h3>
-            <p>
-              Pomiar przepływu i kontrola parametrów procesu technologicznego.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=measurement#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Przepływomierze</h3>
+              <p>
+                Pomiar przepływu i kontrola parametrów procesu technologicznego.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/przeplywomierze.webp" type="image/webp" />
+                <img alt="Przepływomierze Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/przeplywomierze.png" width="1200" />
+              </picture>
+            </figure>
           </a>
-          <a class="home_product_tile" href="products.html?filter=measurement#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-gauge-high"></i>
-            <h3>Czujniki i aparatura</h3>
-            <p>
-              Elementy kontrolno-pomiarowe do monitorowania pracy instalacji.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=measurement#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Czujniki i aparatura</h3>
+              <p>
+                Elementy kontrolno-pomiarowe do monitorowania pracy instalacji.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/czujniki-przetworniki-pomiarowe.webp" type="image/webp" />
+                <img alt="Czujniki i przetworniki pomiarowe Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/czujniki-przetworniki-pomiarowe.png" width="1200" />
+              </picture>
+            </figure>
           </a>
-          <a class="home_product_tile" href="products.html?filter=automation#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-network-wired"></i>
-            <h3>Wyspy zaworowe</h3>
-            <p>
-              Rozwiązania do automatyzacji układów pneumatycznych i
-              sterowania.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=automation#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Wyspy zaworowe</h3>
+              <p>
+                Rozwiązania do automatyzacji układów pneumatycznych i
+                sterowania.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/wyspy-zaworowe.webp" type="image/webp" />
+                <img alt="Wyspy zaworowe Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/wyspy-zaworowe.png" width="1200" />
+              </picture>
+            </figure>
           </a>
-          <a class="home_product_tile" href="products.html?filter=control#productsFilter">
-            <i aria-hidden="true" class="fa-solid fa-microchip"></i>
-            <h3>Głowice i pozycjonery</h3>
-            <p>
-              Automatyzacja zaworów procesowych i integracja z instalacją.
-            </p>
-            <span>Zobacz grupę
-              <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+          <a class="home_product_tile home_product_tile_with_image" href="products.html?filter=control#productsFilter">
+            <div class="home_product_tile_content">
+              <h3>Głowice i pozycjonery</h3>
+              <p>
+                Automatyzacja zaworów procesowych i integracja z instalacją.
+              </p>
+              <span>Zobacz grupę
+                <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <figure class="home_product_tile_media">
+              <picture>
+                <source srcset="images/products/zawory-procesowe-regulacyjne.webp" type="image/webp" />
+                <img alt="Zawory procesowe regulacyjne Bürkert" decoding="async" height="1200" loading="lazy" src="images/products/zawory-procesowe-regulacyjne.png" width="1200" />
+              </picture>
+            </figure>
           </a>
         </div>
       </section>

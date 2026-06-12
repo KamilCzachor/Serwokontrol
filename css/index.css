@@ -2740,3 +2740,244 @@ body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featur
     rgba(112, 144, 183, 0) 100%
   ) !important;
 }
+
+/* =========================================================
+   Home partner card - larger Bürkert Authorised Partner logo
+   ========================================================= */
+@media (min-width: 1101px) {
+  .home_partner {
+    grid-template-columns: minmax(0, 1fr) minmax(440px, 520px);
+    gap: clamp(38px, 5vw, 72px);
+    align-items: center;
+  }
+
+  .home_partner_mark {
+    justify-self: end;
+    width: min(42vw, 520px);
+    max-width: 520px;
+  }
+
+  .home_partner_logo_link {
+    width: 100%;
+    min-height: clamp(260px, 21vw, 330px);
+    padding: clamp(38px, 4vw, 56px);
+    border-radius: 30px;
+  }
+
+  .home_partner_logo_link img {
+    width: min(100%, 430px);
+    max-height: 130px;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1280px) {
+  .home_partner {
+    grid-template-columns: minmax(0, 1fr) minmax(400px, 470px);
+    gap: 36px;
+  }
+
+  .home_partner_mark {
+    width: min(40vw, 470px);
+    max-width: 470px;
+  }
+
+  .home_partner_logo_link {
+    min-height: 250px;
+    padding: 36px 42px;
+  }
+
+  .home_partner_logo_link img {
+    width: min(100%, 390px);
+    max-height: 118px;
+  }
+}
+
+/* =========================================================
+   Home partner card - final position tuning
+   Keeps the larger Bürkert logo, but centers the white logo
+   panel inside the right side of the blue card so it no longer
+   touches the outer edge.
+   ========================================================= */
+@media (min-width: 1101px) {
+  .home_partner {
+    grid-template-columns: minmax(0, 1fr) minmax(430px, 540px);
+    column-gap: clamp(36px, 4vw, 64px);
+    padding-right: clamp(54px, 5vw, 78px);
+  }
+
+  .home_partner_mark {
+    justify-self: center;
+    width: min(100%, 520px);
+    max-width: 520px;
+  }
+
+  .home_partner_logo_link {
+    width: min(100%, 500px);
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1280px) {
+  .home_partner {
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 470px);
+    column-gap: 34px;
+    padding-right: 48px;
+  }
+
+  .home_partner_mark {
+    width: min(100%, 460px);
+    max-width: 460px;
+  }
+
+  .home_partner_logo_link {
+    width: min(100%, 450px);
+  }
+}
+
+/* =========================================================
+   Home product groups - text left / product image right
+   ========================================================= */
+.home_products .home_products_grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home_products .home_product_tile.home_product_tile_with_image {
+  min-height: 225px;
+  padding: 24px 22px 22px 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(136px, 0.82fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.home_product_tile_content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.home_products .home_product_tile_with_image h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.home_products .home_product_tile_with_image p {
+  margin: 0;
+  max-width: 34ch;
+}
+
+.home_products .home_product_tile_with_image span {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.home_product_tile_media {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 190px);
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 74% 20%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.38) 45%, rgba(112, 144, 183, 0.08) 100%),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(255, 255, 255, 0.86));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.84),
+    0 14px 30px rgba(94, 106, 113, 0.12);
+  overflow: hidden;
+}
+
+.home_product_tile_media::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  bottom: -40px;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background-color: rgba(112, 144, 183, 0.12);
+  pointer-events: none;
+}
+
+.home_product_tile_media picture,
+.home_product_tile_media img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home_product_tile_media img {
+  object-fit: contain;
+  padding: 18px;
+  transform: scale(1.04);
+  filter: drop-shadow(0 12px 20px rgba(39, 48, 56, 0.18));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.home_product_tile_with_image:hover .home_product_tile_media img,
+.home_product_tile_with_image:focus-visible .home_product_tile_media img {
+  transform: scale(1.1) translateY(-2px);
+  filter: drop-shadow(0 16px 24px rgba(39, 48, 56, 0.22));
+}
+
+body.dark_theme .home_product_tile_media {
+  background:
+    radial-gradient(circle at 74% 20%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06) 48%, rgba(112, 144, 183, 0.12) 100%),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(255, 255, 255, 0.04));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 1100px) {
+  .home_products .home_product_tile.home_product_tile_with_image {
+    grid-template-columns: minmax(0, 1fr) minmax(118px, 150px);
+    gap: 14px;
+    padding: 22px;
+  }
+
+  .home_product_tile_media {
+    width: min(100%, 150px);
+    border-radius: 20px;
+  }
+
+  .home_product_tile_media img {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 820px) {
+  .home_products .home_products_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home_products .home_product_tile.home_product_tile_with_image {
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 170px);
+  }
+}
+
+@media (max-width: 560px) {
+  .home_products .home_product_tile.home_product_tile_with_image {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .home_product_tile_media {
+    justify-self: start;
+    width: min(58vw, 190px);
+  }
+}

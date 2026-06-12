@@ -1646,3 +1646,183 @@ header {
     gap: clamp(10px, 1.1vw, 16px) !important;
   }
 }
+
+/* =========================================================
+   Header contact actions - final desktop interaction layer
+   Base header behavior belongs here. Responsive.css should only tune
+   breakpoint sizes/spacing.
+   ========================================================= */
+@media (min-width: 993px) {
+  html body .main_header .main_header_inner > .header_actions,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li {
+    display: contents !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-width: none !important;
+    padding: 0 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    transition:
+      width 0.28s ease,
+      background 0.28s ease,
+      color 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link > i,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > i,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > i {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link > span,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle > span {
+    order: 2 !important;
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transform: translateX(-6px) !important;
+    transition:
+      max-width 0.28s ease,
+      opacity 0.2s ease,
+      transform 0.28s ease !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link:hover,
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link:focus-visible,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    background: linear-gradient(135deg, #5f7f9e 0%, #7fa2c7 100%) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.36) !important;
+    box-shadow: 0 12px 28px rgba(69, 97, 125, 0.22) !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a[href^="tel"]:hover,
+  html body .main_header .main_header_inner > .header_actions > a[href^="tel"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible {
+    width: 168px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a[href^="mailto"]:hover,
+  html body .main_header .main_header_inner > .header_actions > a[href^="mailto"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible {
+    width: 218px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    width: 104px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link:hover > span,
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link:focus-visible > span,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:hover > span,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible > span {
+    max-width: 180px !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+    transform: translateX(0) !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body .main_header .main_header_inner > .header_actions > a.header_action_link,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    gap: 8px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a[href^="tel"]:hover,
+  html body .main_header .main_header_inner > .header_actions > a[href^="tel"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="tel"]:focus-visible {
+    width: 156px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > a[href^="mailto"]:hover,
+  html body .main_header .main_header_inner > .header_actions > a[href^="mailto"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > a[href^="mailto"]:focus-visible {
+    width: 204px !important;
+  }
+
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body .main_header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button:focus-visible,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > ul.sticky_contact > li > button.sticky_theme_toggle:focus-visible {
+    width: 94px !important;
+  }
+}
