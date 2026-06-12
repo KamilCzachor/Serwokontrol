@@ -3315,28 +3315,6 @@ to {
   margin-top: 0;
 }
 
-.products_filter_actions {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 10px;
-  justify-content: stretch;
-  align-items: stretch;
-}
-
-.products_filter_btn {
-  width: 100%;
-  min-width: 0;
-  min-height: 42px;
-  padding: 9px 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  line-height: 1.18;
-}
-
 
 /* Products intro CTA background */
 .products_intro {
@@ -3416,12 +3394,6 @@ to {
 .products_filter_intro h3 {
   display: block;
   width: 100%;
-}
-
-.products_filter_actions {
-  grid-column: 1 / -1;
-  width: 100%;
-  justify-content: stretch;
 }
 
 .products_filter_bar::before {
@@ -3653,3 +3625,47 @@ to {
 /* =========================================================
    DARK THEME REFRESH - products page and product modals
    ========================================================= */
+
+
+/* =========================================================
+   Serwokontrol correction - Product filter status only
+   Scope: products.html -> #productsFilterStatus
+   ========================================================= */
+
+#productsFilterStatus.products_filter_status {
+  position: relative;
+  z-index: 1;
+  margin: 2px 0 0;
+  color: #587ca8;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   Serwokontrol correction - restore original filter buttons
+   Scope: products.html -> products filter buttons
+   ========================================================= */
+
+.products_filter_actions {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.products_filter_btn {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 9px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.18;
+}

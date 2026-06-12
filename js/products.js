@@ -236,7 +236,7 @@
     },
     valveIslands: {
       title: "Wyspy zaworowe – pneumatyka",
-      subtitle: "Automatyka przemysłowa",
+      subtitle: "Pneumatyka",
       lead: "Firma Bürkert ma ogromne doświadczenie w produkcji wysp zaworowych, będących kluczowym elementem automatyzacji procesów przemysłowych. Bürkert rozwija i dostarcza zaawansowane wyspy zaworowe na rynek globalny nieprzerwanie od 1992 roku.",
       description:
         "Wyspy zaworowe łączą funkcje elektryczne i pneumatyczne w jeden zintegrowany system. Mogą monitorować stan urządzeń w czasie rzeczywistym, zliczać cykle przełączeń zaworów i wysyłać powiadomienia alarmowe.",
@@ -1575,19 +1575,31 @@
       .replace(/&zacute;/g, "z");
   }
 
-  function getProductCategory(card) {
+  function getProductCategories(card) {
+    const explicitCategory = card.dataset.productCategory || "";
+
+    if (explicitCategory) {
+      const categories = explicitCategory
+        .split(/[\s,]+/)
+        .map(function (category) {
+          return category.trim();
+        })
+        .filter(Boolean);
+
+      if (categories.length > 0) {
+        return Array.from(new Set(categories));
+      }
+    }
+
     const subtype = normalizeCategoryName(card.dataset.subtype || "");
     const modalType = card.dataset.modalType || "";
 
-    if (
-      modalType === "valveControl" ||
-      modalType === "proportionalSolenoidValves"
-    ) {
-      return "control";
+    if (modalType === "proportionalSolenoidValves") {
+      return ["control", "solenoid"];
     }
 
     if (modalType === "valveIslands") {
-      return "automation";
+      return ["automation"];
     }
 
     if (
@@ -1595,46 +1607,98 @@
       modalType === "sensorsTransmitters" ||
       modalType === "massFlowControllers"
     ) {
-      return "measurement";
+      return ["measurement"];
     }
 
     if (subtype.includes("pomiar") || subtype.includes("regulacja")) {
-      return "measurement";
+      return ["measurement"];
     }
 
-    if (subtype.includes("automatyka")) {
-      return "automation";
+    if (subtype.includes("pneumatyka") || subtype.includes("automatyka")) {
+      return ["automation"];
+    }
+
+    if (subtype.includes("proporcjonalne") && subtype.includes("elektromagnetyczne")) {
+      return ["control", "solenoid"];
     }
 
     if (subtype.includes("proporcjonalne")) {
-      return "control";
+      return ["control"];
     }
 
     if (subtype.includes("elektromagnetyczne")) {
-      return "solenoid";
+      return ["solenoid"];
     }
 
     if (subtype.includes("zawory procesowe")) {
-      return "process";
+      return ["process"];
     }
 
-    return "other";
+    return ["other"];
+  }
+
+  function getProductCategory(card) {
+    return getProductCategories(card)[0] || "other";
   }
 
   function setupProductCardCategories() {
     productCardsArray.forEach(function (card) {
-      card.dataset.category = getProductCategory(card);
+      const categories = getProductCategories(card);
+      card.dataset.category = categories[0] || "other";
+      card.dataset.categories = categories.join(" ");
     });
   }
 
   function setupProductFilters() {
     const filterButtons = document.querySelectorAll(".products_filter_btn");
     const emptyState = document.getElementById("productsEmptyState");
+    const filterStatus = document.getElementById("productsFilterStatus");
     const availableFilters = Array.from(filterButtons).map(function (button) {
       return button.dataset.productFilter || "all";
     });
+    const filterCounts = productCardsArray.reduce(function (counts, card) {
+      const categories = (card.dataset.categories || card.dataset.category || getProductCategory(card))
+        .split(/\s+/)
+        .filter(Boolean);
+      counts.all += 1;
+      Array.from(new Set(categories)).forEach(function (category) {
+        counts[category] = (counts[category] || 0) + 1;
+      });
+      return counts;
+    }, { all: 0 });
 
     if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(function (button) {
+      button.querySelectorAll(".products_filter_count").forEach(function (countBadge) {
+        countBadge.remove();
+      });
+
+      button.setAttribute(
+        "aria-label",
+        button.textContent.trim().replace(/\s+/g, " "),
+      );
+    });
+
+    function updateFilterStatus(activeFilter, visibleCount) {
+      if (!filterStatus) return;
+
+      const totalCount = filterCounts.all || productCardsArray.length;
+      const activeButton = Array.from(filterButtons).find(function (button) {
+        return (button.dataset.productFilter || "all") === activeFilter;
+      });
+      const activeLabel = activeButton
+        ? activeButton.textContent.trim().replace(/\s+/g, " ")
+        : "Wszystkie";
+
+      if (activeFilter === "all") {
+        filterStatus.textContent = "Wyświetlono wszystkie produkty: " + totalCount + ".";
+        return;
+      }
+
+      filterStatus.textContent =
+        "Filtr: " + activeLabel + " — wyświetlono " + visibleCount + " z " + totalCount + " produktów.";
+    }
 
     function applyProductFilter(activeFilter, options) {
       const settings = options || {};
@@ -1652,9 +1716,12 @@
       let visibleIndex = 0;
 
       productCardsArray.forEach(function (card) {
+        const cardCategories = (card.dataset.categories || card.dataset.category || "")
+          .split(/\s+/)
+          .filter(Boolean);
         const shouldShow =
           normalizedFilter === "all" ||
-          card.dataset.category === normalizedFilter;
+          cardCategories.includes(normalizedFilter);
 
         card.classList.toggle("is_filtered_out", !shouldShow);
         card.hidden = !shouldShow;
@@ -1677,6 +1744,7 @@
         emptyState.classList.toggle("is_visible", !hasResults);
       }
 
+      updateFilterStatus(normalizedFilter, visibleIndex);
       updateModalNavigationState();
 
       if (window.SerwokontrolRevealRefresh) {
@@ -1737,6 +1805,8 @@
           }
         }, 160);
       }
+    } else {
+      updateFilterStatus("all", productCardsArray.length);
     }
   }
 
