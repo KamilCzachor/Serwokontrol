@@ -37,7 +37,7 @@
           image: "images/products/modal/valve2000/extracted/01.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2000-skosny.pdf",
+          pdfUrl: "pdf/valve2000/2000-skosny.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -45,7 +45,7 @@
           image: "images/products/modal/valve2000/extracted/02.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2012-prosty.pdf",
+          pdfUrl: "pdf/valve2000/2012-prosty.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -53,7 +53,7 @@
           image: "images/products/modal/valve2000/extracted/03.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2100-skosny-element.pdf",
+          pdfUrl: "pdf/valve2000/2100-skosny-element.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -61,15 +61,15 @@
           image: "images/products/modal/valve2000/extracted/04.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2101-prosty-element.pdf",
+          pdfUrl: "pdf/valve2000/2101-prosty-element.pdf",
           pdfText: "Katalog produktu",
         },
         {
-          name: "2106 3/2",
+          name: "2106 3/2 ELEMENT",
           image: "images/products/modal/valve2000/extracted/05.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2106-3-2.pdf",
+          pdfUrl: "pdf/valve2000/2106-3-2.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -77,7 +77,7 @@
           image: "images/products/modal/valve2000/extracted/06.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-grzybkowe/2060-silownik-ss.pdf",
+          pdfUrl: "pdf/valve2000/2060-silownik-ss.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -110,7 +110,7 @@
           image: "images/products/modal/valveMembrane/extracted/01.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2031-classic.pdf",
+          pdfUrl: "pdf/valveMembrane/2031-classic.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -118,7 +118,7 @@
           image: "images/products/modal/valveMembrane/extracted/02.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2103-element.pdf",
+          pdfUrl: "pdf/valveMembrane/2103-element.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -126,7 +126,7 @@
           image: "images/products/modal/valveMembrane/extracted/03.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2030-classic.pdf",
+          pdfUrl: "pdf/valveMembrane/2030-classic.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -134,7 +134,7 @@
           image: "images/products/modal/valveMembrane/extracted/04.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2063-silownik-ss.pdf",
+          pdfUrl: "pdf/valveMembrane/2063-silownik-ss.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -142,7 +142,7 @@
           image: "images/products/modal/valveMembrane/extracted/05.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2933-basic.pdf",
+          pdfUrl: "pdf/valveMembrane/2933-basic.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -150,7 +150,7 @@
           image: "images/products/modal/valveMembrane/extracted/06.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-membranowe/2973-fullfunction.pdf",
+          pdfUrl: "pdf/valveMembrane/2973-fullfunction.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -181,7 +181,7 @@
           image: "images/products/modal/valveBall/extracted/01.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/2654.pdf",
+          pdfUrl: "pdf/valveBall/2654.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -189,7 +189,7 @@
           image: "images/products/modal/valveBall/extracted/02.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/2654-higieniczny.pdf",
+          pdfUrl: "pdf/valveBall/2654-higieniczny.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -197,7 +197,7 @@
           image: "images/products/modal/valveBall/extracted/03.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/tku001.pdf",
+          pdfUrl: "pdf/valveBall/tku001.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -205,7 +205,7 @@
           image: "images/products/modal/valveBall/extracted/04.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/8804.pdf",
+          pdfUrl: "pdf/valveBall/8804.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -213,7 +213,7 @@
           image: "images/products/modal/valveBall/extracted/05.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/8805.pdf",
+          pdfUrl: "pdf/valveBall/8805.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -221,7 +221,7 @@
           image: "images/products/modal/valveBall/extracted/06.png",
           description: "",
           features: [],
-          pdfUrl: "pdf/zawory-kulowe/2657.pdf",
+          pdfUrl: "pdf/valveBall/2657.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -256,7 +256,7 @@
             "Wyświetlacze LCD ze statusem i komunikatami błędów.",
             "Hot-Swap, zintegrowane zawory zwrotne i AirLINE Quick.",
           ],
-          pdfUrl: "pdf/wyspy-zaworowe/8652-airline.pdf",
+          pdfUrl: "pdf/valveIslands/8652-airline.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -265,7 +265,7 @@
           description:
             "Modułowy elektropneumatyczny system automatyzacji do integracji z SIMATIC ET 200SP oraz ET 200SP HA firmy Siemens.",
           features: [],
-          pdfUrl: "pdf/wyspy-zaworowe/8647-airline-sp.pdf",
+          pdfUrl: "pdf/valveIslands/8647-airline-sp.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -274,7 +274,7 @@
           description:
             "Sprawdzony standard automatyzacji procesów, produkowany przez Bürkert od ponad ćwierć wieku w modułowych seriach 11 mm i 19 mm.",
           features: [],
-          pdfUrl: "pdf/wyspy-zaworowe/8640.pdf",
+          pdfUrl: "pdf/valveIslands/8640.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -285,7 +285,7 @@
           features: [
             "Wersja REV.2 umożliwia integrację czujnika ciśnienia lub przełącznika ciśnieniowego.",
           ],
-          pdfUrl: "pdf/wyspy-zaworowe/8650-airline-ex.pdf",
+          pdfUrl: "pdf/valveIslands/8650-airline-ex.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -302,6 +302,8 @@
       title: "Zawory procesowe regulacyjne typ 8802",
       subtitle: "Zawory procesowe",
       lead: "Zawory regulacyjne Bürkert to zintegrowany system złożony z zaworu procesowego z napędem oraz pozycjonera. Typ 8802 to modułowy zestaw zamawiany pod jednym numerem systemowym.",
+      introImage: "images/products/modal/valveControl/extracted/8802-system.png",
+      introImageAlt: "Zestaw 8802: zawór procesowy z napędem oraz pozycjoner",
       description:
         "Zawory regulacyjne służą do precyzyjnego, płynnego sterowania przepływem, ciśnieniem lub temperaturą mediów. W odróżnieniu od zaworów odcinających mogą ustawić się w dowolnej pozycji pośredniej.",
       features: [
@@ -316,7 +318,7 @@
           description:
             "Zawór regulacyjny skośny o wysokiej przepustowości i dużej żywotności w trudnych warunkach.",
           features: ["Do pary wodnej, gazów i agresywnych cieczy."],
-          pdfUrl: "pdf/zawory-regulacyjne/2300.pdf",
+          pdfUrl: "pdf/valveControl/2300.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -325,7 +327,7 @@
           description:
             "Zawór regulacyjny prosty / grzybkowy do aplikacji wymagających wysokiej precyzji regulacji.",
           features: ["Paraboliczny profil grzybka regulacyjnego."],
-          pdfUrl: "pdf/zawory-regulacyjne/2301.pdf",
+          pdfUrl: "pdf/valveControl/2301.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -336,7 +338,7 @@
           features: [
             "Do przemysłu spożywczego, farmaceutycznego i biotechnologii.",
           ],
-          pdfUrl: "pdf/zawory-regulacyjne/2103.pdf",
+          pdfUrl: "pdf/valveControl/2103.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -345,7 +347,7 @@
           description:
             "Zestaw regulacyjny dla zaworów kulowych i motylkowych / przepustnic w instalacjach o dużych średnicach.",
           features: [],
-          pdfUrl: "pdf/zawory-regulacyjne/8802.pdf",
+          pdfUrl: "pdf/valveControl/8802.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -357,7 +359,7 @@
             "Sygnalizacja kolorowymi diodami LED.",
             "IO-Link, AS-Interface lub büS.",
           ],
-          pdfUrl: "pdf/pozycjonery/8694-8696.pdf",
+          pdfUrl: "pdf/valveControl/8694-8696.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -369,7 +371,7 @@
             "Wejścia 0/4-20 mA, 0-5/10 V.",
             "8693 z regulatorem procesowym PID.",
           ],
-          pdfUrl: "pdf/pozycjonery/8692-8693.pdf",
+          pdfUrl: "pdf/valveControl/8692-8693.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -378,7 +380,7 @@
           description:
             "Ekonomiczny pozycjoner boczny SideCONTROL do zaworów liniowych i obrotowych.",
           features: [],
-          pdfUrl: "pdf/pozycjonery/8791.pdf",
+          pdfUrl: "pdf/valveControl/8791.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -387,7 +389,7 @@
           description:
             "Zaawansowany pozycjoner boczny z wyświetlaczem, obsługujący siłowniki liniowe i obrotowe.",
           features: ["8793 z regulatorem procesowym PID."],
-          pdfUrl: "pdf/pozycjonery/8792-8793.pdf",
+          pdfUrl: "pdf/valveControl/8792-8793.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -424,7 +426,7 @@
             "Przyłącza 1/4”..2”.",
             "Media: woda, ciecze, wersja HP00 do gazów.",
           ],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/6213.pdf",
+          pdfUrl: "pdf/solenoidValves/6213.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -433,7 +435,7 @@
           description:
             "Uniwersalny zawór serwowspomagany do mediów neutralnych.",
           features: ["DN 10..50 mm.", "Przyłącza 1/4”..2 1/2”."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/6281.pdf",
+          pdfUrl: "pdf/solenoidValves/6281.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -442,7 +444,7 @@
           description:
             "Serwowspomagany zawór z separacją medium do mediów zanieczyszczonych.",
           features: ["DN 13..65 mm.", "Przyłącza 1/2”..2 1/2”, kołnierz."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/5282.pdf",
+          pdfUrl: "pdf/solenoidValves/5282.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -450,7 +452,7 @@
           image: "images/products/modal/solenoidValves/extracted/04.png",
           description: "Zawór elektromagnetyczny do pary wodnej.",
           features: ["DN 10..40 mm.", "Uszczelnienie PTFE + grafit."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/5404.pdf",
+          pdfUrl: "pdf/solenoidValves/5404.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -459,7 +461,7 @@
           description:
             "Serwowspomagany zawór tłokowy do pary, niewymagający różnicy ciśnień.",
           features: ["DN 13..50 mm."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/6407.pdf",
+          pdfUrl: "pdf/solenoidValves/6407.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -468,7 +470,7 @@
           description:
             "Uniwersalny zawór serwowspomagany z wymuszonym podnoszeniem membrany.",
           features: ["DN 12..65 mm."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/0290.pdf",
+          pdfUrl: "pdf/solenoidValves/0290.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -480,7 +482,7 @@
             "DN 1..5,5 mm.",
             "Materiały: mosiądz, stal szlachetna, PVDF, PP, PEEK.",
           ],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/0330.pdf",
+          pdfUrl: "pdf/solenoidValves/0330.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -489,7 +491,7 @@
           description:
             "Serwowspomagany zawór z separacją medium z tworzywa do mediów agresywnych.",
           features: ["DN 15..50 mm.", "Korpus PVC."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/0142.pdf",
+          pdfUrl: "pdf/solenoidValves/0142.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -497,7 +499,7 @@
           image: "images/products/modal/solenoidValves/extracted/09.png",
           description: "Serwowspomagany zawór tłokowy 3/2.",
           features: ["DN 8..40 mm."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/6430.pdf",
+          pdfUrl: "pdf/solenoidValves/6430.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -506,7 +508,7 @@
           description:
             "Zawór bezpośredniego działania 3/2 do pneumatyki i mediów neutralnych.",
           features: ["DN 1..2 mm.", "Przyłącza 1/8”, banjo 1/8”, banjo 1/4”."],
-          pdfUrl: "pdf/zawory-elektromagnetyczne/7012.pdf",
+          pdfUrl: "pdf/solenoidValves/7012.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -540,7 +542,7 @@
           description:
             "Sensor przepływu do przepływomierzy turbinkowych / mechanicznych.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/se30.pdf",
+          pdfUrl: "pdf/flowmeters/se30.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -548,7 +550,7 @@
           image: "images/products/modal/flowmeters/extracted/02.png",
           description: "Przepływomierz / dozownik.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8035.pdf",
+          pdfUrl: "pdf/flowmeters/8035.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -557,7 +559,7 @@
           description:
             "Przepływomierz / dozownik w wersji panelowej lub naściennej.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8025.pdf",
+          pdfUrl: "pdf/flowmeters/8025.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -565,7 +567,7 @@
           image: "images/products/modal/flowmeters/extracted/04.png",
           description: "Przepływomierz ELEMENT.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8036.pdf",
+          pdfUrl: "pdf/flowmeters/8036.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -573,7 +575,7 @@
           image: "images/products/modal/flowmeters/extracted/05.png",
           description: "Przepływomierz SAW do higienicznych aplikacji.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8098-flowave.pdf",
+          pdfUrl: "pdf/flowmeters/8098-flowave.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -581,7 +583,7 @@
           image: "images/products/modal/flowmeters/extracted/06.png",
           description: "Przepływomierz elektromagnetyczny EMF.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8045.pdf",
+          pdfUrl: "pdf/flowmeters/8045.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -589,15 +591,15 @@
           image: "images/products/modal/flowmeters/extracted/07.png",
           description: "Przepływomierz elektromagnetyczny.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8041.pdf",
+          pdfUrl: "pdf/flowmeters/8041.pdf",
           pdfText: "Katalog produktu",
         },
         {
-          name: "8051",
+          name: "8050",
           image: "images/products/modal/flowmeters/extracted/08.png",
           description: "Przepływomierz elektromagnetyczny.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8051.pdf",
+          pdfUrl: "pdf/flowmeters/8050.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -605,7 +607,7 @@
           image: "images/products/modal/flowmeters/extracted/09.png",
           description: "Armatura / element pomiarowy dla EMF.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/s056.pdf",
+          pdfUrl: "pdf/flowmeters/s056.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -613,7 +615,7 @@
           image: "images/products/modal/flowmeters/extracted/10.png",
           description: "Przepływomierz owalnokołowy.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8077.pdf",
+          pdfUrl: "pdf/flowmeters/8077.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -621,7 +623,7 @@
           image: "images/products/modal/flowmeters/extracted/11.png",
           description: "Przepływomierz owalnokołowy do mediów lepkich.",
           features: [],
-          pdfUrl: "pdf/przeplywomierze/8071.pdf",
+          pdfUrl: "pdf/flowmeters/8071.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -667,7 +669,7 @@
             "INOXPA",
             "Samson",
           ],
-          pdfUrl: "pdf/zawory-higieniczne/kk01.pdf",
+          pdfUrl: "pdf/valveHygienic/kk01.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -697,7 +699,7 @@
           description:
             "Indukcyjny przetwornik przewodnictwa do skoncentrowanych cieczy i szerokiego zakresu przewodności.",
           features: ["100 μS/cm…2 S/cm.", "4..20 mA, IO-Link lub büS."],
-          pdfUrl: "pdf/czujniki-przetworniki/8228.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8228.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -706,7 +708,7 @@
           description:
             "Przetwornik przewodnictwa ELEMENT / Neutrino do czystej wody i lekko stężonych roztworów.",
           features: ["0.05 µS/cm…10 mS/cm."],
-          pdfUrl: "pdf/czujniki-przetworniki/8222.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8222.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -714,7 +716,7 @@
           image: "images/products/modal/sensorsTransmitters/extracted/03.png",
           description: "Przetwornik pH / Redox ELEMENT / Neutrino.",
           features: ["pH -2…16 pH, ORP -2000…+2000 mV."],
-          pdfUrl: "pdf/czujniki-przetworniki/8202.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8202.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -724,7 +726,7 @@
           features: [
             "pH, chlor, dwutlenek chloru, przewodność, ORP, mętność, temperatura i żelazo.",
           ],
-          pdfUrl: "pdf/czujniki-przetworniki/8905.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8905.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -733,7 +735,7 @@
           description:
             "Wibracyjny czujnik poziomu do wykrywania poziomu i ochrony przed suchobiegiem pompy.",
           features: [],
-          pdfUrl: "pdf/czujniki-przetworniki/8110.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8110.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -741,15 +743,15 @@
           image: "images/products/modal/sensorsTransmitters/extracted/06.png",
           description: "Mikrofalowy przetwornik poziomu do pomiaru cieczy.",
           features: ["Niewrażliwy na pył i parę."],
-          pdfUrl: "pdf/czujniki-przetworniki/8188.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8188.pdf",
           pdfText: "Katalog produktu",
         },
         {
-          name: "8619",
+          name: "8619 MultiCELL",
           image: "images/products/modal/sensorsTransmitters/extracted/07.png",
           description: "Wielokanałowy i wielofunkcyjny przekaźnik / regulator.",
           features: ["Opcjonalny Industrial Ethernet."],
-          pdfUrl: "pdf/czujniki-przetworniki/8619.pdf",
+          pdfUrl: "pdf/sensorsTransmitters/8619.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -782,7 +784,7 @@
             "Dynamika zakresu: 1:200 dla DN 0,8..2, 1:500 dla DN 0,05..0,6",
             "Zasilanie: 24 VDC, 12 VDC",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/2871.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/2871.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -796,7 +798,7 @@
             "Dynamika zakresu: 1:200",
             "Zasilanie: 24 VDC, 12 VDC",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/2873.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/2873.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -810,7 +812,7 @@
             "Dynamika zakresu: 1:200",
             "Zasilanie: 24 VDC, 12 VDC",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/2875.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/2875.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -824,7 +826,7 @@
             "Dynamika zakresu: 1:25",
             "Zasilanie: 24 VDC",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/6024.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/6024.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -838,7 +840,7 @@
             "Dynamika zakresu: 1:10",
             "Zasilanie: 24 VDC, 12 VDC",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/6223.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/6223.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -851,7 +853,7 @@
             "Zasilanie 12..24 VDC",
             "Montaż: bezpośrednio na cewce lub na szynie DIN",
           ],
-          pdfUrl: "pdf/zawory-proporcjonalne/8605.pdf",
+          pdfUrl: "pdf/proportionalSolenoidValves/8605.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -868,43 +870,47 @@
     otherProducts: {
       title: "Inne produkty",
       subtitle: "Pozostała oferta",
-      lead: "Poza głównymi grupami produktowymi oferujemy również elementy uzupełniające i rozwiązania specjalne do instalacji procesowych, automatyki oraz układów pomiarowo-regulacyjnych.",
+      productsHeading: "Rozwiązania specjalne",
+      lead: "Poza głównymi grupami produktowymi oferujemy również rozwiązania specjalne do instalacji procesowych, automatyki oraz układów pomiarowo-regulacyjnych.",
       description:
-        "W tej grupie znajdują się produkty dobierane indywidualnie do aplikacji, między innymi akcesoria montażowe, elementy przyłączeniowe, części eksploatacyjne, komponenty systemowe oraz rozwiązania niestandardowe.",
+        "W tej grupie znajdują się produkty i konfiguracje dobierane indywidualnie do aplikacji, między innymi rozwiązania do regulacji ciśnienia oraz zawory do wymagających mediów i warunków pracy.",
       features: [
-        "Dobór komponentów pod konkretną aplikację i medium.",
-        "Wsparcie w kompletacji elementów do istniejących instalacji.",
+        "Dobór rozwiązania pod konkretną aplikację i medium.",
+        "Wsparcie przy kompletacji układów specjalnych.",
         "Możliwość konsultacji z przedstawicielem regionalnym.",
       ],
       products: [
         {
-          name: "Akcesoria i elementy przyłączeniowe",
+          name: "8802 Regulacja ciśnienia w zbiorniku",
           image: "images/products/inne-produkty.png",
           description:
-            "Elementy pomocnicze do montażu, podłączenia i uruchomienia armatury oraz urządzeń automatyki.",
+            "Rozwiązanie specjalne do regulacji ciśnienia w zbiorniku.",
           features: [
-            "Dobór pod typ urządzenia.",
-            "Wsparcie przy modernizacji instalacji.",
+            "Dobór pod parametry procesu.",
+            "Wsparcie przy konfiguracji układu regulacyjnego.",
           ],
-          pdfUrl: "contact.html#contactFormSection",
-          pdfText: "Zapytaj o produkt",
+          pdfUrl: "pdf/otherProducts/8802-regulacja-cisnienia-w-zbiorniku.pdf",
+          pdfText: "Katalog produktu",
         },
         {
-          name: "Rozwiązania specjalne",
-          image: "images/products/inne-produkty.png",
+          name: "Zawory do wodoru",
+          image: "images/products/modal/otherProducts/extracted/h2.png",
           description:
-            "Produkty i konfiguracje dobierane indywidualnie, gdy standardowa grupa katalogowa nie obejmuje wymagań aplikacji.",
+            "Zawory wysokiego i ultrawysokiego ciśnienia w różnych aplikacjach, takich jak transport, magazynowanie i pobieranie wodoru.",
           features: [
-            "Analiza parametrów procesu.",
-            "Kontakt z doradcą technicznym.",
+            "Rozwiązania do aplikacji wodorowych.",
+            "Wysokie i ultrawysokie ciśnienie.",
           ],
-          pdfUrl: "contact.html#contactFormSection",
-          pdfText: "Zapytaj o produkt",
+          pdfUrl: "pdf/otherProducts/zawory-do-wodoru.pdf",
+          pdfText: "Katalog produktu",
         },
       ],
       closing:
         "Nie widzisz produktu, którego szukasz? Wyślij zapytanie przez formularz albo skontaktuj się z przedstawicielem regionalnym — pomożemy dobrać odpowiednie rozwiązanie.",
-      gallery: ["images/products/inne-produkty.png"],
+      gallery: [
+        "images/products/inne-produkty.png",
+        "images/products/modal/otherProducts/extracted/h2.png",
+      ],
     },
     massFlowControllers: {
       title: "Masowe regulatory przepływu MFC / Masowe mierniki przepływu MFM",
@@ -924,7 +930,7 @@
           description:
             "Kapilarny MFC/MFM: analogowy, Modbus, Ethernet, Profinet.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8743.pdf",
+          pdfUrl: "pdf/massFlowControllers/8743.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -933,7 +939,7 @@
           description:
             "Chipowy MFC/MFM: analogowy, büS/CANopen, Modbus RS-485, Industrial Ethernet.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8741.pdf",
+          pdfUrl: "pdf/massFlowControllers/8741.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -942,7 +948,7 @@
           description:
             "In Line: analogowy, Modbus RS-485, Industrial Ethernet.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8745.pdf",
+          pdfUrl: "pdf/massFlowControllers/8745.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -950,7 +956,7 @@
           image: "images/products/modal/massFlowControllers/extracted/04.png",
           description: "Kapilarny MFC/MFM: Profibus, büS/CANopen.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8744.pdf",
+          pdfUrl: "pdf/massFlowControllers/8744.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -959,7 +965,7 @@
           description:
             "Chipowy MFC/MFM: büS/CANopen, Profibus, Industrial Ethernet.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8742.pdf",
+          pdfUrl: "pdf/massFlowControllers/8742.pdf",
           pdfText: "Katalog produktu",
         },
         {
@@ -968,7 +974,7 @@
           description:
             "In Line: analogowy, büS/CANopen, Profibus, Industrial Ethernet.",
           features: [],
-          pdfUrl: "pdf/mfc-mfm/8746.pdf",
+          pdfUrl: "pdf/massFlowControllers/8746.pdf",
           pdfText: "Katalog produktu",
         },
       ],
@@ -1014,7 +1020,7 @@
         "error",
         () => {
           const holder = img.closest(
-            ".catalog_product_image, .catalog_tile_image, .catalog_additional_gallery figure, .product_image, .catalog_single_visual",
+            ".catalog_product_image, .catalog_tile_image, .catalog_intro_visual, .catalog_additional_gallery figure, .product_image, .catalog_single_visual",
           );
           if (holder) {
             holder.classList.add("image_failed");
@@ -1108,6 +1114,16 @@
   function renderProducts(products, layout) {
     const renderer = layout === "cards" ? renderProductTile : renderProductRow;
     return products.map(renderer).join("");
+  }
+
+  function renderIntroVisual(data) {
+    if (!data || !data.introImage) return "";
+
+    const alt = data.introImageAlt || data.title || "Grafika produktu";
+
+    return `<figure class="catalog_intro_visual">
+      <img src="${escapeHtml(data.introImage)}" alt="${escapeHtml(alt)}" loading="lazy" />
+    </figure>`;
   }
 
   function renderGallery(images) {
@@ -1377,6 +1393,7 @@
           <nav class="catalog_breadcrumb" aria-label="Ścieżka"><span>Produkty</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span class="catalog_breadcrumb_badge">${escapeHtml(subtitle)}</span></nav>
           <h3 id="productModalTitle">${escapeHtml(title)}</h3>
           ${data.lead ? `<p class="catalog_lead">${escapeHtml(data.lead)}</p>` : ""}
+          ${renderIntroVisual(data)}
           ${data.description ? `<p>${escapeHtml(data.description)}</p>` : ""}
           ${renderFeatureList(data.features)}
         </section>
@@ -1384,7 +1401,7 @@
         <section class="catalog_products_section">
           <div class="catalog_section_heading">
             <span>Oferta Bürkert</span>
-            <h4>Najpopularniejsze typy</h4>
+            <h4>${escapeHtml(data.productsHeading || "Najpopularniejsze typy")}</h4>
           </div>
           <div class="catalog_products_list is_${data.layout === "cards" ? "cards" : "rows"}" data-count="${products.length}">
             ${renderProducts(products, data.layout)}

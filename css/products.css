@@ -3669,3 +3669,102 @@ to {
   overflow-wrap: anywhere;
   line-height: 1.18;
 }
+
+
+/* =========================================================
+   Valve Control modal intro image - 8802 system graphic
+   Tile version, scoped only to the intro visual
+   ========================================================= */
+.catalog_intro_visual {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  min-height: clamp(230px, 29vw, 330px);
+  margin: clamp(16px, 2.2vw, 24px) auto clamp(20px, 2.6vw, 30px);
+  padding: clamp(18px, 2.5vw, 28px);
+  border: 1px solid rgba(112, 144, 183, 0.12);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at 55% 42%,
+      rgba(112, 144, 183, 0.18),
+      transparent 56%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.11),
+      rgba(255, 255, 255, 0.92)
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.catalog_intro_visual::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(112, 144, 183, 0.14);
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.catalog_intro_visual img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: min(92%, 660px);
+  max-height: clamp(205px, 24vw, 286px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(94, 106, 113, 0.18));
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.42s ease;
+}
+
+.catalog_intro_visual:hover img {
+  transform: translateY(-4px) scale(1.025);
+  filter: drop-shadow(0 22px 24px rgba(94, 106, 113, 0.22));
+}
+
+.catalog_intro_visual.image_failed {
+  min-height: 160px;
+  border: 1px dashed rgba(112, 144, 183, 0.35);
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.catalog_intro_visual.image_failed::after {
+  content: attr(data-fallback);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  color: #5e6a71;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .catalog_intro_visual {
+    width: 100%;
+    min-height: 210px;
+    margin: 14px auto 18px;
+    padding: 16px;
+  }
+
+  .catalog_intro_visual::before {
+    inset: 12px;
+  }
+
+  .catalog_intro_visual img {
+    max-width: 96%;
+    max-height: 220px;
+  }
+}
