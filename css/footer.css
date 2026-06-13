@@ -885,3 +885,57 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
 .footer_accordion_column:not([open]) > .footer_nav {
   display: flex;
 }
+
+/* =========================================================
+   Global footer logo - use the same SVG wordmark as header
+   Scope: footer component across all subpages
+   ========================================================= */
+.footer_logo a.footer_wordmark_link {
+  gap: 0 !important;
+  width: clamp(240px, 21vw, 330px) !important;
+  height: clamp(26px, 2.25vw, 35px) !important;
+  background-image: url("../images/logo-skl-rgb-2k-dark.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  background-size: 100% auto !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+  flex: 0 0 auto !important;
+}
+
+.footer_logo a.footer_wordmark_link::before {
+  display: none !important;
+  content: none !important;
+}
+
+.footer_logo a.footer_wordmark_link .footer_logo_symbol_img,
+.footer_logo a.footer_wordmark_link .footer_logo_wordmark {
+  display: none !important;
+}
+
+.footer_logo a.footer_wordmark_link:hover,
+.footer_logo a.footer_wordmark_link:focus-visible {
+  transform: translateY(-2px) !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28)) !important;
+}
+
+body.dark_theme .footer_logo a.footer_wordmark_link {
+  background-image: url("../images/logo-skl-rgb-2k-dark.svg") !important;
+}
+
+@media (max-width: 900px) {
+  .footer_logo a.footer_wordmark_link {
+    width: clamp(190px, 46vw, 285px) !important;
+    height: clamp(20px, 4.9vw, 30px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer_logo a.footer_wordmark_link {
+    width: clamp(175px, 56vw, 250px) !important;
+    height: clamp(18px, 5.9vw, 26px) !important;
+  }
+}
+

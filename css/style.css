@@ -206,11 +206,9 @@ main {
 
 /* Dark mode */
 
-
 /* Mobile */
 
 /* Dark Theme */
-
 
 /* Responsive */
 
@@ -349,17 +347,16 @@ main {
 /* Page enter animation */
 
 @keyframes pageEnterSoft {
-from {
-  opacity: 0;
-  transform: translate3d(0, 10px, 0);
-}
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
 
-to {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
-}
-
 
 main {
   animation: pageEnterSoft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -755,7 +752,6 @@ main > * {
   transform: scale(0.92);
 }
 
-
 /* Scroll-to-top button */
 
 .scroll_top_btn {
@@ -1012,17 +1008,17 @@ main > * {
 }
 
 @keyframes scrollTopPuff {
-0% {
-  opacity: 0.44;
-  transform: scale(0.72);
-  filter: blur(0);
-}
+  0% {
+    opacity: 0.44;
+    transform: scale(0.72);
+    filter: blur(0);
+  }
 
-100% {
-  opacity: 0;
-  transform: scale(2.25);
-  filter: blur(8px);
-}
+  100% {
+    opacity: 0;
+    transform: scale(2.25);
+    filter: blur(8px);
+  }
 }
 
 /* Scroll-to-top button */
@@ -1141,7 +1137,6 @@ main > * {
   --ui-lift-card: -4px;
   --ui-lift-button: -2px;
 }
-
 
 .cookie_banner button,
 .contact_form button,
@@ -1383,32 +1378,30 @@ select:focus-visible {
   animation: scroll-top-arrow 0.9s ease-in-out infinite;
 }
 
-
 @keyframes scroll-top-arrow {
-0%,
+  0%,
   100% {
-  transform: translateY(8px);
-  opacity: 1;
-}
+    transform: translateY(8px);
+    opacity: 1;
+  }
 
-45% {
-  transform: translateY(-4px);
-  opacity: 1;
+  45% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
 }
-}
-
 
 @keyframes scroll-top-guide {
-0%,
+  0%,
   100% {
-  transform: translate(-50%, 8px);
-  opacity: 0.35;
-}
+    transform: translate(-50%, 8px);
+    opacity: 0.35;
+  }
 
-45% {
-  transform: translate(-50%, -4px);
-  opacity: 1;
-}
+  45% {
+    transform: translate(-50%, -4px);
+    opacity: 1;
+  }
 }
 
 /* Scroll to top */
@@ -1431,28 +1424,26 @@ select:focus-visible {
   animation: scroll-top-arrow-only 1.05s cubic-bezier(0.45, 0, 0.25, 1) infinite;
 }
 
-
 @keyframes scroll-top-arrow-only {
-0% {
-  transform: translateY(14px);
-  opacity: 0;
-}
+  0% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
 
-20% {
-  opacity: 1;
-}
+  20% {
+    opacity: 1;
+  }
 
-58% {
-  transform: translateY(-10px);
-  opacity: 1;
-}
+  58% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
 
-100% {
-  transform: translateY(-18px);
-  opacity: 0;
+  100% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
 }
-}
-
 
 /* Scroll-to-top button */
 
@@ -1531,27 +1522,26 @@ select:focus-visible {
 }
 
 @keyframes scrollTopArrowGuide {
-0% {
-  opacity: 0;
-  transform: translateY(16px);
-}
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
 
-28% {
-  opacity: 1;
-  transform: translateY(8px);
-}
+  28% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
 
-68% {
-  opacity: 1;
-  transform: translateY(-8px);
-}
+  68% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
 
-100% {
-  opacity: 0;
-  transform: translateY(-20px);
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
-}
-
 
 .scroll_top_btn.is_popping,
 .scroll_top_btn.is_popping i {
@@ -1563,7 +1553,11 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
-button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(15, 98, 254, 0.75);
   outline-offset: 3px;
 }
@@ -1598,4 +1592,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .scroll_top_btn.show.is_hiding_after_scroll svg {
   transform: translateY(-3px) !important;
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+/* =========================================================
+   Global fix - Bürkert floating flag alignment
+   Flaga ma przylegać do prawej krawędzi okna na każdej podstronie.
+   ========================================================= */
+
+html body .buerkert_floating_widget {
+  right: 0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  overflow: visible !important;
+}
+
+html body .buerkert_floating_button,
+html body .buerkert_floating_button:hover,
+html body .buerkert_floating_button:focus-visible {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
