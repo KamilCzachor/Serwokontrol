@@ -48,7 +48,7 @@
 
 .home_hero_bg {
   position: absolute;
-  inset: -120px 0;
+  inset: -1160px -8vw;
   z-index: -3;
   background-image:
     linear-gradient(
@@ -62,8 +62,10 @@
       transparent 1px 92px
     ),
     image-set(
-      url("../images/hero-cip-large.webp") type("image/webp"),
-      url("../images/hero-cip-large.jpg") type("image/jpeg")
+      /* url("../images/hero-cip-large.webp") type("image/webp"),
+      url("../images/hero-cip-large.jpg") type("image/jpeg") */
+      url("../images/parallax3.jpg") type("image/webp"),
+      url("../images/parallax3.jpg") type("image/jpeg")
     );
   background-size: auto, auto, cover;
   background-position:
@@ -897,18 +899,16 @@
 /* Animations */
 
 @keyframes homeScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
+  to {
+    transform: translateX(120%);
+  }
 }
-}
-
 
 /* Dark theme */
-
 
 /* Responsive */
 
@@ -1043,7 +1043,6 @@ to {
 }
 
 /* Dark theme */
-
 
 /* Tablet */
 
@@ -1339,7 +1338,6 @@ to {
   box-shadow: 0 18px 40px rgba(94, 106, 113, 0.22);
 }
 
-
 .reveal.reveal_hiding_up:not(.is_visible) {
   opacity: 0;
   transform: translate3d(0, 42px, 0);
@@ -1406,7 +1404,6 @@ to {
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
 }
 
-
 /* Home highlights hover responsiveness */
 
 .home_highlight,
@@ -1469,7 +1466,6 @@ to {
 .home_product_tile.reveal_sequence_item.is_visible:focus-visible {
   transform: translateY(-6px);
 }
-
 
 /* Home stats / why Serwokontrol */
 
@@ -1582,7 +1578,6 @@ to {
 
 /* Home dark CTA readability */
 
-
 /* Home page */
 
 .home_highlight,
@@ -1646,7 +1641,6 @@ to {
   transform: translateY(var(--ui-lift-card, -4px));
   transition-delay: 0s !important;
 }
-
 
 /* Bürkert Subline Logo */
 
@@ -2079,13 +2073,13 @@ to {
 }
 
 @keyframes homePartnerLogoShine {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
-}
+  to {
+    transform: translateX(120%);
+  }
 }
 
 /* Layout corrections 8 */
@@ -2295,7 +2289,6 @@ to {
 
 /* Dark theme product groups background */
 
-
 /* Home partner CTA background */
 .home_partner {
   color: #ffffff;
@@ -2319,7 +2312,6 @@ to {
   opacity: 0.9;
 }
 
-
 /* Home visual refinements 2.10 */
 .home_partner,
 .products_intro_style_reference_unused {
@@ -2328,11 +2320,18 @@ to {
 
 .home_partner {
   background:
-    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.18), transparent 34%),
-    radial-gradient(circle at left top, rgba(255, 255, 255, 0.1), transparent 38%),
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at left top,
+      rgba(255, 255, 255, 0.1),
+      transparent 38%
+    ),
     linear-gradient(135deg, #7090b7 0%, #5f7fa7 56%, #526f95 100%) !important;
 }
-
 
 .home_highlight,
 .home_selector_text,
@@ -2364,7 +2363,6 @@ to {
 .home_selector_text:focus-within::before {
   transform: scaleY(1);
 }
-
 
 .home_highlight > *,
 .home_selector_text > * {
@@ -2523,7 +2521,6 @@ to {
   box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
 }
 
-
 /* =========================================================
    Home visual step 7
    Region CTA: blue gradient button matching the hero slider CTA style.
@@ -2531,8 +2528,7 @@ to {
 
 .home_region_cta .home_region_actions .home_btn_secondary {
   color: #ffffff;
-  background:
-    linear-gradient(135deg, #7090b7 0%, #5f7fa7 55%, #587ca8 100%);
+  background: linear-gradient(135deg, #7090b7 0%, #5f7fa7 55%, #587ca8 100%);
   border-color: rgba(255, 255, 255, 0.34);
   box-shadow: 0 12px 30px rgba(39, 48, 56, 0.25);
 }
@@ -2549,18 +2545,15 @@ to {
 .home_region_cta .home_region_actions .home_btn_secondary:hover,
 .home_region_cta .home_region_actions .home_btn_secondary:focus-visible {
   color: #ffffff;
-  background:
-    linear-gradient(135deg, #587ca8 0%, #5f7fa7 52%, #4f6f98 100%);
+  background: linear-gradient(135deg, #587ca8 0%, #5f7fa7 52%, #4f6f98 100%);
   border-color: rgba(255, 255, 255, 0.48);
   transform: translateY(-3px);
   box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
 }
 
-
 /* =========================================================
    DARK THEME REFRESH - home page
    ========================================================= */
-
 
 /* =========================================================
    PATCH - home product featured tile parity
@@ -2594,15 +2587,20 @@ to {
 }
 
 .home_products .home_product_tile.home_product_tile_featured::after {
-  background: linear-gradient(90deg, #7090b7 0%, #86a6cf 52%, #5f7fa7 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #7090b7 0%,
+    #86a6cf 52%,
+    #5f7fa7 100%
+  ) !important;
   transform: scaleX(0) !important;
 }
 
 .home_products .home_product_tile.home_product_tile_featured:hover::after,
-.home_products .home_product_tile.home_product_tile_featured:focus-visible::after {
+.home_products
+  .home_product_tile.home_product_tile_featured:focus-visible::after {
   transform: scaleX(1) !important;
 }
-
 
 /* =========================================================
    PATCH - featured home product tile exact parity with regular tiles
@@ -2623,7 +2621,11 @@ to {
 }
 
 .home_products .home_product_tile.home_product_tile_featured::before {
-  background: linear-gradient(135deg, rgba(112, 144, 183, 0.12), transparent 52%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.12),
+    transparent 52%
+  ) !important;
 }
 
 .home_products .home_product_tile.home_product_tile_featured::after {
@@ -2634,7 +2636,12 @@ to {
   width: 100% !important;
   height: 4px !important;
   border-radius: 999px 999px 0 0 !important;
-  background: linear-gradient(90deg, #7090b7 0%, #86a6cf 52%, #5f7fa7 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #7090b7 0%,
+    #86a6cf 52%,
+    #5f7fa7 100%
+  ) !important;
   transform: scaleX(0) !important;
   transform-origin: left center !important;
   opacity: 0 !important;
@@ -2645,7 +2652,8 @@ to {
 }
 
 .home_products .home_product_tile.home_product_tile_featured:hover::after,
-.home_products .home_product_tile.home_product_tile_featured:focus-visible::after {
+.home_products
+  .home_product_tile.home_product_tile_featured:focus-visible::after {
   transform: scaleX(1) !important;
   opacity: 1 !important;
 }
@@ -2669,13 +2677,14 @@ to {
   color: #5f7fa7 !important;
 }
 
-
 /* =========================================================
    PATCH - featured home product tile light-theme parity final
    Makes "Zawory procesowe" visually match regular tiles such as
    "Zawory elektromagnetyczne" in light theme.
    ========================================================= */
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured {
   grid-column: auto !important;
   grid-row: auto !important;
   color: #333333 !important;
@@ -2685,54 +2694,64 @@ body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featur
       rgba(112, 144, 183, 0.22),
       transparent 45%
     ),
-    linear-gradient(
-      135deg,
-      rgba(112, 144, 183, 0.08),
-      rgba(255, 255, 255, 0)
-    ),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.08), rgba(255, 255, 255, 0)),
     #f7f9fb !important;
   border: 1px solid rgba(112, 144, 183, 0.18) !important;
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12) !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured:hover,
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured:focus-visible {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured:hover,
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured:focus-visible {
   background:
     radial-gradient(
       circle at top right,
       rgba(112, 144, 183, 0.26),
       transparent 45%
     ),
-    linear-gradient(
-      135deg,
-      rgba(112, 144, 183, 0.1),
-      rgba(255, 255, 255, 0)
-    ),
+    linear-gradient(135deg, rgba(112, 144, 183, 0.1), rgba(255, 255, 255, 0)),
     #ffffff !important;
   transform: translateY(-6px) !important;
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18) !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured i {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  i {
   color: #7090b7 !important;
   background-color: rgba(112, 144, 183, 0.14) !important;
   border-color: transparent !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured h3 {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  h3 {
   color: #7090b7 !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured p {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  p {
   color: #333333 !important;
   opacity: 0.9 !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured span {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  span {
   color: #7090b7 !important;
 }
 
-body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featured::after {
+body:not(.dark_theme)
+  .home_products
+  .home_product_tile.home_product_tile_featured::after {
   background: linear-gradient(
     90deg,
     #7090b7 0%,
@@ -2891,8 +2910,17 @@ body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featur
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(circle at 74% 20%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.38) 45%, rgba(112, 144, 183, 0.08) 100%),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(255, 255, 255, 0.86));
+    radial-gradient(
+      circle at 74% 20%,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.38) 45%,
+      rgba(112, 144, 183, 0.08) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.16),
+      rgba(255, 255, 255, 0.86)
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.84),
     0 14px 30px rgba(94, 106, 113, 0.12);
@@ -2925,7 +2953,9 @@ body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featur
   padding: 18px;
   transform: scale(1.04);
   filter: drop-shadow(0 12px 20px rgba(39, 48, 56, 0.18));
-  transition: transform 0.35s ease, filter 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
 .home_product_tile_with_image:hover .home_product_tile_media img,
@@ -2936,8 +2966,17 @@ body:not(.dark_theme) .home_products .home_product_tile.home_product_tile_featur
 
 body.dark_theme .home_product_tile_media {
   background:
-    radial-gradient(circle at 74% 20%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06) 48%, rgba(112, 144, 183, 0.12) 100%),
-    linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(255, 255, 255, 0.04));
+    radial-gradient(
+      circle at 74% 20%,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06) 48%,
+      rgba(112, 144, 183, 0.12) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.16),
+      rgba(255, 255, 255, 0.04)
+    );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 14px 30px rgba(0, 0, 0, 0.22);
