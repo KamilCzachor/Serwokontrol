@@ -3135,3 +3135,481 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 154px !important;
   }
 }
+
+/* =========================================================
+   PATCH 2026-06-15 - header contact capsule final polish
+   Scope: main header + sticky header contact/action buttons only.
+   Layout positions are left in their original CSS rules.
+   ========================================================= */
+@media (min-width: 993px) {
+  html body header .main_header_inner > .header_actions,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    z-index: 60 !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle {
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border-radius: 999px !important;
+    text-align: left !important;
+    transform: none !important;
+    transition:
+      width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      max-width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      gap 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.28s ease,
+      background-color 0.28s ease,
+      color 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link > i,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle > i {
+    order: 1 !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    flex: 0 0 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle > span {
+    order: 2 !important;
+    position: static !important;
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    clip: auto !important;
+    clip-path: none !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    transform: translateX(-6px) !important;
+    transition:
+      max-width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.22s ease,
+      visibility 0.22s ease,
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link:hover,
+  html body header .main_header_inner > .header_actions > a.header_action_link:focus-visible,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    max-width: none !important;
+    padding: 0 14px 0 12px !important;
+    gap: 8px !important;
+    justify-content: flex-start !important;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #5f7f9e 0%, #7fa2c7 100%) !important;
+    border-color: rgba(255, 255, 255, 0.36) !important;
+    box-shadow: 0 12px 28px rgba(69, 97, 125, 0.22) !important;
+    transform: none !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link:hover > i,
+  html body header .main_header_inner > .header_actions > a.header_action_link:focus-visible > i,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover > i,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:hover > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:focus-visible > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible > i {
+    width: 16px !important;
+    min-width: 16px !important;
+    flex: 0 0 16px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link:hover > span,
+  html body header .main_header_inner > .header_actions > a.header_action_link:focus-visible > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:hover > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover > span,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible > span {
+    max-width: 230px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    transform: translateX(0) !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a[href^="tel"]:hover,
+  html body header .main_header_inner > .header_actions > a[href^="tel"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:focus-visible {
+    width: 190px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a[href^="mailto"]:hover,
+  html body header .main_header_inner > .header_actions > a[href^="mailto"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:focus-visible {
+    width: 246px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 104px !important;
+  }
+
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 90px !important;
+    padding-right: 10px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body header .main_header_inner > .header_actions > a.header_action_link,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle {
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link > i,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand > i,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle > i {
+    width: 36px !important;
+    min-width: 36px !important;
+    flex-basis: 36px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a[href^="tel"]:hover,
+  html body header .main_header_inner > .header_actions > a[href^="tel"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:focus-visible {
+    width: 176px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a[href^="mailto"]:hover,
+  html body header .main_header_inner > .header_actions > a[href^="mailto"]:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="mailto"]:focus-visible {
+    width: 228px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 100px !important;
+  }
+
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 88px !important;
+  }
+}
+
+/* =========================================================
+   PATCH v4 - desktop header/sticky alignment + compact contact pills
+   Scope: desktop header only. Mobile remains in responsive.css.
+   ========================================================= */
+@media (min-width: 993px) {
+  /* Slightly increase the spacing between Serwokontrol and Bürkert in sticky header. */
+  html body #stickyHeader.sticky_header .sticky_header_inner > .buerkert_sticky_partner {
+    margin-left: clamp(6px, 0.45vw, 9px) !important;
+  }
+
+  /* The sticky navigation starts too far left because the sticky logos are smaller.
+     Move only the sticky nav pill so its left edge matches the main header nav. */
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_nav {
+    transform: translateX(clamp(24px, 1.85vw, 28px)) !important;
+  }
+
+  /* Normalize both contact groups before setting fitted widths. */
+  html body header .main_header_inner > .header_actions > a.header_action_link,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+    gap: 7px !important;
+    padding-left: 11px !important;
+    padding-right: 11px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link > i,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand > i,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link > i,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand > i {
+    flex: 0 0 16px !important;
+    width: 16px !important;
+    min-width: 16px !important;
+    text-align: center !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand > span {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link:hover > span,
+  html body header .main_header_inner > .header_actions > a.header_action_link:focus-visible > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover > span,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:hover > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:focus-visible > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover > span,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible > span {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 210px !important;
+    overflow: visible !important;
+  }
+
+  /* Main header - fitted expanded widths, no empty tail on the right. */
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:hover,
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:focus-visible {
+    width: 160px !important;
+    max-width: 160px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="mailto"]:hover,
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="mailto"]:focus-visible {
+    width: 204px !important;
+    max-width: 204px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible {
+    width: 88px !important;
+    max-width: 88px !important;
+  }
+
+  /* Sticky header - same compact rhythm as the main header. */
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:focus-visible {
+    width: 158px !important;
+    max-width: 158px !important;
+  }
+
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="mailto"]:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="mailto"]:focus-visible {
+    width: 206px !important;
+    max-width: 206px !important;
+  }
+
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible {
+    width: 86px !important;
+    max-width: 86px !important;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1366px) {
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_nav {
+    transform: translateX(24px) !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:hover,
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:focus-visible,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:focus-visible {
+    width: 156px !important;
+    max-width: 156px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="mailto"]:hover,
+  html body header .main_header_inner > .header_actions > a.header_action_link[href^="mailto"]:focus-visible,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="mailto"]:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="mailto"]:focus-visible {
+    width: 202px !important;
+    max-width: 202px !important;
+  }
+
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:hover,
+  html body header .main_header_inner > .header_actions > button.theme_toggle_expand:focus-visible,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible {
+    width: 84px !important;
+    max-width: 84px !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1280px) {
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_nav {
+    transform: translateX(-10px) !important;
+  }
+}
+
+
+/* =========================================================
+   PATCH v5 - sticky actions vertical centering + restore
+   mobile Bürkert logo via HTML only
+   ========================================================= */
+@media (min-width: 993px) {
+  html body #stickyHeader.sticky_header .sticky_header_inner {
+    align-items: center !important;
+  }
+
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions {
+    align-self: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    top: -1px !important;
+  }
+
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
+  html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle {
+    align-self: center !important;
+    vertical-align: middle !important;
+  }
+}
+
+
+/* =========================================================
+   PATCH v6 - sticky contact buttons aligned to right edge
+   Scope: desktop sticky header only. Keeps previous vertical
+   centering and the original main header layout untouched.
+   ========================================================= */
+@media (min-width: 993px) {
+  html body div#stickyHeader.sticky_header > div.sticky_header_inner > div.header_actions.sticky_contact.sticky_header_actions {
+    margin: 0 0 0 auto !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    position: relative !important;
+    top: -1px !important;
+  }
+}
+
+/* =========================================================
+   PATCH v7 - sticky contact actions pinned to the right edge
+   Scope: desktop sticky header only.
+   Previous grid placement kept the action group inside the
+   content column; this pins the whole icon group to the same
+   right-side rhythm as the main header.
+   ========================================================= */
+@media (min-width: 1181px) {
+  html body div#stickyHeader.sticky_header > div.sticky_header_inner {
+    position: relative !important;
+  }
+
+  html body div#stickyHeader.sticky_header > div.sticky_header_inner > div.header_actions.sticky_contact.sticky_header_actions {
+    grid-column: auto !important;
+    justify-self: auto !important;
+    align-self: auto !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: clamp(28px, 2.2vw, 44px) !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    height: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    z-index: 80 !important;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1180px) {
+  html body div#stickyHeader.sticky_header > div.sticky_header_inner > div.header_actions.sticky_contact.sticky_header_actions {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    top: -1px !important;
+  }
+}

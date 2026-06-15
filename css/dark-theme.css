@@ -4694,3 +4694,24 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
   }
 }
+
+/* =========================================================
+   PATCH 2026-06-15 - dark mode for mobile Bürkert logo
+   ========================================================= */
+@media (max-width: 992px) {
+  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo {
+    border-top-color: rgba(226, 233, 241, 0.12) !important;
+  }
+
+  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a,
+  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a:hover,
+  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a:focus-visible,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a:focus-visible {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
+  }
+}
