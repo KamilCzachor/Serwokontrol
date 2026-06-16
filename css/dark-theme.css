@@ -160,14 +160,22 @@ body.dark_theme .contact_page > .page_breadcrumb + h2::after {
 
 body.dark_theme {
   background:
-    radial-gradient(circle at 10% 0%, rgba(112, 144, 183, 0.12), transparent 32%),
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(112, 144, 183, 0.12),
+      transparent 32%
+    ),
     linear-gradient(135deg, #151b20 0%, #1d252c 100%);
   color: #e2e9f1;
 }
 
 body.dark_theme main {
   background:
-    radial-gradient(circle at 85% 8%, rgba(112, 144, 183, 0.10), transparent 30%),
+    radial-gradient(
+      circle at 85% 8%,
+      rgba(112, 144, 183, 0.1),
+      transparent 30%
+    ),
     linear-gradient(180deg, #1d252c 0%, #151b20 100%) !important;
   box-shadow: inset 0 8px 20px rgba(0, 0, 0, 0.28);
 }
@@ -182,7 +190,12 @@ body.dark_theme .page_breadcrumb + h2 {
 body.dark_theme .container h2::after,
 body.dark_theme .page_breadcrumb + h1::after,
 body.dark_theme .page_breadcrumb + h2::after {
-  background: linear-gradient(90deg, #9db6d2 0%, rgba(112, 144, 183, 0.42) 70%, transparent 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    rgba(112, 144, 183, 0.42) 70%,
+    transparent 100%
+  ) !important;
 }
 
 body.dark_theme .container p,
@@ -212,9 +225,15 @@ body.dark_theme .page_breadcrumb a:focus-visible {
 body.dark_theme .page_faq,
 body.dark_theme .page_faq_item,
 body.dark_theme .cookie_banner {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .page_faq_header h2,
@@ -232,7 +251,6 @@ body.dark_theme .cookie_overlay.show {
   background-color: rgba(3, 7, 10, 0.62);
 }
 
-
 /* =========================================================
    Dark Theme - Design System
    Source: css/design-system.css
@@ -248,15 +266,21 @@ body.dark_theme {
   --sk-color-text-muted: #c4d4e4;
   --sk-color-border: rgba(226, 233, 241, 0.14);
   --sk-color-border-strong: rgba(226, 233, 241, 0.28);
-  --sk-gradient-panel: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.20), transparent 34%), linear-gradient(135deg, #242c32 0%, #1f2428 100%);
-  --sk-shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.20);
+  --sk-gradient-panel:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.2),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1f2428 100%);
+  --sk-shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.2);
   --sk-shadow-md: 0 14px 34px rgba(0, 0, 0, 0.26);
   --sk-shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.34);
 }
 
 body.dark_theme .map_region .map_area {
   fill: #3a444c;
-  stroke: rgba(226, 233, 241, 0.20);
+  stroke: rgba(226, 233, 241, 0.2);
 }
 
 body.dark_theme .map_region .map_area:hover,
@@ -264,7 +288,10 @@ body.dark_theme .map_area:focus-visible,
 body.dark_theme .representatives_section.active_south .map_south .map_area,
 body.dark_theme .representatives_section.active_west .map_west .map_area,
 body.dark_theme .representatives_section.active_center .map_center .map_area,
-body.dark_theme .representatives_section .map_region .map_area.is_selected_city {
+body.dark_theme
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city {
   fill: #9bb7d8;
 }
 
@@ -286,11 +313,17 @@ body.dark_theme footer {
 body.dark_theme .home_region_cta {
   border-color: rgba(160, 190, 224, 0.28);
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%);
   color: #ffffff;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.035) inset;
 }
 
 body.dark_theme .home_region_cta span,
@@ -354,7 +387,11 @@ body.dark_theme .home_highlight:focus-within h3 {
 
 body.dark_theme .home_partner_logo_link {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(238, 243, 248, 0.92)),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(238, 243, 248, 0.92)
+    ),
     #f7f9fb;
   border-color: rgba(155, 183, 216, 0.32);
   box-shadow:
@@ -364,9 +401,7 @@ body.dark_theme .home_partner_logo_link {
 
 body.dark_theme .home_partner_logo_link:hover,
 body.dark_theme .home_partner_logo_link:focus-visible {
-  background:
-    linear-gradient(135deg, #ffffff, #edf3f8),
-    #ffffff;
+  background: linear-gradient(135deg, #ffffff, #edf3f8), #ffffff;
   border-color: rgba(155, 183, 216, 0.48);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
@@ -375,14 +410,16 @@ body.dark_theme .home_partner_logo_link:focus-visible {
 
 .home_partner_logo_link img,
 body.dark_theme .home_partner_logo_link img {
-  filter: contrast(1.16) saturate(1.08) drop-shadow(0 8px 14px rgba(31, 42, 51, 0.16));
+  filter: contrast(1.16) saturate(1.08)
+    drop-shadow(0 8px 14px rgba(31, 42, 51, 0.16));
 }
 
 .home_partner_logo_link:hover img,
 .home_partner_logo_link:focus-visible img,
 body.dark_theme .home_partner_logo_link:hover img,
 body.dark_theme .home_partner_logo_link:focus-visible img {
-  filter: contrast(1.2) saturate(1.12) drop-shadow(0 10px 18px rgba(31, 42, 51, 0.2));
+  filter: contrast(1.2) saturate(1.12)
+    drop-shadow(0 10px 18px rgba(31, 42, 51, 0.2));
 }
 
 .home_products .home_product_tile span i,
@@ -458,7 +495,11 @@ body.dark_theme .home_selector_result p {
 
 body.dark_theme .products_intro {
   background:
-    radial-gradient(circle at top right, rgba(157, 182, 210, 0.24), transparent 44%),
+    radial-gradient(
+      circle at top right,
+      rgba(157, 182, 210, 0.24),
+      transparent 44%
+    ),
     linear-gradient(135deg, #35557f 0%, #27415f 55%, #1f344c 100%) !important;
   border-color: rgba(157, 182, 210, 0.26) !important;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34) !important;
@@ -472,8 +513,14 @@ body.dark_theme .products_intro p {
   color: rgba(240, 246, 252, 0.9) !important;
 }
 
-body.dark_theme .products_faq_accordion:not([open]):hover .products_faq_summary > i,
-body.dark_theme .products_faq_accordion:not([open]) .products_faq_summary:focus-visible > i {
+body.dark_theme
+  .products_faq_accordion:not([open]):hover
+  .products_faq_summary
+  > i,
+body.dark_theme
+  .products_faq_accordion:not([open])
+  .products_faq_summary:focus-visible
+  > i {
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.32);
 }
 
@@ -485,11 +532,17 @@ body.dark_theme .home_partner,
 body.dark_theme .products_intro {
   border-color: rgba(160, 190, 224, 0.28) !important;
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%) !important;
   color: #ffffff !important;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.035) inset !important;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.035) inset !important;
 }
 
 .home_partner_content span,
@@ -519,12 +572,22 @@ body.dark_theme {
   --sk-color-secondary: #c4d4e4;
   --sk-color-secondary-dark: #e2e9f1;
   --sk-color-border: rgba(226, 233, 241, 0.12);
-  --sk-color-border-strong: rgba(157, 182, 210, 0.30);
+  --sk-color-border-strong: rgba(157, 182, 210, 0.3);
   --sk-gradient-primary: linear-gradient(135deg, #526f96 0%, #324f75 100%);
-  --sk-gradient-primary-soft: linear-gradient(135deg, rgba(157, 182, 210, 0.18), rgba(50, 79, 117, 0.20));
-  --sk-gradient-panel: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.22), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%);
+  --sk-gradient-primary-soft: linear-gradient(
+    135deg,
+    rgba(157, 182, 210, 0.18),
+    rgba(50, 79, 117, 0.2)
+  );
+  --sk-gradient-panel:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.22),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%);
   --sk-shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.24);
-  --sk-shadow-md: 0 14px 34px rgba(0, 0, 0, 0.30);
+  --sk-shadow-md: 0 14px 34px rgba(0, 0, 0, 0.3);
   --sk-shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.42);
   --sk-shadow-focus: 0 0 0 4px rgba(157, 182, 210, 0.24);
   background: #151b20;
@@ -572,7 +635,7 @@ body.dark_theme .product_modal_back_btn {
   background: linear-gradient(135deg, #7090b7 0%, #526f96 100%);
   color: #ffffff;
   border-color: rgba(226, 233, 241, 0.18);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.30);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
 body.dark_theme .btn_primary:hover,
@@ -591,7 +654,6 @@ body.dark_theme .product_modal_back_btn:focus-visible {
   color: #ffffff;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
 }
-
 
 /* =========================================================
    Dark Theme - Header
@@ -714,17 +776,17 @@ body.dark_theme .header_action_link:hover {
 }
 
 @media (max-width: 992px) {
-body.dark_theme .sticky_nav {
-  background-color: #1f2428;
-  border-top-color: #3a444c;
-}
+  body.dark_theme .sticky_nav {
+    background-color: #1f2428;
+    border-top-color: #3a444c;
+  }
 }
 
 @media (max-width: 768px) {
-body.dark_theme .nav_list {
-  background-color: #1f2428;
-  border-top-color: #3a444c;
-}
+  body.dark_theme .nav_list {
+    background-color: #1f2428;
+    border-top-color: #3a444c;
+  }
 }
 
 body.dark_theme header {
@@ -792,15 +854,15 @@ body.dark_theme .sticky_header {
 }
 
 @media (max-width: 992px) {
-body.dark_theme .sticky_nav {
-  background-color: rgba(31, 36, 40, 0.96);
-}
+  body.dark_theme .sticky_nav {
+    background-color: rgba(31, 36, 40, 0.96);
+  }
 }
 
 @media (max-width: 768px) {
-body.dark_theme .nav_list {
-  background-color: rgba(31, 36, 40, 0.96);
-}
+  body.dark_theme .nav_list {
+    background-color: rgba(31, 36, 40, 0.96);
+  }
 }
 
 body.dark_theme header {
@@ -923,24 +985,24 @@ body.dark_theme .sticky_site_symbol_img {
 }
 
 @media (min-width: 1181px) {
-body.dark_theme .buerkert_header_partner {
-  background:
+  body.dark_theme .buerkert_header_partner {
+    background:
       radial-gradient(
         circle at top left,
         rgba(112, 144, 183, 0.22),
         transparent 46%
       ),
       linear-gradient(180deg, rgba(47, 57, 66, 0.96), rgba(36, 45, 53, 0.96));
-  border-color: rgba(226, 233, 241, 0.14);
-  box-shadow:
+    border-color: rgba(226, 233, 241, 0.14);
+    box-shadow:
       0 14px 34px rgba(0, 0, 0, 0.28),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
+  }
 
-body.dark_theme .buerkert_header_partner img {
-  filter: brightness(1.08) contrast(1.2) saturate(1.08)
+  body.dark_theme .buerkert_header_partner img {
+    filter: brightness(1.08) contrast(1.2) saturate(1.08)
       drop-shadow(0 2px 5px rgba(0, 0, 0, 0.48));
-}
+  }
 }
 
 body.dark_theme .buerkert_floating_panel {
@@ -996,14 +1058,14 @@ body.dark_theme .sticky_site_symbol_img_light {
 
 body.dark_theme header {
   background: rgba(29, 37, 44, 0.92) !important;
-  border-bottom: 1px solid rgba(226, 233, 241, 0.10) !important;
+  border-bottom: 1px solid rgba(226, 233, 241, 0.1) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.34) !important;
   backdrop-filter: blur(16px);
 }
 
 body.dark_theme .sticky_header {
-  background: rgba(21, 27, 32, 0.90) !important;
-  border: 1px solid rgba(226, 233, 241, 0.10) !important;
+  background: rgba(21, 27, 32, 0.9) !important;
+  border: 1px solid rgba(226, 233, 241, 0.1) !important;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.36) !important;
   backdrop-filter: blur(16px);
 }
@@ -1033,8 +1095,8 @@ body.dark_theme .sticky_site_symbol_img_light {
 body.dark_theme .nav_list,
 body.dark_theme .sticky_nav {
   background: rgba(36, 44, 50, 0.92) !important;
-  border-color: rgba(226, 233, 241, 0.10) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  border-color: rgba(226, 233, 241, 0.1) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .nav_list li a,
@@ -1068,7 +1130,7 @@ body.dark_theme .sticky_contact button {
   background: rgba(157, 182, 210, 0.12) !important;
   color: #d7e4f1 !important;
   border: 1px solid rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 body.dark_theme .header_action_link:hover,
@@ -1085,10 +1147,9 @@ body.dark_theme .sticky_contact button:hover,
 body.dark_theme .sticky_contact button:focus-visible {
   background: linear-gradient(135deg, #7090b7 0%, #526f96 100%) !important;
   color: #ffffff !important;
-  border-color: rgba(226, 233, 241, 0.20) !important;
+  border-color: rgba(226, 233, 241, 0.2) !important;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32) !important;
 }
-
 
 /* =========================================================
    Dark Theme - Footer
@@ -1198,10 +1259,18 @@ body.dark_theme .footer_logo_wordmark_accent {
 
 body.dark_theme footer {
   background:
-    radial-gradient(circle at top left, rgba(112, 144, 183, 0.26), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(157, 182, 210, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top left,
+      rgba(112, 144, 183, 0.26),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(157, 182, 210, 0.08),
+      transparent 30%
+    ),
     linear-gradient(135deg, #151b20 0%, #1d252c 100%) !important;
-  border-top: 1px solid rgba(226, 233, 241, 0.10);
+  border-top: 1px solid rgba(226, 233, 241, 0.1);
 }
 
 body.dark_theme .footer_brand,
@@ -1236,7 +1305,7 @@ body.dark_theme .footer_partner a {
 }
 
 body.dark_theme .footer_bottom {
-  border-top-color: rgba(226, 233, 241, 0.10) !important;
+  border-top-color: rgba(226, 233, 241, 0.1) !important;
 }
 
 body.dark_theme .footer_logo_wordmark_primary {
@@ -1271,7 +1340,6 @@ body.dark_theme .footer_partner a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 18px 40px rgba(0, 0, 0, 0.42) !important;
 }
-
 
 /* =========================================================
    Dark Theme - Index
@@ -1681,8 +1749,16 @@ body.dark_theme .home_partner_content span {
 
 body.dark_theme .home_partner {
   background:
-    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at left top, rgba(157, 182, 210, 0.16), transparent 40%),
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at left top,
+      rgba(157, 182, 210, 0.16),
+      transparent 40%
+    ),
     linear-gradient(135deg, #5f7fa7 0%, #4d6b91 58%, #384f6c 100%) !important;
 }
 
@@ -1714,7 +1790,10 @@ body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary {
 }
 
 body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary:hover,
-body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary:focus-visible {
+body.dark_theme
+  .home_region_cta
+  .home_region_actions
+  .home_btn_secondary:focus-visible {
   color: #ffffff;
   background-color: #202a32;
   border-color: #202a32;
@@ -1723,38 +1802,56 @@ body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary:focus-
 
 body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary {
   color: #ffffff;
-  background:
-    linear-gradient(135deg, #6f93c0 0%, #587ca8 56%, #486b94 100%);
+  background: linear-gradient(135deg, #6f93c0 0%, #587ca8 56%, #486b94 100%);
   border-color: rgba(226, 233, 241, 0.26);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
 }
 
 body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary:hover,
-body.dark_theme .home_region_cta .home_region_actions .home_btn_secondary:focus-visible {
+body.dark_theme
+  .home_region_cta
+  .home_region_actions
+  .home_btn_secondary:focus-visible {
   color: #ffffff;
-  background:
-    linear-gradient(135deg, #7da0c8 0%, #6388b3 54%, #526f96 100%);
+  background: linear-gradient(135deg, #7da0c8 0%, #6388b3 54%, #526f96 100%);
   border-color: rgba(226, 233, 241, 0.36);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.44);
 }
 
 body.dark_theme .home_main {
   background:
-    radial-gradient(circle at 82% 8%, rgba(112, 144, 183, 0.10), transparent 30%),
+    radial-gradient(
+      circle at 82% 8%,
+      rgba(112, 144, 183, 0.1),
+      transparent 30%
+    ),
     linear-gradient(180deg, #1d252c 0%, #151b20 100%) !important;
 }
 
 body.dark_theme .home_hero {
   background:
     linear-gradient(135deg, rgba(10, 15, 19, 0.92), rgba(50, 79, 117, 0.82)),
-    radial-gradient(circle at 18% 16%, rgba(157, 182, 210, 0.18), transparent 34%),
+    radial-gradient(
+      circle at 18% 16%,
+      rgba(157, 182, 210, 0.18),
+      transparent 34%
+    ),
     linear-gradient(135deg, #151b20, #324f75) !important;
 }
 
 body.dark_theme .home_hero_overlay {
   background:
-    linear-gradient(90deg, rgba(10, 15, 19, 0.94) 0%, rgba(21, 27, 32, 0.76) 44%, rgba(50, 79, 117, 0.54) 100%),
-    radial-gradient(circle at 76% 42%, rgba(157, 182, 210, 0.16), transparent 34%) !important;
+    linear-gradient(
+      90deg,
+      rgba(10, 15, 19, 0.94) 0%,
+      rgba(21, 27, 32, 0.76) 44%,
+      rgba(50, 79, 117, 0.54) 100%
+    ),
+    radial-gradient(
+      circle at 76% 42%,
+      rgba(157, 182, 210, 0.16),
+      transparent 34%
+    ) !important;
 }
 
 body.dark_theme .home_products,
@@ -1764,9 +1861,15 @@ body.dark_theme .home_selector_panel,
 body.dark_theme .home_process_step,
 body.dark_theme .home_product_tile:not(.home_product_tile_featured),
 body.dark_theme .home_selector_result {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .home_products:hover,
@@ -1818,14 +1921,27 @@ body.dark_theme .home_selector_fields select {
 
 body.dark_theme .home_product_tile::after,
 body.dark_theme .home_process_step::after {
-  background: linear-gradient(90deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .home_region_cta,
 body.dark_theme .home_product_tile_featured {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%
+    ),
     linear-gradient(135deg, #526f96 0%, #324f75 100%) !important;
   color: #ffffff !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36) !important;
@@ -1847,7 +1963,10 @@ body.dark_theme .home_products .home_product_tile.home_product_tile_featured {
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28) !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured h3 {
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  h3 {
   color: #e2e9f1 !important;
 }
 
@@ -1855,7 +1974,10 @@ body.dark_theme .home_products .home_product_tile.home_product_tile_featured p {
   color: rgba(226, 233, 241, 0.82) !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured span,
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  span,
 body.dark_theme .home_products .home_product_tile.home_product_tile_featured i {
   color: #9bb7d8 !important;
 }
@@ -1866,19 +1988,30 @@ body.dark_theme .home_products .home_product_tile.home_product_tile_featured i {
 
 body.dark_theme .home_products .home_product_tile.home_product_tile_featured {
   background:
-    radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%),
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
     linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
   color: #e2e9f1 !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured:hover,
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured:focus-visible {
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured:hover,
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured:focus-visible {
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38) !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured h3 {
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  h3 {
   color: #d7e4f1 !important;
 }
 
@@ -1887,7 +2020,10 @@ body.dark_theme .home_products .home_product_tile.home_product_tile_featured p {
   opacity: 1 !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured span {
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured
+  span {
   color: #9db6d2 !important;
 }
 
@@ -1897,10 +2033,16 @@ body.dark_theme .home_products .home_product_tile.home_product_tile_featured i {
   border-color: rgba(226, 233, 241, 0.12) !important;
 }
 
-body.dark_theme .home_products .home_product_tile.home_product_tile_featured::after {
-  background: linear-gradient(90deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+body.dark_theme
+  .home_products
+  .home_product_tile.home_product_tile_featured::after {
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
-
 
 /* =========================================================
    Dark Theme - Products
@@ -2585,8 +2727,16 @@ body.dark_theme .products_intro {
 
 body.dark_theme .products_intro {
   background:
-    radial-gradient(circle at right bottom, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at left top, rgba(157, 182, 210, 0.16), transparent 40%),
+    radial-gradient(
+      circle at right bottom,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at left top,
+      rgba(157, 182, 210, 0.16),
+      transparent 40%
+    ),
     linear-gradient(135deg, #5f7fa7 0%, #4d6b91 58%, #384f6c 100%) !important;
 }
 
@@ -2617,7 +2767,12 @@ body.dark_theme .products_page .product_card::after {
 }
 
 body.dark_theme .products_page .products_grid .product_card::after {
-  background: linear-gradient(90deg, #9bb7d8 0%, #7090b7 52%, rgba(155, 183, 216, 0) 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9bb7d8 0%,
+    #7090b7 52%,
+    rgba(155, 183, 216, 0) 100%
+  ) !important;
 }
 
 body.dark_theme .product_modal.product_catalog_modal .catalog_hero::before {
@@ -2678,9 +2833,15 @@ body.dark_theme .product_modal_left,
 body.dark_theme .product_modal_right,
 body.dark_theme .product_type_slider,
 body.dark_theme .product_type_card {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .products_intro h3,
@@ -2715,12 +2876,18 @@ body.dark_theme .product_image,
 body.dark_theme .catalog_product_image,
 body.dark_theme .product_modal_image,
 body.dark_theme .product_type_slider_image {
-  background: radial-gradient(circle at top right, rgba(157, 182, 210, 0.16), transparent 45%), linear-gradient(135deg, rgba(157, 182, 210, 0.08), rgba(21, 27, 32, 0)) !important;
-  border-color: rgba(226, 233, 241, 0.10) !important;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(157, 182, 210, 0.16),
+      transparent 45%
+    ),
+    linear-gradient(135deg, rgba(157, 182, 210, 0.08), rgba(21, 27, 32, 0)) !important;
+  border-color: rgba(226, 233, 241, 0.1) !important;
 }
 
 body.dark_theme .products_filter_btn {
-  background: rgba(157, 182, 210, 0.10) !important;
+  background: rgba(157, 182, 210, 0.1) !important;
   color: #d7e4f1 !important;
   border-color: rgba(226, 233, 241, 0.14) !important;
 }
@@ -2730,12 +2897,17 @@ body.dark_theme .products_filter_btn:focus-visible,
 body.dark_theme .products_filter_btn.is_active {
   background: linear-gradient(135deg, #7090b7 0%, #526f96 100%) !important;
   color: #ffffff !important;
-  border-color: rgba(226, 233, 241, 0.20) !important;
+  border-color: rgba(226, 233, 241, 0.2) !important;
 }
 
 body.dark_theme .product_card::after,
 body.dark_theme .catalog_product::after {
-  background: linear-gradient(90deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .product_modal_overlay {
@@ -2754,7 +2926,11 @@ body.dark_theme .product_type_slider_btn {
 body.dark_theme .catalog_closing,
 body.dark_theme .product_modal_closing {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 34%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
     linear-gradient(135deg, #526f96 0%, #324f75 100%) !important;
   color: #ffffff !important;
 }
@@ -2765,7 +2941,6 @@ body.dark_theme .product_modal_closing h3,
 body.dark_theme .product_modal_closing p {
   color: #ffffff !important;
 }
-
 
 /* =========================================================
    Dark Theme - About
@@ -3161,7 +3336,11 @@ body.dark_theme .about_us_box_partner_logo {
 
 body.dark_theme .about_us_box_partner_logo {
   background:
-    linear-gradient(135deg, rgba(244, 248, 252, 0.96), rgba(226, 233, 241, 0.92)),
+    linear-gradient(
+      135deg,
+      rgba(244, 248, 252, 0.96),
+      rgba(226, 233, 241, 0.92)
+    ),
     #f4f8fc !important;
   border-color: rgba(255, 255, 255, 0.24) !important;
   box-shadow:
@@ -3170,7 +3349,8 @@ body.dark_theme .about_us_box_partner_logo {
 }
 
 body.dark_theme .about_us_box_partner_logo img {
-  filter: contrast(1.22) saturate(1.1) drop-shadow(0 7px 14px rgba(0, 0, 0, 0.2)) !important;
+  filter: contrast(1.22) saturate(1.1)
+    drop-shadow(0 7px 14px rgba(0, 0, 0, 0.2)) !important;
 }
 
 body.dark_theme .about_us_box_partner_logo {
@@ -3225,7 +3405,12 @@ body.dark_theme .about_us_box_partner_logo:focus-visible {
 
 body.dark_theme .about_page .about_number_card::after,
 body.dark_theme .about_page .about_card::after {
-  background: linear-gradient(90deg, #9bb7d8 0%, rgba(155, 183, 216, 0.64) 46%, rgba(155, 183, 216, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    #9bb7d8 0%,
+    rgba(155, 183, 216, 0.64) 46%,
+    rgba(155, 183, 216, 0) 100%
+  );
 }
 
 .about_page .about_partners .about_section_title::after,
@@ -3236,22 +3421,38 @@ body.dark_theme .about_page .about_partners .about_section_title::after {
 
 .about_page .about_partners::before,
 body.dark_theme .about_page .about_partners::before {
-  background: linear-gradient(180deg, #7090b7 0%, rgba(112, 144, 183, 0.28) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #7090b7 0%,
+    rgba(112, 144, 183, 0.28) 100%
+  ) !important;
   border-radius: 999px !important;
 }
 
 body.dark_theme .about_page .about_partners::before {
-  background: linear-gradient(180deg, #9bb7d8 0%, rgba(155, 183, 216, 0.26) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9bb7d8 0%,
+    rgba(155, 183, 216, 0.26) 100%
+  ) !important;
 }
 
 body .about_page .about_register::before,
 body.dark_theme .about_page .about_register::before {
-  background: linear-gradient(180deg, #7090b7 0%, rgba(112, 144, 183, 0.28) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #7090b7 0%,
+    rgba(112, 144, 183, 0.28) 100%
+  ) !important;
   border-radius: 999px !important;
 }
 
 body.dark_theme .about_page .about_register::before {
-  background: linear-gradient(180deg, #9bb7d8 0%, rgba(155, 183, 216, 0.26) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9bb7d8 0%,
+    rgba(155, 183, 216, 0.26) 100%
+  ) !important;
 }
 
 body.dark_theme .about_page .about_us_box,
@@ -3292,9 +3493,15 @@ body.dark_theme .about_card,
 body.dark_theme .about_partners,
 body.dark_theme .about_register,
 body.dark_theme .about_partner_feature {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .about_us_text h3,
@@ -3319,19 +3526,37 @@ body.dark_theme .about_register span {
 body.dark_theme .about_us_text::before,
 body.dark_theme .about_partners::before,
 body.dark_theme .about_register::before {
-  background: linear-gradient(180deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .about_number_card::after,
 body.dark_theme .about_card::after {
-  background: linear-gradient(90deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .about_us_box,
 body.dark_theme .about_mission {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%
+    ),
     linear-gradient(135deg, #526f96 0%, #324f75 100%) !important;
   color: #ffffff !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36) !important;
@@ -3358,7 +3583,7 @@ body.dark_theme .about_partners_logo {
 
 body.dark_theme .about_register li {
   background: rgba(157, 182, 210, 0.08) !important;
-  border-color: rgba(226, 233, 241, 0.10) !important;
+  border-color: rgba(226, 233, 241, 0.1) !important;
 }
 
 .about_page .about_partner_feature .about_partner_logo_link,
@@ -3371,11 +3596,14 @@ body.dark_theme .about_page .about_partner_feature .about_partner_logo_link {
   -webkit-backdrop-filter: none !important;
 }
 
-body.dark_theme .about_page .about_partner_feature .about_partner_logo_link img {
+body.dark_theme
+  .about_page
+  .about_partner_feature
+  .about_partner_logo_link
+  img {
   filter: contrast(1.18) saturate(1.12)
     drop-shadow(0 4px 10px rgba(0, 0, 0, 0.42)) !important;
 }
-
 
 /* =========================================================
    Dark Theme - Contact
@@ -3740,7 +3968,11 @@ body.dark_theme .contact_page .city_search_box::before,
 body.dark_theme .contact_page .contact_faq_accordion::before,
 body.dark_theme .contact_page .contact_form_box::before,
 body.dark_theme .contact_page #contactData .contact_card::before {
-  background: linear-gradient(180deg, #9bb7d8 0%, rgba(155, 183, 216, 0.26) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9bb7d8 0%,
+    rgba(155, 183, 216, 0.26) 100%
+  ) !important;
 }
 
 body.dark_theme .contact_page .representatives_intro,
@@ -3796,11 +4028,19 @@ body.dark_theme .representative_card::after {
 }
 
 body.dark_theme .contact_page .representative_card::after {
-  background: linear-gradient(90deg, #9bb7d8, rgba(155, 183, 216, 0)) !important;
+  background: linear-gradient(
+    90deg,
+    #9bb7d8,
+    rgba(155, 183, 216, 0)
+  ) !important;
 }
 
 body.dark_theme .contact_page .representative_card h3::before {
-  background: linear-gradient(90deg, #9db6d2, rgba(157, 182, 210, 0.22)) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2,
+    rgba(157, 182, 210, 0.22)
+  ) !important;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -3810,14 +4050,21 @@ body.dark_theme .contact_page .representative_card h3::after {
 }
 
 body.dark_theme .contact_page .representative_card h3::before {
-  background: linear-gradient(90deg, #9db6d2, rgba(157, 182, 210, 0.22)) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2,
+    rgba(157, 182, 210, 0.22)
+  ) !important;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2) !important;
 }
 
 body.dark_theme .contact_form .form_privacy {
   border-color: rgba(226, 233, 241, 0.18);
-  background:
-    linear-gradient(135deg, rgba(112, 144, 183, 0.16), rgba(226, 233, 241, 0.07));
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.16),
+    rgba(226, 233, 241, 0.07)
+  );
   color: #d7e4f2;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
 }
@@ -3843,7 +4090,10 @@ body.dark_theme .contact_form .form_privacy input[type="checkbox"]:checked {
     0 8px 18px rgba(0, 0, 0, 0.24);
 }
 
-body.dark_theme .contact_form .form_privacy input[type="checkbox"]:focus-visible {
+body.dark_theme
+  .contact_form
+  .form_privacy
+  input[type="checkbox"]:focus-visible {
   box-shadow:
     0 0 0 4px rgba(158, 184, 215, 0.22),
     0 8px 18px rgba(0, 0, 0, 0.24);
@@ -3862,8 +4112,7 @@ body.dark_theme .contact_form .form_privacy a:focus-visible {
 
 body.dark_theme .contact_page .contact_cta a {
   border-color: rgba(226, 233, 241, 0.34);
-  background:
-    linear-gradient(135deg, #86a6cf 0%, #7090b7 48%, #587ca8 100%);
+  background: linear-gradient(135deg, #86a6cf 0%, #7090b7 48%, #587ca8 100%);
   color: #ffffff !important;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
 }
@@ -3871,8 +4120,7 @@ body.dark_theme .contact_page .contact_cta a {
 body.dark_theme .contact_page .contact_cta a:hover,
 body.dark_theme .contact_page .contact_cta a:focus-visible {
   border-color: rgba(226, 233, 241, 0.64);
-  background:
-    linear-gradient(135deg, #9bb8dc 0%, #7fa0c8 48%, #7090b7 100%);
+  background: linear-gradient(135deg, #9bb8dc 0%, #7fa0c8 48%, #7090b7 100%);
   color: #ffffff !important;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
 }
@@ -3889,16 +4137,30 @@ body.dark_theme .representative_card,
 body.dark_theme .representatives_map_panel,
 body.dark_theme .contact_faq,
 body.dark_theme .page_faq_item {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .representatives_intro,
 body.dark_theme .contact_cta {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%
+    ),
     linear-gradient(135deg, #526f96 0%, #324f75 100%) !important;
   color: #ffffff !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36) !important;
@@ -3940,11 +4202,21 @@ body.dark_theme .contact_card::before,
 body.dark_theme .contact_form_box::before,
 body.dark_theme .city_search_box::before,
 body.dark_theme .contact_faq::before {
-  background: linear-gradient(180deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .representative_card::after {
-  background: linear-gradient(90deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    90deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .city_search_field input,
@@ -4002,7 +4274,7 @@ body.dark_theme .contact_cta a:focus-visible {
 }
 
 body.dark_theme .map_box {
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
   border: 1px solid rgba(226, 233, 241, 0.12);
 }
 
@@ -4014,7 +4286,11 @@ body.dark_theme .contact_page .representatives_section .map_region .map_area {
   filter: none !important;
 }
 
-body.dark_theme .contact_page .representatives_section .map_region .map_area:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section
+  .map_region
+  .map_area:hover,
 body.dark_theme .contact_page .representatives_section .map_area:focus-visible {
   fill: #587ca8 !important;
   stroke: #242c32 !important;
@@ -4023,19 +4299,47 @@ body.dark_theme .contact_page .representatives_section .map_area:focus-visible {
   filter: none !important;
 }
 
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area {
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area {
   fill: #7090b7 !important;
   stroke: #242c32 !important;
   opacity: 1 !important;
   filter: none !important;
 }
 
-body.dark_theme .contact_page .representatives_section .map_region .map_area.is_selected_city,
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area.is_selected_city,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area.is_selected_city,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area.is_selected_city {
+body.dark_theme
+  .contact_page
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city {
   fill: #9bb8dc !important;
   stroke: #ffffff !important;
   stroke-width: 3 !important;
@@ -4051,12 +4355,36 @@ body.dark_theme .contact_page .legend_city {
   background-color: #9bb8dc !important;
 }
 
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area:hover,
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area:focus-visible,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area:hover,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area:focus-visible,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area:hover,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area:focus-visible {
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area:focus-visible,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area:focus-visible,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area:focus-visible {
   fill: #9bb8dc !important;
   stroke: #ffffff !important;
   stroke-width: 2.4 !important;
@@ -4064,21 +4392,52 @@ body.dark_theme .contact_page .representatives_section.active_center .map_center
   filter: drop-shadow(0 5px 12px rgba(157, 182, 210, 0.32)) !important;
 }
 
-body.dark_theme .contact_page .representatives_section .map_region .map_area.is_selected_city:hover,
-body.dark_theme .contact_page .representatives_section .map_region .map_area.is_selected_city:focus-visible,
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area.is_selected_city:hover,
-body.dark_theme .contact_page .representatives_section.active_south .map_south .map_area.is_selected_city:focus-visible,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area.is_selected_city:hover,
-body.dark_theme .contact_page .representatives_section.active_west .map_west .map_area.is_selected_city:focus-visible,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area.is_selected_city:hover,
-body.dark_theme .contact_page .representatives_section.active_center .map_center .map_area.is_selected_city:focus-visible {
+body.dark_theme
+  .contact_page
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city:focus-visible,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city:focus-visible,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city:focus-visible,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city:hover,
+body.dark_theme
+  .contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city:focus-visible {
   fill: #c3d4e8 !important;
   stroke: #ffffff !important;
   stroke-width: 3.2 !important;
   opacity: 1 !important;
   filter: drop-shadow(0 6px 13px rgba(195, 212, 232, 0.28)) !important;
 }
-
 
 /* =========================================================
    Dark Theme - Privacy
@@ -4087,10 +4446,16 @@ body.dark_theme .contact_page .representatives_section.active_center .map_center
 
 body.dark_theme .privacy_hero {
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.035) inset;
 }
 
 body.dark_theme .privacy_card {
@@ -4105,7 +4470,11 @@ body.dark_theme .privacy_card::before {
 
 body.dark_theme .privacy_card::after {
   background:
-    radial-gradient(circle at top right, rgba(112, 144, 183, 0.18), transparent 34%),
+    radial-gradient(
+      circle at top right,
+      rgba(112, 144, 183, 0.18),
+      transparent 34%
+    ),
     linear-gradient(135deg, rgba(112, 144, 183, 0.14), transparent 48%);
 }
 
@@ -4134,10 +4503,16 @@ body.dark_theme .privacy_card a:focus-visible {
 
 body.dark_theme .privacy_cta {
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.035) inset;
 }
 
 body.dark_theme .privacy_btn_primary {
@@ -4177,8 +4552,16 @@ body.dark_theme .privacy_page {
 body.dark_theme .privacy_hero,
 body.dark_theme .privacy_cta {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.08),
+      transparent 30%
+    ),
     linear-gradient(135deg, #526f96 0%, #324f75 100%) !important;
   color: #ffffff !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36) !important;
@@ -4193,9 +4576,15 @@ body.dark_theme .privacy_cta p {
 }
 
 body.dark_theme .privacy_card {
-  background: radial-gradient(circle at 14% 0%, rgba(112, 144, 183, 0.16), transparent 34%), linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
+  background:
+    radial-gradient(
+      circle at 14% 0%,
+      rgba(112, 144, 183, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #242c32 0%, #1d252c 100%) !important;
   border-color: rgba(226, 233, 241, 0.12) !important;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3) !important;
 }
 
 body.dark_theme .privacy_card h2 {
@@ -4217,7 +4606,12 @@ body.dark_theme .privacy_card a:focus-visible {
 }
 
 body.dark_theme .privacy_card::before {
-  background: linear-gradient(180deg, #9db6d2 0%, #7090b7 52%, #526f96 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #9db6d2 0%,
+    #7090b7 52%,
+    #526f96 100%
+  ) !important;
 }
 
 body.dark_theme .privacy_btn_primary {
@@ -4243,7 +4637,11 @@ body.dark_theme .privacy_btn_secondary:focus-visible {
 
 body.dark_theme .home_partner_logo_link {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(238, 243, 248, 0.94)),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(238, 243, 248, 0.94)
+    ),
     #ffffff !important;
   border-color: rgba(226, 233, 241, 0.75) !important;
   box-shadow:
@@ -4253,9 +4651,7 @@ body.dark_theme .home_partner_logo_link {
 
 body.dark_theme .home_partner_logo_link:hover,
 body.dark_theme .home_partner_logo_link:focus-visible {
-  background:
-    linear-gradient(135deg, #ffffff, #eef3f8),
-    #ffffff !important;
+  background: linear-gradient(135deg, #ffffff, #eef3f8), #ffffff !important;
   border-color: rgba(226, 233, 241, 0.95) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
@@ -4263,12 +4659,14 @@ body.dark_theme .home_partner_logo_link:focus-visible {
 }
 
 body.dark_theme .home_partner_logo_link img {
-  filter: contrast(1.16) saturate(1.08) drop-shadow(0 8px 14px rgba(31, 42, 51, 0.16)) !important;
+  filter: contrast(1.16) saturate(1.08)
+    drop-shadow(0 8px 14px rgba(31, 42, 51, 0.16)) !important;
 }
 
 body.dark_theme .home_partner_logo_link:hover img,
 body.dark_theme .home_partner_logo_link:focus-visible img {
-  filter: contrast(1.2) saturate(1.12) drop-shadow(0 10px 18px rgba(31, 42, 51, 0.2)) !important;
+  filter: contrast(1.2) saturate(1.12)
+    drop-shadow(0 10px 18px rgba(31, 42, 51, 0.2)) !important;
 }
 
 /* =========================================================
@@ -4286,7 +4684,12 @@ body.dark_theme .home_hero .home_btn_secondary:hover,
 body.dark_theme .home_hero .home_btn_secondary:focus-visible {
   color: #ffffff;
 }
-
+body.dark_theme .home_hero .home_btn_secondary:hover,
+body.dark_theme .home_hero .home_btn_secondary:focus-visible,
+body.dark_theme .home_btn_secondary:hover,
+body.dark_theme .home_btn_secondary:focus-visible {
+  color: #7090b7;
+}
 /* =========================================================
    Products Page Patch - intro background and modal PDF buttons
    Scope: products.html after responsive/dark theme refactor.
@@ -4299,7 +4702,11 @@ body:not(.dark_theme) .products_intro {
   color: #ffffff !important;
   border: 1px solid rgba(226, 233, 241, 0.26) !important;
   background:
-    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.2), transparent 32%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(255, 255, 255, 0.2),
+      transparent 32%
+    ),
     radial-gradient(circle at 10% 92%, rgba(31, 36, 40, 0.14), transparent 34%),
     linear-gradient(135deg, #7090b7 0%, #5f7fa7 48%, #526f96 100%) !important;
   box-shadow: 0 18px 42px rgba(82, 111, 150, 0.3) !important;
@@ -4338,7 +4745,11 @@ body.dark_theme .products_intro {
   color: #ffffff !important;
   border: 1px solid rgba(160, 190, 224, 0.28) !important;
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%) !important;
   box-shadow:
@@ -4390,8 +4801,12 @@ body:not(.dark_theme) .product_modal_pdf_link * {
   color: inherit !important;
 }
 
-body:not(.dark_theme) .product_modal.product_catalog_modal .catalog_pdf_btn:hover,
-body:not(.dark_theme) .product_modal.product_catalog_modal .catalog_pdf_btn:focus-visible,
+body:not(.dark_theme)
+  .product_modal.product_catalog_modal
+  .catalog_pdf_btn:hover,
+body:not(.dark_theme)
+  .product_modal.product_catalog_modal
+  .catalog_pdf_btn:focus-visible,
 body:not(.dark_theme) .catalog_pdf_btn:hover,
 body:not(.dark_theme) .catalog_pdf_btn:focus-visible,
 body:not(.dark_theme) .product_modal_pdf_link:hover,
@@ -4447,8 +4862,16 @@ body.dark_theme .sticky_header_inner {
 body.dark_theme .home_selector_result {
   color: #ffffff !important;
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 36%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.10), transparent 30%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.18),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.1),
+      transparent 30%
+    ),
     linear-gradient(135deg, #7090b7 0%, #5f7fa7 100%) !important;
   border-color: rgba(255, 255, 255, 0.18) !important;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34) !important;
@@ -4486,7 +4909,11 @@ body.dark_theme .home_selector_result a:focus-visible {
 body.dark_theme .home_selector_result {
   color: #ffffff !important;
   background:
-    radial-gradient(circle at 88% 18%, rgba(160, 190, 224, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(160, 190, 224, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 12% 92%, rgba(0, 0, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #324f75 0%, #466c98 50%, #5f7fa7 100%) !important;
   border-color: rgba(160, 190, 224, 0.28) !important;
@@ -4699,17 +5126,59 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
    PATCH 2026-06-15 - dark mode for mobile Bürkert logo
    ========================================================= */
 @media (max-width: 992px) {
-  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo,
-  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo {
+  body.dark_theme
+    header
+    .main_header_inner
+    > .main_nav
+    > .nav_list
+    > li.mobile_buerkert_nav_logo,
+  body.dark_theme
+    .sticky_header
+    .sticky_header_inner
+    > .sticky_nav
+    > li.mobile_buerkert_nav_logo {
     border-top-color: rgba(226, 233, 241, 0.12) !important;
   }
 
-  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a,
-  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a:hover,
-  body.dark_theme header .main_header_inner > .main_nav > .nav_list > li.mobile_buerkert_nav_logo > a:focus-visible,
-  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a,
-  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a:hover,
-  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav > li.mobile_buerkert_nav_logo > a:focus-visible {
+  body.dark_theme
+    header
+    .main_header_inner
+    > .main_nav
+    > .nav_list
+    > li.mobile_buerkert_nav_logo
+    > a,
+  body.dark_theme
+    header
+    .main_header_inner
+    > .main_nav
+    > .nav_list
+    > li.mobile_buerkert_nav_logo
+    > a:hover,
+  body.dark_theme
+    header
+    .main_header_inner
+    > .main_nav
+    > .nav_list
+    > li.mobile_buerkert_nav_logo
+    > a:focus-visible,
+  body.dark_theme
+    .sticky_header
+    .sticky_header_inner
+    > .sticky_nav
+    > li.mobile_buerkert_nav_logo
+    > a,
+  body.dark_theme
+    .sticky_header
+    .sticky_header_inner
+    > .sticky_nav
+    > li.mobile_buerkert_nav_logo
+    > a:hover,
+  body.dark_theme
+    .sticky_header
+    .sticky_header_inner
+    > .sticky_nav
+    > li.mobile_buerkert_nav_logo
+    > a:focus-visible {
     background: rgba(255, 255, 255, 0.94) !important;
     border-color: rgba(255, 255, 255, 0.18) !important;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
