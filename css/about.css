@@ -1472,3 +1472,14 @@ body .about_page .about_mission p {
   filter: contrast(1.14) saturate(1.1)
     drop-shadow(0 3px 7px rgba(0, 0, 0, 0.22)) !important;
 }
+
+
+/* SEO heading compatibility */
+.about_us_text h2,
+.about_partners_text h2,
+.about_register h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #7090b7;
+  font-size: 24px;
+}

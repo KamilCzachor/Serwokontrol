@@ -5184,3 +5184,15 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
   }
 }
+
+/* SEO heading compatibility after h2 upgrades */
+body.dark_theme .products_intro h2,
+body.dark_theme .products_filter_intro h2,
+body.dark_theme .about_us_text h2,
+body.dark_theme .about_partners_text h2,
+body.dark_theme .about_register h2,
+body.dark_theme .contact_card h2,
+body.dark_theme .contact_form_box h2,
+body.dark_theme .representatives_intro h2 {
+  color: #f5f8fc;
+}

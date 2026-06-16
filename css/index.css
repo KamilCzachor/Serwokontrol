@@ -64,7 +64,7 @@
     image-set(
       /* url("../images/hero-cip-large.webp") type("image/webp"),
       url("../images/hero-cip-large.jpg") type("image/jpeg") */
-      url("../images/parallax3.jpg") type("image/webp"),
+      url("../images/parallax3.webp") type("image/webp"),
       url("../images/parallax3.jpg") type("image/jpeg")
     );
   background-size: auto, auto, cover;

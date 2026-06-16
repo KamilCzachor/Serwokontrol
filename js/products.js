@@ -1841,7 +1841,10 @@
   setupProductFilters();
 
   productCardsArray.forEach(function (card) {
-    card.addEventListener("click", function () {
+    card.addEventListener("click", function (event) {
+      if (event.target && event.target.closest && event.target.closest("a[href]")) {
+        return;
+      }
       openProductModal(card);
     });
 

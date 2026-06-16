@@ -30,25 +30,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&amp;display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "SERWOKONTROL Sp. z o.o.",
-        "url": "https://www.serwokontrol.pl/",
-        "logo": "https://www.serwokontrol.pl/images/logo-serwokontrol.png",
-        "email": "biuro@serwokontrol.pl",
-        "telephone": "+48601764871",
-        "description": "Autoryzowany dystrybutor Bürkert w Polsce. Dobór i sprzedaż rozwiązań dla automatyki przemysłowej i kontroli przepływu.",
-        "sameAs": [""]
-      }
-    </script>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://www.serwokontrol.pl/#organization",
+      "name": "SERWOKONTROL Sp. z o.o.",
+      "url": "https://www.serwokontrol.pl/",
+      "logo": "https://www.serwokontrol.pl/images/logo-serwokontrol.png",
+      "image": "https://www.serwokontrol.pl/images/buerkert-authorised-partner.png",
+      "email": "biuro@serwokontrol.pl",
+      "telephone": "+48 601 764 871",
+      "description": "Autoryzowany dystrybutor Bürkert w Polsce. Dobór i sprzedaż rozwiązań dla automatyki przemysłowej i kontroli przepływu.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Przemkowska 15",
+        "postalCode": "52-426",
+        "addressLocality": "Wrocław",
+        "addressCountry": "PL"
+      },
+      "areaServed": "PL"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.serwokontrol.pl/#website",
+      "url": "https://www.serwokontrol.pl/",
+      "name": "Serwokontrol",
+      "publisher": {
+        "@id": "https://www.serwokontrol.pl/#organization"
+      },
+      "inLanguage": "pl-PL"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
   <header>
     <div class="header_inner main_header_inner">
       <div class="logo">
-        <a aria-label="Serwokontrol - strona główna" class="site_logo_link site_wordmark_link" href="index.html">
+        <a aria-label="Serwokontrol - strona główna" class="site_logo_link site_wordmark_link" href="/">
           <img alt="" aria-hidden="true" class="site_logo_symbol_img site_logo_symbol_img_dark" decoding="async"
             height="352" src="images/serwokontrol-symbol.svg" width="328" />
           <img alt="" aria-hidden="true" class="site_logo_symbol_img site_logo_symbol_img_light" decoding="async"
@@ -68,12 +94,12 @@
           <i aria-hidden="true" class="fa-solid fa-bars"></i>
         </button>
         <ul class="nav_list" id="navMenu">
-          <li><a class="active" href="index.html">Strona główna</a></li>
+          <li><a class="active" href="/">Strona główna</a></li>
           <li><a href="products.html">Produkty</a></li>
           <li><a href="about.html">O nas</a></li>
           <li><a href="contact.html">Kontakt</a></li>
           <li class="mobile_buerkert_nav_logo">
-            <a aria-label="Bürkert Authorised Partner" href="#contact" rel="noopener noreferrer" target="_blank">
+            <a aria-label="Bürkert Authorised Partner" href="contact.html">
               <img alt="Bürkert Authorised Partner" decoding="async" height="280"
                 src="images/buerkert-authorised-partner.png" width="1615" />
             </a>
@@ -99,7 +125,7 @@
   <div class="sticky_header" id="stickyHeader">
     <div class="sticky_header_inner">
       <div class="sticky_logo">
-        <a aria-label="Serwokontrol - strona główna" class="sticky_site_wordmark_link" href="index.html">
+        <a aria-label="Serwokontrol - strona główna" class="sticky_site_wordmark_link" href="/">
           <img alt="" aria-hidden="true" class="sticky_site_symbol_img sticky_site_symbol_img_dark" decoding="async"
             height="352" src="images/serwokontrol-symbol.svg" width="328" />
           <img alt="" aria-hidden="true" class="sticky_site_symbol_img sticky_site_symbol_img_light" decoding="async"
@@ -132,12 +158,12 @@
         </button>
       </div>
       <ul class="sticky_nav" id="stickyNavMenu">
-        <li><a class="active" href="index.html">Strona główna</a></li>
+        <li><a class="active" href="/">Strona główna</a></li>
         <li><a href="products.html">Produkty</a></li>
         <li><a href="about.html">O nas</a></li>
         <li><a href="contact.html">Kontakt</a></li>
         <li class="mobile_buerkert_nav_logo">
-          <a aria-label="Bürkert Authorised Partner" href="#contact" rel="noopener noreferrer" target="_blank">
+          <a aria-label="Bürkert Authorised Partner" href="contact.html">
             <img alt="Bürkert Authorised Partner" decoding="async" height="280"
               src="images/buerkert-authorised-partner.png" width="1615" />
           </a>
@@ -564,7 +590,7 @@
     <div class="footer_inner">
       <div class="footer_brand">
         <div class="footer_logo">
-          <a aria-label="Serwokontrol - strona główna" class="footer_wordmark_link" href="index.html">
+          <a aria-label="Serwokontrol - strona główna" class="footer_wordmark_link" href="/">
             <img alt="" aria-hidden="true" class="footer_logo_symbol_img footer_logo_symbol_img_dark" decoding="async"
               height="352" src="images/serwokontrol-symbol.svg" width="328" />
             <img alt="" aria-hidden="true" class="footer_logo_symbol_img footer_logo_symbol_img_light" decoding="async"
@@ -626,7 +652,7 @@
           type="button"><span>Nawigacja</span><i aria-hidden="true" class="fa-solid fa-chevron-down"></i></button>
         <div class="footer_accordion_panel" id="footer-nawigacja-panel">
           <ul class="footer_nav">
-            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="/">Strona główna</a></li>
             <li><a href="products.html">Produkty</a></li>
             <li><a href="about.html">O nas</a></li>
             <li><a href="contact.html">Kontakt</a></li>

@@ -1,11 +1,29 @@
-# Serwokontrol – nagłówki bezpieczeństwa i cache dla Apache.
+# Serwokontrol – przekierowania SEO, nagłówki bezpieczeństwa i cache dla Apache.
+
+DirectoryIndex index.html
+RewriteEngine On
+
+# Jedna wersja adresu strony głównej.
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Przekierowania ze starych adresów na nową strukturę strony.
+RewriteRule ^kontakt/?$ /contact.html [R=301,L]
+RewriteRule ^o-nas/?$ /about.html [R=301,L]
+RewriteRule ^systemy-kontroli-plynow/?$ /products.html [R=301,L]
+RewriteRule ^systemy-kontroli-plynow/produkty/?$ /products.html [R=301,L]
+RewriteRule ^systemy-kontroli-plynow/burkert/?$ /products.html [R=301,L]
+RewriteRule ^hydraulika-silowa-serwonapedy/?$ /products.html [R=301,L]
+RewriteRule ^hydraulika-silowa-serwonapedy/moog/?$ /products.html [R=301,L]
+RewriteRule ^hydraulika-silowa-serwonapedy/uslugi/?$ /contact.html [R=301,L]
+RewriteRule ^polityka-cookies/?$ /privacy.html [R=301,L]
+RewriteRule ^polityka-prywatnosci/?$ /privacy.html [R=301,L]
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-75Yuhmj1zgOpQFOmFlyNQP5tRP/6x045rsHei+X+uoE=' 'sha256-2zmwUVX248JuBKhTHfCgNpnIhu/HpeOPC6nKbPX1IcI='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'sha256-XQ8QtJ5ye3RCRo8E1UCJMJMafNnTmptaEMi9lt1qz0o=' 'sha256-pnkf4ZGNoTwAWS0hp6npaNBayKT3iydc8KZv+kZxkhI=' 'sha256-6mS1SAnNdAB/kByu1G93mgRcFiDSBYEVp0NPKAMBJGs=' 'sha256-TueWUqsK8vYUrl4SXyNFoRG/GLd2NupSDD+vCgyx+Xc=' 'sha256-kjV2HSsww+yfRAWYmFlMdcEE8y4zPlDPFqNAQREKnZY=' 'sha256-YbmtYpKMBbMGKs14E0PWo75IBdBDX5CWsDq8MpWEyHM=' 'sha256-PEfi/YDkr4fkYc7SRkb+ieyexelyTvSSDWa/anqiya4=' 'sha256-FrDh0zGhibZ+qfMJ6Hvp8kbtZvlXjwW1dmGtdg9e28w=' 'sha256-bCtiv6upAhljIMpdaxHlL76MmcEJI2Rl/RLjGsh9X1o=' 'sha256-sJi1b0wPj8KtT87EkPfQb8HU96/6hjeK2E0EMvtANik=' 'sha256-Y2FGg04wMlMj0PgZSh71EUj3g21aJEHAeN/DpOC2xBY=' 'sha256-i6QaxhaxBUTzhVqdIfrumXQ2cwVgOoTpDCL9Xl6te04=' 'sha256-9rSUTMHr4pJbIUGV/B8xp6heILce4eA1XIWu+EvMxBU=' 'sha256-LLsxsGq6wsbiveWC8gdnwyoogvx0Ixde0yAkqaI42QU=' 'sha256-oLU3qzblTX8vLwb91SMhEymHWHexmH8Mwz6oUkG3olU=' 'sha256-FfqkCysOcHb0NmYm3jGvgIjb3sI5rd5v6ycjBdE9/SU='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 </IfModule>
 
 <IfModule mod_deflate.c>
