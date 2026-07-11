@@ -3558,23 +3558,7 @@
   text-align: center;
 }
 
-@media (max-width: 640px) {
-  .catalog_intro_visual {
-    width: 100%;
-    min-height: 210px;
-    margin: 14px auto 18px;
-    padding: 16px;
-  }
 
-  .catalog_intro_visual::before {
-    inset: 12px;
-  }
-
-  .catalog_intro_visual img {
-    max-width: 96%;
-    max-height: 220px;
-  }
-}
 .products_intro h2 {
   position: relative;
   z-index: 1;
@@ -3755,40 +3739,9 @@
   gap: 14px;
 }
 
-body.dark_theme .seo_product_main {
-  background: #0f1720;
-}
-
-body.dark_theme .seo_product_hero,
-body.dark_theme .seo_product_panel,
-body.dark_theme .seo_related_products {
-  background: #162130;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-}
-
-body.dark_theme .seo_product_hero h1,
-body.dark_theme .seo_product_panel h2,
-body.dark_theme .seo_related_products h2 {
-  color: #f5f8fc;
-}
-
-body.dark_theme .seo_product_hero p,
-body.dark_theme .seo_product_panel p,
-body.dark_theme .seo_product_panel li {
-  color: #d7e0ea;
-}
-
-body.dark_theme .seo_product_visual {
-  background: #101923;
-}
-
-@media (max-width: 900px) {
-  .seo_product_hero,
-  .seo_product_content {
-    grid-template-columns: 1fr;
-  }
-
-  .seo_related_grid {
-    grid-template-columns: 1fr;
-  }
+/* Przeniesione z responsive.css: reguły bazowe komponentu */
+.product_modal_swipe_hint {
+  position: fixed;
+  z-index: 10040;
+  bottom: calc(22px + env(safe-area-inset-bottom));
 }

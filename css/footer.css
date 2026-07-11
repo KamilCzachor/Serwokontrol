@@ -864,21 +864,30 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28)) !important;
 }
 
-body.dark_theme .footer_logo a.footer_wordmark_link {
-  background-image: url("../images/logo-skl-rgb-2k-dark.svg") !important;
+/* Przeniesione z responsive.css: reguły bazowe komponentu */
+.footer_accordion_toggle {
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: default;
+}.footer_accordion_toggle span {
+  color: inherit;
+  font: inherit;
+}.footer_accordion_toggle i {
+  color: #e2e9f1;
+  font-size: 14px;
+}.footer_accordion_panel {
+  width: 100%;
 }
-
-@media (max-width: 900px) {
-  .footer_logo a.footer_wordmark_link {
-    width: clamp(190px, 46vw, 285px) !important;
-    height: clamp(20px, 4.9vw, 30px) !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .footer_logo a.footer_wordmark_link {
-    width: clamp(175px, 56vw, 250px) !important;
-    height: clamp(18px, 5.9vw, 26px) !important;
-  }
-}
-

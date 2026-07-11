@@ -5085,3 +5085,73 @@ body.dark_theme .contact_form_box h2,
 body.dark_theme .representatives_intro h2 {
   color: #f5f8fc;
 }
+
+/* Reguły ciemnego motywu przeniesione z header.css */
+body.dark_theme .logo a.site_wordmark_link,
+body.dark_theme .sticky_logo a.sticky_site_wordmark_link {
+  background-image: url("../images/logo-skl-rgb-2k-dark.svg") !important;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.24)) !important;
+}body.dark_theme .logo a.site_wordmark_link:hover,
+body.dark_theme .logo a.site_wordmark_link:focus-visible,
+body.dark_theme .sticky_logo a.sticky_site_wordmark_link:hover,
+body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.30)) !important;
+}
+
+/* Reguły ciemnego motywu przeniesione z footer.css */
+body.dark_theme .footer_logo a.footer_wordmark_link {
+  background-image: url("../images/logo-skl-rgb-2k-dark.svg") !important;
+}
+
+/* Reguły ciemnego motywu przeniesione z index.css */
+body.dark_theme .home_product_tile_media {
+  background:
+    radial-gradient(
+      circle at 74% 20%,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.06) 48%,
+      rgba(112, 144, 183, 0.12) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(112, 144, 183, 0.16),
+      rgba(255, 255, 255, 0.04)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* Reguły ciemnego motywu przeniesione z products.css */
+body.dark_theme .seo_product_main {
+  background: #0f1720;
+}body.dark_theme .seo_product_hero,
+body.dark_theme .seo_product_panel,
+body.dark_theme .seo_related_products {
+  background: #162130;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+}body.dark_theme .seo_product_hero h1,
+body.dark_theme .seo_product_panel h2,
+body.dark_theme .seo_related_products h2 {
+  color: #f5f8fc;
+}body.dark_theme .seo_product_hero p,
+body.dark_theme .seo_product_panel p,
+body.dark_theme .seo_product_panel li {
+  color: #d7e0ea;
+}body.dark_theme .seo_product_visual {
+  background: #101923;
+}
+
+/* Responsywne reguły ciemnego motywu przeniesione z responsive.css */
+@media (min-width: 993px){body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 90px !important;
+    padding-right: 10px !important;
+  }}@media (min-width: 993px) and (max-width: 1280px){body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:focus-visible,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:hover,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle:focus-visible {
+    width: 88px !important;
+  }}

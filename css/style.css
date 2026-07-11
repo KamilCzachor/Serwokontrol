@@ -1564,3 +1564,58 @@ html body .buerkert_floating_button:focus-visible {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
+
+/* Przeniesione z responsive.css: reguły bazowe komponentu */
+.swipe_hint {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 36%),
+    linear-gradient(135deg, rgba(50, 79, 117, 0.94), rgba(112, 144, 183, 0.9));
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px) scale(0.96);
+  transition:
+    opacity 0.28s ease,
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}.swipe_hint.is_visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}.swipe_hint_icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1;
+  animation: swipeHintMove 1.45s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}.swipe_hint_icon .fa-hand-pointer {
+  font-size: 18px;
+}.swipe_hint_text {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}@keyframes swipeHintMove {
+  0%, 100% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+}
