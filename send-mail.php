@@ -77,20 +77,20 @@ $website = trim($_POST["website"] ?? "");
 $formStartedAt = trim($_POST["form_started_at"] ?? "");
 $privacy = trim($_POST["privacy"] ?? "");
 
-/*
-  Honeypot antyspamowy.
-  Pole "website" jest ukryte w formularzu. Użytkownik go nie wypełnia,
-  ale boty często wpisują tam treść. W takim przypadku udajemy sukces,
-  żeby nie podpowiadać botowi, że został wykryty.
-*/
+
+
+
+
+
+
 if ($website !== "") {
   json_response(true, "Wiadomość została wysłana. Dziękujemy za kontakt.");
 }
 
-/*
-  Prosta ochrona przed automatycznymi wysyłkami: formularz nie powinien zostać
-  wysłany natychmiast po załadowaniu strony.
-*/
+
+
+
+
 if ($formStartedAt !== "" && ctype_digit($formStartedAt)) {
   $elapsedMs = (int) round(microtime(true) * 1000) - (int) $formStartedAt;
   if ($elapsedMs >= 0 && $elapsedMs < 2500) {
@@ -136,16 +136,16 @@ if ($messageLength > 5000) {
   json_response(false, "Wiadomość jest zbyt długa. Skróć ją i spróbuj ponownie.", 422);
 }
 
-/*
-  ADRES DOCELOWY — tutaj trafiają wiadomości z formularza.
-*/
+
+
+
 $to = "biuro@serwokontrol.pl";
 
-/*
-  ADRES NADAWCY — najlepiej adres z tej samej domeny co strona.
-  Nie ustawiamy From jako adres klienta, bo wiadomość może trafić do spamu.
-  Adres klienta ustawiamy jako Reply-To.
-*/
+
+
+
+
+
 $from = "formularz@serwokontrol.pl";
 
 $subject = "Nowa wiadomość z formularza kontaktowego - Serwokontrol";

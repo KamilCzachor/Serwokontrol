@@ -1,5 +1,3 @@
-/* Footer */
-
 footer {
   position: relative;
   overflow: hidden;
@@ -169,8 +167,6 @@ footer::after {
   border-radius: 8px;
 }
 
-/* Footer Bottom */
-
 .footer_bottom {
   grid-column: 1 / -1;
   margin-top: 15px;
@@ -184,15 +180,6 @@ footer::after {
   font-size: 14px;
   opacity: 0.75;
 }
-
-/* Dark Theme Footer */
-
-
-/* Responsive Footer */
-
-/* Reduced Motion */
-
-/* Footer Premium */
 
 footer {
   margin-top: 0;
@@ -421,8 +408,6 @@ footer::after {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* Footer */
-
 .footer_brand::after,
 .footer_column::after {
   display: none;
@@ -432,8 +417,6 @@ footer::after {
 .footer_column {
   overflow: visible;
 }
-
-/* Footer */
 
 .footer_logo a,
 .footer_contact a,
@@ -469,8 +452,6 @@ footer::after {
   background-color: #ffffff;
   transform: scale(1.04);
 }
-
-/* Bürkert Authorised Partner Logo in Footer */
 
 .footer_partner {
   margin-top: 28px;
@@ -533,8 +514,6 @@ footer::after {
   object-fit: contain;
   filter: drop-shadow(0 3px 4px rgba(31, 36, 40, 0.18));
 }
-
-/* Footer Bürkert Partner Capsule */
 
 .footer_partner {
   margin-top: 26px;
@@ -639,8 +618,6 @@ footer::after {
     drop-shadow(0 4px 8px rgba(0, 0, 0, 0.34));
 }
 
-/* Light theme capsule */
-
 body:not(.dark_theme) .footer_partner_label {
   color: #e2e9f1;
 }
@@ -669,13 +646,6 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.26),
     0 18px 38px rgba(0, 0, 0, 0.24);
 }
-
-/* Dark theme capsule */
-
-
-/* Mobile */
-
-/* Serwokontrol SVG logo */
 
 .footer_logo {
   margin-bottom: 18px;
@@ -712,8 +682,6 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
   outline-offset: 5px;
   border-radius: 10px;
 }
-
-/* Serwokontrol wordmark logo */
 
 .footer_logo a.footer_wordmark_link::before {
   display: none;
@@ -790,16 +758,6 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
 .footer_logo_wordmark_accent {
   color: #9fb8d7;
 }
-
-
-/* =========================================================
-   DARK THEME REFRESH - footer
-   ========================================================= */
-
-
-/* =========================================================
-   PATCH - restore original footer wordmark logo styling
-   ========================================================= */
 .footer_logo a.footer_wordmark_link {
   display: inline-flex;
   align-items: center;
@@ -835,16 +793,6 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
 .footer_logo_wordmark_accent {
   color: #9fb8d7 !important;
 }
-
-
-/* =========================================================
-   PATCH - restore original dark footer partner capsule background
-   ========================================================= */
-
-/* =========================================================
-   Footer Accordion Structure
-   Kontakt/Nawigacja collapse only on mobile via responsive.css.
-   ========================================================= */
 
 .footer_accordion_column {
   display: block;
@@ -885,11 +833,6 @@ body:not(.dark_theme) .footer_partner a:focus-visible {
 .footer_accordion_column:not([open]) > .footer_nav {
   display: flex;
 }
-
-/* =========================================================
-   Global footer logo - use the same SVG wordmark as header
-   Scope: footer component across all subpages
-   ========================================================= */
 .footer_logo a.footer_wordmark_link {
   gap: 0 !important;
   width: clamp(240px, 21vw, 330px) !important;

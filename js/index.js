@@ -14,9 +14,9 @@
     return Math.min(Math.max(value, min), max);
   }
 
-  /* =========================================================
-     Hero slider
-     ========================================================= */
+  
+
+
 
   const slider = document.getElementById("homeHeroSlider");
   const slides = slider
@@ -95,7 +95,7 @@
       hero.addEventListener("focusout", startSlider);
     }
 
-    /* Touch swipe visual hint. */
+    
 
     let heroSwipeHintTimer = null;
 
@@ -226,9 +226,9 @@
     }
   }
 
-  /* =========================================================
-     Szybki dobór produktu
-     ========================================================= */
+  
+
+
 
   const doborMedium = document.getElementById("doborMedium");
   const doborTask = document.getElementById("doborTask");

@@ -1,17 +1,3 @@
-/* =========================================================
-   Serwokontrol - Dark Theme
-   Centralized dark theme overrides.
-
-   This file is loaded after all page/component styles.
-   Keep all body.dark_theme rules here to avoid scattering
-   dark theme logic across individual CSS files.
-   ========================================================= */
-
-/* =========================================================
-   Dark Theme - Style
-   Source: css/style.css
-   ========================================================= */
-
 body.dark_theme .scroll_progress_bar {
   background: linear-gradient(90deg, #9bb7d8, #7090b7);
   box-shadow: 0 0 14px rgba(155, 183, 216, 0.45);
@@ -250,11 +236,6 @@ body.dark_theme .cookie_banner p {
 body.dark_theme .cookie_overlay.show {
   background-color: rgba(3, 7, 10, 0.62);
 }
-
-/* =========================================================
-   Dark Theme - Design System
-   Source: css/design-system.css
-   ========================================================= */
 
 body.dark_theme {
   color-scheme: dark;
@@ -654,11 +635,6 @@ body.dark_theme .product_modal_back_btn:focus-visible {
   color: #ffffff;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38);
 }
-
-/* =========================================================
-   Dark Theme - Header
-   Source: css/header.css
-   ========================================================= */
 
 body.dark_theme header {
   background-color: #15191c;
@@ -1151,11 +1127,6 @@ body.dark_theme .sticky_contact button:focus-visible {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32) !important;
 }
 
-/* =========================================================
-   Dark Theme - Footer
-   Source: css/footer.css
-   ========================================================= */
-
 body.dark_theme footer {
   background:
     radial-gradient(
@@ -1340,11 +1311,6 @@ body.dark_theme .footer_partner a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 18px 40px rgba(0, 0, 0, 0.42) !important;
 }
-
-/* =========================================================
-   Dark Theme - Index
-   Source: css/index.css
-   ========================================================= */
 
 body.dark_theme .home_main {
   background-color: #26313a;
@@ -2043,11 +2009,6 @@ body.dark_theme
     #526f96 100%
   ) !important;
 }
-
-/* =========================================================
-   Dark Theme - Products
-   Source: css/products.css
-   ========================================================= */
 
 body.dark_theme .product_modal_pdf_link {
   background-color: rgba(112, 144, 183, 0.14);
@@ -2942,11 +2903,6 @@ body.dark_theme .product_modal_closing p {
   color: #ffffff !important;
 }
 
-/* =========================================================
-   Dark Theme - About
-   Source: css/about.css
-   ========================================================= */
-
 body.dark_theme .about_us_text,
 body.dark_theme .about_number_card,
 body.dark_theme .about_card,
@@ -3604,11 +3560,6 @@ body.dark_theme
   filter: contrast(1.18) saturate(1.12)
     drop-shadow(0 4px 10px rgba(0, 0, 0, 0.42)) !important;
 }
-
-/* =========================================================
-   Dark Theme - Contact
-   Source: css/contact.css
-   ========================================================= */
 
 body.dark_theme .contact_card,
 body.dark_theme .contact_form_box,
@@ -4439,11 +4390,6 @@ body.dark_theme
   filter: drop-shadow(0 6px 13px rgba(195, 212, 232, 0.28)) !important;
 }
 
-/* =========================================================
-   Dark Theme - Privacy
-   Source: css/privacy.css
-   ========================================================= */
-
 body.dark_theme .privacy_hero {
   background:
     radial-gradient(
@@ -4631,10 +4577,6 @@ body.dark_theme .privacy_btn_secondary:focus-visible {
   color: #526f96 !important;
 }
 
-/* =========================================================
-   Dark Theme - Home Partner Logo White Background Fix
-   ========================================================= */
-
 body.dark_theme .home_partner_logo_link {
   background:
     linear-gradient(
@@ -4669,10 +4611,6 @@ body.dark_theme .home_partner_logo_link:focus-visible img {
     drop-shadow(0 10px 18px rgba(31, 42, 51, 0.2)) !important;
 }
 
-/* =========================================================
-   Dark Theme - Hero Slider Button Text Contrast Fix
-   ========================================================= */
-
 body.dark_theme .home_hero .home_btn,
 body.dark_theme .home_hero .home_btn_primary,
 body.dark_theme .home_hero .home_btn_secondary,
@@ -4690,13 +4628,6 @@ body.dark_theme .home_btn_secondary:hover,
 body.dark_theme .home_btn_secondary:focus-visible {
   color: #7090b7;
 }
-/* =========================================================
-   Products Page Patch - intro background and modal PDF buttons
-   Scope: products.html after responsive/dark theme refactor.
-   Purpose:
-   - restore the "Oferta produktów" card background in light and dark theme,
-   - make modal "Katalog PDF" buttons in light theme match the dark theme style.
-   ========================================================= */
 
 body:not(.dark_theme) .products_intro {
   color: #ffffff !important;
@@ -4817,20 +4748,12 @@ body:not(.dark_theme) .product_modal_pdf_link:focus-visible {
   box-shadow: 0 18px 38px rgba(82, 111, 150, 0.34) !important;
 }
 
-/* =========================================================
-   Dark Theme - Sticky Header Floating Wrapper Fix
-   ========================================================= */
-
 body.dark_theme .sticky_header {
   background: transparent;
   border-bottom: 0;
   box-shadow: none;
   backdrop-filter: none;
 }
-
-/* =========================================================
-   Dark Theme - Sticky Header Full-Width Area Hard Reset
-   ========================================================= */
 
 body.dark_theme .sticky_header,
 body.dark_theme .sticky_header.show {
@@ -4854,10 +4777,6 @@ body.dark_theme .sticky_header_inner {
   position: relative;
   z-index: 1;
 }
-
-/* =========================================================
-   Dark Theme - Home Selector Result Blue Card Fix
-   ========================================================= */
 
 body.dark_theme .home_selector_result {
   color: #ffffff !important;
@@ -4901,10 +4820,6 @@ body.dark_theme .home_selector_result a:hover,
 body.dark_theme .home_selector_result a:focus-visible {
   color: #ffffff !important;
 }
-
-/* =========================================================
-   Dark Theme - Home Selector Result Region CTA Match
-   ========================================================= */
 
 body.dark_theme .home_selector_result {
   color: #ffffff !important;
@@ -4952,10 +4867,6 @@ body.dark_theme .home_selector_result a:focus-visible {
   text-decoration-color: rgba(255, 255, 255, 0.78) !important;
 }
 
-/* =========================================================
-   Dark Theme - FAQ Cards Lift Polish
-   ========================================================= */
-
 body.dark_theme .products_faq_accordion[open] .page_faq_item:hover,
 body.dark_theme .products_faq_accordion[open] .page_faq_item:focus-within,
 body.dark_theme .contact_faq_accordion[open] .page_faq_item:hover,
@@ -4965,10 +4876,6 @@ body.dark_theme .contact_faq_accordion[open] .page_faq_item:focus-within {
     0 20px 44px rgba(0, 0, 0, 0.34),
     0 1px 0 rgba(255, 255, 255, 0.06) inset;
 }
-
-/* =========================================================
-   Dark Theme - Mobile Hamburger, Bürkert Flag and Scroll-Up Parity
-   ========================================================= */
 
 @media (max-width: 767px) {
   body.dark_theme .hamburger,
@@ -5004,10 +4911,6 @@ body.dark_theme .contact_faq_accordion[open] .page_faq_item:focus-within {
     aspect-ratio: 1 / 1 !important;
   }
 }
-
-/* =========================================================
-   Dark Theme - Scroll Up Capsule Animation Restore
-   ========================================================= */
 
 @media (max-width: 767px) {
   body.dark_theme .scroll_top_btn,
@@ -5063,10 +4966,6 @@ body.dark_theme .contact_faq_accordion[open] .page_faq_item:focus-within {
   }
 }
 
-/* =========================================================
-   Dark Theme - Scroll Up Smooth Hide After Click
-   ========================================================= */
-
 body.dark_theme .scroll_top_btn.is_returning_to_top {
   pointer-events: none !important;
 }
@@ -5098,10 +4997,6 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
   }
 }
 
-/* =========================================================
-   Dark Theme - Mobile Final Polish
-   ========================================================= */
-
 @media (max-width: 768px) {
   body.dark_theme .footer_accordion_toggle {
     color: #ffffff;
@@ -5121,10 +5016,6 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
   }
 }
-
-/* =========================================================
-   PATCH 2026-06-15 - dark mode for mobile Bürkert logo
-   ========================================================= */
 @media (max-width: 992px) {
   body.dark_theme
     header
@@ -5184,8 +5075,6 @@ body.dark_theme .scroll_top_btn.show.is_hiding_after_scroll svg {
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
   }
 }
-
-/* SEO heading compatibility after h2 upgrades */
 body.dark_theme .products_intro h2,
 body.dark_theme .products_filter_intro h2,
 body.dark_theme .about_us_text h2,

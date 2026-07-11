@@ -1,5 +1,3 @@
-/* Home Page */
-
 .home_main {
   margin-top: 0;
   padding: 0 0 80px;
@@ -25,8 +23,6 @@
   outline: 3px solid rgba(112, 144, 183, 0.45);
   outline-offset: 4px;
 }
-
-/* Hero */
 
 .home_hero {
   position: relative;
@@ -62,8 +58,8 @@
       transparent 1px 92px
     ),
     image-set(
-      /* url("../images/hero-cip-large.webp") type("image/webp"),
-      url("../images/hero-cip-large.jpg") type("image/jpeg") */
+      
+
       url("../images/parallax3.webp") type("image/webp"),
       url("../images/parallax3.jpg") type("image/jpeg")
     );
@@ -420,8 +416,6 @@
   background-color: #ffffff;
 }
 
-/* Highlights */
-
 .home_highlights {
   position: relative;
   z-index: 5;
@@ -480,8 +474,6 @@
   line-height: 1.65;
 }
 
-/* Shared sections */
-
 .home_page {
   display: flex;
   flex-direction: column;
@@ -517,8 +509,6 @@
   font-size: 17px;
   line-height: 1.8;
 }
-
-/* Products overview */
 
 .home_products {
   padding: 30px;
@@ -645,8 +635,6 @@
   font-size: 14px;
 }
 
-/* Selector */
-
 .home_selector {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -768,8 +756,6 @@
   text-decoration: none;
 }
 
-/* Process */
-
 .home_process_grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -812,8 +798,6 @@
   color: #333;
   line-height: 1.75;
 }
-
-/* Partner and CTA */
 
 .home_partner,
 .home_region_cta {
@@ -896,8 +880,6 @@
   background-color: rgba(255, 255, 255, 0.16);
 }
 
-/* Animations */
-
 @keyframes homeScan {
   from {
     transform: translateX(-120%);
@@ -907,12 +889,6 @@
     transform: translateX(120%);
   }
 }
-
-/* Dark theme */
-
-/* Responsive */
-
-/* Home Layout */
 
 .container.home_page {
   max-width: 1240px;
@@ -1042,14 +1018,6 @@
   max-width: 720px;
 }
 
-/* Dark theme */
-
-/* Tablet */
-
-/* Phones */
-
-/* Home final */
-
 .container.home_page,
 .home_highlights_inner {
   max-width: 1160px;
@@ -1164,8 +1132,6 @@
 .home_selector_result h3 {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
 }
-
-/* Hero slider controls */
 
 .home_hero {
   position: relative;
@@ -1284,8 +1250,6 @@
   margin-top: -42px;
 }
 
-/* Reversible scroll reveal */
-
 .reveal {
   opacity: 0;
   transform: translate3d(0, 46px, 0);
@@ -1349,8 +1313,6 @@
   transform: translate3d(0, -34px, 0);
 }
 
-/* Unified reversible reveal animation */
-
 .reveal {
   opacity: 0;
   transform: translate3d(0, 36px, 0);
@@ -1404,8 +1366,6 @@
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.18);
 }
 
-/* Home highlights hover responsiveness */
-
 .home_highlight,
 .home_highlight.reveal,
 .home_highlight.reveal.show,
@@ -1421,8 +1381,6 @@
   box-shadow: 0 18px 40px rgba(94, 106, 113, 0.22);
   transition-delay: 0s !important;
 }
-
-/* Home ordered reveal */
 
 .home_highlight.reveal_sequence_item,
 .home_process_step.reveal_sequence_item,
@@ -1466,8 +1424,6 @@
 .home_product_tile.reveal_sequence_item.is_visible:focus-visible {
   transform: translateY(-6px);
 }
-
-/* Home stats / why Serwokontrol */
 
 .home_stats {
   position: relative;
@@ -1576,10 +1532,6 @@
   transition-delay: 0s !important;
 }
 
-/* Home dark CTA readability */
-
-/* Home page */
-
 .home_highlight,
 .home_product_tile,
 .home_process_step,
@@ -1642,8 +1594,6 @@
   transition-delay: 0s !important;
 }
 
-/* Bürkert Subline Logo */
-
 .home_partner_mark {
   justify-self: end;
   width: min(42vw, 430px);
@@ -1690,10 +1640,6 @@
   filter: contrast(1.22) saturate(1.14)
     drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
 }
-
-/* Hero CIP background */
-
-/* Layout adjustments */
 
 .home_partner_logo_link {
   position: relative;
@@ -1768,8 +1714,6 @@
 .home_selector_result p {
   max-width: 760px;
 }
-
-/* Layout correction 6 */
 
 .home_partner_logo_link {
   position: relative;
@@ -1899,8 +1843,6 @@
   font-size: 12px;
   line-height: 1.5;
 }
-
-/* Layout correction 7 */
 
 .home_products .home_section_header span {
   display: inline-flex;
@@ -2082,8 +2024,6 @@
   }
 }
 
-/* Layout corrections 8 */
-
 .home_partner {
   width: min(1240px, calc(100% - 56px));
   margin: clamp(46px, 5vw, 72px) auto 0;
@@ -2249,8 +2189,6 @@
   color: #7090b7;
 }
 
-/* Layout corrections 9 */
-
 .home_partner {
   width: min(1160px, calc(100% - 56px));
   max-width: 1160px;
@@ -2263,8 +2201,6 @@
     opacity 1.05s ease,
     transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-/* Layout corrections 10 */
 
 .home_partner {
   width: min(1160px, calc(100% - 56px));
@@ -2280,16 +2216,10 @@
   justify-self: end;
 }
 
-/* Layout corrections 11 */
-
 .home_partner_mark {
   position: relative;
   left: 20%;
 }
-
-/* Dark theme product groups background */
-
-/* Home partner CTA background */
 .home_partner {
   color: #ffffff;
   background:
@@ -2311,8 +2241,6 @@
 .home_partner_content p {
   opacity: 0.9;
 }
-
-/* Home visual refinements 2.10 */
 .home_partner,
 .products_intro_style_reference_unused {
   color: #ffffff;
@@ -2396,17 +2324,9 @@
 .home_process_step:focus-within::after {
   transform: scaleX(1);
 }
-
-/* =========================================================
-   Home visual adjustments - main product groups section
-   ========================================================= */
-
-/* Remove underline only under the "Główne grupy rozwiązań" section title. */
 .home_products .home_section_header h2::after {
   display: none;
 }
-
-/* Keep the animated underline on product tiles, but slow it down and make it a subtle gradient bar. */
 .home_products .home_product_tile::after,
 .home_products .home_product_tile_featured::after {
   background: linear-gradient(90deg, #5f7fa7 0%, #7090b7 48%, #9bb7d8 100%);
@@ -2419,21 +2339,11 @@
 .home_products .home_product_tile_featured:focus-visible::after {
   transform: scaleX(1);
 }
-
-/* =========================================================
-   Home product groups - corrected bottom gradient lines
-   ========================================================= */
-
-/* Disable the earlier decorative line on ::before so only one bottom line is visible. */
 .home_products .home_product_tile::before,
 .home_products .home_product_tile_featured::before {
   content: none !important;
   display: none !important;
 }
-
-/* One clean gradient line under every tile.
-   It stays hidden by default and appears on hover/focus, expanding from left to right
-   like the cards in the “Od aplikacji do dobranego rozwiązania” section. */
 .home_products .home_product_tile::after,
 .home_products .home_product_tile_featured::after {
   content: "";
@@ -2468,18 +2378,10 @@
   transform: scaleX(1);
 }
 
-/* =========================================================
-   Home selector section - remove heading underline
-   ========================================================= */
-
 .home_selector_text h2::after {
   content: none !important;
   display: none !important;
 }
-
-/* =========================================================
-   Home process section - remove heading underline
-   ========================================================= */
 
 #homeProcess .home_section_header h2::after,
 .home_process .home_section_header h2::after {
@@ -2489,12 +2391,6 @@
   height: 0 !important;
   background: none !important;
 }
-
-/* =========================================================
-   Home visual step 6
-   Region CTA: make the “Przejdź do formularza” button match
-   the primary hero slider CTA style, with dark theme support.
-   ========================================================= */
 
 .home_region_cta .home_region_actions .home_btn_secondary {
   color: #7090b7;
@@ -2521,11 +2417,6 @@
   box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
 }
 
-/* =========================================================
-   Home visual step 7
-   Region CTA: blue gradient button matching the hero slider CTA style.
-   ========================================================= */
-
 .home_region_cta .home_region_actions .home_btn_secondary {
   color: #ffffff;
   background: linear-gradient(135deg, #7090b7 0%, #5f7fa7 55%, #587ca8 100%);
@@ -2550,15 +2441,6 @@
   transform: translateY(-3px);
   box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
 }
-
-/* =========================================================
-   DARK THEME REFRESH - home page
-   ========================================================= */
-
-/* =========================================================
-   PATCH - home product featured tile parity
-   Makes "Zawory procesowe" tile match the other solution tiles.
-   ========================================================= */
 .home_products .home_product_tile.home_product_tile_featured {
   grid-column: auto !important;
   grid-row: auto !important;
@@ -2601,10 +2483,6 @@
   .home_product_tile.home_product_tile_featured:focus-visible::after {
   transform: scaleX(1) !important;
 }
-
-/* =========================================================
-   PATCH - featured home product tile exact parity with regular tiles
-   ========================================================= */
 .home_products .home_product_tile.home_product_tile_featured {
   grid-column: auto !important;
   grid-row: auto !important;
@@ -2676,12 +2554,6 @@
 .home_products .home_product_tile.home_product_tile_featured span {
   color: #5f7fa7 !important;
 }
-
-/* =========================================================
-   PATCH - featured home product tile light-theme parity final
-   Makes "Zawory procesowe" visually match regular tiles such as
-   "Zawory elektromagnetyczne" in light theme.
-   ========================================================= */
 body:not(.dark_theme)
   .home_products
   .home_product_tile.home_product_tile_featured {
@@ -2759,10 +2631,6 @@ body:not(.dark_theme)
     rgba(112, 144, 183, 0) 100%
   ) !important;
 }
-
-/* =========================================================
-   Home partner card - larger Bürkert Authorised Partner logo
-   ========================================================= */
 @media (min-width: 1101px) {
   .home_partner {
     grid-template-columns: minmax(0, 1fr) minmax(440px, 520px);
@@ -2811,13 +2679,6 @@ body:not(.dark_theme)
     max-height: 118px;
   }
 }
-
-/* =========================================================
-   Home partner card - final position tuning
-   Keeps the larger Bürkert logo, but centers the white logo
-   panel inside the right side of the blue card so it no longer
-   touches the outer edge.
-   ========================================================= */
 @media (min-width: 1101px) {
   .home_partner {
     grid-template-columns: minmax(0, 1fr) minmax(430px, 540px);
@@ -2853,10 +2714,6 @@ body:not(.dark_theme)
     width: min(100%, 450px);
   }
 }
-
-/* =========================================================
-   Home product groups - text left / product image right
-   ========================================================= */
 .home_products .home_products_grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
@@ -3020,12 +2877,6 @@ body.dark_theme .home_product_tile_media {
     width: min(58vw, 190px);
   }
 }
-
-/* =========================================================
-   PATCH - Home partner logo panel final alignment
-   Resets the older left: 20% offset and keeps the white panel
-   fully inside the blue card with a visible right gap.
-   ========================================================= */
 @media (min-width: 1101px) {
   .home_partner {
     grid-template-columns: minmax(0, 1fr) minmax(430px, 520px) !important;

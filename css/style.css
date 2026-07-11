@@ -55,8 +55,6 @@ main {
   line-height: 1.8;
 }
 
-/* Button scroll to top */
-
 .scroll_top_btn {
   position: fixed;
   right: 30px;
@@ -87,8 +85,6 @@ main {
   background-color: #587ca8;
   transform: translateY(-3px);
 }
-
-/* Cookies Consent Banner */
 
 .cookie_banner {
   position: fixed;
@@ -147,8 +143,6 @@ main {
   display: block;
 }
 
-/* Scroll Reveal Animation */
-
 .reveal {
   opacity: 0;
   transform: translateY(35px);
@@ -178,8 +172,6 @@ main {
   transition-delay: 0.32s;
 }
 
-/* Global Scroll Progress Bar */
-
 .scroll_progress_bar {
   position: fixed;
   top: 0;
@@ -204,14 +196,6 @@ main {
   filter: blur(8px);
 }
 
-/* Dark mode */
-
-/* Mobile */
-
-/* Dark Theme */
-
-/* Responsive */
-
 .product_modal,
 .product_catalog_modal .catalog_modal_scroll {
   scrollbar-width: none;
@@ -228,8 +212,6 @@ main {
 .product_catalog_modal .catalog_modal_scroll::-webkit-scrollbar-thumb {
   background: transparent;
 }
-
-/* Unified reversible reveal animation */
 
 .reveal {
   opacity: 0;
@@ -344,8 +326,6 @@ main {
   transform: translate3d(0, 38px, 0);
 }
 
-/* Page enter animation */
-
 @keyframes pageEnterSoft {
   from {
     opacity: 0;
@@ -379,8 +359,6 @@ main {
   border-color: rgba(180, 75, 75, 0.68);
   box-shadow: 0 0 0 4px rgba(180, 75, 75, 0.1);
 }
-
-/* Premium page surface under header */
 
 body {
   background:
@@ -619,8 +597,6 @@ main > * {
   letter-spacing: -0.025em;
 }
 
-/* Scroll top button */
-
 .scroll_top_btn {
   display: inline-flex;
   width: 50px;
@@ -682,8 +658,6 @@ main > * {
 .scroll_top_btn:focus-visible i {
   transform: translateY(-2px);
 }
-
-/* Glass scroll-to-top button */
 
 .scroll_top_btn {
   width: 50px;
@@ -751,8 +725,6 @@ main > * {
   opacity: 0.42;
   transform: scale(0.92);
 }
-
-/* Scroll-to-top button */
 
 .scroll_top_btn {
   right: 26px;
@@ -854,8 +826,6 @@ main > * {
 .scroll_top_btn:focus-visible i {
   transform: translateY(-2px);
 }
-
-/* Scroll-to-top button */
 
 .scroll_top_btn {
   right: 26px;
@@ -1020,8 +990,6 @@ main > * {
     filter: blur(8px);
   }
 }
-
-/* Scroll-to-top button */
 
 .scroll_top_btn {
   right: 28px;
@@ -1291,8 +1259,6 @@ select:focus-visible {
   box-shadow: 0 0 0 6px rgba(112, 144, 183, 0.12);
 }
 
-/* Scroll to top */
-
 .scroll_top_btn {
   position: fixed;
   right: 30px;
@@ -1404,8 +1370,6 @@ select:focus-visible {
   }
 }
 
-/* Scroll to top */
-
 .scroll_top_btn::before,
 .scroll_top_btn::after {
   content: none !important;
@@ -1444,8 +1408,6 @@ select:focus-visible {
     opacity: 0;
   }
 }
-
-/* Scroll-to-top button */
 
 .scroll_top_btn {
   right: 28px;
@@ -1562,14 +1524,6 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
-/* =========================================================
-   DARK THEME REFRESH - global layout and shared components
-   ========================================================= */
-
-/* =========================================================
-   Scroll Up - Smooth Hide After Click
-   ========================================================= */
-
 .scroll_top_btn.is_returning_to_top {
   pointer-events: none;
 }
@@ -1593,10 +1547,6 @@ select:focus-visible {
   transform: translateY(-3px) !important;
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
-/* =========================================================
-   Global fix - Bürkert floating flag alignment
-   Flaga ma przylegać do prawej krawędzi okna na każdej podstronie.
-   ========================================================= */
 
 html body .buerkert_floating_widget {
   right: 0 !important;

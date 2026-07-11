@@ -1042,9 +1042,9 @@
       .replace(/'/g, "&#039;");
   }
 
-  /* =========================================================
-     4. Catalog rendering helpers
-     ========================================================= */
+  
+
+
 
   function renderFeatureList(items) {
     if (!items || items.length === 0) return "";
@@ -1139,9 +1139,9 @@
     </div>`;
   }
 
-  /* =========================================================
-     5. Modal navigation
-     ========================================================= */
+  
+
+
 
   function ensureModalNavigationButtons() {
     if (!productModalOverlay) return;
@@ -1373,9 +1373,9 @@
     });
   }
 
-  /* =========================================================
-     6. Modal rendering and lifecycle
-     ========================================================= */
+  
+
+
 
   function renderCatalogModal(data, fallback) {
     const title = data.title || fallback.title || "Produkt";
@@ -1572,9 +1572,9 @@
     }
   }
 
-  /* =========================================================
-     7. Product filters and card CTA
-     ========================================================= */
+  
+
+
 
   function normalizeCategoryName(value) {
     return (value || "")
@@ -1827,9 +1827,9 @@
     }
   }
 
-  /* =========================================================
-     8. Init
-     ========================================================= */
+  
+
+
 
   if (productModalOverlay) {
     productModalOverlay.setAttribute("aria-hidden", "true");

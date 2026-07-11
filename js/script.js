@@ -80,8 +80,6 @@ if (scrollTopBtn) {
   updateScrollTopButton();
 }
 
-/* Safe storage helpers */
-
 function safeStorageGet(key) {
   try {
     return window.localStorage.getItem(key);
@@ -98,49 +96,45 @@ function safeStorageSet(key, value) {
   }
 }
 
-/* Cookies Consent Banner */
+// const cookieBanner = document.getElementById("cookieBanner");
+// const acceptCookiesBtn = document.getElementById("acceptCookiesBtn");
+// const cookieOverlay = document.getElementById("cookieOverlay");
 
-const cookieBanner = document.getElementById("cookieBanner");
-const acceptCookiesBtn = document.getElementById("acceptCookiesBtn");
-const cookieOverlay = document.getElementById("cookieOverlay");
+// if (cookieBanner && acceptCookiesBtn && cookieOverlay) {
+//   function showCookieBanner() {
+//     cookieBanner.classList.add("show");
+//     cookieOverlay.classList.add("show");
+//     cookieBanner.setAttribute("aria-hidden", "false");
+//     cookieOverlay.setAttribute("aria-hidden", "false");
 
-if (cookieBanner && acceptCookiesBtn && cookieOverlay) {
-  function showCookieBanner() {
-    cookieBanner.classList.add("show");
-    cookieOverlay.classList.add("show");
-    cookieBanner.setAttribute("aria-hidden", "false");
-    cookieOverlay.setAttribute("aria-hidden", "false");
+//     window.setTimeout(function () {
+//       acceptCookiesBtn.focus();
+//     }, 0);
+//   }
 
-    window.setTimeout(function () {
-      acceptCookiesBtn.focus();
-    }, 0);
-  }
+//   function hideCookieBanner() {
+//     cookieBanner.classList.remove("show");
+//     cookieOverlay.classList.remove("show");
+//     cookieBanner.setAttribute("aria-hidden", "true");
+//     cookieOverlay.setAttribute("aria-hidden", "true");
+//   }
 
-  function hideCookieBanner() {
-    cookieBanner.classList.remove("show");
-    cookieOverlay.classList.remove("show");
-    cookieBanner.setAttribute("aria-hidden", "true");
-    cookieOverlay.setAttribute("aria-hidden", "true");
-  }
+//   if (!safeStorageGet("cookiesAccepted")) {
+//     showCookieBanner();
+//   }
 
-  if (!safeStorageGet("cookiesAccepted")) {
-    showCookieBanner();
-  }
+//   acceptCookiesBtn.addEventListener("click", function () {
+//     safeStorageSet("cookiesAccepted", "true");
+//     hideCookieBanner();
+//   });
 
-  acceptCookiesBtn.addEventListener("click", function () {
-    safeStorageSet("cookiesAccepted", "true");
-    hideCookieBanner();
-  });
-
-  cookieBanner.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      safeStorageSet("cookiesAccepted", "true");
-      hideCookieBanner();
-    }
-  });
-}
-
-/* Main Hamburger Menu */
+//   cookieBanner.addEventListener("keydown", function (event) {
+//     if (event.key === "Escape") {
+//       safeStorageSet("cookiesAccepted", "true");
+//       hideCookieBanner();
+//     }
+//   });
+// }
 
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const navMenu = document.getElementById("navMenu");
@@ -189,8 +183,6 @@ if (hamburgerBtn && navMenu) {
   });
 }
 
-/* Close Main Mobile Menu After Outside Click */
-
 document.addEventListener("click", function (event) {
   if (!hamburgerBtn || !navMenu) return;
 
@@ -223,8 +215,6 @@ if (stickyHamburgerBtn && stickyNavMenu) {
   });
 }
 
-/* Close Sticky Mobile Menu After Outside Click */
-
 document.addEventListener("click", function (event) {
   if (!stickyHamburgerBtn || !stickyNavMenu) return;
 
@@ -236,7 +226,6 @@ document.addEventListener("click", function (event) {
     setMenuState(stickyHamburgerBtn, stickyNavMenu, false);
   }
 });
-
 
 /* Close Mobile Menus With Escape */
 
@@ -282,8 +271,6 @@ if (stickyHeader && mainHeader) {
   window.addEventListener("resize", updateStickyHeader, { passive: true });
   updateStickyHeader();
 }
-
-/* Theme Toggle */
 
 const themeToggles = document.querySelectorAll(".theme_toggle");
 
@@ -1018,8 +1005,6 @@ function initRepresentativesRegionMap() {
     }
   }
 
-  /* Region buttons */
-
   if (representativeRegionButtons.length > 0) {
     representativeRegionButtons.forEach(function (button) {
       const region = button.dataset.region || "";
@@ -1054,8 +1039,6 @@ function initRepresentativesRegionMap() {
       });
     });
   }
-
-  /* Representative cards keyboard navigation */
 
   if (representativesSection && representativeCards.length > 0) {
     representativeCards.forEach(function (card) {
@@ -1138,8 +1121,6 @@ function initRepresentativesRegionMap() {
       clearRepresentativeRegion(true);
     });
   }
-
-  /* Map Area Click */
 
   const mapAreas = document.querySelectorAll(".map_area");
 
@@ -1365,8 +1346,6 @@ function initRepresentativesRegionMap() {
     });
   }
 
-  /* Active City Clear */
-
   if (activeCityClear) {
     activeCityClear.addEventListener("click", function (event) {
       event.stopPropagation();
@@ -1392,8 +1371,6 @@ function initRepresentativesRegionMap() {
       );
     });
   }
-
-  /* City Search Box */
 
   function updateHighlightedSuggestion() {
     if (!citySuggestions) return;
@@ -1802,7 +1779,8 @@ if (contactForm && formStatus && contactFormSubmit) {
     const messageField = document.getElementById("message");
     if (!messageField) return;
 
-    const selection = readDoborSelectionFromStorage() || readDoborSelectionFromUrl();
+    const selection =
+      readDoborSelectionFromStorage() || readDoborSelectionFromUrl();
     if (!selection) return;
 
     const message = buildDoborMessage(selection);
@@ -1815,7 +1793,10 @@ if (contactForm && formStatus && contactFormSubmit) {
 
     messageField.dispatchEvent(new Event("input", { bubbles: true }));
 
-    if (window.location.search.includes("dobor=1") && window.history.replaceState) {
+    if (
+      window.location.search.includes("dobor=1") &&
+      window.history.replaceState
+    ) {
       window.history.replaceState(
         null,
         document.title,
@@ -1884,10 +1865,6 @@ if (contactForm && formStatus && contactFormSubmit) {
       });
   });
 }
-
-/* =========================================================
-   Micro interactions: counters and contact form field states
-   ========================================================= */
 
 (function () {
   const counters = document.querySelectorAll("[data-count-to]");
@@ -2132,11 +2109,6 @@ if (contactForm && formStatus && contactFormSubmit) {
 
 /* End Bürkert Floating Partner Widget */
 
-
-/* =========================================================
-   Open FAQ from hash links
-   ========================================================= */
-
 (function () {
   function openFaqFromHash() {
     const hash = window.location.hash;
@@ -2167,7 +2139,9 @@ if (contactForm && formStatus && contactFormSubmit) {
    ========================================================= */
 
 (function () {
-  const footerColumns = Array.from(document.querySelectorAll(".footer_accordion_column"));
+  const footerColumns = Array.from(
+    document.querySelectorAll(".footer_accordion_column"),
+  );
   if (!footerColumns.length) return;
 
   const mobileQuery = window.matchMedia("(max-width: 768px)");
@@ -2223,7 +2197,7 @@ if (contactForm && formStatus && contactFormSubmit) {
     if (!mobileQuery.matches) return;
 
     const trigger = event.target.closest(
-      ".representative_card, .representative_region_btn"
+      ".representative_card, .representative_region_btn",
     );
 
     if (!trigger) return;

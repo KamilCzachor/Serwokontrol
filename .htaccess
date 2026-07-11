@@ -1,12 +1,9 @@
-# Serwokontrol – przekierowania SEO, nagłówki bezpieczeństwa i cache dla Apache.
 
 DirectoryIndex index.html
 RewriteEngine On
 
-# Jedna wersja adresu strony głównej.
 RewriteRule ^index\.html$ / [R=301,L]
 
-# Przekierowania ze starych adresów na nową strukturę strony.
 RewriteRule ^kontakt/?$ /contact.html [R=301,L]
 RewriteRule ^o-nas/?$ /about.html [R=301,L]
 RewriteRule ^systemy-kontroli-plynow/?$ /products.html [R=301,L]

@@ -1,5 +1,3 @@
-/* Products Page */
-
 .products_page {
   display: flex;
   flex-direction: column;
@@ -10,8 +8,6 @@
   align-self: flex-start;
   margin-bottom: 0;
 }
-
-/* Products Intro */
 
 .products_intro {
   position: relative;
@@ -86,15 +82,11 @@
   line-height: 1.8;
 }
 
-/* Products Grid */
-
 .products_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
-
-/* Product Card */
 
 .product_card {
   position: relative;
@@ -271,8 +263,6 @@
   box-shadow: 0 10px 22px rgba(94, 106, 113, 0.18);
 }
 
-/* Product Modal Overlay */
-
 .product_modal_overlay {
   position: fixed;
   inset: 0;
@@ -299,8 +289,6 @@
     opacity: 1;
   }
 }
-
-/* Product Modal */
 
 .product_modal {
   position: relative;
@@ -403,8 +391,6 @@
   outline-offset: 4px;
 }
 
-/* Modal Layout */
-
 .product_modal_left {
   position: relative;
   overflow: hidden;
@@ -498,8 +484,6 @@
   color: #7090b7;
 }
 
-/* Product Modal PDF Link */
-
 .product_modal_pdf_link {
   width: fit-content;
   margin-top: 14px;
@@ -540,8 +524,6 @@
   outline: 3px solid rgba(112, 144, 183, 0.45);
   outline-offset: 4px;
 }
-
-/* Modal Back Button */
 
 .product_modal_back {
   width: fit-content;
@@ -585,8 +567,6 @@
   outline-offset: 4px;
 }
 
-/* Single Modal Image */
-
 .product_modal_image {
   position: relative;
   z-index: 1;
@@ -605,8 +585,6 @@
   object-fit: contain;
   filter: drop-shadow(0 16px 20px rgba(94, 106, 113, 0.16));
 }
-
-/* Product Type Slider */
 
 .product_type_slider {
   position: relative;
@@ -760,8 +738,6 @@
   gap: 9px;
 }
 
-/* Product Slider Hint */
-
 .product_type_slider_hint {
   order: 5;
   width: 100%;
@@ -821,8 +797,6 @@
   background-color: #7090b7;
 }
 
-/* Individual Product Modal Classes */
-
 .product_modal.modal_valve2000 {
   min-height: 620px;
 }
@@ -830,36 +804,6 @@
 .product_modal.modal_valve2000 .product_type_slider_image {
   height: 360px;
   padding: 14px 34px;
-}
-
-.product_modal.modal_valveMembrane {
-}
-
-.product_modal.modal_valveBall {
-}
-
-.product_modal.modal_valveIslands {
-}
-
-.product_modal.modal_valveControl {
-}
-
-.product_modal.modal_flowmeters {
-}
-
-.product_modal.modal_valveHygienic {
-}
-
-.product_modal.modal_massFlowControllers {
-}
-
-.product_modal.modal_proportionalSolenoidValves {
-}
-
-.product_modal.modal_sensorsTransmitters {
-}
-
-.product_modal.modal_otherProducts {
 }
 
 .product_modal.is_custom_product_modal {
@@ -875,8 +819,6 @@
   height: 360px;
   padding: 14px 34px;
 }
-
-/* Solenoid Valves Modal */
 
 .product_modal.modal_solenoidValves {
   width: min(1120px, calc(100vw - 40px));
@@ -939,16 +881,6 @@
 .product_modal.modal_solenoidValves .product_type_slider_dots {
   margin-top: 14px;
 }
-
-/* Products Page Dark Theme */
-
-/* Responsive */
-
-/* Reduced Motion */
-
-/* Product Modal */
-
-/* Animacja przełączania prawej kolumny modala */
 
 .product_modal_right {
   transition:
@@ -1023,8 +955,6 @@
   display: none !important;
 }
 
-/* Układ elementów slidera */
-
 .product_type_slider {
   display: none;
   flex-direction: column;
@@ -1061,8 +991,6 @@
   display: none;
 }
 
-/* Animacja zmiany slajdu */
-
 .product_type_slider_image img,
 .product_type_slider_name {
   transition:
@@ -1096,12 +1024,6 @@
   outline-offset: 6px;
   border-radius: 14px;
 }
-
-/* Dark Theme */
-
-/* Reduced Motion */
-
-/* PDF Catalog Product Modals */
 
 .product_modal.product_catalog_modal {
   display: block;
@@ -1533,8 +1455,6 @@
   }
 }
 
-/* PDF Catalog Product Modals */
-
 .catalog_products_list.is_cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1682,8 +1602,6 @@
 .catalog_layout_cards .catalog_section_heading h4 {
   font-size: clamp(23px, 3vw, 32px);
 }
-
-/* Refinements: balanced modal grids + polished motion */
 
 .product_catalog_modal .catalog_modal_scroll {
   scrollbar-gutter: stable;
@@ -2218,8 +2136,6 @@
   margin-top: 16px;
 }
 
-/* Products Modal */
-
 .catalog_breadcrumb .catalog_breadcrumb_badge {
   padding: 7px 11px;
   border: 1px solid rgba(112, 144, 183, 0.28);
@@ -2332,8 +2248,6 @@
   }
 }
 
-/* Modal External Product Navigation */
-
 .product_modal_nav {
   position: fixed;
   top: 50%;
@@ -2394,8 +2308,6 @@
   opacity: 0;
   pointer-events: none;
 }
-
-/* Products Polish */
 
 .products_page {
   gap: 24px;
@@ -2568,8 +2480,6 @@
     color 0.28s ease;
 }
 
-/* Dark theme dla nowych dekoracji */
-
 .products_intro {
   background-color: #ffffff;
 }
@@ -2722,8 +2632,6 @@
   z-index: 1;
 }
 
-/* Modal CTA: bottom-right accent only. */
-
 .catalog_closing::after {
   content: "";
   position: absolute;
@@ -2743,8 +2651,6 @@
   position: relative;
   z-index: 1;
 }
-
-/* Unified reversible reveal animation */
 
 .reveal {
   opacity: 0;
@@ -2803,8 +2709,6 @@
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
 
-/* Products reveal */
-
 .product_card.reveal {
   animation: none !important;
   opacity: 0;
@@ -2857,8 +2761,6 @@
   transition-delay: 0s !important;
 }
 
-/* Products ordered reveal */
-
 .products_grid {
   margin-top: 14px;
   padding-top: 10px;
@@ -2889,8 +2791,6 @@
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
 
-/* Product filters + clearer card CTA */
-
 .products_filter_bar {
   margin-top: 4px;
   margin-bottom: 10px;
@@ -2909,8 +2809,6 @@
 .products_grid {
   margin-top: 18px;
 }
-
-/* Products modal premium */
 
 .product_modal_overlay {
   background:
@@ -3089,8 +2987,6 @@
   box-shadow: 0 12px 26px rgba(94, 106, 113, 0.18);
 }
 
-/* Products page */
-
 .products_intro,
 .products_filter_bar,
 .product_card,
@@ -3237,8 +3133,6 @@
 .products_faq_accordion .page_faq_grid {
   padding: 0 clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px);
 }
-
-/* Product filters refinement */
 .products_filter_bar {
   grid-template-columns: 1fr;
   align-items: stretch;
@@ -3287,8 +3181,6 @@
   display: block;
   margin-top: 0;
 }
-
-/* Products intro CTA background */
 .products_intro {
   color: #ffffff;
   background:
@@ -3321,8 +3213,6 @@
 .products_intro p {
   opacity: 0.9;
 }
-
-/* Products visual refinements 2.10 */
 .products_intro {
   background:
     radial-gradient(
@@ -3379,16 +3269,6 @@
   background: linear-gradient(180deg, #7090b7, rgba(112, 144, 183, 0.28));
 }
 
-/* =========================================================
-   Serwokontrol correction - Products quick filtering label
-   Scope: products.html -> #productsFilter .products_filter_intro
-   Purpose:
-   - replace the underline under "Szybkie filtrowanie" with the same dash
-     used by "Pomoc w doborze" (.page_faq_header span::before),
-   - keep product card text colors blue,
-   - avoid touching the rest of the Products page layout.
-   ========================================================= */
-
 #productsFilter .products_filter_intro > span {
   position: relative;
   display: inline-flex !important;
@@ -3438,13 +3318,6 @@
   color: #ffffff;
 }
 
-/* =========================================================
-   Product cards underline animation refinement
-   Scope: products.html -> product cards grid
-   Purpose: gradient line hidden by default, revealed on hover/focus
-   from left to right across the full card width.
-   ========================================================= */
-
 .products_page .product_card::after {
   content: "";
   position: absolute;
@@ -3468,13 +3341,6 @@
 .products_page .product_card:focus-visible::after {
   transform: scaleX(1);
 }
-
-/* =========================================================
-   Serwokontrol fix - Product card gradient underline override
-   Note: design-system.css is loaded after products.css and uses !important
-   on .product_card::after, so this selector is intentionally more specific
-   and also uses !important.
-   ========================================================= */
 
 .products_page .products_grid .product_card::after {
   content: "" !important;
@@ -3505,11 +3371,6 @@
   transform: scaleX(1) !important;
 }
 
-/* =========================================================
-   Serwokontrol fix - Catalog modal intro vertical gradient line
-   Keeps the existing hover scale animation, changes only the line fill.
-   ========================================================= */
-
 .product_modal.product_catalog_modal .catalog_hero::before {
   background: linear-gradient(
     180deg,
@@ -3519,13 +3380,6 @@
   ) !important;
   background-color: transparent !important;
 }
-
-/* =========================================================
-   Serwokontrol fix - Catalog modal closing CTA gradient panel
-   Scope: product catalog modals -> "Potrzebujesz pomocy w doborze?"
-   Purpose: blue gradient panel inspired by the home regional CTA, with
-   a gradient vertical accent line and readable light/dark theme colors.
-   ========================================================= */
 
 .product_modal.product_catalog_modal .catalog_closing {
   border: 1px solid rgba(226, 233, 241, 0.22) !important;
@@ -3597,20 +3451,6 @@
   outline-offset: 3px !important;
 }
 
-/* =========================================================
-   Serwokontrol fix - remove left accent line from modal closing CTA
-   Scope: product catalog modals -> "Potrzebujesz pomocy w doborze?"
-   ========================================================= */
-
-/* =========================================================
-   DARK THEME REFRESH - products page and product modals
-   ========================================================= */
-
-/* =========================================================
-   Serwokontrol correction - Product filter status only
-   Scope: products.html -> #productsFilterStatus
-   ========================================================= */
-
 #productsFilterStatus.products_filter_status {
   position: relative;
   z-index: 1;
@@ -3620,11 +3460,6 @@
   font-weight: 800;
   line-height: 1.45;
 }
-
-/* =========================================================
-   Serwokontrol correction - restore original filter buttons
-   Scope: products.html -> products filter buttons
-   ========================================================= */
 
 .products_filter_actions {
   display: grid;
@@ -3647,11 +3482,6 @@
   overflow-wrap: anywhere;
   line-height: 1.18;
 }
-
-/* =========================================================
-   Valve Control modal intro image - 8802 system graphic
-   Tile version, scoped only to the intro visual
-   ========================================================= */
 .catalog_intro_visual {
   position: relative;
   z-index: 1;
@@ -3745,8 +3575,6 @@
     max-height: 220px;
   }
 }
-
-/* SEO product detail pages and accessible product links */
 .products_intro h2 {
   position: relative;
   z-index: 1;

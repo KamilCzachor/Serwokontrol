@@ -1,5 +1,3 @@
-/* Header */
-
 header {
   background-color: #ffffff;
   padding: 18px 0;
@@ -23,8 +21,6 @@ header {
   gap: 35px;
 }
 
-/* Logo */
-
 .logo {
   margin: 0;
   font-size: 34px;
@@ -43,8 +39,6 @@ header {
 .logo a:hover {
   color: #5e6a71;
 }
-
-/* Main Navigation */
 
 .main_nav {
   flex: 1;
@@ -104,8 +98,6 @@ header {
 .nav_list a.active:hover::after {
   background-color: #5e6a71;
 }
-
-/* Header Actions */
 
 .header_actions {
   display: flex;
@@ -175,8 +167,6 @@ header {
   width: 195px;
 }
 
-/* Theme Toggle */
-
 .theme_toggle {
   display: inline-flex;
   justify-content: center;
@@ -244,8 +234,6 @@ header {
   transform: translateX(0);
 }
 
-/* Hamburger */
-
 .hamburger {
   display: none;
   border: none;
@@ -254,8 +242,6 @@ header {
   font-size: 28px;
   cursor: pointer;
 }
-
-/* Sticky Header */
 
 .sticky_header {
   position: fixed;
@@ -399,16 +385,6 @@ header {
   transform: translateY(-3px);
 }
 
-/* Dark Theme Header */
-
-
-/* Sticky Header Dark Theme */
-
-
-/* Responsive Header */
-
-/* Mobile menu premium interactions */
-
 .hamburger,
 .sticky_hamburger {
   transition:
@@ -431,8 +407,6 @@ header {
   outline: 3px solid rgba(112, 144, 183, 0.45);
   outline-offset: 4px;
 }
-
-/* Header Premium */
 
 header {
   position: relative;
@@ -608,8 +582,6 @@ header::after {
   gap: 10px;
 }
 
-/* Header to page-surface blend */
-
 header {
   background:
     radial-gradient(
@@ -619,9 +591,6 @@ header {
     ),
     linear-gradient(180deg, #ffffff 0%, #f7f9fb 100%);
 }
-
-
-/* Header premium */
 
 .sticky_header_inner {
   background-color: rgba(255, 255, 255, 0.94);
@@ -690,8 +659,6 @@ header {
   transform: scale(1.06);
 }
 
-/* Header */
-
 
 .sticky_header {
   transition:
@@ -712,9 +679,6 @@ header {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(112, 144, 183, 0.22);
 }
-
-
-/* Sticky header nav containment */
 
 .sticky_nav {
   overflow: hidden;
@@ -758,8 +722,6 @@ header {
   color: #ffffff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
-/* Header */
 
 .nav_list a,
 .sticky_nav a,
@@ -828,13 +790,6 @@ header {
   box-shadow: 0 9px 20px rgba(112, 144, 183, 0.2);
 }
 
-
-/* Bürkert Authorised Partner Logo in Header */
-
-/* Normal header desktop */
-
-/* Shared Bürkert logo styling */
-
 .buerkert_header_partner,
 .buerkert_sticky_partner {
   display: inline-flex;
@@ -879,14 +834,6 @@ header {
   outline-offset: 5px;
   border-radius: 10px;
 }
-
-/* Sticky header desktop */
-
-/* Tablet/mobile */
-
-/* Sticky header final correction */
-
-/* Serwokontrol SVG logo */
 
 .logo {
   margin: 0;
@@ -958,8 +905,6 @@ header {
   border-radius: 10px;
 }
 
-/* Serwokontrol SVG Logos */
-
 .logo a.site_logo_link::before,
 .sticky_logo a.sticky_site_symbol_link::before {
   display: none;
@@ -995,10 +940,6 @@ header {
 .sticky_logo a.sticky_site_symbol_link:focus-visible .sticky_site_symbol_img {
   transform: translateY(-1px) scale(1.04);
 }
-
-/* Bürkert header partner */
-
-/* Bürkert Floating Partner Widget */
 
 .buerkert_header_partner,
 .buerkert_sticky_partner {
@@ -1171,15 +1112,9 @@ header {
   box-shadow: 0 12px 24px rgba(94, 106, 113, 0.28);
 }
 
-/* End Bürkert Floating Partner Widget */
-
-/* Sticky header logo */
-
 .sticky_logo {
   margin-left: clamp(10px, 1.1vw, 18px);
 }
-
-/* Serwokontrol wordmark logo */
 
 .logo a.site_wordmark_link::before {
   display: none;
@@ -1240,8 +1175,6 @@ header {
   transform: translateY(-1px);
 }
 
-/* Theme-aware logo variants */
-
 .site_logo_symbol_img_light,
 .sticky_site_symbol_img_light {
   display: none !important;
@@ -1251,13 +1184,6 @@ header {
 .sticky_site_symbol_img_dark {
   display: block !important;
 }
-
-
-/* =========================================================
-   DARK THEME REFRESH - header and sticky navigation
-   ========================================================= */
-
-/* Sticky header wordmark logo - aligned with main header */
 .sticky_logo a.sticky_site_wordmark_link {
   display: inline-flex;
   align-items: center;
@@ -1298,10 +1224,6 @@ header {
 .sticky_logo a.sticky_site_wordmark_link:focus-visible .sticky_site_logo_wordmark {
   transform: translateY(0);
 }
-
-/* =========================================================
-   Header partner logo - Serwokontrol / Bürkert / nav / contact
-   ========================================================= */
 
 .buerkert_header_partner,
 .buerkert_sticky_partner {
@@ -1362,8 +1284,6 @@ header {
     order: 0;
   }
 }
-
-/* Partner logo placement correction - header inline */
 .main_header_inner {
   display: flex;
   align-items: center;
@@ -1410,8 +1330,6 @@ header {
 .header_actions {
   margin-left: auto;
 }
-
-/* Partner logo placement correction - sticky header inline */
 .sticky_header_inner {
   display: flex;
   align-items: center;
@@ -1495,10 +1413,6 @@ header {
     margin-left: 0;
   }
 }
-
-/* =========================================================
-   FIX: Bürkert logo inline in sticky header
-   ========================================================= */
 @media (min-width: 993px) {
   .sticky_header_inner {
     display: flex !important;
@@ -1566,11 +1480,6 @@ header {
     transform: none !important;
   }
 }
-
-/* =========================================================
-   Bürkert logo readability adjustment
-   Serwokontrol logo size restored to previous version
-   ========================================================= */
 @media (min-width: 993px) {
   .main_header_inner {
     gap: clamp(18px, 1.55vw, 26px) !important;
@@ -1646,12 +1555,6 @@ header {
     gap: clamp(10px, 1.1vw, 16px) !important;
   }
 }
-
-/* =========================================================
-   Header contact actions - final desktop interaction layer
-   Base header behavior belongs here. Responsive.css should only tune
-   breakpoint sizes/spacing.
-   ========================================================= */
 @media (min-width: 993px) {
   html body .main_header .main_header_inner > .header_actions,
   html body .sticky_header .sticky_header_inner > ul.sticky_contact {
@@ -1826,12 +1729,6 @@ header {
     width: 94px !important;
   }
 }
-
-/* =========================================================
-   TEST PATCH - SKL SVG logo in header only - scaled
-   File: images/logo-skl-rgb-2k.svg
-   Scope: main header + sticky header
-   ========================================================= */
 .logo a.site_wordmark_link,
 .sticky_logo a.sticky_site_wordmark_link {
   gap: 0 !important;
@@ -1915,12 +1812,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     height: clamp(16px, 5.1vw, 22px) !important;
   }
 }
-
-/* =========================================================
-   HEADER DESKTOP LAYOUT - nav left + stable contact actions
-   Moved from responsive.css to header.css.
-   Keeps contact hover expansion from recalculating navigation position.
-   ========================================================= */
 @media (min-width: 1181px) {
   html body header .main_header_inner,
   html body .sticky_header .sticky_header_inner {
@@ -2190,14 +2081,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     display: none !important;
   }
 }
-
-/* =========================================================
-   STICKY HEADER TUNING ONLY
-   Scope: sticky header only. Main header is not touched.
-   - Bürkert logo closer to Serwokontrol logo
-   - sticky nav pill has more vertical breathing room
-   - smaller gap between sticky nav buttons
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .buerkert_sticky_partner {
     margin-left: clamp(-14px, -0.9vw, -8px) !important;
@@ -2243,18 +2126,10 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     padding-left: 9px !important;
     padding-right: 9px !important;
   }
-}/* =========================================================
-   STICKY HEADER SCREENSHOT ALIGNMENT ONLY
-   Scope: sticky header only. Main header is not touched.
-   Goal: align sticky navigation and sticky contact actions with
-   the red/yellow reference positions from the main header screenshot.
-   ========================================================= */
+}
 @media (min-width: 1181px) {
   html body .sticky_header .sticky_header_inner > .sticky_nav {
-    /* move sticky navigation further right than previous tuning */
     margin-left: clamp(70px, 5.9vw, 122px) !important;
-
-    /* make the sticky nav pill occupy the same visual span as the main nav */
     width: clamp(360px, 20.2vw, 414px) !important;
     min-width: clamp(360px, 20.2vw, 414px) !important;
     max-width: clamp(360px, 20.2vw, 414px) !important;
@@ -2273,7 +2148,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
 
   html body .sticky_header .sticky_header_inner > .sticky_header_actions,
   html body .sticky_header .sticky_header_inner > .sticky_contact {
-    /* align contact icons with the yellow reference lines */
     transform: translateX(clamp(70px, 6.4vw, 132px)) !important;
   }
 }
@@ -2298,13 +2172,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     transform: translateX(clamp(28px, 4.6vw, 54px)) !important;
   }
 }
-
-/* =========================================================
-   FINAL FIX - RESTORE MAIN HEADER + STICKY ONLY ALIGNMENT
-   Scope:
-   - main header: locked back to the user's approved position
-   - sticky header: navigation/contact can still be aligned separately
-   ========================================================= */
 @media (min-width: 1181px) {
   html body header .main_header_inner > .main_nav {
     margin: 0 0 0 clamp(1px, 1vw, 1px) !important;
@@ -2356,12 +2223,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     transform: translateX(clamp(28px, 4.6vw, 54px)) !important;
   }
 }
-
-/* =========================================================
-   STICKY CONTACT ALIGNMENT ONLY
-   Scope: only contact icons in sticky header.
-   Main header and sticky navigation are intentionally untouched.
-   ========================================================= */
 @media (min-width: 1181px) {
   html body .sticky_header .sticky_header_inner {
     position: relative !important;
@@ -2425,12 +2286,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     z-index: 30 !important;
   }
 }
-
-/* =========================================================
-   STICKY CONTACT VERTICAL ALIGNMENT ONLY
-   Scope: only contact icons in sticky header.
-   This does not touch main header, main nav or sticky nav.
-   ========================================================= */
 @media (min-width: 1181px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions,
   html body .sticky_header .sticky_header_inner > .sticky_contact {
@@ -2446,13 +2301,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     transform: translateY(-50%) !important;
   }
 }
-
-/* =========================================================
-   STICKY CONTACT TEXT FIX ONLY
-   Scope: sticky contact buttons only.
-   Fixes hidden/clipped text inside sticky contact hover capsules.
-   Does not touch main header, navigation or sticky contact position.
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions {
     overflow: visible !important;
@@ -2597,13 +2445,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     width: 94px !important;
   }
 }
-
-/* =========================================================
-   STICKY CONTACT CAPSULE TIGHTENING ONLY
-   Scope: sticky header contact hover capsules only.
-   Reduces the empty space on the right side of expanded
-   contact buttons in sticky header. Main header is untouched.
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
@@ -2691,21 +2532,10 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 42px !important;
   }
 }
-
-/* =========================================================
-   STICKY CONTACT CAPSULE FINAL FIX ONLY
-   Scope: sticky header contact buttons only.
-   - keeps main header untouched
-   - keeps sticky navigation untouched
-   - centers collapsed icons inside their circles
-   - removes unnecessary empty space on the right side of expanded capsules
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions {
     overflow: visible !important;
   }
-
-  /* Collapsed sticky buttons: icon exactly centered in the round button */
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.sticky_theme_toggle {
@@ -2750,8 +2580,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     white-space: nowrap !important;
     transform: translateX(-5px) !important;
   }
-
-  /* Expanded sticky buttons: compact capsule, no redundant empty tail on the right */
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:hover,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link:focus-visible,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand:hover,
@@ -2861,15 +2689,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     width: 80px !important;
   }
 }
-
-/* =========================================================
-   FINAL FIX - STICKY CONTACT NATURAL CAPSULE WIDTH ONLY
-   Scope: sticky header contact buttons only.
-   - main header untouched
-   - sticky navigation untouched
-   - removes empty right tail by using natural content width
-   - keeps collapsed icons centered in their round buttons
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions {
     overflow: visible !important;
@@ -2997,16 +2816,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 105px !important;
   }
 }
-
-/* =========================================================
-   FINAL FIX - STICKY MAIL CAPSULE RIGHT TAIL ONLY
-   Scope: sticky header contact buttons only.
-   - main header untouched
-   - sticky navigation untouched
-   - keeps collapsed icons centered
-   - reduces the unnecessary blue tail on the right side of
-     the expanded email capsule without cutting the text
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > button.theme_toggle_expand,
@@ -3082,16 +2891,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 194px !important;
   }
 }
-
-/* =========================================================
-   FINAL FIX - STICKY PHONE CAPSULE RIGHT TAIL ONLY
-   Scope: sticky header phone button only.
-   - main header untouched
-   - sticky navigation untouched
-   - email fix preserved
-   - reduces the unnecessary blue tail on the right side of
-     the expanded phone capsule without cutting the number
-   ========================================================= */
 @media (min-width: 993px) {
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:hover,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions > a[href^="tel"]:focus-visible {
@@ -3135,12 +2934,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 154px !important;
   }
 }
-
-/* =========================================================
-   PATCH 2026-06-15 - header contact capsule final polish
-   Scope: main header + sticky header contact/action buttons only.
-   Layout positions are left in their original CSS rules.
-   ========================================================= */
 @media (min-width: 993px) {
   html body header .main_header_inner > .header_actions,
   html body .sticky_header .sticky_header_inner > .sticky_header_actions {
@@ -3378,24 +3171,13 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     width: 88px !important;
   }
 }
-
-/* =========================================================
-   PATCH v4 - desktop header/sticky alignment + compact contact pills
-   Scope: desktop header only. Mobile remains in responsive.css.
-   ========================================================= */
 @media (min-width: 993px) {
-  /* Slightly increase the spacing between Serwokontrol and Bürkert in sticky header. */
   html body #stickyHeader.sticky_header .sticky_header_inner > .buerkert_sticky_partner {
     margin-left: clamp(6px, 0.45vw, 9px) !important;
   }
-
-  /* The sticky navigation starts too far left because the sticky logos are smaller.
-     Move only the sticky nav pill so its left edge matches the main header nav. */
   html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_nav {
     transform: translateX(clamp(24px, 1.85vw, 28px)) !important;
   }
-
-  /* Normalize both contact groups before setting fitted widths. */
   html body header .main_header_inner > .header_actions > a.header_action_link,
   html body header .main_header_inner > .header_actions > button.theme_toggle_expand,
   html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link,
@@ -3446,8 +3228,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     max-width: 210px !important;
     overflow: visible !important;
   }
-
-  /* Main header - fitted expanded widths, no empty tail on the right. */
   html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:hover,
   html body header .main_header_inner > .header_actions > a.header_action_link[href^="tel"]:focus-visible {
     width: 160px !important;
@@ -3465,8 +3245,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     width: 88px !important;
     max-width: 88px !important;
   }
-
-  /* Sticky header - same compact rhythm as the main header. */
   html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:hover,
   html body #stickyHeader.sticky_header .sticky_header_inner > .sticky_header_actions > a.header_action_link[href^="tel"]:focus-visible {
     width: 158px !important;
@@ -3521,12 +3299,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     transform: translateX(-10px) !important;
   }
 }
-
-
-/* =========================================================
-   PATCH v5 - sticky actions vertical centering + restore
-   mobile Bürkert logo via HTML only
-   ========================================================= */
 @media (min-width: 993px) {
   html body #stickyHeader.sticky_header .sticky_header_inner {
     align-items: center !important;
@@ -3550,13 +3322,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     vertical-align: middle !important;
   }
 }
-
-
-/* =========================================================
-   PATCH v6 - sticky contact buttons aligned to right edge
-   Scope: desktop sticky header only. Keeps previous vertical
-   centering and the original main header layout untouched.
-   ========================================================= */
 @media (min-width: 993px) {
   html body div#stickyHeader.sticky_header > div.sticky_header_inner > div.header_actions.sticky_contact.sticky_header_actions {
     margin: 0 0 0 auto !important;
@@ -3568,14 +3333,6 @@ body.dark_theme .sticky_logo a.sticky_site_wordmark_link:focus-visible {
     top: -1px !important;
   }
 }
-
-/* =========================================================
-   PATCH v7 - sticky contact actions pinned to the right edge
-   Scope: desktop sticky header only.
-   Previous grid placement kept the action group inside the
-   content column; this pins the whole icon group to the same
-   right-side rhythm as the main header.
-   ========================================================= */
 @media (min-width: 1181px) {
   html body div#stickyHeader.sticky_header > div.sticky_header_inner {
     position: relative !important;

@@ -173,8 +173,6 @@ main,
   border-radius: var(--sk-radius-pill);
 }
 
-/* Przyciski i CTA */
-
 .home_btn,
 .header_action_link,
 .sticky_contact a,
@@ -227,14 +225,10 @@ main,
   box-shadow: var(--sk-shadow-md);
 }
 
-/* Header i nawigacja */
-
 header {
   border-bottom: 1px solid var(--sk-color-border);
   box-shadow: 0 8px 24px rgba(94, 106, 113, 0.08);
 }
-
-/* Sticky header is a floating pill/card; keep the full-width wrapper invisible. */
 .sticky_header {
   background: transparent;
   border-bottom: 0;
@@ -252,8 +246,6 @@ header {
 .nav_list li a::after {
   border-radius: var(--sk-radius-pill);
 }
-
-/* Hero */
 
 .home_hero {
   background:
@@ -275,8 +267,6 @@ header {
   border-radius: var(--sk-radius-lg);
   backdrop-filter: blur(14px);
 }
-
-/* Produkty */
 
 .product_card {
   overflow: hidden;
@@ -308,8 +298,6 @@ header {
   transform: scale(1.045);
 }
 
-/* Mapa przedstawicieli */
-
 .map_region .map_area {
   fill: #c8d4e2;
   stroke: rgba(255, 255, 255, 0.74);
@@ -334,9 +322,6 @@ header {
   fill: var(--sk-color-primary-dark);
   filter: drop-shadow(0 12px 18px rgba(50, 79, 117, 0.28));
 }
-
-
-/* Formularze */
 
 input,
 textarea,
@@ -419,14 +404,10 @@ select:focus-visible {
   animation-timing-function: var(--sk-ease-standard);
 }
 
-/* Spójny focus */
-
 :focus-visible {
   outline: 3px solid rgba(112, 144, 183, 0.58);
   outline-offset: 4px;
 }
-
-/* Stopka */
 
 footer {
   background:
@@ -550,9 +531,6 @@ footer {
   border-color: #ffffff;
   text-shadow: none;
 }
-
-
-/* Korekta */
 
 .scroll_top_btn {
   width: 52px;
@@ -723,8 +701,6 @@ footer {
   transform: translateX(-2px);
 }
 
-/* Korekta wizualna */
-
 .home_highlight h3 {
   color: #5f7fa7;
 }
@@ -765,11 +741,6 @@ footer {
 .home_products .home_product_tile_featured:focus-visible span i {
   transform: translateX(3px);
 }
-
-/* Home color refinements */
-
-
-/* Home product colors */
 .home_products .home_product_tile_featured p {
   color: #333333;
   opacity: 0.9;
@@ -780,9 +751,6 @@ footer {
   color: #ffffff;
   opacity: 0.94;
 }
-
-
-/* Products page */
 .products_intro {
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 42%),
@@ -944,8 +912,6 @@ footer {
 .product_card:focus-visible::after {
   transform: scaleX(1) !important;
 }
-
-/* Korekta v2.11 */
 .home_highlight::before,
 .home_highlight:hover::before,
 .home_highlight:focus-within::before {
@@ -975,14 +941,6 @@ footer {
 .home_product_tile::before {
   transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
-
-/* =========================================================
-   DARK THEME SYSTEM REFRESH - shared palette and foundations
-   ========================================================= */
-
-/* =========================================================
-   FAQ Cards Lift Polish
-   ========================================================= */
 
 .products_faq_accordion[open] .page_faq_item,
 .contact_faq_accordion[open] .page_faq_item {
