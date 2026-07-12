@@ -343,15 +343,15 @@ textarea:focus-visible {
 }
 
 @keyframes suggestionsPopIn {
-from {
-  opacity: 0;
-  transform: translateY(-8px) scale(0.98);
-}
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .representative_card {
@@ -624,28 +624,26 @@ to {
 }
 
 @keyframes mapPanelEnter {
-from {
-  opacity: 0;
-  transform: translateY(16px) scale(0.985);
-}
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
-}
-
 
 @keyframes mapPanelScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
+  to {
+    transform: translateX(120%);
+  }
 }
-}
-
 
 .representatives_map_close {
   position: absolute;
@@ -749,15 +747,15 @@ to {
 }
 
 @keyframes activeCityPremiumPop {
-from {
-  opacity: 0;
-  transform: translateY(-6px) scale(0.985);
-}
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .poland_map {
@@ -770,17 +768,16 @@ to {
 }
 
 @keyframes mapSoftEnter {
-from {
-  opacity: 0;
-  transform: translateY(8px) scale(0.99);
-}
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
-}
-
 
 .poland_map svg {
   width: 100%;
@@ -867,17 +864,17 @@ to {
 }
 
 @keyframes selectedCityPop {
-0% {
-  transform: scale(1);
-}
+  0% {
+    transform: scale(1);
+  }
 
-45% {
-  transform: scale(1.028);
-}
+  45% {
+    transform: scale(1.028);
+  }
 
-100% {
-  transform: scale(1);
-}
+  100% {
+    transform: scale(1);
+  }
 }
 
 .map_legend {
@@ -1077,15 +1074,15 @@ to {
 }
 
 @keyframes statusPop {
-from {
-  opacity: 0;
-  transform: translateY(-6px);
-}
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0);
-}
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact_cta {
@@ -1278,13 +1275,13 @@ to {
 }
 
 @keyframes contactMapScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
-}
+  to {
+    transform: translateX(120%);
+  }
 }
 
 .contact_form_box {
@@ -1389,13 +1386,13 @@ to {
 }
 
 @keyframes contactButtonScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
-}
+  to {
+    transform: translateX(120%);
+  }
 }
 
 .contact_cta {
@@ -1464,13 +1461,13 @@ to {
 }
 
 @keyframes contactCtaScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
-}
+  to {
+    transform: translateX(120%);
+  }
 }
 
 .contact_page {
@@ -1886,13 +1883,13 @@ to {
 }
 
 @keyframes contactSectionScan {
-from {
-  transform: translateX(-120%);
-}
+  from {
+    transform: translateX(-120%);
+  }
 
-to {
-  transform: translateX(120%);
-}
+  to {
+    transform: translateX(120%);
+  }
 }
 
 .contact_page .representative_card::after {
@@ -1956,30 +1953,28 @@ to {
 }
 
 @keyframes mapOverviewEnter {
-from {
-  opacity: 0;
-  transform: translateY(18px) scale(0.985);
-}
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
-}
-
 
 @keyframes mapHeaderEnter {
-from {
-  opacity: 0;
-  transform: translateY(8px);
-}
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-}
-
 
 .representatives_section.map_overview_mode .map_region:hover .map_area,
 .representatives_section.map_overview_mode .map_area:focus-visible {
@@ -2056,68 +2051,65 @@ to {
 }
 
 @keyframes representativesMapCompressIn {
-from {
-  opacity: 0.92;
-  transform: translateX(42px) scale(1.045);
-}
+  from {
+    opacity: 0.92;
+    transform: translateX(42px) scale(1.045);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes polandMapScaleToRegion {
-from {
-  transform: translateX(34px) scale(1.08);
-}
+  from {
+    transform: translateX(34px) scale(1.08);
+  }
 
-to {
-  transform: translateX(0) scale(1);
+  to {
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes representativeCardSlideFromRight {
-from {
-  opacity: 0;
-  transform: translateX(70px) scale(0.97);
-}
+  from {
+    opacity: 0;
+    transform: translateX(70px) scale(0.97);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes representativeCardInnerSettle {
-0% {
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-}
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
 
-55% {
-  box-shadow:
+  55% {
+    box-shadow:
       0 18px 42px rgba(94, 106, 113, 0.24),
       0 0 0 6px rgba(112, 144, 183, 0.1);
-}
+  }
 
-100% {
-  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
-}
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
 }
 
 @keyframes representativeCardSlideUpMobile {
-from {
-  opacity: 0;
-  transform: translateY(22px) scale(0.985);
-}
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
 
-to {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .representatives_section.region_mode .representatives_content {
@@ -2164,56 +2156,53 @@ to {
 }
 
 @keyframes contactMapMoveToLeftV14 {
-from {
-  opacity: 0.94;
-  transform: translateX(34px) scale(1.045);
-}
+  from {
+    opacity: 0.94;
+    transform: translateX(34px) scale(1.045);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactPolandMapScaleLeftV14 {
-from {
-  transform: translateX(30px) scale(1.08);
-}
+  from {
+    transform: translateX(30px) scale(1.08);
+  }
 
-to {
-  transform: translateX(0) scale(1);
+  to {
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactRepresentativeSlideFromRightV14 {
-from {
-  opacity: 0;
-  transform: translateX(76px) scale(0.965);
-}
+  from {
+    opacity: 0;
+    transform: translateX(76px) scale(0.965);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactRepresentativeSettleV14 {
-0% {
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-}
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
 
-55% {
-  box-shadow:
+  55% {
+    box-shadow:
       0 18px 42px rgba(94, 106, 113, 0.24),
       0 0 0 6px rgba(112, 144, 183, 0.1);
-}
+  }
 
-100% {
-  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
-}
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
 }
 
 .representatives_section.region_mode .representatives_content {
@@ -2260,56 +2249,53 @@ to {
 }
 
 @keyframes contactRepresentativeSlideFromLeftV15 {
-from {
-  opacity: 0;
-  transform: translateX(-76px) scale(0.965);
-}
+  from {
+    opacity: 0;
+    transform: translateX(-76px) scale(0.965);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactMapMoveToRightV15 {
-from {
-  opacity: 0.94;
-  transform: translateX(-34px) scale(1.045);
-}
+  from {
+    opacity: 0.94;
+    transform: translateX(-34px) scale(1.045);
+  }
 
-to {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactPolandMapScaleRightV15 {
-from {
-  transform: translateX(-30px) scale(1.08);
-}
+  from {
+    transform: translateX(-30px) scale(1.08);
+  }
 
-to {
-  transform: translateX(0) scale(1);
+  to {
+    transform: translateX(0) scale(1);
+  }
 }
-}
-
 
 @keyframes contactRepresentativeSettleV15 {
-0% {
-  box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
-}
+  0% {
+    box-shadow: 0 8px 24px rgba(94, 106, 113, 0.12);
+  }
 
-55% {
-  box-shadow:
+  55% {
+    box-shadow:
       0 18px 42px rgba(94, 106, 113, 0.24),
       0 0 0 6px rgba(112, 144, 183, 0.1);
-}
+  }
 
-100% {
-  box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
-}
+  100% {
+    box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
+  }
 }
 
 .contact_page .representatives_section,
@@ -2458,7 +2444,6 @@ to {
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(94, 106, 113, 0.2);
 }
-
 
 .contact_representatives_hint {
   position: relative;
@@ -2639,7 +2624,6 @@ to {
   box-shadow: var(--ui-shadow-button, 0 10px 22px rgba(94, 106, 113, 0.18));
 }
 
-
 .form_honeypot {
   position: absolute;
   left: -10000px;
@@ -2674,7 +2658,6 @@ to {
   background-color: rgba(255, 235, 235, 0.76);
 }
 
-
 .contact_faq_accordion {
   overflow: hidden;
 }
@@ -2708,7 +2691,9 @@ to {
   margin-top: 3px;
   color: #7090b7;
   background-color: rgba(112, 144, 183, 0.12);
-  transition: transform 0.28s ease, background-color 0.28s ease;
+  transition:
+    transform 0.28s ease,
+    background-color 0.28s ease;
 }
 
 .contact_faq_accordion[open] .contact_faq_summary > i {
@@ -2752,7 +2737,8 @@ to {
   height: auto;
 }
 
-.poland_map_loading, .poland_map_error {
+.poland_map_loading,
+.poland_map_error {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 1rem;
@@ -2780,7 +2766,11 @@ to {
   bottom: 30px;
   width: 4px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #7090b7 0%, rgba(112, 144, 183, 0.28) 100%) !important;
+  background: linear-gradient(
+    180deg,
+    #7090b7 0%,
+    rgba(112, 144, 183, 0.28) 100%
+  ) !important;
   transform: scaleY(0.55);
   transform-origin: center;
   transition: transform 0.35s ease;
@@ -2940,7 +2930,11 @@ body .contact_page .contact_cta a:focus-visible {
   width: 100% !important;
   height: 4px !important;
   border-radius: 0 999px 999px 0 !important;
-  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0)) !important;
+  background: linear-gradient(
+    90deg,
+    #7090b7,
+    rgba(112, 144, 183, 0)
+  ) !important;
   transform: scaleX(0) !important;
   transform-origin: left center !important;
   opacity: 1 !important;
@@ -2972,7 +2966,11 @@ body .contact_page .contact_cta a:focus-visible {
   width: 92px !important;
   height: 4px !important;
   border-radius: 999px !important;
-  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0.24)) !important;
+  background: linear-gradient(
+    90deg,
+    #7090b7,
+    rgba(112, 144, 183, 0.24)
+  ) !important;
   box-shadow: 0 8px 18px rgba(112, 144, 183, 0.18) !important;
 }
 
@@ -2995,7 +2993,11 @@ body .contact_page .contact_cta a:focus-visible {
   max-width: 44px !important;
   height: 4px !important;
   border-radius: 999px !important;
-  background: linear-gradient(90deg, #7090b7, rgba(112, 144, 183, 0.24)) !important;
+  background: linear-gradient(
+    90deg,
+    #7090b7,
+    rgba(112, 144, 183, 0.24)
+  ) !important;
   box-shadow: 0 8px 18px rgba(112, 144, 183, 0.18) !important;
 }
 
@@ -3014,8 +3016,11 @@ body .contact_page .contact_cta a:focus-visible {
   padding: 14px 16px;
   border: 1px solid rgba(112, 144, 183, 0.24);
   border-radius: 14px;
-  background:
-    linear-gradient(135deg, rgba(112, 144, 183, 0.08), rgba(226, 233, 241, 0.28));
+  background: linear-gradient(
+    135deg,
+    rgba(112, 144, 183, 0.08),
+    rgba(226, 233, 241, 0.28)
+  );
   color: #5e6a71;
   font-size: 14px;
   line-height: 1.6;
@@ -3142,8 +3147,7 @@ body .contact_page .contact_cta a:focus-visible {
   padding: 13px 22px;
   border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: 999px;
-  background:
-    linear-gradient(135deg, #7fa0c8 0%, #7090b7 48%, #5f7fa7 100%);
+  background: linear-gradient(135deg, #7fa0c8 0%, #7090b7 48%, #5f7fa7 100%);
   color: #ffffff !important;
   text-decoration: none;
   font-size: 15px;
@@ -3178,8 +3182,7 @@ body .contact_page .contact_cta a:focus-visible {
 .contact_page .contact_cta a:hover,
 .contact_page .contact_cta a:focus-visible {
   border-color: rgba(255, 255, 255, 0.7);
-  background:
-    linear-gradient(135deg, #6f93bf 0%, #5f7fa7 48%, #4f6f98 100%);
+  background: linear-gradient(135deg, #6f93bf 0%, #5f7fa7 48%, #4f6f98 100%);
   color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 16px 34px rgba(39, 48, 56, 0.34);
@@ -3225,9 +3228,18 @@ html body:not(.dark_theme) .contact_page .contact_cta a:focus-visible {
 }
 
 .contact_page .representatives_section .map_region .map_area.is_selected_city,
-.contact_page .representatives_section.active_south .map_south .map_area.is_selected_city,
-.contact_page .representatives_section.active_west .map_west .map_area.is_selected_city,
-.contact_page .representatives_section.active_center .map_center .map_area.is_selected_city {
+.contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city,
+.contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city,
+.contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city {
   fill: #324f75 !important;
   stroke: #ffffff !important;
   stroke-width: 3 !important;
@@ -3244,11 +3256,23 @@ html body:not(.dark_theme) .contact_page .contact_cta a:focus-visible {
 }
 
 .contact_page .representatives_section.active_south .map_south .map_area:hover,
-.contact_page .representatives_section.active_south .map_south .map_area:focus-visible,
+.contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area:focus-visible,
 .contact_page .representatives_section.active_west .map_west .map_area:hover,
-.contact_page .representatives_section.active_west .map_west .map_area:focus-visible,
-.contact_page .representatives_section.active_center .map_center .map_area:hover,
-.contact_page .representatives_section.active_center .map_center .map_area:focus-visible {
+.contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area:focus-visible,
+.contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area:hover,
+.contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area:focus-visible {
   fill: #526f96 !important;
   stroke: #ffffff !important;
   stroke-width: 2.4 !important;
@@ -3256,14 +3280,38 @@ html body:not(.dark_theme) .contact_page .contact_cta a:focus-visible {
   filter: drop-shadow(0 4px 8px rgba(50, 79, 117, 0.28)) !important;
 }
 
-.contact_page .representatives_section .map_region .map_area.is_selected_city:hover,
-.contact_page .representatives_section .map_region .map_area.is_selected_city:focus-visible,
-.contact_page .representatives_section.active_south .map_south .map_area.is_selected_city:hover,
-.contact_page .representatives_section.active_south .map_south .map_area.is_selected_city:focus-visible,
-.contact_page .representatives_section.active_west .map_west .map_area.is_selected_city:hover,
-.contact_page .representatives_section.active_west .map_west .map_area.is_selected_city:focus-visible,
-.contact_page .representatives_section.active_center .map_center .map_area.is_selected_city:hover,
-.contact_page .representatives_section.active_center .map_center .map_area.is_selected_city:focus-visible {
+.contact_page
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city:hover,
+.contact_page
+  .representatives_section
+  .map_region
+  .map_area.is_selected_city:focus-visible,
+.contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city:hover,
+.contact_page
+  .representatives_section.active_south
+  .map_south
+  .map_area.is_selected_city:focus-visible,
+.contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city:hover,
+.contact_page
+  .representatives_section.active_west
+  .map_west
+  .map_area.is_selected_city:focus-visible,
+.contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city:hover,
+.contact_page
+  .representatives_section.active_center
+  .map_center
+  .map_area.is_selected_city:focus-visible {
   fill: #243d5f !important;
   stroke: #ffffff !important;
   stroke-width: 3.2 !important;
@@ -3311,4 +3359,83 @@ html body:not(.dark_theme) .contact_page .contact_cta a:focus-visible {
 .contact_card h2 {
   margin-top: 0;
   color: #1f2a33;
+}
+
+/* Tymczasowa blokada formularza kontaktowego */
+.contact_form_stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact_form_stage .contact_form {
+  filter: grayscale(0.65);
+  opacity: 0.5;
+  user-select: none;
+}
+
+.contact_form_overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 14px;
+  background-color: rgba(238, 243, 248, 0.78);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  cursor: not-allowed;
+}
+
+.contact_form_overlay_message {
+  width: min(100%, 560px);
+  text-align: center;
+  color: #1f2a33;
+}
+
+.contact_form_overlay_message i {
+  display: block;
+  margin-bottom: 16px;
+  color: #7090b7;
+  font-size: 34px;
+}
+
+.contact_form_overlay_message strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #1f2a33;
+  font-size: clamp(20px, 3vw, 28px);
+  line-height: 1.25;
+}
+
+.contact_form_overlay_message p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #5e6a71;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .contact_form_overlay {
+    padding: 18px;
+  }
+
+  .contact_form_overlay_message i {
+    margin-bottom: 12px;
+    font-size: 28px;
+  }
+
+  .contact_form_overlay_message strong {
+    font-size: 20px;
+  }
+
+  .contact_form_overlay_message p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+.contact_form_overlay p {
+  color: #000000 !important;
 }

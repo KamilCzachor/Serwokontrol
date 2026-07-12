@@ -379,7 +379,8 @@
       </details>
       <div class="contact_form_box reveal" id="contactFormSection">
         <h2>Formularz kontaktowy</h2>
-        <form action="send-mail.php" class="contact_form" id="contactForm" method="post"><input id="formStartedAt"
+        <div class="contact_form_stage">
+          <form action="send-mail.php" aria-disabled="true" class="contact_form" id="contactForm" inert method="post"><input id="formStartedAt"
             name="form_started_at" type="hidden" value="" />
           <div aria-hidden="true" class="form_honeypot"><label for="website">Strona internetowa</label><input
               autocomplete="off" id="website" name="website" tabindex="-1" type="text" /></div>
@@ -400,7 +401,15 @@
             Wyślij wiadomość
           </button>
           <p aria-live="polite" class="form_status" id="formStatus"></p>
-        </form>
+          </form>
+          <div class="contact_form_overlay" role="status" aria-live="polite">
+            <div class="contact_form_overlay_message">
+              <i aria-hidden="true" class="fa-solid fa-screwdriver-wrench"></i>
+              <strong>Formularz chwilowo niedostępny</strong>
+              <p>Trwają prace techniczne. Przepraszamy za utrudnienia. Prosimy o kontakt telefoniczny lub mailowy.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="contact_location reveal" id="contactData">
         <div class="contact_card">
