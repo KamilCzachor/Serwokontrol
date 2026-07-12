@@ -3274,3 +3274,880 @@ body .about_page .about_number_card::after,
     padding-top: 2px !important;
   }
 }
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — replaces both mobile headers
+   Backup of the previous files is included in /backup/css/.
+   ========================================================== */
+@media (max-width: 767px) {
+  :root {
+    --mobile-nav-height: 76px;
+    --mobile-nav-edge: 10px;
+    --mobile-nav-radius: 24px;
+    --mobile-nav-surface: rgba(255, 255, 255, 0.94);
+    --mobile-nav-border: rgba(72, 95, 124, 0.16);
+    --mobile-nav-text: #26394f;
+    --mobile-nav-muted: #60748d;
+    --mobile-nav-accent: #7090b7;
+    --mobile-nav-shadow: 0 16px 42px rgba(33, 50, 70, 0.2);
+  }
+
+  /* The desktop/mobile top header is replaced by the bottom bar. */
+  html body > header {
+    display: none !important;
+  }
+
+  html body {
+    padding-bottom: calc(
+      var(--mobile-nav-height) + var(--mobile-nav-edge) +
+        env(safe-area-inset-bottom, 0px) + 18px
+    ) !important;
+  }
+
+  html body .sticky_header,
+  html body .sticky_header.show {
+    position: fixed !important;
+    top: auto !important;
+    right: var(--mobile-nav-edge) !important;
+    bottom: calc(var(--mobile-nav-edge) + env(safe-area-inset-bottom, 0px)) !important;
+    left: var(--mobile-nav-edge) !important;
+    z-index: 10000 !important;
+    display: block !important;
+    width: auto !important;
+    height: var(--mobile-nav-height) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body .sticky_header .sticky_header_inner {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 7px 7px 6px !important;
+    overflow: visible !important;
+    border: 1px solid var(--mobile-nav-border) !important;
+    border-radius: var(--mobile-nav-radius) !important;
+    background: var(--mobile-nav-surface) !important;
+    box-shadow: var(--mobile-nav-shadow) !important;
+    backdrop-filter: blur(18px) saturate(135%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  }
+
+  html body .sticky_header .buerkert_sticky_partner {
+    display: none !important;
+  }
+
+  /* Let phone and e-mail buttons become direct grid items. */
+  html body .sticky_header .sticky_contact {
+    display: contents !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle,
+  html body .sticky_header .sticky_logo {
+    position: relative !important;
+    inset: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 18px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--mobile-nav-text) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  html body .sticky_header .sticky_hamburger {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(1) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  html body .sticky_header .sticky_logo {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    margin-top: -22px !important;
+    border-radius: 50% !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+  }
+
+  html body .sticky_header .sticky_theme_toggle {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition:
+      color 0.34s ease,
+      background-color 0.34s ease,
+      transform 0.34s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  html body .sticky_header .sticky_hamburger:hover,
+  html body .sticky_header .sticky_hamburger:focus-visible,
+  html body .sticky_header .sticky_contact .header_action_link:hover,
+  html body .sticky_header .sticky_contact .header_action_link:focus-visible,
+  html body .sticky_header .sticky_theme_toggle:hover,
+  html body .sticky_header .sticky_theme_toggle:focus-visible {
+    color: var(--mobile-nav-accent) !important;
+    background-color: rgba(112, 144, 183, 0.1) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  html body .sticky_header .sticky_hamburger i,
+  html body .sticky_header .sticky_contact .header_action_link i,
+  html body .sticky_header .sticky_theme_toggle i {
+    display: block !important;
+    margin: 0 !important;
+    color: currentColor !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link span,
+  html body .sticky_header .sticky_theme_toggle span {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    color: currentColor !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(1) span {
+    font-size: 0 !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(1) span::after {
+    content: "Telefon";
+    font-size: 9px;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) span {
+    font-size: 0 !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) span::after {
+    content: "E-mail";
+    font-size: 9px;
+  }
+
+  html body .sticky_header .sticky_theme_toggle span {
+    font-size: 0 !important;
+  }
+
+  html body .sticky_header .sticky_theme_toggle span::after {
+    content: "Motyw";
+    font-size: 9px;
+  }
+
+  html body .sticky_header .sticky_hamburger::after {
+    content: "Menu";
+    display: block;
+    color: currentColor;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  /* Elevated central brand button. */
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 68px !important;
+    height: 68px !important;
+    min-width: 68px !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    overflow: hidden !important;
+    border: 5px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 50% !important;
+    background: linear-gradient(145deg, #455d78, #24394f) !important;
+    box-shadow:
+      0 13px 25px rgba(30, 48, 69, 0.28),
+      0 0 0 1px rgba(112, 144, 183, 0.18) !important;
+    transform: none !important;
+    transition:
+      transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.34s ease !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link:hover,
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link:focus-visible {
+    transform: translateY(-2px) scale(1.025) !important;
+    box-shadow:
+      0 17px 30px rgba(30, 48, 69, 0.32),
+      0 0 0 1px rgba(112, 144, 183, 0.24) !important;
+  }
+
+  html body .sticky_header .sticky_logo .sticky_site_symbol_img {
+    position: static !important;
+    display: block !important;
+    width: 30px !important;
+    height: 32px !important;
+    max-width: 30px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: brightness(0) invert(1) !important;
+  }
+
+  html body .sticky_header .sticky_logo .sticky_site_logo_wordmark {
+    display: none !important;
+  }
+
+  /* Mobile menu opens upward from the bottom navigation. */
+  html body .sticky_header .sticky_header_inner > .sticky_nav,
+  html body .sticky_header .sticky_header_inner > .sticky_nav.show {
+    position: absolute !important;
+    top: auto !important;
+    right: 0 !important;
+    bottom: calc(100% + 12px) !important;
+    left: 0 !important;
+    z-index: 10005 !important;
+    display: flex !important;
+    width: 100% !important;
+    max-height: min(70dvh, 520px) !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    border: 1px solid var(--mobile-nav-border) !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.97) !important;
+    box-shadow: 0 20px 45px rgba(33, 50, 70, 0.22) !important;
+    backdrop-filter: blur(20px) saturate(135%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(135%) !important;
+    transform-origin: bottom center !important;
+    transition:
+      opacity 0.34s ease,
+      transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.34s ease !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(14px) scale(0.97) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_nav.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  html body .sticky_header .sticky_nav li,
+  html body .sticky_header .sticky_nav a {
+    width: 100% !important;
+  }
+
+  html body .sticky_header .sticky_nav a {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 46px !important;
+    padding: 11px 14px !important;
+    border-radius: 14px !important;
+    color: var(--mobile-nav-text) !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+  }
+
+  html body .sticky_header .sticky_nav a:hover,
+  html body .sticky_header .sticky_nav a:focus-visible,
+  html body .sticky_header .sticky_nav a.active {
+    color: #4e7099 !important;
+    background: rgba(112, 144, 183, 0.12) !important;
+  }
+
+  html body .sticky_header .sticky_nav .mobile_buerkert_nav_logo {
+    display: none !important;
+  }
+
+  /* Minimal dark variant. */
+  body.dark_theme {
+    --mobile-nav-surface: rgba(27, 35, 44, 0.94);
+    --mobile-nav-border: rgba(195, 211, 229, 0.14);
+    --mobile-nav-text: #eef4fa;
+    --mobile-nav-muted: #b7c5d3;
+    --mobile-nav-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+  }
+
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav,
+  body.dark_theme .sticky_header .sticky_header_inner > .sticky_nav.show {
+    background: rgba(27, 35, 44, 0.97) !important;
+  }
+
+  body.dark_theme .sticky_header .sticky_nav a {
+    color: #eef4fa !important;
+  }
+
+  body.dark_theme .sticky_header .sticky_nav a:hover,
+  body.dark_theme .sticky_header .sticky_nav a:focus-visible,
+  body.dark_theme .sticky_header .sticky_nav a.active {
+    color: #dce9f7 !important;
+    background: rgba(112, 144, 183, 0.2) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body .sticky_header .sticky_header_inner {
+    padding-inline: 4px !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+
+  html body .sticky_header .sticky_hamburger i,
+  html body .sticky_header .sticky_contact .header_action_link i,
+  html body .sticky_header .sticky_theme_toggle i {
+    font-size: 18px !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — icon alignment refinement
+   Keeps the previous implementation in /backup/css/.
+   ========================================================== */
+@media (max-width: 767px) {
+  html body .sticky_header .sticky_header_inner {
+    justify-items: center !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    place-self: center !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  html body .sticky_header .sticky_hamburger i,
+  html body .sticky_header .sticky_contact .header_action_link i,
+  html body .sticky_header .sticky_theme_toggle i {
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link span,
+  html body .sticky_header .sticky_theme_toggle span,
+  html body .sticky_header .sticky_contact .header_action_link span::before,
+  html body .sticky_header .sticky_contact .header_action_link span::after,
+  html body .sticky_header .sticky_theme_toggle span::before,
+  html body .sticky_header .sticky_theme_toggle span::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body .sticky_header .sticky_hamburger::before,
+  html body .sticky_header .sticky_hamburger::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body .sticky_header .sticky_logo {
+    place-self: center !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    margin-inline: auto !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    width: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — centered theme-aware brand mark
+   ========================================================== */
+@media (max-width: 767px) {
+  /* Keep the brand button precisely at the visual centre of the bar. */
+  html body .sticky_header .sticky_logo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    z-index: 4 !important;
+    width: 72px !important;
+    min-width: 72px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    margin: 0 !important;
+    transform: translate(-50%, -58%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 68px !important;
+    min-width: 68px !important;
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 14px !important;
+    margin: 0 !important;
+    border: 5px solid rgba(255, 255, 255, 0.94) !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow:
+      0 13px 25px rgba(30, 48, 69, 0.2),
+      0 0 0 1px rgba(112, 144, 183, 0.16) !important;
+    overflow: hidden !important;
+  }
+
+  /* Use the original coloured header symbol without recolouring filters. */
+  html body .sticky_header .sticky_logo .sticky_site_symbol_img {
+    position: absolute !important;
+    inset: 50% auto auto 50% !important;
+    width: 34px !important;
+    max-width: 34px !important;
+    height: 37px !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    transform: translate(-50%, -50%) !important;
+    filter: none !important;
+  }
+
+  /* Light theme: standard coloured/dark symbol only. */
+  html body:not(.dark_theme) .sticky_header .sticky_logo .sticky_site_symbol_img_dark {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body:not(.dark_theme) .sticky_header .sticky_logo .sticky_site_symbol_img_light {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Dark theme: light logo variant only. */
+  html body.dark_theme .sticky_header .sticky_logo .sticky_site_symbol_img_dark {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  html body.dark_theme .sticky_header .sticky_logo .sticky_site_symbol_img_light {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body.dark_theme .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    border-color: rgba(38, 50, 63, 0.96) !important;
+    background: rgba(31, 41, 52, 0.98) !important;
+    box-shadow:
+      0 13px 27px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(195, 211, 229, 0.14) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body .sticky_header .sticky_logo {
+    width: 68px !important;
+    min-width: 68px !important;
+    height: 68px !important;
+    min-height: 68px !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    width: 64px !important;
+    min-width: 64px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 13px !important;
+  }
+
+  html body .sticky_header .sticky_logo .sticky_site_symbol_img {
+    width: 31px !important;
+    max-width: 31px !important;
+    height: 34px !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — final five-column alignment fix
+   Menu | Phone | Brand | E-mail | Theme
+   ========================================================== */
+@media (max-width: 767px) {
+  html body .sticky_header .sticky_header_inner {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    justify-items: center !important;
+  }
+
+  html body .sticky_header .sticky_hamburger {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  html body .sticky_header .sticky_contact {
+    display: contents !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(1) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  /* The logo occupies the real centre column instead of overlaying e-mail. */
+  html body .sticky_header .sticky_logo {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    inset: auto !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    place-self: center !important;
+    z-index: 4 !important;
+    width: 72px !important;
+    min-width: 72px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    margin: -22px 0 0 !important;
+    transform: none !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body .sticky_header .sticky_theme_toggle {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  /* Preserve the actual e-mail icon and prevent brand imagery inside column 4. */
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) i {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body .sticky_header .sticky_contact .header_action_link:nth-of-type(2) img {
+    display: none !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body .sticky_header .sticky_logo {
+    width: 68px !important;
+    min-width: 68px !important;
+    height: 68px !important;
+    min-height: 68px !important;
+    margin-top: -20px !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — stronger light logo ring + flush bottom edge
+   ========================================================== */
+@media (max-width: 767px) {
+  html body .sticky_header,
+  html body .sticky_header.show {
+    bottom: 0 !important;
+    height: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner {
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+    border-radius: var(--mobile-nav-radius) var(--mobile-nav-radius) 0 0 !important;
+  }
+
+  html body:not(.dark_theme) .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    border-color: rgba(112, 144, 183, 0.58) !important;
+    box-shadow:
+      0 13px 25px rgba(30, 48, 69, 0.2),
+      0 0 0 2px rgba(112, 144, 183, 0.22) !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE BOTTOM NAVIGATION — compact height and true bottom alignment
+   Reduces the empty area below the icons on mobile devices.
+   ========================================================== */
+@media (max-width: 767px) {
+  :root {
+    --mobile-nav-height: 60px;
+    --mobile-nav-edge: 0px;
+    --mobile-nav-radius: 20px;
+  }
+
+  html body {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px) + 10px) !important;
+  }
+
+  html body .sticky_header,
+  html body .sticky_header.show {
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    min-height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    max-height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    padding: 4px 12px env(safe-area-inset-bottom, 0px) !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-radius: 20px 20px 0 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    border-radius: 14px !important;
+  }
+
+  html body .sticky_header .sticky_hamburger i,
+  html body .sticky_header .sticky_contact .header_action_link i,
+  html body .sticky_header .sticky_theme_toggle i {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 19px !important;
+  }
+
+  html body .sticky_header .sticky_logo {
+    width: 62px !important;
+    min-width: 62px !important;
+    height: 62px !important;
+    min-height: 62px !important;
+    margin-top: -17px !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    width: 58px !important;
+    min-width: 58px !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 12px !important;
+    border-width: 4px !important;
+  }
+
+  html body .sticky_header .sticky_logo .sticky_site_symbol_img {
+    width: 29px !important;
+    max-width: 29px !important;
+    height: 32px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --mobile-nav-height: 56px;
+  }
+
+  html body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px) + 8px) !important;
+  }
+
+  html body .sticky_header,
+  html body .sticky_header.show {
+    height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+    min-height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+    max-height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner {
+    padding-inline: 8px !important;
+  }
+
+  html body .sticky_header .sticky_hamburger,
+  html body .sticky_header .sticky_contact .header_action_link,
+  html body .sticky_header .sticky_theme_toggle {
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+  }
+
+  html body .sticky_header .sticky_logo {
+    width: 58px !important;
+    min-width: 58px !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    margin-top: -16px !important;
+  }
+
+  html body .sticky_header .sticky_logo a.sticky_site_wordmark_link {
+    width: 54px !important;
+    min-width: 54px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+}
+
+
+/* Mobile hero: static presentation without swipe prompt or slide animation. */
+@media (max-width: 768px) {
+  .home_swipe_hint {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .home_hero_slide,
+  .home_hero_slide.is_active,
+  .home_hero_slide > *,
+  .home_hero_bg,
+  .home_hero_overlay,
+  .home_hero_circle,
+  .home_hero_card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Keep the mobile scroll-to-top button above the fixed bottom navigation. */
+@media (max-width: 768px) {
+  .scroll_top_btn,
+  .scroll_top_btn.show {
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px) + 14px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .scroll_top_btn,
+  .scroll_top_btn.show {
+    bottom: calc(56px + env(safe-area-inset-bottom, 0px) + 12px) !important;
+  }
+}

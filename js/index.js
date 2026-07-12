@@ -10,6 +10,12 @@
   const isTouchDevice =
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
+  const mobileHeroMedia = window.matchMedia("(max-width: 768px)");
+
+  function isMobileHero() {
+    return mobileHeroMedia.matches;
+  }
+
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
   }
@@ -53,7 +59,7 @@
   }
 
   function startSlider() {
-    if (prefersReducedMotion || slides.length < 2) return;
+    if (prefersReducedMotion || isMobileHero() || slides.length < 2) return;
 
     stopSlider();
     sliderTimer = window.setInterval(function () {
@@ -112,7 +118,7 @@
     }
 
     function setupHeroSwipeHint() {
-      if (!hero || !isTouchDevice || slides.length < 2) return;
+      if (!hero || isMobileHero() || !isTouchDevice || slides.length < 2) return;
       if (document.getElementById("homeSwipeHint")) return;
 
       const hint = document.createElement("div");
@@ -141,11 +147,22 @@
 
     setupHeroSwipeHint();
 
-    /* Touch / pen swipe navigation for phones and touch laptops. */
+    mobileHeroMedia.addEventListener("change", function () {
+      hideHeroSwipeHint();
+
+      if (isMobileHero()) {
+        stopSlider();
+      } else {
+        startSlider();
+        setupHeroSwipeHint();
+      }
+    });
+
+    /* Touch / pen swipe navigation for larger touch devices only. */
 
     const swipeTarget = slider || hero;
 
-    if (swipeTarget && window.PointerEvent) {
+    if (swipeTarget && window.PointerEvent && !isMobileHero()) {
       let swipePointerId = null;
       let swipeStartX = 0;
       let swipeStartY = 0;
