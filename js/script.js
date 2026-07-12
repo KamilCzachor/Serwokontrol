@@ -57,7 +57,13 @@ if (scrollTopBtn) {
     passive: true,
   });
 
-  scrollTopBtn.addEventListener("click", function () {
+  function activateScrollTop(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    if (isScrollTopReturning) return;
+
     isScrollTopReturning = true;
     clearScrollTopHideTimer();
 
@@ -75,7 +81,9 @@ if (scrollTopBtn) {
         finishScrollTopReturn();
       }
     }, 80);
-  });
+  }
+
+  scrollTopBtn.addEventListener("click", activateScrollTop);
 
   updateScrollTopButton();
 }

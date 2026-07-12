@@ -4151,3 +4151,26 @@ body .about_page .about_number_card::after,
     bottom: calc(56px + env(safe-area-inset-bottom, 0px) + 12px) !important;
   }
 }
+
+/* Mobile scroll-to-top: the entire circle is a reliable touch target. */
+@media (max-width: 768px) {
+  .scroll_top_btn,
+  .scroll_top_btn.show,
+  .scroll_top_btn.is_returning_to_top {
+    z-index: 100001 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    isolation: isolate;
+  }
+
+  .scroll_top_btn i,
+  .scroll_top_btn svg,
+  .scroll_top_btn::before,
+  .scroll_top_btn::after {
+    pointer-events: none !important;
+  }
+}

@@ -54,9 +54,9 @@ RewriteRule ^polityka-prywatnosci/?$ privacy.html [END]
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html "access plus 1 hour"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
   ExpiresByType application/json "access plus 1 week"
   ExpiresByType application/xml "access plus 1 week"
   ExpiresByType text/xml "access plus 1 week"
@@ -70,10 +70,16 @@ RewriteRule ^polityka-prywatnosci/?$ privacy.html [END]
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|avif|svg|pdf)$">
-    Header set Cache-Control "public, max-age=2592000"
+  # HTML oraz pliki kodu sa zawsze ponownie sprawdzane przez przegladarke.
+  # Zapobiega to utrzymywaniu starego mobilnego CSS/JS po wdrozeniu.
+  <FilesMatch "\.(html|htm|css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
   </FilesMatch>
-  <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache"
+
+  # Obrazy i dokumenty moga pozostac w cache; ich adresy w HTML maja numer wersji.
+  <FilesMatch "\.(png|jpg|jpeg|webp|avif|svg|ico|pdf)$">
+    Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 </IfModule>
