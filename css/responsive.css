@@ -3215,3 +3215,62 @@ body .about_page .about_number_card::after,
     margin-bottom: 0 !important;
   }
 }
+
+/* Sticky header mobile menu — final visibility fix */
+@media (max-width: 992px) {
+  html body .sticky_header,
+  html body .sticky_header .sticky_header_inner {
+    overflow: visible !important;
+  }
+
+  html body .sticky_header .sticky_header_inner {
+    position: relative !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_hamburger {
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1003 !important;
+    pointer-events: auto !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_nav {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 1002 !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-10px) scale(0.98) !important;
+    transform-origin: top center !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_nav.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  html body .sticky_header .sticky_header_inner > .sticky_nav > li {
+    width: 100% !important;
+  }
+}
+
+/* Mobile sticky header: reduce the empty space above the floating frame */
+@media (max-width: 767px) {
+  html body .sticky_header {
+    top: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 2px !important;
+  }
+}
